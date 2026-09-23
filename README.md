@@ -1,6 +1,6 @@
 # Lagomath
 
-Lightweight matrix and vector mathematics for Zig. For rabbits.
+Lightweight matrix and vector mathematics in Zig. For rabbits.
 
 Lagomath is a source-only Zig library for reusable numerical infrastructure:
 
@@ -14,19 +14,25 @@ is distributed as Zig source. Consumers import the `lagomath` module and Zig
 compiles the required source as part of the consuming compilation. Lagomath
 does not require linking against a separate precompiled library.
 
-## Status and scope
-
-The initial `2026.9.0` release is extracted from Riley without modifying
-Riley. The extracted modules are `ndarray.zig`, `matslice.zig`,
-`matstack.zig`, `vecslice.zig`, `vecstack.zig`, and `sliceops.zig`.
-
-Lagomath intentionally does not include rendering, camera, rasterisation,
-mesh-processing, image I/O, or other Riley-specific functionality.
-
 ## Add Lagomath to a project
 
-For local development, declare the dependency in your project's
-`build.zig.zon`:
+For a released version, run this from the root of the consuming project. It
+pins the dependency to the `2026.9.0` release tag and records the content hash
+in `build.zig.zon`:
+
+```sh
+zig fetch --save-exact \
+  https://github.com/Computer-Aided-Validation-Laboratory/lagomath/archive/refs/tags/2026.9.0.tar.gz
+```
+
+`zig fetch` writes the dependency's URL and Zig-computed hash for you. Commit
+the resulting `build.zig.zon` change. The hash is the immutable package
+identity; do not manually replace it. To upgrade later, rerun the command with
+the desired release tag, for example `2026.10.0`, then test the consumer.
+
+The command requires that the corresponding GitHub release tag has been
+published. Until then, use a local path dependency for simultaneous Lagomath
+and consumer development:
 
 ```zig
 .dependencies = .{
@@ -65,9 +71,8 @@ Your Zig source imports only the public package module:
 const lagomath = @import("lagomath");
 ```
 
-Use a versioned URL dependency rather than a local path when consuming a
-published Lagomath release. The local path form is intended for simultaneous
-development of a consumer and Lagomath.
+Use the version-pinned release dependency for normal consumers; the local path
+form is only for simultaneous development.
 
 ## Tutorial
 
