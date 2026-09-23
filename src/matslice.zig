@@ -65,7 +65,7 @@ pub fn MatSlice(comptime T: type) type {
             return self.slice[(row * self.cols_num) + col];
         }
 
-        pub fn set(self: *Self, row: usize, col: usize, val: T) void {
+        pub fn set(self: *const Self, row: usize, col: usize, val: T) void {
             assert(row < self.rows_num);
             assert(col < self.cols_num);
             self.slice[(row * self.cols_num) + col] = val;
@@ -87,7 +87,7 @@ pub fn MatSlice(comptime T: type) type {
             return self.slice[flat_idx];
         }
 
-        pub fn setFlat(self: *Self, flat_idx: usize, val: T) void {
+        pub fn setFlat(self: *const Self, flat_idx: usize, val: T) void {
             assert(flat_idx < self.slice.len);
             self.slice[flat_idx] = val;
         }

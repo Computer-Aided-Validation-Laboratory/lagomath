@@ -97,6 +97,10 @@ pub fn VecSlice(comptime T: type) type {
             return norm_out;
         }
 
+        pub fn squaredNorm(self: *const Self) T {
+            return self.norm();
+        }
+
         pub fn vecLen(self: *const Self) T {
             return @sqrt(self.norm());
         }

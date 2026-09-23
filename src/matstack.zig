@@ -236,17 +236,23 @@ pub fn MatStack(
         }
 
         pub fn mulMat(self: *const Self, to_mult: Self) Self {
-            var mat_out: Self = undefined;
+            return self.mulMatRect(cols_n, to_mult);
+        }
+
+        pub fn mulMatRect(
+            self: *const Self,
+            comptime other_cols: usize,
+            to_mult: MatStack(cols_n, other_cols, T),
+        ) MatStack(rows_n, other_cols, T) {
+            var mat_out = MatStack(rows_n, other_cols, T).initZeros();
             var sum: T = 0;
 
             inline for (0..rows_n) |rr| {
-                inline for (0..cols_n) |cc| {
+                inline for (0..other_cols) |cc| {
                     sum = 0;
-
                     inline for (0..cols_n) |mm| {
                         sum += self.get(rr, mm) * to_mult.get(mm, cc);
                     }
-
                     mat_out.set(rr, cc, sum);
                 }
             }
@@ -1151,4 +1157,23 @@ test "Mat22 adjugate and Mat44 affine vector multiplication" {
     });
     const transformed = Mat44Ops.mulVec3(f64, transform, vecstack.initVec3(f64, 1, 2, 3));
     try expectEqual(Vec3f.initSlice(&.{ 11, 22, 33 }), transformed);
+}
+
+test "MatStack.mulMatRect rectangular multiplication" {
+    const Mat23 = MatStack(2, 3, f64);
+    const Mat32 = MatStack(3, 2, f64);
+    const mat_a = Mat23.initRows(.{
+        .{ 1.0, 2.0, 3.0 },
+        .{ 4.0, 5.0, 6.0 },
+    });
+    const mat_b = Mat32.initRows(.{
+        .{ 7.0, 8.0 },
+        .{ 9.0, 1.0 },
+        .{ 2.0, 3.0 },
+    });
+    const prod = mat_a.mulMatRect(2, mat_b);
+    try std.testing.expectEqual(@as(f64, 31.0), prod.get(0, 0));
+    try std.testing.expectEqual(@as(f64, 19.0), prod.get(0, 1));
+    try std.testing.expectEqual(@as(f64, 85.0), prod.get(1, 0));
+    try std.testing.expectEqual(@as(f64, 55.0), prod.get(1, 1));
 }
