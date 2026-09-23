@@ -1,0 +1,16 @@
+.{
+    .name = .lagomath_consumer,
+    .version = "0.0.0",
+    .fingerprint = 0x753c3a89046ef545,
+    .minimum_zig_version = "0.16.0",
+    .dependencies = .{
+        .lagomath = .{
+            .path = "../..",
+        },
+    },
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "src",
+    },
+}

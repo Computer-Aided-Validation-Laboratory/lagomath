@@ -1,3 +1,13 @@
+notes/
+temp/
+refs/
+plans/
+bin/
+build/
+out/
+guides/
+.*/
+
 .zig-cache/
 zig-out/
 *.o
