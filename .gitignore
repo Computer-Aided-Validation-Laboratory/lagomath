@@ -11,3 +11,7 @@ guides/
 .zig-cache/
 zig-out/
 *.o
+
+!.github/
+!.github/workflows/
+!.github/workflows/*.yml
