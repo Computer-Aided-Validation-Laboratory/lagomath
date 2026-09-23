@@ -20,3 +20,4 @@ test {
     _ = vecstack;
     _ = sliceops;
 }
+const std = @import("std");

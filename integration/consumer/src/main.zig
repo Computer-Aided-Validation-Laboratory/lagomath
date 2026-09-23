@@ -31,6 +31,6 @@ fn exercise(alloc: std.mem.Allocator) !void {
     try std.testing.expectEqual(@as(f64, 7), array.get(&.{ 1, 0 }));
 
     var output = [_]f64{ 0, 0, 0 };
-    try lagomath.sliceops.add(f64, &.{ 1, 2, 3 }, &.{ 4, 5, 6 }, &output);
+    lagomath.sliceops.add(f64, &.{ 1, 2, 3 }, &.{ 4, 5, 6 }, &output);
     try std.testing.expectEqualSlices(f64, &.{ 5, 7, 9 }, &output);
 }

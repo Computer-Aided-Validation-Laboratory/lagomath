@@ -8,6 +8,8 @@ const F = f64;
 const print = std.debug.print;
 const assert = std.debug.assert;
 
+pub const SliceError = error{LengthMismatch};
+
 pub fn ValIdx(ValType: type) type {
     return struct {
         val: ValType,
@@ -110,19 +112,38 @@ pub fn vecLen(comptime T: type, vec: []const T) T {
     return @sqrt(norm(T, vec));
 }
 
-pub fn add(comptime T: type, vec0: []const T, vec1: []const T, vec_out: []T) !void {
+pub fn add(comptime T: type, vec0: []const T, vec1: []const T, vec_out: []T) void {
     assert(vec0.len == vec1.len);
     assert(vec0.len == vec_out.len);
 
+    addUnchecked(T, vec0, vec1, vec_out);
+}
+
+pub fn addChecked(comptime T: type, vec0: []const T, vec1: []const T, vec_out: []T) SliceError!void {
+    if (vec0.len != vec1.len or vec0.len != vec_out.len) return error.LengthMismatch;
+
+    addUnchecked(T, vec0, vec1, vec_out);
+}
+
+fn addUnchecked(comptime T: type, vec0: []const T, vec1: []const T, vec_out: []T) void {
     for (0..vec0.len) |ii| {
         vec_out[ii] = vec0[ii] + vec1[ii];
     }
 }
 
-pub fn sub(comptime T: type, vec0: []const T, vec1: []const T, vec_out: []T) !void {
+pub fn sub(comptime T: type, vec0: []const T, vec1: []const T, vec_out: []T) void {
     assert(vec0.len == vec1.len);
     assert(vec0.len == vec_out.len);
 
+    subUnchecked(T, vec0, vec1, vec_out);
+}
+
+pub fn subChecked(comptime T: type, vec0: []const T, vec1: []const T, vec_out: []T) SliceError!void {
+    if (vec0.len != vec1.len or vec0.len != vec_out.len) return error.LengthMismatch;
+    subUnchecked(T, vec0, vec1, vec_out);
+}
+
+fn subUnchecked(comptime T: type, vec0: []const T, vec1: []const T, vec_out: []T) void {
     for (0..vec0.len) |ii| {
         vec_out[ii] = vec0[ii] - vec1[ii];
     }
@@ -133,26 +154,54 @@ pub fn mul(
     vec0: []const T,
     vec1: []const T,
     vec_out: []T,
-) !void {
+) void {
     assert(vec0.len == vec1.len);
     assert(vec0.len == vec_out.len);
 
+    mulUnchecked(T, vec0, vec1, vec_out);
+}
+
+pub fn mulChecked(comptime T: type, vec0: []const T, vec1: []const T, vec_out: []T) SliceError!void {
+    if (vec0.len != vec1.len or vec0.len != vec_out.len) return error.LengthMismatch;
+    mulUnchecked(T, vec0, vec1, vec_out);
+}
+
+fn mulUnchecked(comptime T: type, vec0: []const T, vec1: []const T, vec_out: []T) void {
     for (0..vec0.len) |ii| {
         vec_out[ii] = vec0[ii] * vec1[ii];
     }
 }
 
-pub fn div(comptime T: type, vec0: []const T, vec1: []const T, vec_out: []T) !void {
+pub fn div(comptime T: type, vec0: []const T, vec1: []const T, vec_out: []T) void {
     assert(vec0.len == vec1.len);
+    assert(vec0.len == vec_out.len);
 
+    divUnchecked(T, vec0, vec1, vec_out);
+}
+
+pub fn divChecked(comptime T: type, vec0: []const T, vec1: []const T, vec_out: []T) SliceError!void {
+    if (vec0.len != vec1.len or vec0.len != vec_out.len) return error.LengthMismatch;
+    divUnchecked(T, vec0, vec1, vec_out);
+}
+
+fn divUnchecked(comptime T: type, vec0: []const T, vec1: []const T, vec_out: []T) void {
     for (0..vec0.len) |ii| {
         vec_out[ii] = vec0[ii] / vec1[ii];
     }
 }
 
-pub fn mulScal(comptime T: type, vec0: []const T, scal: T, vec_out: []T) !void {
+pub fn mulScal(comptime T: type, vec0: []const T, scal: T, vec_out: []T) void {
     assert(vec0.len == vec_out.len);
 
+    mulScalUnchecked(T, vec0, scal, vec_out);
+}
+
+pub fn mulScalChecked(comptime T: type, vec0: []const T, scal: T, vec_out: []T) SliceError!void {
+    if (vec0.len != vec_out.len) return error.LengthMismatch;
+    mulScalUnchecked(T, vec0, scal, vec_out);
+}
+
+fn mulScalUnchecked(comptime T: type, vec0: []const T, scal: T, vec_out: []T) void {
     for (0..vec0.len) |ii| {
         vec_out[ii] = scal * vec0[ii];
     }
@@ -182,7 +231,7 @@ test "slice.add" {
 
     var vec_op = [_]F{0.0} ** vec_len;
 
-    try add(TestType, vec0[0..], vec1[0..], vec_op[0..]);
+    add(TestType, vec0[0..], vec1[0..], vec_op[0..]);
 
     try expectEqualSlices(TestType, vec_exp[0..], vec_op[0..]);
 }
@@ -196,7 +245,7 @@ test "slice.sub" {
 
     var vec_op = [_]F{-1.0} ** vec_len;
 
-    try sub(TestType, vec0[0..], vec1[0..], vec_op[0..]);
+    sub(TestType, vec0[0..], vec1[0..], vec_op[0..]);
 
     try expectEqualSlices(TestType, vec_exp[0..], vec_op[0..]);
 }
@@ -210,7 +259,7 @@ test "slice.mul" {
 
     var vec_op = [_]F{0.0} ** vec_len;
 
-    try mul(TestType, vec0[0..], vec1[0..], vec_op[0..]);
+    mul(TestType, vec0[0..], vec1[0..], vec_op[0..]);
 
     try expectEqualSlices(TestType, vec_exp[0..], vec_op[0..]);
 }
@@ -224,7 +273,7 @@ test "slice.div" {
 
     var vec_op = [_]F{0.0} ** vec_len;
 
-    try div(TestType, vec0[0..], vec1[0..], vec_op[0..]);
+    div(TestType, vec0[0..], vec1[0..], vec_op[0..]);
 
     try expectEqualSlices(TestType, vec_exp[0..], vec_op[0..]);
 }
@@ -238,7 +287,7 @@ test "slice.mulScal" {
 
     var vec_op = [_]F{0.0} ** vec_len;
 
-    try mulScal(TestType, vec0[0..], scal, vec_op[0..]);
+    mulScal(TestType, vec0[0..], scal, vec_op[0..]);
 
     try expectEqualSlices(TestType, vec_exp[0..], vec_op[0..]);
 }
@@ -302,4 +351,37 @@ test "slice.mean" {
     const mean_arr = mean(TestType, &array);
 
     try expectEqual(mean_exp, mean_arr);
+}
+
+test "slice reductions and range length" {
+    const values = [_]f64{ -3, 4 };
+
+    try expectEqual(@as(f64, 25), dot(f64, &values, &values));
+    try expectEqual(@as(f64, 25), norm(f64, &values));
+    try expectEqual(@as(f64, 5), vecLen(f64, &values));
+    try expectEqual(@as(usize, 5), rangeLen(0, 1, 0.2));
+}
+
+test "slice operations support f32 and partial apply output" {
+    const left = [_]f32{ 1.5, -2.0 };
+    const right = [_]f32{ 2.0, 0.5 };
+    var product = [_]f32{ 0, 0 };
+    mul(f32, &left, &right, &product);
+    try expectEqualSlices(f32, &.{ 3.0, -1.0 }, &product);
+
+    var output = [_]f64{ 0, 0, 99 };
+    apply(f64, &output, &.{ 1.0, 4.0 }, std.math.sqrt);
+    try expectEqualSlices(f64, &.{ 1.0, 2.0, 99.0 }, &output);
+}
+
+test "checked slice operations reject mismatched lengths" {
+    var output = [_]f64{0} ** 2;
+    try std.testing.expectError(
+        error.LengthMismatch,
+        addChecked(f64, &.{ 1, 2 }, &.{1}, &output),
+    );
+    try std.testing.expectError(
+        error.LengthMismatch,
+        mulScalChecked(f64, &.{ 1, 2 }, 2, output[0..1]),
+    );
 }

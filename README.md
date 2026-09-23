@@ -122,8 +122,15 @@ storage:
 
 ```zig
 var output = [_]f64{ 0, 0, 0 };
-try lagomath.sliceops.add(f64, &.{ 1, 2, 3 }, &.{ 4, 5, 6 }, &output);
+lagomath.sliceops.add(f64, &.{ 1, 2, 3 }, &.{ 4, 5, 6 }, &output);
 // output is { 5, 7, 9 }
+```
+
+The normal kernels assert programmer contracts such as matching lengths. Use
+the opt-in checked form when dimensions originate outside your program:
+
+```zig
+try lagomath.sliceops.addChecked(f64, input_a, input_b, output);
 ```
 
 ## Development and validation
@@ -134,6 +141,13 @@ public module:
 ```sh
 zig build test
 zig build test -Doptimize=ReleaseFast
+```
+
+Zig keeps successful `zig build test` output quiet. To see the standard Zig
+runner report every test as it runs, use:
+
+```sh
+zig build test-verbose
 ```
 
 Run the small user-facing example:

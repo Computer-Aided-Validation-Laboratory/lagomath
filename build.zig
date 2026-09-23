@@ -17,6 +17,14 @@ pub fn build(b: *std.Build) void {
     const test_step = b.step("test", "Run tests");
     test_step.dependOn(&run_tests.step);
 
+    const verbose_tests = b.addSystemCommand(&.{
+        b.graph.zig_exe,
+        "test",
+        "src/root.zig",
+    });
+    const verbose_test_step = b.step("test-verbose", "Run tests with per-test output");
+    verbose_test_step.dependOn(&verbose_tests.step);
+
     const example = b.addExecutable(.{
         .name = "lagomath-basic",
         .root_module = b.createModule(.{

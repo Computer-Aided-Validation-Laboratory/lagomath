@@ -1124,3 +1124,31 @@ test "Mat44Ops.invChecked rejects singular matrices" {
         Mat44Ops.invChecked(TestType, singular, 0),
     );
 }
+
+test "MatStack constructors and rectangular matrix-vector multiplication" {
+    const Mat23 = MatStack(2, 3, i32);
+    const Vec3 = VecStack(3, i32);
+    const matrix = Mat23.initRows(.{ .{ 1, 2, 3 }, .{ 4, 5, 6 } });
+    const product = matrix.mulVec(Vec3.initSlice(&.{ 1, 0, -1 }));
+
+    try std.testing.expectEqualSlices(i32, &.{ -2, -2 }, &product.slice);
+    try expectEqual(Mat23.initOnes(), Mat23.initFill(1));
+    try expectEqual(Mat23.initZeros(), Mat23.initFill(0));
+    try expectEqual(@as(i32, 2), matrix.getRowVec(0).get(1));
+    try expectEqual(@as(i32, 6), matrix.getColVec(2).get(1));
+}
+
+test "Mat22 adjugate and Mat44 affine vector multiplication" {
+    const matrix = Mat22f.initRows(.{ .{ 1, 2 }, .{ 3, 4 } });
+    const expected_adjugate = Mat22f.initRows(.{ .{ 4, -2 }, .{ -3, 1 } });
+    try expectEqual(expected_adjugate, Mat22Ops.adj(f64, matrix));
+
+    const transform = Mat44f.initRows(.{
+        .{ 1, 0, 0, 10 },
+        .{ 0, 1, 0, 20 },
+        .{ 0, 0, 1, 30 },
+        .{ 0, 0, 0, 1 },
+    });
+    const transformed = Mat44Ops.mulVec3(f64, transform, vecstack.initVec3(f64, 1, 2, 3));
+    try expectEqual(Vec3f.initSlice(&.{ 11, 22, 33 }), transformed);
+}

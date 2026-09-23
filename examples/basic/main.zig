@@ -17,4 +17,9 @@ pub fn main(init: std.process.Init) !void {
 
     array.set(&.{ 1, 0 }, 7);
     try std.testing.expectEqual(@as(f64, 7), array.get(&.{ 1, 0 }));
+
+    std.debug.print(
+        "Lagomath example passed: matrix-vector product = {{{d}, {d}}}, NDArray value = {d}.\n",
+        .{ product.get(0), product.get(1), array.get(&.{ 1, 0 }) },
+    );
 }

@@ -38,24 +38,28 @@ pub fn VecSlice(comptime T: type) type {
         }
 
         pub fn addInPlace(self: *const Self, to_add: *const Self) void {
+            assert(self.slice.len == to_add.slice.len);
             for (0..self.slice.len) |ii| {
                 self.slice[ii] += to_add.slice[ii];
             }
         }
 
         pub fn subInPlace(self: *const Self, to_sub: *const Self) void {
+            assert(self.slice.len == to_sub.slice.len);
             for (0..self.slice.len) |ii| {
                 self.slice[ii] -= to_sub.slice[ii];
             }
         }
 
         pub fn mulInPlace(self: *const Self, to_mul: *const Self) void {
+            assert(self.slice.len == to_mul.slice.len);
             for (0..self.slice.len) |ii| {
                 self.slice[ii] *= to_mul.slice[ii];
             }
         }
 
         pub fn divInPlace(self: *const Self, to_div: *const Self) void {
+            assert(self.slice.len == to_div.slice.len);
             for (0..self.slice.len) |ii| {
                 self.slice[ii] /= to_div.slice[ii];
             }
@@ -77,6 +81,7 @@ pub fn VecSlice(comptime T: type) type {
         }
 
         pub fn dot(self: *const Self, to_dot: Self) T {
+            assert(self.slice.len == to_dot.slice.len);
             var dot_prod: T = 0;
             for (0..self.slice.len) |ii| {
                 dot_prod += self.slice[ii] * to_dot.slice[ii];
@@ -322,4 +327,16 @@ test "VecSlice.apply" {
     vec1.applyInPlace(SliceOps.exp);
 
     try expectEqualSlices(TestType, vec_exp_ones.slice, vec1.slice);
+}
+
+test "VecSlice access and vector reductions" {
+    var values = [_]f64{ -3, 4 };
+    var vector = VecSlice(f64).init(&values);
+
+    try expectEqual(@as(f64, -3), vector.get(0));
+    vector.set(0, 3);
+    try expectEqual(@as(f64, 3), vector.get(0));
+    try expectEqual(@as(f64, 25), vector.dot(vector));
+    try expectEqual(@as(f64, 25), vector.norm());
+    try expectEqual(@as(f64, 5), vector.vecLen());
 }

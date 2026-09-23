@@ -347,3 +347,29 @@ test "Vec3Ops.cross" {
 
     try expectEqual(Vec3Ops.cross(F, vec0, vec1), cross_exp);
 }
+
+test "VecStack constructors, accessors, and integer arithmetic" {
+    const Vec4 = VecStack(4, i32);
+    var vector = Vec4.initFill(2);
+    vector.set(2, 7);
+
+    try expectEqual(@as(i32, 2), vector.x());
+    try expectEqual(@as(i32, 2), vector.y());
+    try expectEqual(@as(i32, 7), vector.z());
+    try expectEqual(@as(i32, 2), vector.w());
+    try expectEqual(@as(i32, 13), vector.sum());
+    try expectEqual(Vec4.initZeros(), Vec4.initZeros());
+    try expectEqual(Vec4.initOnes(), Vec4.initFill(1));
+}
+
+test "Vec constructors and Vec3SliceOps minimum" {
+    try expectEqual(@as(f64, 2), initVec2(f64, 2, 3).x());
+    try expectEqual(@as(f64, 3), initVec3(f64, 1, 2, 3).z());
+
+    var values = [_]Vec3f{
+        initVec3(f64, 2, 4, 6),
+        initVec3(f64, -1, 5, 7),
+        initVec3(f64, 3, -2, 8),
+    };
+    try expectEqual(@as(f64, -2), Vec3SliceOps.min(f64, &values, 1));
+}

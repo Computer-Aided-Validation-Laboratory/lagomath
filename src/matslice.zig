@@ -43,9 +43,9 @@ pub fn MatSlice(comptime T: type) type {
             @memset(self.slice[0..], fill_val);
         }
 
-        pub fn fillDiag(self: *const Self, fill_val: T, diag_val: T) void {
+        pub fn fillDiag(self: *Self, fill_val: T, diag_val: T) void {
             for (0..self.rows_num) |ii| {
-                for (ii..self.cols_num) |jj| {
+                for (0..self.cols_num) |jj| {
                     if (ii == jj) {
                         self.set(ii, jj, diag_val);
                     } else {
@@ -55,7 +55,7 @@ pub fn MatSlice(comptime T: type) type {
             }
         }
 
-        pub fn identity(self: *const Self) void {
+        pub fn identity(self: *Self) void {
             self.fillDiag(0, 1);
         }
 
@@ -92,7 +92,8 @@ pub fn MatSlice(comptime T: type) type {
             self.slice[flat_idx] = val;
         }
 
-        pub fn transpose(self: *Self, buff: *Self) void {
+        pub fn transposeSquare(self: *Self, buff: *Self) void {
+            assert(self.rows_num == self.cols_num);
             assert(self.cols_num == buff.cols_num);
             assert(self.rows_num == buff.rows_num);
 
@@ -102,6 +103,17 @@ pub fn MatSlice(comptime T: type) type {
                 for (ii..self.cols_num) |jj| {
                     self.set(ii, jj, buff.get(jj, ii));
                     self.set(jj, ii, buff.get(ii, jj));
+                }
+            }
+        }
+
+        pub fn transpose(self: *const Self, output: *Self) void {
+            assert(output.rows_num == self.cols_num);
+            assert(output.cols_num == self.rows_num);
+
+            for (0..self.rows_num) |rr| {
+                for (0..self.cols_num) |cc| {
+                    output.set(cc, rr, self.get(rr, cc));
                 }
             }
         }
@@ -123,24 +135,32 @@ pub fn MatSlice(comptime T: type) type {
         }
 
         pub fn addInPlace(self: *const Self, to_add: *const Self) void {
+            assert(self.rows_num == to_add.rows_num);
+            assert(self.cols_num == to_add.cols_num);
             for (0..self.slice.len) |ee| {
                 self.slice[ee] += to_add.slice[ee];
             }
         }
 
         pub fn subInPlace(self: *const Self, to_sub: *const Self) void {
+            assert(self.rows_num == to_sub.rows_num);
+            assert(self.cols_num == to_sub.cols_num);
             for (0..self.slice.len) |ee| {
                 self.slice[ee] -= to_sub.slice[ee];
             }
         }
 
         pub fn mulInPlace(self: *const Self, to_sub: *const Self) void {
+            assert(self.rows_num == to_sub.rows_num);
+            assert(self.cols_num == to_sub.cols_num);
             for (0..self.slice.len) |ee| {
                 self.slice[ee] *= to_sub.slice[ee];
             }
         }
 
         pub fn divInPlace(self: *const Self, to_sub: *const Self) void {
+            assert(self.rows_num == to_sub.rows_num);
+            assert(self.cols_num == to_sub.cols_num);
             for (0..self.slice.len) |ee| {
                 self.slice[ee] /= to_sub.slice[ee];
             }
@@ -215,6 +235,8 @@ pub fn MatSliceOps(comptime T: type) type {
         ) void {
             assert(mat0.rows_num == mat1.rows_num);
             assert(mat0.cols_num == mat1.cols_num);
+            assert(mat_out.rows_num == mat0.rows_num);
+            assert(mat_out.cols_num == mat0.cols_num);
 
             for (0..mat0.slice.len) |ii| {
                 mat_out.slice[ii] = mat0.slice[ii] + mat1.slice[ii];
@@ -228,6 +250,8 @@ pub fn MatSliceOps(comptime T: type) type {
         ) void {
             assert(mat0.rows_num == mat1.rows_num);
             assert(mat0.cols_num == mat1.cols_num);
+            assert(mat_out.rows_num == mat0.rows_num);
+            assert(mat_out.cols_num == mat0.cols_num);
 
             for (0..mat0.slice.len) |ii| {
                 mat_out.slice[ii] = mat0.slice[ii] - mat1.slice[ii];
@@ -241,6 +265,8 @@ pub fn MatSliceOps(comptime T: type) type {
         ) void {
             assert(mat0.rows_num == mat1.rows_num);
             assert(mat0.cols_num == mat1.cols_num);
+            assert(mat_out.rows_num == mat0.rows_num);
+            assert(mat_out.cols_num == mat0.cols_num);
 
             for (0..mat0.slice.len) |ii| {
                 mat_out.slice[ii] = mat0.slice[ii] * mat1.slice[ii];
@@ -254,6 +280,8 @@ pub fn MatSliceOps(comptime T: type) type {
         ) void {
             assert(mat0.rows_num == mat1.rows_num);
             assert(mat0.cols_num == mat1.cols_num);
+            assert(mat_out.rows_num == mat0.rows_num);
+            assert(mat_out.cols_num == mat0.cols_num);
 
             for (0..mat0.slice.len) |ii| {
                 mat_out.slice[ii] = mat0.slice[ii] / mat1.slice[ii];
@@ -265,6 +293,8 @@ pub fn MatSliceOps(comptime T: type) type {
             scal: T,
             mat_out: *MatSlice(T),
         ) void {
+            assert(mat_out.rows_num == mat0.rows_num);
+            assert(mat_out.cols_num == mat0.cols_num);
             for (0..mat0.slice.len) |ii| {
                 mat_out.slice[ii] = scal * mat0.slice[ii];
             }
@@ -276,6 +306,7 @@ pub fn MatSliceOps(comptime T: type) type {
             vec_out: *VecSlice(T),
         ) void {
             assert(mat.cols_num == vec_mul.slice.len);
+            assert(mat.rows_num == vec_out.slice.len);
 
             var sum: T = 0;
 
@@ -288,20 +319,36 @@ pub fn MatSliceOps(comptime T: type) type {
             }
         }
 
-        pub fn mulMat(
+        pub fn mulSquare(
+            mat0: *const MatSlice(T),
+            mat1: *const MatSlice(T),
+            mat_out: *MatSlice(T),
+        ) void {
+            assert(mat0.rows_num == mat0.cols_num);
+            assert(mat1.rows_num == mat1.cols_num);
+            assert(mat_out.rows_num == mat_out.cols_num);
+            assert(mat0.rows_num == mat1.rows_num);
+            assert(mat0.rows_num == mat_out.rows_num);
+
+            mul(mat0, mat1, mat_out);
+        }
+
+        pub fn mul(
             mat0: *const MatSlice(T),
             mat1: *const MatSlice(T),
             mat_out: *MatSlice(T),
         ) void {
             assert(mat0.cols_num == mat1.rows_num);
+            assert(mat_out.rows_num == mat0.rows_num);
+            assert(mat_out.cols_num == mat1.cols_num);
 
             var sum: T = 0;
 
             for (0..mat0.rows_num) |rr| {
-                for (0..mat0.cols_num) |cc| {
+                for (0..mat1.cols_num) |cc| {
                     sum = 0;
 
-                    for (0..mat1.cols_num) |mm| {
+                    for (0..mat0.cols_num) |mm| {
                         sum += mat0.get(rr, mm) * mat1.get(mm, cc);
                     }
 
@@ -557,7 +604,7 @@ test "MatSlice.transpose" {
     var m1 = [_]TestType{ 1, 3, 2, 4 };
     const mat_exp = MatSlice(TestType).init(m1[0..], 2, 2);
 
-    mat0.transpose(&mat_buff);
+    mat0.transposeSquare(&mat_buff);
 
     try expectEqualSlices(TestType, mat_exp.slice, mat0.slice);
 }
@@ -594,7 +641,7 @@ test "MatSliceOps.mulVec" {
     try expectEqualSlices(TestType, vec_exp.slice, vec_out.slice);
 }
 
-test "MatSliceOps.mulMat" {
+test "MatSliceOps.mulSquare" {
     var m0 = [_]TestType{ 1, 2, 3, 4, 5, 6, 7, 8, 9 };
     const mat0 = MatSlice(TestType).init(&m0, 3, 3);
 
@@ -607,7 +654,62 @@ test "MatSliceOps.mulMat" {
     var m3 = [_]TestType{ 8, 10, 12, 23, 25, 27, 38, 40, 42 };
     const mat_exp = MatSlice(TestType).init(&m3, 3, 3);
 
-    MatSliceOps(TestType).mulMat(&mat0, &mat1, &mat_out);
+    MatSliceOps(TestType).mulSquare(&mat0, &mat1, &mat_out);
 
     try expectEqualSlices(TestType, mat_exp.slice, mat_out.slice);
+}
+
+test "MatSlice allocation, rectangular trace, and column extrema" {
+    var matrix = try MatSlice(f64).initAlloc(std.testing.allocator, 3, 2);
+    defer std.testing.allocator.free(matrix.slice);
+
+    matrix.fill(0);
+    matrix.set(0, 0, 1);
+    matrix.set(1, 0, -4);
+    matrix.set(2, 0, 3);
+    matrix.set(0, 1, 2);
+    matrix.set(1, 1, 5);
+    matrix.set(2, 1, -6);
+
+    try expectEqual(@as(f64, 6), matrix.trace());
+    try expectEqual(@as(f64, -4), matrix.minByRow(0));
+    try expectEqual(@as(f64, 5), matrix.maxByRow(1));
+}
+
+test "MatSlice in-place multiply and divide" {
+    var values = [_]f64{ 2, 4, 6, 8 };
+    const matrix = MatSlice(f64).init(&values, 2, 2);
+    var factors = [_]f64{ 2, 4, 3, 2 };
+    const factor_matrix = MatSlice(f64).init(&factors, 2, 2);
+
+    matrix.mulInPlace(&factor_matrix);
+    try expectEqualSlices(f64, &.{ 4, 16, 18, 16 }, matrix.slice);
+    matrix.divInPlace(&factor_matrix);
+    try expectEqualSlices(f64, &.{ 2, 4, 6, 8 }, matrix.slice);
+}
+
+test "MatSliceOps multiplies rectangular matrices" {
+    var left_values = [_]f64{ 1, 2, 3, 4, 5, 6 };
+    const left = MatSlice(f64).init(&left_values, 2, 3);
+    var right_values = [_]f64{ 1, 0, 0, 4, 0, 2, 0, 5, 0, 0, 3, 6 };
+    const right = MatSlice(f64).init(&right_values, 3, 4);
+    var output_values = [_]f64{0} ** 8;
+    var output = MatSlice(f64).init(&output_values, 2, 4);
+
+    MatSliceOps(f64).mul(&left, &right, &output);
+    try expectEqualSlices(f64, &.{ 1, 4, 9, 32, 4, 10, 18, 77 }, output.slice);
+}
+
+test "MatSlice identity clears dirty storage and transpose supports rectangles" {
+    var square_values = [_]f64{9} ** 9;
+    var square = MatSlice(f64).init(&square_values, 3, 3);
+    square.identity();
+    try expectEqualSlices(f64, &.{ 1, 0, 0, 0, 1, 0, 0, 0, 1 }, square.slice);
+
+    var input_values = [_]f64{ 1, 2, 3, 4, 5, 6 };
+    const input = MatSlice(f64).init(&input_values, 2, 3);
+    var output_values = [_]f64{0} ** 6;
+    var output = MatSlice(f64).init(&output_values, 3, 2);
+    input.transpose(&output);
+    try expectEqualSlices(f64, &.{ 1, 4, 2, 5, 3, 6 }, output.slice);
 }

@@ -20,6 +20,7 @@ pub fn NDArray(comptime T: type) type {
         const Self: type = @This();
 
         pub fn init(allocator: std.mem.Allocator, slice: []T, dims: []const usize) !Self {
+            assert(dims.len > 0);
             var dim_prod: usize = dims[0];
             for (1..dims.len) |dd| {
                 dim_prod *= dims[dd];
@@ -28,6 +29,7 @@ pub fn NDArray(comptime T: type) type {
             assert(slice.len >= dim_prod);
 
             const dims_heap = try allocator.dupe(usize, dims);
+            errdefer allocator.free(dims_heap);
             const strides_heap = try allocator.alloc(usize, dims.len);
 
             var ndarray = NDArray(T){
@@ -50,6 +52,7 @@ pub fn NDArray(comptime T: type) type {
             }
 
             const slice = try allocator.alloc(T, dim_prod);
+            errdefer allocator.free(slice);
 
             return try Self.init(allocator, slice, dims);
         }
@@ -223,6 +226,10 @@ pub fn NDArray(comptime T: type) type {
         ) !Self {
             assert(fixed_prefix.len < self.dims.len);
 
+            if (fixed_prefix.len == 0) {
+                return try Self.init(allocator, self.slice, self.dims);
+            }
+
             var start: usize = 0;
             for (fixed_prefix, 0..) |idx, dim| {
                 assert(idx < self.dims[dim]);
@@ -315,8 +322,9 @@ pub fn NDArrayOps(comptime T: type) type {
             mat: *MatSlice(T),
         ) !void {
             assert(fixed_idxs.len == arr.dims.len);
-            assert(row_ext <= arr.dims.len);
-            assert(col_ext <= arr.dims.len);
+            assert(row_ext < arr.dims.len);
+            assert(col_ext < arr.dims.len);
+            assert(row_ext != col_ext);
             const num_elems: usize = arr.dims[row_ext] * arr.dims[col_ext];
             assert(num_elems == mat.slice.len);
 
@@ -467,4 +475,74 @@ test "offset helpers" {
     try expectEqual(@as(usize, 100), base1);
     try expectEqual(@as(usize, 23), off3);
     try expectEqual(@as(usize, 119), off4);
+}
+
+test "NDArray flat allocation, plane slicing, and duplication ownership" {
+    var array = try NDArray(f64).initFlat(talloc, &.{ 2, 2, 2 });
+    defer talloc.free(array.slice);
+    defer array.deinit(talloc);
+
+    array.fill(1);
+    array.set(&.{ 1, 0, 1 }, 7);
+    try expectEqual(@as(f64, 7), array.getFlat(array.offset3(1, 0, 1)));
+    try expectEqualSlices(f64, &.{ 1, 7, 1, 1 }, array.getPlaneSlice(1));
+
+    var copy = try array.dupe(talloc);
+    defer talloc.free(copy.slice);
+    defer copy.deinit(talloc);
+    copy.set(&.{ 1, 0, 1 }, 9);
+    try expectEqual(@as(f64, 7), array.get(&.{ 1, 0, 1 }));
+    try expectEqual(@as(f64, 9), copy.get(&.{ 1, 0, 1 }));
+}
+
+test "NDArray shape mismatch and mapped metadata cleanup" {
+    var two_by_two = try NDArray(i32).initFlat(talloc, &.{ 2, 2 });
+    defer talloc.free(two_by_two.slice);
+    defer two_by_two.deinit(talloc);
+    var two_by_three = try NDArray(i32).initFlat(talloc, &.{ 2, 3 });
+    defer talloc.free(two_by_three.slice);
+    defer two_by_three.deinit(talloc);
+    try expect(!matchArrayDims(i32, &two_by_two, &two_by_three));
+
+    var mapped = MappedNDArray(i32){
+        .array = try NDArray(i32).initFlat(talloc, &.{1}),
+        .map = try talloc.dupe(usize, &.{0}),
+    };
+    defer talloc.free(mapped.array.slice);
+    defer mapped.deinit(talloc);
+}
+
+test "NDArrayOps arithmetic, extraction, and empty prefix view" {
+    var left = try NDArray(f64).initFlat(talloc, &.{ 2, 2 });
+    defer talloc.free(left.slice);
+    defer left.deinit(talloc);
+    var right = try NDArray(f64).initFlat(talloc, &.{ 2, 2 });
+    defer talloc.free(right.slice);
+    defer right.deinit(talloc);
+    var output = try NDArray(f64).initFlat(talloc, &.{ 2, 2 });
+    defer talloc.free(output.slice);
+    defer output.deinit(talloc);
+
+    @memcpy(left.slice, &[_]f64{ 1, 2, 3, 4 });
+    @memcpy(right.slice, &[_]f64{ 2, 4, 6, 8 });
+    NDArrayOps(f64).add(&left, &right, &output);
+    try expectEqualSlices(f64, &.{ 3, 6, 9, 12 }, output.slice);
+    NDArrayOps(f64).divElemWise(&right, &left, &output);
+    try expectEqualSlices(f64, &.{ 2, 2, 2, 2 }, output.slice);
+
+    var view = try left.fixedPrefixView(talloc, &.{});
+    defer view.deinit(talloc);
+    try expectEqualSlices(usize, left.dims, view.dims);
+    try expectEqualSlices(f64, left.slice, view.slice);
+
+    var volume = try NDArray(f64).initFlat(talloc, &.{ 2, 2, 3 });
+    defer talloc.free(volume.slice);
+    defer volume.deinit(talloc);
+    for (0..2) |plane| for (0..2) |row| for (0..3) |col| {
+        volume.set(&.{ plane, row, col }, @floatFromInt(100 * plane + 10 * row + col));
+    };
+    var matrix_values = [_]f64{0} ** 6;
+    var matrix = MatSlice(f64).init(&matrix_values, 2, 3);
+    try NDArrayOps(f64).extractMat(talloc, &volume, &.{ 1, 0, 0 }, 1, 2, &matrix);
+    try expectEqualSlices(f64, &.{ 100, 101, 102, 110, 111, 112 }, matrix.slice);
 }
