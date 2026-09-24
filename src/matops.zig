@@ -200,8 +200,10 @@ pub fn frobeniusNormStack(
     mat: MatStack(M, N, T),
 ) T {
     var sum: T = 0;
-    inline for (0..(M * N)) |ii| {
-        sum += mat.slice[ii] * mat.slice[ii];
+    inline for (0..M) |rr| {
+        inline for (0..N) |cc| {
+            sum += mat.mat[rr][cc] * mat.mat[rr][cc];
+        }
     }
     return @sqrt(sum);
 }
@@ -231,11 +233,13 @@ pub fn maxAbsStack(
     mat: MatStack(M, N, T),
 ) T {
     comptime assert(M > 0 and N > 0);
-    var max_val: T = @abs(mat.slice[0]);
-    inline for (1..(M * N)) |ii| {
-        const abs_val = @abs(mat.slice[ii]);
-        if (abs_val > max_val) {
-            max_val = abs_val;
+    var max_val: T = @abs(mat.mat[0][0]);
+    inline for (0..M) |rr| {
+        inline for (0..N) |cc| {
+            const abs_val = @abs(mat.mat[rr][cc]);
+            if (abs_val > max_val) {
+                max_val = abs_val;
+            }
         }
     }
     return max_val;
@@ -269,9 +273,11 @@ pub fn allFiniteStack(
     comptime T: type,
     mat: MatStack(M, N, T),
 ) bool {
-    inline for (0..(M * N)) |ii| {
-        if (!std.math.isFinite(mat.slice[ii])) {
-            return false;
+    inline for (0..M) |rr| {
+        inline for (0..N) |cc| {
+            if (!std.math.isFinite(mat.mat[rr][cc])) {
+                return false;
+            }
         }
     }
     return true;

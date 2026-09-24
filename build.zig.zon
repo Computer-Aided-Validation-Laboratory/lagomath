@@ -1,6 +1,6 @@
 .{
     .name = .lagomath,
-    .version = "2026.9.0",
+    .version = "2026.9.1",
     .fingerprint = 0x495729e33c4202a4,
     .minimum_zig_version = "0.16.0",
     .paths = .{
