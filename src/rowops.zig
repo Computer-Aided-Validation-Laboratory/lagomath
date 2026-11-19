@@ -27,11 +27,7 @@ pub fn swapRowsStack(
     if (row_a == row_b) {
         return;
     }
-    inline for (0..N) |cc| {
-        const temp = mat.get(row_a, cc);
-        mat.set(row_a, cc, mat.get(row_b, cc));
-        mat.set(row_b, cc, temp);
-    }
+    std.mem.swap([N]T, &mat.mat[row_a], &mat.mat[row_b]);
 }
 
 /// Swaps row `row_a` and row `row_b` in-place in borrowed slice matrix `mat`.
@@ -145,7 +141,7 @@ pub fn applyPermutationStack(
     var result: VecStack(N, T) = undefined;
     inline for (0..N) |ii| {
         assert(perm[ii] < N);
-        result.slice[ii] = vec.slice[perm[ii]];
+        result.vec[ii] = vec.vec[perm[ii]];
     }
     return result;
 }

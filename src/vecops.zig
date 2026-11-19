@@ -21,7 +21,7 @@ pub fn dotStack(
 ) T {
     var sum: T = 0;
     inline for (0..N) |ii| {
-        sum += lhs.slice[ii] * rhs.slice[ii];
+        sum += lhs.vec[ii] * rhs.vec[ii];
     }
     return sum;
 }
@@ -97,9 +97,9 @@ pub fn maxAbsStack(
     vec: VecStack(N, T),
 ) T {
     comptime assert(N > 0);
-    var max_val: T = @abs(vec.slice[0]);
+    var max_val: T = @abs(vec.vec[0]);
     inline for (1..N) |ii| {
-        const abs_val = @abs(vec.slice[ii]);
+        const abs_val = @abs(vec.vec[ii]);
         if (abs_val > max_val) {
             max_val = abs_val;
         }
@@ -136,7 +136,7 @@ pub fn allFiniteStack(
     vec: VecStack(N, T),
 ) bool {
     inline for (0..N) |ii| {
-        if (!std.math.isFinite(vec.slice[ii])) {
+        if (!std.math.isFinite(vec.vec[ii])) {
             return false;
         }
     }
@@ -172,7 +172,7 @@ pub fn axpyStack(
 ) VecStack(N, T) {
     var result: VecStack(N, T) = undefined;
     inline for (0..N) |ii| {
-        result.slice[ii] = alpha * x.slice[ii] + y.slice[ii];
+        result.vec[ii] = alpha * x.vec[ii] + y.vec[ii];
     }
     return result;
 }
@@ -252,9 +252,9 @@ test "vecops.axpy" {
     const y = VecStack(3, f64).initSlice(&.{ 4.0, 5.0, 6.0 });
     const result = axpyStack(3, f64, 2.0, x, y);
 
-    try std.testing.expectEqual(@as(f64, 6.0), result.slice[0]);
-    try std.testing.expectEqual(@as(f64, 9.0), result.slice[1]);
-    try std.testing.expectEqual(@as(f64, 12.0), result.slice[2]);
+    try std.testing.expectEqual(@as(f64, 6.0), result.vec[0]);
+    try std.testing.expectEqual(@as(f64, 9.0), result.vec[1]);
+    try std.testing.expectEqual(@as(f64, 12.0), result.vec[2]);
 
     var raw_x = [_]f64{ 1.0, 2.0, 3.0 };
     var raw_y = [_]f64{ 4.0, 5.0, 6.0 };

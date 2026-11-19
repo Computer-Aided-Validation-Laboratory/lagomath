@@ -9,7 +9,7 @@ pub fn main(init: std.process.Init) !void {
     const vector = Vec2.initSlice(&.{ 5, 6 });
     const product = matrix.mulVec(vector);
 
-    try std.testing.expectEqualSlices(f64, &.{ 17, 39 }, &product.slice);
+    try std.testing.expectEqualSlices(f64, &.{ 17, 39 }, &product.vec);
 
     var array = try lagomath.NDArray(f64).initFlat(init.gpa, &.{ 2, 2 });
     defer init.gpa.free(array.slice);
@@ -19,7 +19,8 @@ pub fn main(init: std.process.Init) !void {
     try std.testing.expectEqual(@as(f64, 7), array.get(&.{ 1, 0 }));
 
     std.debug.print(
-        "Lagomath example passed: matrix-vector product = {{{d}, {d}}}, NDArray value = {d}.\n",
+        "Lagomath example passed: matrix-vector product = {{{d}, {d}}}, " ++
+            "NDArray value = {d}.\n",
         .{ product.get(0), product.get(1), array.get(&.{ 1, 0 }) },
     );
 }

@@ -13,7 +13,7 @@ fn exercise(alloc: std.mem.Allocator) !void {
     const Mat22 = lagomath.MatStack(2, 2, f64);
     const matrix = Mat22.initRows(.{ .{ 1, 2 }, .{ 3, 4 } });
     const multiplied = matrix.mulVec(lagomath.VecStack(2, f64).initSlice(&.{ 5, 6 }));
-    try std.testing.expectEqualSlices(f64, &.{ 17, 39 }, &multiplied.slice);
+    try std.testing.expectEqualSlices(f64, &.{ 17, 39 }, &multiplied.vec);
 
     var slice_values = [_]f64{ 1, 2, 3 };
     const vector_slice = lagomath.VecSlice(f64).init(&slice_values);
