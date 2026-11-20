@@ -1,3 +1,4 @@
+import hashlib
 import json
 import subprocess
 import numpy as np
@@ -45,9 +46,81 @@ def test_mojo(libraries,artifact):
     verify(records)
     (ROOT/'build'/f'coverage-mojo-native-{artifact}.json').write_text(json.dumps(records))
 
-def test_reference_regeneration(tmp_path):
+def assert_reference_tree(actual, frozen, *, dtype=None, numerical=False, path='root'):
+    if isinstance(frozen,dict):
+        assert isinstance(actual,dict) and actual.keys()==frozen.keys(),path
+        if frozen.get('source')=='hand':
+            assert actual==frozen,path
+            return
+        dtype=frozen.get('dtype',dtype)
+        for key in frozen:
+            assert_reference_tree(actual[key],frozen[key],dtype=dtype,
+                                  numerical=key in ('inputs','expected') or numerical,
+                                  path=f'{path}.{key}')
+    elif isinstance(frozen,list):
+        assert isinstance(actual,list) and len(actual)==len(frozen),path
+        if numerical and frozen and all(isinstance(v,(int,float)) for v in frozen) and any(isinstance(v,float) for v in frozen):
+            eps=np.finfo(np.float32 if dtype=='f32' else np.float64).eps
+            # Use array scale: matrix products can cancel in individual entries.
+            scale=max(abs(v) for v in frozen)
+            np.testing.assert_allclose(actual,frozen,rtol=32*eps,atol=32*eps*scale,err_msg=path)
+            return
+        for i,(a,b) in enumerate(zip(actual,frozen)):
+            assert_reference_tree(a,b,dtype=dtype,numerical=numerical,path=f'{path}[{i}]')
+    elif numerical and isinstance(frozen,float):
+        # BLAS/LAPACK dispatch varies by CPU even with identical locked wheels.
+        # Allow only reference roundoff, independently of kernel tolerances.
+        eps=np.finfo(np.float32 if dtype=='f32' else np.float64).eps
+        assert isinstance(actual,(int,float)),path
+        assert abs(actual-frozen)<=32*eps*max(1,abs(frozen)),path
+    else:
+        assert actual==frozen,path
+
+
+def assert_reference_manifest(directory):
+    manifest=json.loads((directory/'manifest.json').read_text())
+    for group in ('files','derived_files','provenance_files'):
+        for name,digest in manifest[group].items():
+            source=ROOT/'tests/cases'/name if group=='provenance_files' else directory/name
+            assert hashlib.sha256(source.read_bytes()).hexdigest()==digest,name
+    # Each tree has its own valid hashes; numerical roundoff changes those hashes.
+    return {key:value for key,value in manifest.items() if key not in ('files','derived_files')}
+
+
+def test_reference_regeneration(tmp_path,monkeypatch):
     import generate_regression as generator
-    generator.OUT=tmp_path
+    monkeypatch.setattr(generator,'OUT',tmp_path)
     generator.generate()
+    frozen=ROOT/'tests/cases'
+    # Historical provenance is an input archive, not regenerated output.
+    assert {p.name for p in tmp_path.glob('*.json')}=={p.name for p in frozen.glob('*.json') if p.name not in ('historical_inputs.json','schema.json')}
+    assert assert_reference_manifest(tmp_path)==assert_reference_manifest(frozen)
+    generated_manifest=json.loads((tmp_path/'manifest.json').read_text())
+    frozen_manifest=json.loads((frozen/'manifest.json').read_text())
+    for group in ('files','derived_files'):
+        assert generated_manifest[group].keys()==frozen_manifest[group].keys()
     for path in tmp_path.glob('*.json'):
-        assert path.read_bytes()==(ROOT/'tests/cases'/path.name).read_bytes(),path.name
+        if path.name!='manifest.json':
+            assert_reference_tree(json.loads(path.read_text()),json.loads((frozen/path.name).read_text()),path=path.name)
+
+
+@pytest.mark.parametrize('field',['inputs','expected','tolerance','operation'])
+def test_reference_comparison_rejects_changes(field):
+    frozen=dict(dtype='f64',inputs=dict(a=[1.0]),expected=[2.0],
+                tolerance=dict(atol=2e-12,rtol=2e-11),operation='dot')
+    actual=json.loads(json.dumps(frozen))
+    if field=='inputs':actual['inputs']['a'][0]+=1e-6
+    elif field=='expected':actual['expected'][0]+=1e-6
+    elif field=='tolerance':actual['tolerance']['atol']*=2
+    else:actual['operation']='sum'
+    with pytest.raises(AssertionError):assert_reference_tree(actual,frozen)
+
+
+def test_reference_comparison_accepts_roundoff():
+    for dtype in ('f32','f64'):
+        frozen=dict(dtype=dtype,inputs=dict(a=[1.0]),expected=[2.0])
+        actual=json.loads(json.dumps(frozen))
+        eps=float(np.finfo(np.float32 if dtype=='f32' else np.float64).eps)
+        actual['inputs']['a'][0]+=eps
+        actual['expected'][0]-=eps
+        assert_reference_tree(actual,frozen)
