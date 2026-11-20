@@ -17,3 +17,8 @@ zig-out/
 !.github/workflows/*.yml
 benchmarks/results/
 __pycache__/
+
+# Machine-specific benchmark measurements and experiment logs
+dev/baselines/
+dev/scalar_baseline.md
+dev/simd_perf_log.md

@@ -257,10 +257,10 @@
       "case_ids": [
         "matops.matvec.MatView.legacy.matops.matops_mulVecStack_and_mulVecSlice.0.f32",
         "matops.matvec.MatView.legacy.matops.matops_mulVecStack_and_mulVecSlice.0.f64",
-        "vecops.mul.VecView.1.f32",
-        "vecops.mul.VecView.1.f64",
-        "vecops.mul.slice.1.f32",
-        "vecops.mul.slice.1.f64"
+        "vecops.mul.VecView.3.f32",
+        "vecops.mul.VecView.3.f64",
+        "vecops.mul.slice.3.f32",
+        "vecops.mul.slice.3.f64"
       ]
     },
     {
@@ -271,12 +271,10 @@
       "case_ids": [
         "matops.matmul.MatView.legacy.matops.matops_mulMatStack_rectangular_and_mulMatSlice.0.f32",
         "matops.matmul.MatView.legacy.matops.matops_mulMatStack_rectangular_and_mulMatSlice.0.f64",
-        "matops.matmul.MatView.legacy.matops.matops_mulMatStack_rectangular_and_mulMatSlice.1.f32",
-        "matops.matmul.MatView.legacy.matops.matops_mulMatStack_rectangular_and_mulMatSlice.1.f64",
-        "vecops.mul.VecView.1.f32",
-        "vecops.mul.VecView.1.f64",
-        "vecops.mul.slice.1.f32",
-        "vecops.mul.slice.1.f64"
+        "vecops.mul.VecView.3.f32",
+        "vecops.mul.VecView.3.f64",
+        "vecops.mul.slice.3.f32",
+        "vecops.mul.slice.3.f64"
       ]
     },
     {
@@ -337,10 +335,10 @@
       "name": "matops.allFinite",
       "original_assertion_count": 4,
       "case_ids": [
-        "vecops.allFinite.Vec.1.f32",
-        "vecops.allFinite.Vec.1.f64",
-        "vecops.allFinite.VecView.1.f32",
-        "vecops.allFinite.VecView.1.f64"
+        "vecops.allFinite.Vec.3.f32",
+        "vecops.allFinite.Vec.3.f64",
+        "vecops.allFinite.VecView.3.f32",
+        "vecops.allFinite.VecView.3.f64"
       ]
     },
     {
@@ -385,10 +383,10 @@
       "name": "Mat22f.sub",
       "original_assertion_count": 1,
       "case_ids": [
-        "vecops.sub.Vec.1.f32",
-        "vecops.sub.Vec.1.f64",
-        "vecops.sub.VecView.1.f32",
-        "vecops.sub.VecView.1.f64"
+        "vecops.sub.Vec.3.f32",
+        "vecops.sub.Vec.3.f64",
+        "vecops.sub.VecView.3.f32",
+        "vecops.sub.VecView.3.f64"
       ]
     },
     {
@@ -443,10 +441,10 @@
         "extended.scale.Vec.methods.f64",
         "extended.scale.VecView.methods.f32",
         "extended.scale.VecView.methods.f64",
-        "vecops.mul.VecView.1.f32",
-        "vecops.mul.VecView.1.f64",
-        "vecops.mul.slice.1.f32",
-        "vecops.mul.slice.1.f64"
+        "vecops.mul.VecView.3.f32",
+        "vecops.mul.VecView.3.f64",
+        "vecops.mul.slice.3.f32",
+        "vecops.mul.slice.3.f64"
       ]
     },
     {
@@ -459,10 +457,10 @@
         "matops.matvec.Mat.legacy.mattype.Mat22f_mulVec.0.f64",
         "matops.matvec.MatView.legacy.mattype.Mat22f_mulVec.0.f32",
         "matops.matvec.MatView.legacy.mattype.Mat22f_mulVec.0.f64",
-        "vecops.mul.VecView.1.f32",
-        "vecops.mul.VecView.1.f64",
-        "vecops.mul.slice.1.f32",
-        "vecops.mul.slice.1.f64"
+        "vecops.mul.VecView.3.f32",
+        "vecops.mul.VecView.3.f64",
+        "vecops.mul.slice.3.f32",
+        "vecops.mul.slice.3.f64"
       ]
     },
     {
@@ -475,10 +473,10 @@
         "matops.matmul.Mat.legacy.mattype.Mat22f_mulMat.0.f64",
         "matops.matmul.MatView.legacy.mattype.Mat22f_mulMat.0.f32",
         "matops.matmul.MatView.legacy.mattype.Mat22f_mulMat.0.f64",
-        "vecops.mul.VecView.1.f32",
-        "vecops.mul.VecView.1.f64",
-        "vecops.mul.slice.1.f32",
-        "vecops.mul.slice.1.f64"
+        "vecops.mul.VecView.3.f32",
+        "vecops.mul.VecView.3.f64",
+        "vecops.mul.slice.3.f32",
+        "vecops.mul.slice.3.f64"
       ]
     },
     {
@@ -499,10 +497,10 @@
         "matops.transpose.Mat.legacy.mattype.Mat22f_mulMat_identity_and_negative.0.f64",
         "matops.transpose.MatView.legacy.mattype.Mat22f_mulMat_identity_and_negative.0.f32",
         "matops.transpose.MatView.legacy.mattype.Mat22f_mulMat_identity_and_negative.0.f64",
-        "vecops.mul.VecView.1.f32",
-        "vecops.mul.VecView.1.f64",
-        "vecops.mul.slice.1.f32",
-        "vecops.mul.slice.1.f64"
+        "vecops.mul.VecView.3.f32",
+        "vecops.mul.VecView.3.f64",
+        "vecops.mul.slice.3.f32",
+        "vecops.mul.slice.3.f64"
       ]
     },
     {
@@ -512,9 +510,7 @@
       "original_assertion_count": 4,
       "case_ids": [
         "matops.det.Mat.legacy.mattype.Mat22Ops_det.0.f32",
-        "matops.det.Mat.legacy.mattype.Mat22Ops_det.0.f64",
-        "matops.det.Mat.legacy.mattype.Mat22Ops_det.1.f32",
-        "matops.det.Mat.legacy.mattype.Mat22Ops_det.1.f64"
+        "matops.det.Mat.legacy.mattype.Mat22Ops_det.0.f64"
       ]
     },
     {
@@ -525,8 +521,8 @@
       "case_ids": [
         "matops.inv.Mat.legacy.mattype.Mat22Ops_inv.0.f32",
         "matops.inv.Mat.legacy.mattype.Mat22Ops_inv.0.f64",
-        "matops.inv.Mat.legacy.mattype.Mat22Ops_inv.2.f32",
-        "matops.inv.Mat.legacy.mattype.Mat22Ops_inv.2.f64",
+        "matops.inv.Mat.legacy.mattype.Mat22Ops_invChecked_rejects_singular_and_near_singular_matrices.0.f32",
+        "matops.inv.Mat.legacy.mattype.Mat22Ops_invChecked_rejects_singular_and_near_singular_matrices.0.f64",
         "matops.inverseIdentity.Mat.2.f32",
         "matops.inverseIdentity.Mat.2.f64",
         "matops.inverseIdentity.Mat.3.f32",
@@ -567,10 +563,10 @@
       "name": "Mat33f.sub",
       "original_assertion_count": 1,
       "case_ids": [
-        "vecops.sub.Vec.1.f32",
-        "vecops.sub.Vec.1.f64",
-        "vecops.sub.VecView.1.f32",
-        "vecops.sub.VecView.1.f64"
+        "vecops.sub.Vec.3.f32",
+        "vecops.sub.Vec.3.f64",
+        "vecops.sub.VecView.3.f32",
+        "vecops.sub.VecView.3.f64"
       ]
     },
     {
@@ -607,10 +603,10 @@
         "extended.submatrix.Mat.2x2.f64",
         "extended.submatrix.Mat.3x3.f32",
         "extended.submatrix.Mat.3x3.f64",
-        "vecops.sub.Vec.1.f32",
-        "vecops.sub.Vec.1.f64",
-        "vecops.sub.VecView.1.f32",
-        "vecops.sub.VecView.1.f64"
+        "vecops.sub.Vec.3.f32",
+        "vecops.sub.Vec.3.f64",
+        "vecops.sub.VecView.3.f32",
+        "vecops.sub.VecView.3.f64"
       ]
     },
     {
@@ -639,10 +635,10 @@
         "extended.scale.Vec.methods.f64",
         "extended.scale.VecView.methods.f32",
         "extended.scale.VecView.methods.f64",
-        "vecops.mul.VecView.1.f32",
-        "vecops.mul.VecView.1.f64",
-        "vecops.mul.slice.1.f32",
-        "vecops.mul.slice.1.f64"
+        "vecops.mul.VecView.3.f32",
+        "vecops.mul.VecView.3.f64",
+        "vecops.mul.slice.3.f32",
+        "vecops.mul.slice.3.f64"
       ]
     },
     {
@@ -655,10 +651,10 @@
         "matops.matvec.Mat.legacy.mattype.Mat33f_mulVec.0.f64",
         "matops.matvec.MatView.legacy.mattype.Mat33f_mulVec.0.f32",
         "matops.matvec.MatView.legacy.mattype.Mat33f_mulVec.0.f64",
-        "vecops.mul.VecView.1.f32",
-        "vecops.mul.VecView.1.f64",
-        "vecops.mul.slice.1.f32",
-        "vecops.mul.slice.1.f64"
+        "vecops.mul.VecView.3.f32",
+        "vecops.mul.VecView.3.f64",
+        "vecops.mul.slice.3.f32",
+        "vecops.mul.slice.3.f64"
       ]
     },
     {
@@ -671,10 +667,10 @@
         "matops.matmul.Mat.legacy.mattype.Mat33f_mulMat.0.f64",
         "matops.matmul.MatView.legacy.mattype.Mat33f_mulMat.0.f32",
         "matops.matmul.MatView.legacy.mattype.Mat33f_mulMat.0.f64",
-        "vecops.mul.VecView.1.f32",
-        "vecops.mul.VecView.1.f64",
-        "vecops.mul.slice.1.f32",
-        "vecops.mul.slice.1.f64"
+        "vecops.mul.VecView.3.f32",
+        "vecops.mul.VecView.3.f64",
+        "vecops.mul.slice.3.f32",
+        "vecops.mul.slice.3.f64"
       ]
     },
     {
@@ -695,10 +691,10 @@
         "matops.transpose.Mat.legacy.mattype.Mat33f_mulMat_identity_and_negative.0.f64",
         "matops.transpose.MatView.legacy.mattype.Mat33f_mulMat_identity_and_negative.0.f32",
         "matops.transpose.MatView.legacy.mattype.Mat33f_mulMat_identity_and_negative.0.f64",
-        "vecops.mul.VecView.1.f32",
-        "vecops.mul.VecView.1.f64",
-        "vecops.mul.slice.1.f32",
-        "vecops.mul.slice.1.f64"
+        "vecops.mul.VecView.3.f32",
+        "vecops.mul.VecView.3.f64",
+        "vecops.mul.slice.3.f32",
+        "vecops.mul.slice.3.f64"
       ]
     },
     {
@@ -708,9 +704,7 @@
       "original_assertion_count": 6,
       "case_ids": [
         "matops.det.Mat.legacy.mattype.Mat33Ops_det.0.f32",
-        "matops.det.Mat.legacy.mattype.Mat33Ops_det.0.f64",
-        "matops.det.Mat.legacy.mattype.Mat33Ops_det.1.f32",
-        "matops.det.Mat.legacy.mattype.Mat33Ops_det.1.f64"
+        "matops.det.Mat.legacy.mattype.Mat33Ops_det.0.f64"
       ]
     },
     {
@@ -721,8 +715,6 @@
       "case_ids": [
         "matops.inv.Mat.legacy.mattype.Mat33Ops_inv.0.f32",
         "matops.inv.Mat.legacy.mattype.Mat33Ops_inv.0.f64",
-        "matops.inv.Mat.legacy.mattype.Mat33Ops_inv.2.f32",
-        "matops.inv.Mat.legacy.mattype.Mat33Ops_inv.2.f64",
         "matops.inverseIdentity.Mat.2.f32",
         "matops.inverseIdentity.Mat.2.f64",
         "matops.inverseIdentity.Mat.3.f32",
@@ -779,10 +771,10 @@
         "extended.insertSubmatrix.Mat.2x2.f64",
         "extended.insertSubmatrix.Mat.3x3.f32",
         "extended.insertSubmatrix.Mat.3x3.f64",
-        "vecops.sub.Vec.1.f32",
-        "vecops.sub.Vec.1.f64",
-        "vecops.sub.VecView.1.f32",
-        "vecops.sub.VecView.1.f64"
+        "vecops.sub.Vec.3.f32",
+        "vecops.sub.Vec.3.f64",
+        "vecops.sub.VecView.3.f32",
+        "vecops.sub.VecView.3.f64"
       ]
     },
     {
@@ -795,10 +787,10 @@
         "extended.insertSubmatrix.Mat.2x2.f64",
         "extended.insertSubmatrix.Mat.3x3.f32",
         "extended.insertSubmatrix.Mat.3x3.f64",
-        "vecops.sub.Vec.1.f32",
-        "vecops.sub.Vec.1.f64",
-        "vecops.sub.VecView.1.f32",
-        "vecops.sub.VecView.1.f64"
+        "vecops.sub.Vec.3.f32",
+        "vecops.sub.Vec.3.f64",
+        "vecops.sub.VecView.3.f32",
+        "vecops.sub.VecView.3.f64"
       ]
     },
     {
@@ -811,10 +803,10 @@
         "matops.matmul.Mat.legacy.mattype.Mat44f_mulMat.0.f64",
         "matops.matmul.MatView.legacy.mattype.Mat44f_mulMat.0.f32",
         "matops.matmul.MatView.legacy.mattype.Mat44f_mulMat.0.f64",
-        "vecops.mul.VecView.1.f32",
-        "vecops.mul.VecView.1.f64",
-        "vecops.mul.slice.1.f32",
-        "vecops.mul.slice.1.f64"
+        "vecops.mul.VecView.3.f32",
+        "vecops.mul.VecView.3.f64",
+        "vecops.mul.slice.3.f32",
+        "vecops.mul.slice.3.f64"
       ]
     },
     {
@@ -824,9 +816,7 @@
       "original_assertion_count": 5,
       "case_ids": [
         "matops.det.Mat.legacy.mattype.Mat44Ops_det.0.f32",
-        "matops.det.Mat.legacy.mattype.Mat44Ops_det.0.f64",
-        "matops.det.Mat.legacy.mattype.Mat44Ops_det.1.f32",
-        "matops.det.Mat.legacy.mattype.Mat44Ops_det.1.f64"
+        "matops.det.Mat.legacy.mattype.Mat44Ops_det.0.f64"
       ]
     },
     {
@@ -941,12 +931,10 @@
       "case_ids": [
         "matops.matmul.MatView.legacy.mattype.Mat_mulMatRect_rectangular_multiplication.0.f32",
         "matops.matmul.MatView.legacy.mattype.Mat_mulMatRect_rectangular_multiplication.0.f64",
-        "matops.matmul.MatView.legacy.mattype.Mat_mulMatRect_rectangular_multiplication.1.f32",
-        "matops.matmul.MatView.legacy.mattype.Mat_mulMatRect_rectangular_multiplication.1.f64",
-        "vecops.mul.VecView.1.f32",
-        "vecops.mul.VecView.1.f64",
-        "vecops.mul.slice.1.f32",
-        "vecops.mul.slice.1.f64"
+        "vecops.mul.VecView.3.f32",
+        "vecops.mul.VecView.3.f64",
+        "vecops.mul.slice.3.f32",
+        "vecops.mul.slice.3.f64"
       ]
     },
     {
@@ -1039,10 +1027,10 @@
       "name": "MatViewOps.sub",
       "original_assertion_count": 1,
       "case_ids": [
-        "vecops.sub.Vec.1.f32",
-        "vecops.sub.Vec.1.f64",
-        "vecops.sub.VecView.1.f32",
-        "vecops.sub.VecView.1.f64"
+        "vecops.sub.Vec.3.f32",
+        "vecops.sub.Vec.3.f64",
+        "vecops.sub.VecView.3.f32",
+        "vecops.sub.VecView.3.f64"
       ]
     },
     {
@@ -1055,10 +1043,10 @@
         "extended.mulOut.MatView.2x2.f64",
         "extended.mulOut.MatView.3x3.f32",
         "extended.mulOut.MatView.3x3.f64",
-        "vecops.mul.VecView.1.f32",
-        "vecops.mul.VecView.1.f64",
-        "vecops.mul.slice.1.f32",
-        "vecops.mul.slice.1.f64"
+        "vecops.mul.VecView.3.f32",
+        "vecops.mul.VecView.3.f64",
+        "vecops.mul.slice.3.f32",
+        "vecops.mul.slice.3.f64"
       ]
     },
     {
@@ -1071,10 +1059,10 @@
         "extended.scale.Vec.methods.f64",
         "extended.scale.VecView.methods.f32",
         "extended.scale.VecView.methods.f64",
-        "vecops.mul.VecView.1.f32",
-        "vecops.mul.VecView.1.f64",
-        "vecops.mul.slice.1.f32",
-        "vecops.mul.slice.1.f64"
+        "vecops.mul.VecView.3.f32",
+        "vecops.mul.VecView.3.f64",
+        "vecops.mul.slice.3.f32",
+        "vecops.mul.slice.3.f64"
       ]
     },
     {
@@ -1087,10 +1075,10 @@
         "extended.divOut.MatView.2x2.f64",
         "extended.divOut.MatView.3x3.f32",
         "extended.divOut.MatView.3x3.f64",
-        "vecops.div.VecView.1.f32",
-        "vecops.div.VecView.1.f64",
-        "vecops.div.slice.1.f32",
-        "vecops.div.slice.1.f64"
+        "vecops.div.VecView.3.f32",
+        "vecops.div.VecView.3.f64",
+        "vecops.div.slice.3.f32",
+        "vecops.div.slice.3.f64"
       ]
     },
     {
@@ -1155,10 +1143,10 @@
         "extended.scale.Vec.methods.f64",
         "extended.scale.VecView.methods.f32",
         "extended.scale.VecView.methods.f64",
-        "vecops.mul.VecView.1.f32",
-        "vecops.mul.VecView.1.f64",
-        "vecops.mul.slice.1.f32",
-        "vecops.mul.slice.1.f64"
+        "vecops.mul.VecView.3.f32",
+        "vecops.mul.VecView.3.f64",
+        "vecops.mul.slice.3.f32",
+        "vecops.mul.slice.3.f64"
       ]
     },
     {
@@ -1171,10 +1159,10 @@
         "matops.matvec.Mat.1x1x1.f64",
         "matops.matvec.MatView.1x1x1.f32",
         "matops.matvec.MatView.1x1x1.f64",
-        "vecops.mul.VecView.1.f32",
-        "vecops.mul.VecView.1.f64",
-        "vecops.mul.slice.1.f32",
-        "vecops.mul.slice.1.f64"
+        "vecops.mul.VecView.3.f32",
+        "vecops.mul.VecView.3.f64",
+        "vecops.mul.slice.3.f32",
+        "vecops.mul.slice.3.f64"
       ]
     },
     {
@@ -1187,10 +1175,10 @@
         "matops.matmul.Mat.1x1x1.f64",
         "matops.matmul.MatView.1x1x1.f32",
         "matops.matmul.MatView.1x1x1.f64",
-        "vecops.mul.VecView.1.f32",
-        "vecops.mul.VecView.1.f64",
-        "vecops.mul.slice.1.f32",
-        "vecops.mul.slice.1.f64"
+        "vecops.mul.VecView.3.f32",
+        "vecops.mul.VecView.3.f64",
+        "vecops.mul.slice.3.f32",
+        "vecops.mul.slice.3.f64"
       ]
     },
     {
@@ -1231,10 +1219,10 @@
         "extended.mulInPlace.MatView.2x2.f64",
         "extended.mulInPlace.MatView.3x3.f32",
         "extended.mulInPlace.MatView.3x3.f64",
-        "vecops.div.VecView.1.f32",
-        "vecops.div.VecView.1.f64",
-        "vecops.div.slice.1.f32",
-        "vecops.div.slice.1.f64"
+        "vecops.div.VecView.3.f32",
+        "vecops.div.VecView.3.f64",
+        "vecops.div.slice.3.f32",
+        "vecops.div.slice.3.f64"
       ]
     },
     {
@@ -1507,10 +1495,10 @@
       "name": "slice.mul",
       "original_assertion_count": 1,
       "case_ids": [
-        "vecops.mul.VecView.1.f32",
-        "vecops.mul.VecView.1.f64",
-        "vecops.mul.slice.1.f32",
-        "vecops.mul.slice.1.f64"
+        "vecops.mul.VecView.3.f32",
+        "vecops.mul.VecView.3.f64",
+        "vecops.mul.slice.3.f32",
+        "vecops.mul.slice.3.f64"
       ]
     },
     {
@@ -1519,10 +1507,10 @@
       "name": "slice.div",
       "original_assertion_count": 1,
       "case_ids": [
-        "vecops.div.VecView.1.f32",
-        "vecops.div.VecView.1.f64",
-        "vecops.div.slice.1.f32",
-        "vecops.div.slice.1.f64"
+        "vecops.div.VecView.3.f32",
+        "vecops.div.VecView.3.f64",
+        "vecops.div.slice.3.f32",
+        "vecops.div.slice.3.f64"
       ]
     },
     {
@@ -1535,10 +1523,10 @@
         "extended.scale.Vec.methods.f64",
         "extended.scale.VecView.methods.f32",
         "extended.scale.VecView.methods.f64",
-        "vecops.mul.VecView.1.f32",
-        "vecops.mul.VecView.1.f64",
-        "vecops.mul.slice.1.f32",
-        "vecops.mul.slice.1.f64"
+        "vecops.mul.VecView.3.f32",
+        "vecops.mul.VecView.3.f64",
+        "vecops.mul.slice.3.f32",
+        "vecops.mul.slice.3.f64"
       ]
     },
     {
@@ -1737,10 +1725,10 @@
         "vecops.max.Vec.legacy.vecops.vecops_maxAbs.0.f64",
         "vecops.max.VecView.legacy.vecops.vecops_maxAbs.0.f32",
         "vecops.max.VecView.legacy.vecops.vecops_maxAbs.0.f64",
-        "vecops.maxAbs.Vec.1.f32",
-        "vecops.maxAbs.Vec.1.f64",
-        "vecops.maxAbs.VecView.1.f32",
-        "vecops.maxAbs.VecView.1.f64"
+        "vecops.maxAbs.Vec.3.f32",
+        "vecops.maxAbs.Vec.3.f64",
+        "vecops.maxAbs.VecView.3.f32",
+        "vecops.maxAbs.VecView.3.f64"
       ]
     },
     {
@@ -1749,10 +1737,10 @@
       "name": "vecops.allFinite",
       "original_assertion_count": 5,
       "case_ids": [
-        "vecops.allFinite.Vec.1.f32",
-        "vecops.allFinite.Vec.1.f64",
-        "vecops.allFinite.VecView.1.f32",
-        "vecops.allFinite.VecView.1.f64"
+        "vecops.allFinite.Vec.3.f32",
+        "vecops.allFinite.Vec.3.f64",
+        "vecops.allFinite.VecView.3.f32",
+        "vecops.allFinite.VecView.3.f64"
       ]
     },
     {
@@ -1761,10 +1749,10 @@
       "name": "vecops.axpy",
       "original_assertion_count": 6,
       "case_ids": [
-        "vecops.axpy.Vec.1.f32",
-        "vecops.axpy.Vec.1.f64",
-        "vecops.axpy.VecView.1.f32",
-        "vecops.axpy.VecView.1.f64"
+        "vecops.axpy.Vec.3.f32",
+        "vecops.axpy.Vec.3.f64",
+        "vecops.axpy.VecView.3.f32",
+        "vecops.axpy.VecView.3.f64"
       ]
     },
     {
@@ -1779,10 +1767,10 @@
         "extended.extremaIndices.Vec.methods.f64",
         "extended.extremaIndices.VecView.methods.f32",
         "extended.extremaIndices.VecView.methods.f64",
-        "vecops.max.Vec.1.f32",
-        "vecops.max.Vec.1.f64",
-        "vecops.max.VecView.1.f32",
-        "vecops.max.VecView.1.f64"
+        "vecops.max.Vec.3.f32",
+        "vecops.max.Vec.3.f64",
+        "vecops.max.VecView.3.f32",
+        "vecops.max.VecView.3.f64"
       ]
     },
     {
@@ -1879,10 +1867,10 @@
       "name": "Vec3f.sub",
       "original_assertion_count": 1,
       "case_ids": [
-        "vecops.sub.Vec.1.f32",
-        "vecops.sub.Vec.1.f64",
-        "vecops.sub.VecView.1.f32",
-        "vecops.sub.VecView.1.f64"
+        "vecops.sub.Vec.3.f32",
+        "vecops.sub.Vec.3.f64",
+        "vecops.sub.VecView.3.f32",
+        "vecops.sub.VecView.3.f64"
       ]
     },
     {
@@ -1895,10 +1883,10 @@
         "extended.scale.Vec.methods.f64",
         "extended.scale.VecView.methods.f32",
         "extended.scale.VecView.methods.f64",
-        "vecops.mul.VecView.1.f32",
-        "vecops.mul.VecView.1.f64",
-        "vecops.mul.slice.1.f32",
-        "vecops.mul.slice.1.f64"
+        "vecops.mul.VecView.3.f32",
+        "vecops.mul.VecView.3.f64",
+        "vecops.mul.slice.3.f32",
+        "vecops.mul.slice.3.f64"
       ]
     },
     {
@@ -1923,18 +1911,18 @@
         "extended.legacyNorms.Vec.methods.f64",
         "extended.legacyNorms.VecView.methods.f32",
         "extended.legacyNorms.VecView.methods.f64",
-        "vecops.normL1.Vec.1.f32",
-        "vecops.normL1.Vec.1.f64",
-        "vecops.normL1.VecView.1.f32",
-        "vecops.normL1.VecView.1.f64",
-        "vecops.normL2.Vec.1.f32",
-        "vecops.normL2.Vec.1.f64",
-        "vecops.normL2.VecView.1.f32",
-        "vecops.normL2.VecView.1.f64",
-        "vecops.normL2Square.Vec.1.f32",
-        "vecops.normL2Square.Vec.1.f64",
-        "vecops.normL2Square.VecView.1.f32",
-        "vecops.normL2Square.VecView.1.f64"
+        "vecops.normL1.Vec.3.f32",
+        "vecops.normL1.Vec.3.f64",
+        "vecops.normL1.VecView.3.f32",
+        "vecops.normL1.VecView.3.f64",
+        "vecops.normL2.Vec.3.f32",
+        "vecops.normL2.Vec.3.f64",
+        "vecops.normL2.VecView.3.f32",
+        "vecops.normL2.VecView.3.f64",
+        "vecops.normL2Square.Vec.3.f32",
+        "vecops.normL2Square.Vec.3.f64",
+        "vecops.normL2Square.VecView.3.f32",
+        "vecops.normL2Square.VecView.3.f64"
       ]
     },
     {
@@ -2090,10 +2078,10 @@
         "extended.mulInPlace.MatView.2x2.f64",
         "extended.mulInPlace.MatView.3x3.f32",
         "extended.mulInPlace.MatView.3x3.f64",
-        "vecops.mul.VecView.1.f32",
-        "vecops.mul.VecView.1.f64",
-        "vecops.mul.slice.1.f32",
-        "vecops.mul.slice.1.f64"
+        "vecops.mul.VecView.3.f32",
+        "vecops.mul.VecView.3.f64",
+        "vecops.mul.slice.3.f32",
+        "vecops.mul.slice.3.f64"
       ]
     },
     {
@@ -2106,10 +2094,10 @@
         "extended.divInPlace.MatView.2x2.f64",
         "extended.divInPlace.MatView.3x3.f32",
         "extended.divInPlace.MatView.3x3.f64",
-        "vecops.div.VecView.1.f32",
-        "vecops.div.VecView.1.f64",
-        "vecops.div.slice.1.f32",
-        "vecops.div.slice.1.f64"
+        "vecops.div.VecView.3.f32",
+        "vecops.div.VecView.3.f64",
+        "vecops.div.slice.3.f32",
+        "vecops.div.slice.3.f64"
       ]
     },
     {
@@ -2122,10 +2110,10 @@
         "extended.scale.Vec.methods.f64",
         "extended.scale.VecView.methods.f32",
         "extended.scale.VecView.methods.f64",
-        "vecops.mul.VecView.1.f32",
-        "vecops.mul.VecView.1.f64",
-        "vecops.mul.slice.1.f32",
-        "vecops.mul.slice.1.f64"
+        "vecops.mul.VecView.3.f32",
+        "vecops.mul.VecView.3.f64",
+        "vecops.mul.slice.3.f32",
+        "vecops.mul.slice.3.f64"
       ]
     },
     {

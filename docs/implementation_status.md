@@ -15,6 +15,6 @@ The agreed Phase 0/A work is implemented and locally verified on Linux x86-64 wi
 * Nine paired examples, independent Zig/Mojo consumers, source-whitelist packaging verification, pinned uv environment, developer documentation and CI configuration.
 * Quiet native/default verification and benchmark commands. Explicit --jsonl/--verbose switches provide detailed records; wrappers save logs/artifacts and bound failure diagnostics.
 
-Local acceptance: 30 pytest tests passed, Zig Debug/ReleaseFast tests passed, formatting passed, whitelisted Zig consumers passed in both modes, paired examples ran, and ABI exports/runtime dependencies were inspected. Full benchmark summaries are versioned in dev/baselines; raw records and detailed verification logs remain under ignored build/ and benchmarks/results/.
+Local acceptance: 30 pytest tests passed, Zig Debug/ReleaseFast tests passed, formatting passed, whitelisted Zig consumers passed in both modes, paired examples ran, and ABI exports/runtime dependencies were inspected. Benchmark summaries, raw records and performance notes are machine-local and ignored; correctness fixtures remain versioned.
 
 Hosted CI has not been run by this session. Verified binary support is Linux x86-64; universal binaries, Python wheels, GPU, explicit SIMD, QR and NDView remain outside this milestone.

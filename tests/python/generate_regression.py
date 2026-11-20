@@ -25,12 +25,15 @@ def generate():
         suites.setdefault(suite,[]).append(case)
     for dtype in ['f32','f64']:
       dt=np.float32 if dtype=='f32' else np.float64
-      for n in [1,2,3,4,6,8,12,16,31,257,1003,4096]:
+      for n in [1,3,8,16,17,31,32,33]:
         a=np.asarray([((i%13)-6)/8 for i in range(n)],dtype=dt);b=np.asarray([((i%7)+1)/4 for i in range(n)],dtype=dt)
         inputs=dict(a=a.tolist(),b=b.tolist(),shape=[n],alpha=-0.5)
         ops=dict(dot=np.dot(a,b),normL1=np.sum(np.abs(a)),normL2=np.linalg.norm(a),normL2Square=np.dot(a,a),maxAbs=np.max(np.abs(a)),allFinite=1,sum=np.sum(a),mean=np.mean(a),min=np.min(a),max=np.max(a),add=a+b,sub=a-b,mul=a*b,div=a/b,axpy=-0.5*a+b)
         for rep in ['Vec','VecView','slice'] if n<=16 else ['VecView','slice']:
           for op,expected in ops.items():
+            # Full operation coverage uses a small signed vector. Other sizes
+            # probe singleton, fixed-size instantiation and loop/tail boundaries.
+            if n!=3 and op not in ['dot','add']:continue
             if rep=='Vec' and op in ['mul','div']:continue
             if rep=='slice' and op in ['maxAbs','allFinite','axpy']:continue
             add('vecops',op,dtype,inputs,expected,representation=rep,label=str(n))
@@ -159,7 +162,7 @@ def generate():
         contracts.append(dict(id='contract.'+label,suite='ndarray' if op!='matrixInit' else 'types',category='contract',operation=op,dtype='f64',representation='NDArray' if op!='matrixInit' else 'MatView',inputs=dict(a=[0]*6,shape=shape,index=index),expected_error='AssertionFailed',source='hand',execution='native-child-process'))
     (OUT/'contracts.json').write_text(json.dumps(dict(schema_version=1,cases=contracts),indent=2)+'\n')
     files={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(OUT.glob('*.json')) if p.stem in suites or p.stem=='contracts'}
-    manifest=dict(schema_version=1,generator='generate_regression.py/v2',numpy=np.__version__,scipy=scipy.__version__,files=files,case_count=sum(map(len,suites.values())),contract_count=len(contracts),abi_output_guard=dict(prefix=2,suffix=2,value=123))
+    manifest=dict(schema_version=1,generator='generate_regression.py/v3',numpy=np.__version__,scipy=scipy.__version__,files=files,case_count=sum(map(len,suites.values())),contract_count=len(contracts),abi_output_guard=dict(prefix=2,suffix=2,value=123))
     all_cases=[c for cases in suites.values() for c in cases]
     (OUT/'all.json').write_text(json.dumps(dict(schema_version=1,cases=all_cases),separators=(',',':'))+'\n')
     from legacy_registry import generate as registry

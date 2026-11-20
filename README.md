@@ -99,6 +99,6 @@ zig build cabi -Doptimize=ReleaseFast
 .venv/bin/python benchmarks/python/run_benchmarks.py --backend mojo --label mojo-current
 ```
 
-Use `--samples 2 --runs 2` for benchmark smoke runs. Raw runs and coverage reports remain machine-local under ignored build/ and benchmarks/results/. No explicit SIMD implementations are included; normal compiler auto-vectorisation is permitted. Initial measurements are recorded in [the scalar baseline](dev/scalar_baseline.md).
+Use `--samples 2 --runs 2` for benchmark smoke runs. Raw runs and coverage reports remain machine-local under ignored build/ and benchmarks/results/. No explicit SIMD implementations are included; normal compiler auto-vectorisation is permitted. Performance measurements and experiment logs are machine-local and are not versioned.
 
 See [implementation status](docs/implementation_status.md), [the C ABI](docs/cabi.md), [benchmark controls](docs/benchmarking.md), [architecture decisions](docs/architecture.md), and [the machine-readable API registry](docs/api_manifest.json). Mojo libraries require their bundled runtime .libs directory. Universal binary distribution and Python wheels are not claimed.

@@ -1,19 +1,19 @@
 {
   "schema_version": 1,
-  "generator": "generate_regression.py/v2",
+  "generator": "generate_regression.py/v3",
   "numpy": "2.5.5",
   "scipy": "1.18.1",
   "files": {
     "contracts.json": "63a75ad14b5e1ae8f2f04e9b8754178d49c70324826f9fa9bc342daa5d855985",
     "extended.json": "e135a0259585310dd3936e1827b9a858b66e6d36527054f1b1b75ab01651d30b",
-    "linsolve.json": "d3bb8a2ec2d003b8aac28dbcf35e4fcd891c5bf6124b491e43fb86f2e3b8c328",
-    "matops.json": "c9df110513dca89cfc6c16668c9ab1795de352e07dbb957c426382404758932b",
+    "linsolve.json": "8a78466c226647e9da7c7eb850360b64cf5c191cfebb736742c2a5fc7d036ccf",
+    "matops.json": "71f6312d6dd0d14ea3b0e8fcf24e3429a78171540fd04a3e209c50b0126a7fc1",
     "ndarray.json": "1a2867203980d4c9e95ed998ce6a131cb8410e51713eec9c25336b25c779ea9d",
     "rowops.json": "22768804984275f01f547916baad9a31f06eb1b83aa5dca21a5dd910c7ce679d",
     "types.json": "b7721fe5f189174f9a6a9668deeaf2ac2dfa7bcb6dc1a0e866f26c4b2d2c28f2",
-    "vecops.json": "7c307eba76cb24351d053684f9a2aa9cc68cc2f926407d4373ea5bc79d9ba4ab"
+    "vecops.json": "c21e5824c52fd646ed561510e894bbf7d987e985d9af6286f0bcb3eb51c68660"
   },
-  "case_count": 16009,
+  "case_count": 3211,
   "contract_count": 5,
   "abi_output_guard": {
     "prefix": 2,
@@ -24,8 +24,8 @@
     "historical_inputs.json": "d57be82b2bce394e03c31ee321711f1f984652c80f1c1cdd2697e6373efa3991"
   },
   "derived_files": {
-    "all.json": "ec0193265c0ce272909571f3737cb28158a7df7350efae4203d521a05808ec34",
-    "legacy_registry.json": "4ebc0d20ff3bf5fa44620615b68285def711e86f876ea836e82d63c8382d24dd",
-    "legacy_cases.json": "0db792b3c5a8f199244bf11c9d8d4812231da1cec083225084c2839e671920f2"
+    "all.json": "e6291c333c1787ff4a380164d8b04ebee9e2af5c8e973934f3038f8723307126",
+    "legacy_registry.json": "fb8111a648e564b9940300944cb6bc7b012a52e6a6db725ed6ac9acf3e70302e",
+    "legacy_cases.json": "0aec7e8300345d33af88d74824461a82ad7aff39418cc340dfe7d7b6944e13d3"
   }
 }

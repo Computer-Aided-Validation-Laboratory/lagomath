@@ -14,7 +14,7 @@ Zig uses ReleaseFast and -Dcpu=baseline; Mojo uses -O3, --target-cpu x86-64 and 
 
 Monotonic native timing excludes JSON parsing, input generation, allocation, shape construction and factorisation in reuse cases. Fixed-prefix NDArray cases measure access through a preconstructed descriptor; metadata allocation is outside timing. Kernel dispatch, compiler barriers, copies required by the value API, and resetting accumulation destinations remain included. These costs matter for tiny kernels. Python/cffi call overhead is not mixed with native timings.
 
-Raw machine-local runs are ignored under benchmarks/results. dev/scalar_baseline.md records initial runs, including the original-commit baseline and the rename-only run. An expanded harness was also run against an isolated archive of the original commit before comparison with scaled solvers. Laptop frequencies/scheduling are uncontrolled, so CI timings are advisory and not hard speed gates. Broad performance claims require stable hardware and longer runs.
+Performance output is machine-local and is not versioned. Raw runs and summaries are ignored under benchmarks/results/ and dev/baselines/; local notes in dev/scalar_baseline.md and dev/simd_perf_log.md are also ignored. Benchmark source and deterministic workload definitions remain versioned. Laptop frequencies/scheduling are uncontrolled, so CI timings are advisory and not hard speed gates. Broad performance claims require stable hardware and longer runs.
 
 Successful benchmark runs print one summary line. Build diagnostics are captured in build/logs; raw timing records remain in benchmarks/results. Failures show a bounded diagnostic tail and the full log path. RHS batches and their factors are prepared outside the timed loop.
 

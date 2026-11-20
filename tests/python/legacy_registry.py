@@ -40,19 +40,24 @@ RULES={
 }
 
 
+def operations_for_test(test):
+    operations=set()
+    for text,ops in RULES.items():
+        if text.lower() in test['name'].lower():operations.update(ops)
+    # Composite titles need the extra contracts they describe.
+    if test['file'].endswith('vectype.zig') and 'minimum' in test['name']:operations.add('componentExtrema')
+    if 'VecSliceOps' in test['name']:operations.add('componentExtrema')
+    if 'integer' in test['name']:operations.add('integerArithmetic')
+    if 'cleanup' in test['name']:operations.add('dupe')
+    if 'allocation' in test['name']:operations.update(['fill','initFlat'])
+    return operations
+
+
 def generate(cases,output):
     source=json.loads((ROOT/'tests/cases/historical_inputs.json').read_text())['tests']
     rows=[]
     for test in source:
-        operations=set()
-        for text,ops in RULES.items():
-            if text.lower() in test['name'].lower():operations.update(ops)
-        # Composite titles need the extra contracts they describe.
-        if test['file'].endswith('vectype.zig') and 'minimum' in test['name']:operations.add('componentExtrema')
-        if 'VecSliceOps' in test['name']:operations.add('componentExtrema')
-        if 'integer' in test['name']:operations.add('integerArithmetic')
-        if 'cleanup' in test['name']:operations.add('dupe')
-        if 'allocation' in test['name']:operations.update(['fill','initFlat'])
+        operations=operations_for_test(test)
         relevant=[c for c in cases if c['operation'] in operations]
         if not relevant:raise RuntimeError('Unmapped historical test: '+test['name'])
         # Prefer extracted original data; retain every operation in composites.

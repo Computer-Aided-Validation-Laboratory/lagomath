@@ -12,7 +12,19 @@ ROOT=Path(__file__).resolve().parents[2]
 
 def generate(add):
     tests=json.loads((ROOT/'tests/cases/historical_inputs.json').read_text())['tests']
+    from legacy_registry import operations_for_test
+    emit=add
     for test in tests:
+        operations=operations_for_test(test)
+        seen=set()
+        def add(suite,operation,dtype,inputs,expected=None,**kwargs):
+            # Historical inputs only exercise the behaviour named by that test.
+            # One original input per operation/representation/precision suffices;
+            # RHS and scratch arrays must not create unrelated test families.
+            key=(operation,kwargs.get('representation'),dtype)
+            if operation not in operations or key in seen:return
+            seen.add(key)
+            emit(suite,operation,dtype,inputs,expected,**kwargs)
         for index,array in enumerate(test['arrays']):
             if array['role']!='input' or not array['values']:continue
             for dtype in ['f32','f64']:
