@@ -15,3 +15,5 @@ zig-out/
 !.github/
 !.github/workflows/
 !.github/workflows/*.yml
+benchmarks/results/
+__pycache__/

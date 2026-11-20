@@ -1,0 +1,1217 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "id": "rowops.swapRows.MatView.1x1.f32",
+      "suite": "rowops",
+      "category": "regression",
+      "operation": "swapRows",
+      "dtype": "f32",
+      "representation": "MatView",
+      "inputs": {
+        "a": [
+          0.0
+        ],
+        "shape": [
+          1,
+          1
+        ],
+        "alpha": -0.5,
+        "row_a": 0,
+        "row_b": 0
+      },
+      "source": "numpy",
+      "expected": [
+        0.0
+      ],
+      "tolerance": {
+        "atol": 2e-05,
+        "rtol": 0.0002
+      }
+    },
+    {
+      "id": "rowops.scaleRow.MatView.1x1.f32",
+      "suite": "rowops",
+      "category": "regression",
+      "operation": "scaleRow",
+      "dtype": "f32",
+      "representation": "MatView",
+      "inputs": {
+        "a": [
+          0.0
+        ],
+        "shape": [
+          1,
+          1
+        ],
+        "alpha": -0.5,
+        "row_a": 0,
+        "row_b": 0
+      },
+      "source": "numpy",
+      "expected": [
+        -0.0
+      ],
+      "tolerance": {
+        "atol": 2e-05,
+        "rtol": 0.0002
+      }
+    },
+    {
+      "id": "rowops.addScaledRow.MatView.1x1.f32",
+      "suite": "rowops",
+      "category": "regression",
+      "operation": "addScaledRow",
+      "dtype": "f32",
+      "representation": "MatView",
+      "inputs": {
+        "a": [
+          0.0
+        ],
+        "shape": [
+          1,
+          1
+        ],
+        "alpha": -0.5,
+        "row_a": 0,
+        "row_b": 0
+      },
+      "source": "numpy",
+      "expected": [
+        0.0
+      ],
+      "tolerance": {
+        "atol": 2e-05,
+        "rtol": 0.0002
+      }
+    },
+    {
+      "id": "rowops.swapRows.MatView.2x3.f32",
+      "suite": "rowops",
+      "category": "regression",
+      "operation": "swapRows",
+      "dtype": "f32",
+      "representation": "MatView",
+      "inputs": {
+        "a": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0,
+          1.25
+        ],
+        "shape": [
+          2,
+          3
+        ],
+        "alpha": -0.5,
+        "row_a": 0,
+        "row_b": 1
+      },
+      "source": "numpy",
+      "expected": [
+        0.75,
+        1.0,
+        1.25,
+        0.0,
+        0.25,
+        0.5
+      ],
+      "tolerance": {
+        "atol": 2e-05,
+        "rtol": 0.0002
+      }
+    },
+    {
+      "id": "rowops.scaleRow.MatView.2x3.f32",
+      "suite": "rowops",
+      "category": "regression",
+      "operation": "scaleRow",
+      "dtype": "f32",
+      "representation": "MatView",
+      "inputs": {
+        "a": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0,
+          1.25
+        ],
+        "shape": [
+          2,
+          3
+        ],
+        "alpha": -0.5,
+        "row_a": 0,
+        "row_b": 1
+      },
+      "source": "numpy",
+      "expected": [
+        -0.0,
+        -0.125,
+        -0.25,
+        0.75,
+        1.0,
+        1.25
+      ],
+      "tolerance": {
+        "atol": 2e-05,
+        "rtol": 0.0002
+      }
+    },
+    {
+      "id": "rowops.addScaledRow.MatView.2x3.f32",
+      "suite": "rowops",
+      "category": "regression",
+      "operation": "addScaledRow",
+      "dtype": "f32",
+      "representation": "MatView",
+      "inputs": {
+        "a": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0,
+          1.25
+        ],
+        "shape": [
+          2,
+          3
+        ],
+        "alpha": -0.5,
+        "row_a": 0,
+        "row_b": 1
+      },
+      "source": "numpy",
+      "expected": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        0.875,
+        1.0
+      ],
+      "tolerance": {
+        "atol": 2e-05,
+        "rtol": 0.0002
+      }
+    },
+    {
+      "id": "rowops.swapRows.MatView.3x2.f32",
+      "suite": "rowops",
+      "category": "regression",
+      "operation": "swapRows",
+      "dtype": "f32",
+      "representation": "MatView",
+      "inputs": {
+        "a": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0,
+          1.25
+        ],
+        "shape": [
+          3,
+          2
+        ],
+        "alpha": -0.5,
+        "row_a": 0,
+        "row_b": 2
+      },
+      "source": "numpy",
+      "expected": [
+        1.0,
+        1.25,
+        0.5,
+        0.75,
+        0.0,
+        0.25
+      ],
+      "tolerance": {
+        "atol": 2e-05,
+        "rtol": 0.0002
+      }
+    },
+    {
+      "id": "rowops.scaleRow.MatView.3x2.f32",
+      "suite": "rowops",
+      "category": "regression",
+      "operation": "scaleRow",
+      "dtype": "f32",
+      "representation": "MatView",
+      "inputs": {
+        "a": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0,
+          1.25
+        ],
+        "shape": [
+          3,
+          2
+        ],
+        "alpha": -0.5,
+        "row_a": 0,
+        "row_b": 2
+      },
+      "source": "numpy",
+      "expected": [
+        -0.0,
+        -0.125,
+        0.5,
+        0.75,
+        1.0,
+        1.25
+      ],
+      "tolerance": {
+        "atol": 2e-05,
+        "rtol": 0.0002
+      }
+    },
+    {
+      "id": "rowops.addScaledRow.MatView.3x2.f32",
+      "suite": "rowops",
+      "category": "regression",
+      "operation": "addScaledRow",
+      "dtype": "f32",
+      "representation": "MatView",
+      "inputs": {
+        "a": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0,
+          1.25
+        ],
+        "shape": [
+          3,
+          2
+        ],
+        "alpha": -0.5,
+        "row_a": 0,
+        "row_b": 2
+      },
+      "source": "numpy",
+      "expected": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0,
+        1.125
+      ],
+      "tolerance": {
+        "atol": 2e-05,
+        "rtol": 0.0002
+      }
+    },
+    {
+      "id": "rowops.swapRows.MatView.6x6.f32",
+      "suite": "rowops",
+      "category": "regression",
+      "operation": "swapRows",
+      "dtype": "f32",
+      "representation": "MatView",
+      "inputs": {
+        "a": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0,
+          1.25,
+          1.5,
+          1.75,
+          2.0,
+          2.25,
+          2.5,
+          2.75,
+          3.0,
+          3.25,
+          3.5,
+          3.75,
+          4.0,
+          4.25,
+          4.5,
+          4.75,
+          5.0,
+          5.25,
+          5.5,
+          5.75,
+          6.0,
+          6.25,
+          6.5,
+          6.75,
+          7.0,
+          7.25,
+          7.5,
+          7.75,
+          8.0,
+          8.25,
+          8.5,
+          8.75
+        ],
+        "shape": [
+          6,
+          6
+        ],
+        "alpha": -0.5,
+        "row_a": 0,
+        "row_b": 5
+      },
+      "source": "numpy",
+      "expected": [
+        7.5,
+        7.75,
+        8.0,
+        8.25,
+        8.5,
+        8.75,
+        1.5,
+        1.75,
+        2.0,
+        2.25,
+        2.5,
+        2.75,
+        3.0,
+        3.25,
+        3.5,
+        3.75,
+        4.0,
+        4.25,
+        4.5,
+        4.75,
+        5.0,
+        5.25,
+        5.5,
+        5.75,
+        6.0,
+        6.25,
+        6.5,
+        6.75,
+        7.0,
+        7.25,
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0,
+        1.25
+      ],
+      "tolerance": {
+        "atol": 2e-05,
+        "rtol": 0.0002
+      }
+    },
+    {
+      "id": "rowops.scaleRow.MatView.6x6.f32",
+      "suite": "rowops",
+      "category": "regression",
+      "operation": "scaleRow",
+      "dtype": "f32",
+      "representation": "MatView",
+      "inputs": {
+        "a": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0,
+          1.25,
+          1.5,
+          1.75,
+          2.0,
+          2.25,
+          2.5,
+          2.75,
+          3.0,
+          3.25,
+          3.5,
+          3.75,
+          4.0,
+          4.25,
+          4.5,
+          4.75,
+          5.0,
+          5.25,
+          5.5,
+          5.75,
+          6.0,
+          6.25,
+          6.5,
+          6.75,
+          7.0,
+          7.25,
+          7.5,
+          7.75,
+          8.0,
+          8.25,
+          8.5,
+          8.75
+        ],
+        "shape": [
+          6,
+          6
+        ],
+        "alpha": -0.5,
+        "row_a": 0,
+        "row_b": 5
+      },
+      "source": "numpy",
+      "expected": [
+        -0.0,
+        -0.125,
+        -0.25,
+        -0.375,
+        -0.5,
+        -0.625,
+        1.5,
+        1.75,
+        2.0,
+        2.25,
+        2.5,
+        2.75,
+        3.0,
+        3.25,
+        3.5,
+        3.75,
+        4.0,
+        4.25,
+        4.5,
+        4.75,
+        5.0,
+        5.25,
+        5.5,
+        5.75,
+        6.0,
+        6.25,
+        6.5,
+        6.75,
+        7.0,
+        7.25,
+        7.5,
+        7.75,
+        8.0,
+        8.25,
+        8.5,
+        8.75
+      ],
+      "tolerance": {
+        "atol": 2e-05,
+        "rtol": 0.0002
+      }
+    },
+    {
+      "id": "rowops.addScaledRow.MatView.6x6.f32",
+      "suite": "rowops",
+      "category": "regression",
+      "operation": "addScaledRow",
+      "dtype": "f32",
+      "representation": "MatView",
+      "inputs": {
+        "a": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0,
+          1.25,
+          1.5,
+          1.75,
+          2.0,
+          2.25,
+          2.5,
+          2.75,
+          3.0,
+          3.25,
+          3.5,
+          3.75,
+          4.0,
+          4.25,
+          4.5,
+          4.75,
+          5.0,
+          5.25,
+          5.5,
+          5.75,
+          6.0,
+          6.25,
+          6.5,
+          6.75,
+          7.0,
+          7.25,
+          7.5,
+          7.75,
+          8.0,
+          8.25,
+          8.5,
+          8.75
+        ],
+        "shape": [
+          6,
+          6
+        ],
+        "alpha": -0.5,
+        "row_a": 0,
+        "row_b": 5
+      },
+      "source": "numpy",
+      "expected": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0,
+        1.25,
+        1.5,
+        1.75,
+        2.0,
+        2.25,
+        2.5,
+        2.75,
+        3.0,
+        3.25,
+        3.5,
+        3.75,
+        4.0,
+        4.25,
+        4.5,
+        4.75,
+        5.0,
+        5.25,
+        5.5,
+        5.75,
+        6.0,
+        6.25,
+        6.5,
+        6.75,
+        7.0,
+        7.25,
+        7.5,
+        7.625,
+        7.75,
+        7.875,
+        8.0,
+        8.125
+      ],
+      "tolerance": {
+        "atol": 2e-05,
+        "rtol": 0.0002
+      }
+    },
+    {
+      "id": "rowops.swapRows.MatView.1x1.f64",
+      "suite": "rowops",
+      "category": "regression",
+      "operation": "swapRows",
+      "dtype": "f64",
+      "representation": "MatView",
+      "inputs": {
+        "a": [
+          0.0
+        ],
+        "shape": [
+          1,
+          1
+        ],
+        "alpha": -0.5,
+        "row_a": 0,
+        "row_b": 0
+      },
+      "source": "numpy",
+      "expected": [
+        0.0
+      ],
+      "tolerance": {
+        "atol": 2e-12,
+        "rtol": 2e-11
+      }
+    },
+    {
+      "id": "rowops.scaleRow.MatView.1x1.f64",
+      "suite": "rowops",
+      "category": "regression",
+      "operation": "scaleRow",
+      "dtype": "f64",
+      "representation": "MatView",
+      "inputs": {
+        "a": [
+          0.0
+        ],
+        "shape": [
+          1,
+          1
+        ],
+        "alpha": -0.5,
+        "row_a": 0,
+        "row_b": 0
+      },
+      "source": "numpy",
+      "expected": [
+        -0.0
+      ],
+      "tolerance": {
+        "atol": 2e-12,
+        "rtol": 2e-11
+      }
+    },
+    {
+      "id": "rowops.addScaledRow.MatView.1x1.f64",
+      "suite": "rowops",
+      "category": "regression",
+      "operation": "addScaledRow",
+      "dtype": "f64",
+      "representation": "MatView",
+      "inputs": {
+        "a": [
+          0.0
+        ],
+        "shape": [
+          1,
+          1
+        ],
+        "alpha": -0.5,
+        "row_a": 0,
+        "row_b": 0
+      },
+      "source": "numpy",
+      "expected": [
+        0.0
+      ],
+      "tolerance": {
+        "atol": 2e-12,
+        "rtol": 2e-11
+      }
+    },
+    {
+      "id": "rowops.swapRows.MatView.2x3.f64",
+      "suite": "rowops",
+      "category": "regression",
+      "operation": "swapRows",
+      "dtype": "f64",
+      "representation": "MatView",
+      "inputs": {
+        "a": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0,
+          1.25
+        ],
+        "shape": [
+          2,
+          3
+        ],
+        "alpha": -0.5,
+        "row_a": 0,
+        "row_b": 1
+      },
+      "source": "numpy",
+      "expected": [
+        0.75,
+        1.0,
+        1.25,
+        0.0,
+        0.25,
+        0.5
+      ],
+      "tolerance": {
+        "atol": 2e-12,
+        "rtol": 2e-11
+      }
+    },
+    {
+      "id": "rowops.scaleRow.MatView.2x3.f64",
+      "suite": "rowops",
+      "category": "regression",
+      "operation": "scaleRow",
+      "dtype": "f64",
+      "representation": "MatView",
+      "inputs": {
+        "a": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0,
+          1.25
+        ],
+        "shape": [
+          2,
+          3
+        ],
+        "alpha": -0.5,
+        "row_a": 0,
+        "row_b": 1
+      },
+      "source": "numpy",
+      "expected": [
+        -0.0,
+        -0.125,
+        -0.25,
+        0.75,
+        1.0,
+        1.25
+      ],
+      "tolerance": {
+        "atol": 2e-12,
+        "rtol": 2e-11
+      }
+    },
+    {
+      "id": "rowops.addScaledRow.MatView.2x3.f64",
+      "suite": "rowops",
+      "category": "regression",
+      "operation": "addScaledRow",
+      "dtype": "f64",
+      "representation": "MatView",
+      "inputs": {
+        "a": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0,
+          1.25
+        ],
+        "shape": [
+          2,
+          3
+        ],
+        "alpha": -0.5,
+        "row_a": 0,
+        "row_b": 1
+      },
+      "source": "numpy",
+      "expected": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        0.875,
+        1.0
+      ],
+      "tolerance": {
+        "atol": 2e-12,
+        "rtol": 2e-11
+      }
+    },
+    {
+      "id": "rowops.swapRows.MatView.3x2.f64",
+      "suite": "rowops",
+      "category": "regression",
+      "operation": "swapRows",
+      "dtype": "f64",
+      "representation": "MatView",
+      "inputs": {
+        "a": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0,
+          1.25
+        ],
+        "shape": [
+          3,
+          2
+        ],
+        "alpha": -0.5,
+        "row_a": 0,
+        "row_b": 2
+      },
+      "source": "numpy",
+      "expected": [
+        1.0,
+        1.25,
+        0.5,
+        0.75,
+        0.0,
+        0.25
+      ],
+      "tolerance": {
+        "atol": 2e-12,
+        "rtol": 2e-11
+      }
+    },
+    {
+      "id": "rowops.scaleRow.MatView.3x2.f64",
+      "suite": "rowops",
+      "category": "regression",
+      "operation": "scaleRow",
+      "dtype": "f64",
+      "representation": "MatView",
+      "inputs": {
+        "a": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0,
+          1.25
+        ],
+        "shape": [
+          3,
+          2
+        ],
+        "alpha": -0.5,
+        "row_a": 0,
+        "row_b": 2
+      },
+      "source": "numpy",
+      "expected": [
+        -0.0,
+        -0.125,
+        0.5,
+        0.75,
+        1.0,
+        1.25
+      ],
+      "tolerance": {
+        "atol": 2e-12,
+        "rtol": 2e-11
+      }
+    },
+    {
+      "id": "rowops.addScaledRow.MatView.3x2.f64",
+      "suite": "rowops",
+      "category": "regression",
+      "operation": "addScaledRow",
+      "dtype": "f64",
+      "representation": "MatView",
+      "inputs": {
+        "a": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0,
+          1.25
+        ],
+        "shape": [
+          3,
+          2
+        ],
+        "alpha": -0.5,
+        "row_a": 0,
+        "row_b": 2
+      },
+      "source": "numpy",
+      "expected": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0,
+        1.125
+      ],
+      "tolerance": {
+        "atol": 2e-12,
+        "rtol": 2e-11
+      }
+    },
+    {
+      "id": "rowops.swapRows.MatView.6x6.f64",
+      "suite": "rowops",
+      "category": "regression",
+      "operation": "swapRows",
+      "dtype": "f64",
+      "representation": "MatView",
+      "inputs": {
+        "a": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0,
+          1.25,
+          1.5,
+          1.75,
+          2.0,
+          2.25,
+          2.5,
+          2.75,
+          3.0,
+          3.25,
+          3.5,
+          3.75,
+          4.0,
+          4.25,
+          4.5,
+          4.75,
+          5.0,
+          5.25,
+          5.5,
+          5.75,
+          6.0,
+          6.25,
+          6.5,
+          6.75,
+          7.0,
+          7.25,
+          7.5,
+          7.75,
+          8.0,
+          8.25,
+          8.5,
+          8.75
+        ],
+        "shape": [
+          6,
+          6
+        ],
+        "alpha": -0.5,
+        "row_a": 0,
+        "row_b": 5
+      },
+      "source": "numpy",
+      "expected": [
+        7.5,
+        7.75,
+        8.0,
+        8.25,
+        8.5,
+        8.75,
+        1.5,
+        1.75,
+        2.0,
+        2.25,
+        2.5,
+        2.75,
+        3.0,
+        3.25,
+        3.5,
+        3.75,
+        4.0,
+        4.25,
+        4.5,
+        4.75,
+        5.0,
+        5.25,
+        5.5,
+        5.75,
+        6.0,
+        6.25,
+        6.5,
+        6.75,
+        7.0,
+        7.25,
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0,
+        1.25
+      ],
+      "tolerance": {
+        "atol": 2e-12,
+        "rtol": 2e-11
+      }
+    },
+    {
+      "id": "rowops.scaleRow.MatView.6x6.f64",
+      "suite": "rowops",
+      "category": "regression",
+      "operation": "scaleRow",
+      "dtype": "f64",
+      "representation": "MatView",
+      "inputs": {
+        "a": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0,
+          1.25,
+          1.5,
+          1.75,
+          2.0,
+          2.25,
+          2.5,
+          2.75,
+          3.0,
+          3.25,
+          3.5,
+          3.75,
+          4.0,
+          4.25,
+          4.5,
+          4.75,
+          5.0,
+          5.25,
+          5.5,
+          5.75,
+          6.0,
+          6.25,
+          6.5,
+          6.75,
+          7.0,
+          7.25,
+          7.5,
+          7.75,
+          8.0,
+          8.25,
+          8.5,
+          8.75
+        ],
+        "shape": [
+          6,
+          6
+        ],
+        "alpha": -0.5,
+        "row_a": 0,
+        "row_b": 5
+      },
+      "source": "numpy",
+      "expected": [
+        -0.0,
+        -0.125,
+        -0.25,
+        -0.375,
+        -0.5,
+        -0.625,
+        1.5,
+        1.75,
+        2.0,
+        2.25,
+        2.5,
+        2.75,
+        3.0,
+        3.25,
+        3.5,
+        3.75,
+        4.0,
+        4.25,
+        4.5,
+        4.75,
+        5.0,
+        5.25,
+        5.5,
+        5.75,
+        6.0,
+        6.25,
+        6.5,
+        6.75,
+        7.0,
+        7.25,
+        7.5,
+        7.75,
+        8.0,
+        8.25,
+        8.5,
+        8.75
+      ],
+      "tolerance": {
+        "atol": 2e-12,
+        "rtol": 2e-11
+      }
+    },
+    {
+      "id": "rowops.addScaledRow.MatView.6x6.f64",
+      "suite": "rowops",
+      "category": "regression",
+      "operation": "addScaledRow",
+      "dtype": "f64",
+      "representation": "MatView",
+      "inputs": {
+        "a": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0,
+          1.25,
+          1.5,
+          1.75,
+          2.0,
+          2.25,
+          2.5,
+          2.75,
+          3.0,
+          3.25,
+          3.5,
+          3.75,
+          4.0,
+          4.25,
+          4.5,
+          4.75,
+          5.0,
+          5.25,
+          5.5,
+          5.75,
+          6.0,
+          6.25,
+          6.5,
+          6.75,
+          7.0,
+          7.25,
+          7.5,
+          7.75,
+          8.0,
+          8.25,
+          8.5,
+          8.75
+        ],
+        "shape": [
+          6,
+          6
+        ],
+        "alpha": -0.5,
+        "row_a": 0,
+        "row_b": 5
+      },
+      "source": "numpy",
+      "expected": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0,
+        1.25,
+        1.5,
+        1.75,
+        2.0,
+        2.25,
+        2.5,
+        2.75,
+        3.0,
+        3.25,
+        3.5,
+        3.75,
+        4.0,
+        4.25,
+        4.5,
+        4.75,
+        5.0,
+        5.25,
+        5.5,
+        5.75,
+        6.0,
+        6.25,
+        6.5,
+        6.75,
+        7.0,
+        7.25,
+        7.5,
+        7.625,
+        7.75,
+        7.875,
+        8.0,
+        8.125
+      ],
+      "tolerance": {
+        "atol": 2e-12,
+        "rtol": 2e-11
+      }
+    }
+  ]
+}

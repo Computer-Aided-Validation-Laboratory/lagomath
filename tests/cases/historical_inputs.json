@@ -1,0 +1,8351 @@
+{
+  "schema_version": 1,
+  "tests": [
+    {
+      "id": "legacy.cholesky.cholesky_factorCholeskyStack_and_solveCholeskyStack_2x2",
+      "file": "src/cholesky.zig",
+      "name": "cholesky.factorCholeskyStack and solveCholeskyStack 2x2",
+      "source_sha256": "6f7e3d4b2620f5b845c454a70136b9517035dfc919bf2ce4df07052afdcaa15e",
+      "arrays": [
+        {
+          "name": "a2",
+          "values": [
+            3.0,
+            1.0,
+            1.0,
+            2.0
+          ],
+          "shape": [
+            2,
+            2
+          ],
+          "role": "input"
+        },
+        {
+          "name": "b2",
+          "values": [
+            5.0,
+            5.0
+          ],
+          "shape": [
+            2
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "2",
+        "2",
+        "3.0",
+        "1.0",
+        "1.0",
+        "2.0",
+        "2",
+        "5.0",
+        "5.0",
+        "2",
+        "1.7320508075688772",
+        "0",
+        "0",
+        "1e-12",
+        "0.0",
+        "0",
+        "1",
+        "0.5773502691896258",
+        "1",
+        "0",
+        "1e-12",
+        "1.2909944487358056",
+        "1",
+        "1",
+        "1e-12",
+        "2",
+        "1.0",
+        "0",
+        "1e-12",
+        "2.0",
+        "1",
+        "1e-12",
+        "2",
+        "1.0",
+        "0",
+        "1e-12",
+        "2.0",
+        "1",
+        "1e-12"
+      ],
+      "assertions": 8
+    },
+    {
+      "id": "legacy.cholesky.cholesky_factorCholeskyStack_rejects_non_positive_definite",
+      "file": "src/cholesky.zig",
+      "name": "cholesky.factorCholeskyStack rejects non-positive-definite",
+      "source_sha256": "d1c9ebca8de935c9c0d8fb92b6b4197ffe5092bdd6736d2db78857fe8388ebb8",
+      "arrays": [
+        {
+          "name": "a_indef",
+          "values": [
+            1.0,
+            2.0,
+            2.0,
+            1.0
+          ],
+          "shape": [
+            2,
+            2
+          ],
+          "role": "input"
+        },
+        {
+          "name": "a_neg",
+          "values": [
+            -2.0,
+            0.0,
+            0.0,
+            2.0
+          ],
+          "shape": [
+            2,
+            2
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "2",
+        "2",
+        "1.0",
+        "2.0",
+        "2.0",
+        "1.0",
+        "2",
+        "2",
+        "2",
+        "-2.0",
+        "0.0",
+        "0.0",
+        "2.0",
+        "2"
+      ],
+      "assertions": 2
+    },
+    {
+      "id": "legacy.cholesky.cholesky_solveCholeskySlice_2x2",
+      "file": "src/cholesky.zig",
+      "name": "cholesky.solveCholeskySlice 2x2",
+      "source_sha256": "8b640008fa5fc0b45e86fb21015c5dffee58d8a1a7733f18515a0475eaa63eeb",
+      "arrays": [
+        {
+          "name": "a_raw",
+          "values": [
+            3.0,
+            1.0,
+            1.0,
+            2.0
+          ],
+          "shape": [
+            4
+          ],
+          "role": "input"
+        },
+        {
+          "name": "b_raw",
+          "values": [
+            5.0,
+            5.0
+          ],
+          "shape": [
+            2
+          ],
+          "role": "input"
+        },
+        {
+          "name": "work_mat_raw",
+          "values": [
+            0.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        },
+        {
+          "name": "work_vec_raw",
+          "values": [
+            0.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        },
+        {
+          "name": "out_raw",
+          "values": [
+            0.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "3.0",
+        "1.0",
+        "1.0",
+        "2.0",
+        "5.0",
+        "5.0",
+        "0.0",
+        "4",
+        "0.0",
+        "2",
+        "0.0",
+        "2",
+        "2",
+        "2",
+        "2",
+        "2",
+        "1.0",
+        "0",
+        "1e-12",
+        "2.0",
+        "1",
+        "1e-12"
+      ],
+      "assertions": 2
+    },
+    {
+      "id": "legacy.cholesky.cholesky_factorisation_reconstruction_A_L_L_T",
+      "file": "src/cholesky.zig",
+      "name": "cholesky factorisation reconstruction A == L * L^T",
+      "source_sha256": "d7fb4f7b19cc495698cab1dd63ddb6fe2872f51e494b4f6a7165f0af0614224d",
+      "arrays": [
+        {
+          "name": "a",
+          "values": [
+            4.0,
+            12.0,
+            -16.0,
+            12.0,
+            37.0,
+            -43.0,
+            -16.0,
+            -43.0,
+            98.0
+          ],
+          "shape": [
+            3,
+            3
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "3",
+        "3",
+        "4.0",
+        "12.0",
+        "-16.0",
+        "12.0",
+        "37.0",
+        "-43.0",
+        "-16.0",
+        "-43.0",
+        "98.0",
+        "3",
+        "0",
+        "1e-12"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.gauss.gauss_solveStack_2x2_known_system",
+      "file": "src/gauss.zig",
+      "name": "gauss.solveStack 2x2 known system",
+      "source_sha256": "8c3ae8c5ae871e2e0a83f8edec66b806dd15707b1261538c058df3120e8e0030",
+      "arrays": [
+        {
+          "name": "a2",
+          "values": [
+            3.0,
+            1.0,
+            1.0,
+            2.0
+          ],
+          "shape": [
+            2,
+            2
+          ],
+          "role": "input"
+        },
+        {
+          "name": "b2",
+          "values": [
+            5.0,
+            5.0
+          ],
+          "shape": [
+            2
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "2",
+        "2",
+        "3.0",
+        "1.0",
+        "1.0",
+        "2.0",
+        "2",
+        "5.0",
+        "5.0",
+        "2",
+        "1.0",
+        "0",
+        "1e-12",
+        "2.0",
+        "1",
+        "1e-12"
+      ],
+      "assertions": 2
+    },
+    {
+      "id": "legacy.gauss.gauss_solveStack_3x3_requiring_pivoting",
+      "file": "src/gauss.zig",
+      "name": "gauss.solveStack 3x3 requiring pivoting",
+      "source_sha256": "0567f214affb380ecec71790f931aafb3ad361c6c8452707bdcadbab2afc54a5",
+      "arrays": [
+        {
+          "name": "a3",
+          "values": [
+            0.0,
+            2.0,
+            1.0,
+            3.0,
+            -1.0,
+            2.0,
+            4.0,
+            -1.0,
+            5.0
+          ],
+          "shape": [
+            3,
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "b3",
+          "values": [
+            5.0,
+            7.0,
+            15.0
+          ],
+          "shape": [
+            3
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "3",
+        "3",
+        "0.0",
+        "2.0",
+        "1.0",
+        "3.0",
+        "-1.0",
+        "2.0",
+        "4.0",
+        "-1.0",
+        "5.0",
+        "3",
+        "5.0",
+        "7.0",
+        "15.0",
+        "3",
+        "1.3076923076923077",
+        "0",
+        "1e-12",
+        "1.3846153846153846",
+        "1",
+        "1e-12",
+        "2.2307692307692308",
+        "2",
+        "1e-12"
+      ],
+      "assertions": 3
+    },
+    {
+      "id": "legacy.gauss.gauss_solveStack_singular_matrix",
+      "file": "src/gauss.zig",
+      "name": "gauss.solveStack singular matrix",
+      "source_sha256": "cb1e9b981c5d563845e7f00b290622077de50c9bb4ebf303eb142a386869e5bd",
+      "arrays": [
+        {
+          "name": "a_sing",
+          "values": [
+            1.0,
+            2.0,
+            2.0,
+            4.0
+          ],
+          "shape": [
+            2,
+            2
+          ],
+          "role": "input"
+        },
+        {
+          "name": "b",
+          "values": [
+            1.0,
+            2.0
+          ],
+          "shape": [
+            2
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "2",
+        "2",
+        "1.0",
+        "2.0",
+        "2.0",
+        "4.0",
+        "2",
+        "1.0",
+        "2.0",
+        "2"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.gauss.gauss_solveStack_non_finite_input",
+      "file": "src/gauss.zig",
+      "name": "gauss.solveStack non-finite input",
+      "source_sha256": "e2b1c020e3c3bb80ff759fa467307cc039a3f7a8a523007ea32faee26e72a9fe",
+      "arrays": [
+        {
+          "name": "b",
+          "values": [
+            1.0,
+            2.0
+          ],
+          "shape": [
+            2
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "2",
+        "2",
+        "1.0",
+        "0",
+        "0",
+        "2",
+        "1.0",
+        "2.0",
+        "2"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.gauss.gauss_solveSlice_3x3_with_scratch",
+      "file": "src/gauss.zig",
+      "name": "gauss.solveSlice 3x3 with scratch",
+      "source_sha256": "d10cf4db76496428adb14295ba96a6dfea5bf7eee7eafe16f074e2a1f6d60a81",
+      "arrays": [
+        {
+          "name": "a_raw",
+          "values": [
+            0.0,
+            2.0,
+            1.0,
+            3.0,
+            -1.0,
+            2.0,
+            4.0,
+            -1.0,
+            5.0
+          ],
+          "shape": [
+            9
+          ],
+          "role": "input"
+        },
+        {
+          "name": "b_raw",
+          "values": [
+            5.0,
+            7.0,
+            15.0
+          ],
+          "shape": [
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "work_mat_raw",
+          "values": [
+            0.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        },
+        {
+          "name": "work_vec_raw",
+          "values": [
+            0.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        },
+        {
+          "name": "out_raw",
+          "values": [
+            0.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "0.0",
+        "2.0",
+        "1.0",
+        "3.0",
+        "-1.0",
+        "2.0",
+        "4.0",
+        "-1.0",
+        "5.0",
+        "5.0",
+        "7.0",
+        "15.0",
+        "0.0",
+        "9",
+        "0.0",
+        "3",
+        "0.0",
+        "3",
+        "3",
+        "3",
+        "3",
+        "3",
+        "1.3076923076923077",
+        "0",
+        "1e-12",
+        "1.3846153846153846",
+        "1",
+        "1e-12",
+        "2.2307692307692308",
+        "2",
+        "1e-12"
+      ],
+      "assertions": 3
+    },
+    {
+      "id": "legacy.linsolve.linsolve_cross_solver_verification_2x2_SPD_system",
+      "file": "src/linsolve.zig",
+      "name": "linsolve cross-solver verification 2x2 SPD system",
+      "source_sha256": "1b310410022a867131f7489282fdcfa0110595a8a7951c3032a747e71405f652",
+      "arrays": [
+        {
+          "name": "a2",
+          "values": [
+            3.0,
+            1.0,
+            1.0,
+            2.0
+          ],
+          "shape": [
+            2,
+            2
+          ],
+          "role": "input"
+        },
+        {
+          "name": "b2",
+          "values": [
+            5.0,
+            5.0
+          ],
+          "shape": [
+            2
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "2",
+        "2",
+        "3.0",
+        "1.0",
+        "1.0",
+        "2.0",
+        "2",
+        "5.0",
+        "5.0",
+        "2",
+        "2",
+        "2",
+        "1e-12",
+        "1e-12",
+        "1.0",
+        "0",
+        "1e-12",
+        "2.0",
+        "1",
+        "1e-12"
+      ],
+      "assertions": 4
+    },
+    {
+      "id": "legacy.linsolve.linsolve_representative_6x6_DIC_SPD_Hessian_solve",
+      "file": "src/linsolve.zig",
+      "name": "linsolve representative 6x6 DIC SPD Hessian solve",
+      "source_sha256": "74fcbb0d50fd886c225504c008a1867b564883f8b5beb50ad1d18f85d2085c87",
+      "arrays": [
+        {
+          "name": "a6",
+          "values": [
+            6.836185310244443,
+            1.3207115496403308,
+            -3.054664483044769,
+            2.1228485546520464,
+            -2.168533510803056,
+            1.4916992512340035,
+            1.3207115496403308,
+            27.15151050030494,
+            -1.6474109688524214,
+            -1.1624016605664222,
+            -1.0763662990474532,
+            -2.0595791459133754,
+            -3.054664483044769,
+            -1.6474109688524214,
+            25.253609335121197,
+            1.3046401926240445,
+            -0.20225903854551958,
+            -7.9546322172053925,
+            2.1228485546520464,
+            -1.1624016605664222,
+            1.3046401926240445,
+            9.59224787901177,
+            -1.408768253912766,
+            -3.7190023843262123,
+            -2.168533510803056,
+            -1.0763662990474532,
+            -0.20225903854551958,
+            -1.408768253912766,
+            14.050388415972135,
+            1.6760026832130202,
+            1.4916992512340035,
+            -2.0595791459133754,
+            -7.9546322172053925,
+            -3.7190023843262123,
+            1.6760026832130202,
+            20.357295487452408
+          ],
+          "shape": [
+            6,
+            6
+          ],
+          "role": "input"
+        },
+        {
+          "name": "b6",
+          "values": [
+            1.2,
+            -0.5,
+            3.4,
+            -2.1,
+            0.8,
+            1.5
+          ],
+          "shape": [
+            6
+          ],
+          "role": "input"
+        },
+        {
+          "name": "x6_ref",
+          "values": [
+            0.3807835559624612,
+            -0.02850039395618617,
+            0.21572955534005506,
+            -0.29878487501434986,
+            0.07878467042559974,
+            0.06612425152343343
+          ],
+          "shape": [
+            6
+          ],
+          "role": "expected"
+        }
+      ],
+      "numeric_literals": [
+        "6",
+        "6",
+        "6.83618531024444298e+00",
+        "1.32071154964033077e+00",
+        "-3.05466448304476890e+00",
+        "2.12284855465204636e+00",
+        "-2.16853351080305590e+00",
+        "1.49169925123400349e+00",
+        "1.32071154964033077e+00",
+        "2.71515105003049406e+01",
+        "-1.64741096885242144e+00",
+        "-1.16240166056642225e+00",
+        "-1.07636629904745318e+00",
+        "-2.05957914591337543e+00",
+        "-3.05466448304476890e+00",
+        "-1.64741096885242144e+00",
+        "2.52536093351211974e+01",
+        "1.30464019262404451e+00",
+        "-2.02259038545519576e-01",
+        "-7.95463221720539249e+00",
+        "2.12284855465204636e+00",
+        "-1.16240166056642225e+00",
+        "1.30464019262404451e+00",
+        "9.59224787901177045e+00",
+        "-1.40876825391276594e+00",
+        "-3.71900238432621233e+00",
+        "-2.16853351080305590e+00",
+        "-1.07636629904745318e+00",
+        "-2.02259038545519576e-01",
+        "-1.40876825391276594e+00",
+        "1.40503884159721348e+01",
+        "1.67600268321302015e+00",
+        "1.49169925123400349e+00",
+        "-2.05957914591337543e+00",
+        "-7.95463221720539249e+00",
+        "-3.71900238432621233e+00",
+        "1.67600268321302015e+00",
+        "2.03572954874524079e+01",
+        "6",
+        "1.2",
+        "-0.5",
+        "3.4",
+        "-2.1",
+        "0.8",
+        "1.5",
+        "3.80783555962461218e-01",
+        "-2.85003939561861708e-02",
+        "2.15729555340055057e-01",
+        "-2.98784875014349860e-01",
+        "7.87846704255997371e-02",
+        "6.61242515234334305e-02",
+        "6",
+        "6",
+        "6",
+        "1e-12",
+        "1e-12",
+        "1e-12",
+        "1e-12"
+      ],
+      "assertions": 4
+    },
+    {
+      "id": "legacy.linsolve.linsolve_factorisation_reuse_with_multiple_right_hand_sides",
+      "file": "src/linsolve.zig",
+      "name": "linsolve factorisation reuse with multiple right-hand sides",
+      "source_sha256": "9d77d7683d1fa6dfb1ecb888b92f91057b501abaa715107ac3fe1c98ee2c0142",
+      "arrays": [
+        {
+          "name": "a",
+          "values": [
+            4.0,
+            1.0,
+            1.0,
+            3.0
+          ],
+          "shape": [
+            2,
+            2
+          ],
+          "role": "input"
+        },
+        {
+          "name": "b1",
+          "values": [
+            1.0,
+            2.0
+          ],
+          "shape": [
+            2
+          ],
+          "role": "input"
+        },
+        {
+          "name": "b2",
+          "values": [
+            3.0,
+            4.0
+          ],
+          "shape": [
+            2
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "2",
+        "2",
+        "4.0",
+        "1.0",
+        "1.0",
+        "3.0",
+        "2",
+        "1.0",
+        "2.0",
+        "2",
+        "3.0",
+        "4.0",
+        "2",
+        "2",
+        "2",
+        "2",
+        "2",
+        "2",
+        "1e-12",
+        "1e-12"
+      ],
+      "assertions": 2
+    },
+    {
+      "id": "legacy.lu.lu_factorLUStack_and_solveLUStack_2x2",
+      "file": "src/lu.zig",
+      "name": "lu.factorLUStack and solveLUStack 2x2",
+      "source_sha256": "c1faec13c80aa364ab572de4c372e5bf6b618281f75052fc13b49d377c6bb4b9",
+      "arrays": [
+        {
+          "name": "a2",
+          "values": [
+            3.0,
+            1.0,
+            1.0,
+            2.0
+          ],
+          "shape": [
+            2,
+            2
+          ],
+          "role": "input"
+        },
+        {
+          "name": "b2",
+          "values": [
+            5.0,
+            5.0
+          ],
+          "shape": [
+            2
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "2",
+        "2",
+        "3.0",
+        "1.0",
+        "1.0",
+        "2.0",
+        "2",
+        "5.0",
+        "5.0",
+        "2",
+        "2",
+        "1.0",
+        "0",
+        "1e-12",
+        "2.0",
+        "1",
+        "1e-12",
+        "2",
+        "1.0",
+        "0",
+        "1e-12",
+        "2.0",
+        "1",
+        "1e-12"
+      ],
+      "assertions": 4
+    },
+    {
+      "id": "legacy.lu.lu_solveLUStack_3x3_requiring_pivoting",
+      "file": "src/lu.zig",
+      "name": "lu.solveLUStack 3x3 requiring pivoting",
+      "source_sha256": "0247225ff3f01098f3fa3fe0d7f4c886c4dae5d3f44bfb61c8e73b22a4499275",
+      "arrays": [
+        {
+          "name": "a3",
+          "values": [
+            0.0,
+            2.0,
+            1.0,
+            3.0,
+            -1.0,
+            2.0,
+            4.0,
+            -1.0,
+            5.0
+          ],
+          "shape": [
+            3,
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "b3",
+          "values": [
+            5.0,
+            7.0,
+            15.0
+          ],
+          "shape": [
+            3
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "3",
+        "3",
+        "0.0",
+        "2.0",
+        "1.0",
+        "3.0",
+        "-1.0",
+        "2.0",
+        "4.0",
+        "-1.0",
+        "5.0",
+        "3",
+        "5.0",
+        "7.0",
+        "15.0",
+        "3",
+        "1.3076923076923077",
+        "0",
+        "1e-12",
+        "1.3846153846153846",
+        "1",
+        "1e-12",
+        "2.2307692307692308",
+        "2",
+        "1e-12"
+      ],
+      "assertions": 3
+    },
+    {
+      "id": "legacy.lu.lu_solveLUSlice_3x3",
+      "file": "src/lu.zig",
+      "name": "lu.solveLUSlice 3x3",
+      "source_sha256": "3e07bf011a07c56fc7a57351c549cfa1d1c279cf120706a1e3511f6cbcdf7a89",
+      "arrays": [
+        {
+          "name": "a_raw",
+          "values": [
+            0.0,
+            2.0,
+            1.0,
+            3.0,
+            -1.0,
+            2.0,
+            4.0,
+            -1.0,
+            5.0
+          ],
+          "shape": [
+            9
+          ],
+          "role": "input"
+        },
+        {
+          "name": "b_raw",
+          "values": [
+            5.0,
+            7.0,
+            15.0
+          ],
+          "shape": [
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "work_mat_raw",
+          "values": [
+            0.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        },
+        {
+          "name": "perm_raw",
+          "values": [
+            0.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        },
+        {
+          "name": "work_vec_raw",
+          "values": [
+            0.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        },
+        {
+          "name": "out_raw",
+          "values": [
+            0.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "0.0",
+        "2.0",
+        "1.0",
+        "3.0",
+        "-1.0",
+        "2.0",
+        "4.0",
+        "-1.0",
+        "5.0",
+        "5.0",
+        "7.0",
+        "15.0",
+        "0.0",
+        "9",
+        "0",
+        "3",
+        "0.0",
+        "3",
+        "0.0",
+        "3",
+        "3",
+        "3",
+        "3",
+        "3",
+        "1.3076923076923077",
+        "0",
+        "1e-12",
+        "1.3846153846153846",
+        "1",
+        "1e-12",
+        "2.2307692307692308",
+        "2",
+        "1e-12"
+      ],
+      "assertions": 3
+    },
+    {
+      "id": "legacy.lu.lu_factorisation_reconstruction_P_A_L_U",
+      "file": "src/lu.zig",
+      "name": "lu factorisation reconstruction P * A == L * U",
+      "source_sha256": "384eaec54a25d57f7cb36aa1e8b7c8796b2f58f9d912c25b28c2000c91abdff8",
+      "arrays": [
+        {
+          "name": "a",
+          "values": [
+            2.0,
+            1.0,
+            1.0,
+            4.0,
+            -6.0,
+            0.0,
+            -2.0,
+            7.0,
+            2.0
+          ],
+          "shape": [
+            3,
+            3
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "3",
+        "3",
+        "2.0",
+        "1.0",
+        "1.0",
+        "4.0",
+        "-6.0",
+        "0.0",
+        "-2.0",
+        "7.0",
+        "2.0",
+        "3",
+        "3",
+        "3",
+        "3",
+        "3",
+        "1.0",
+        "3",
+        "3",
+        "3",
+        "1e-12"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.matops.matops_mulVecStack_and_mulVecSlice",
+      "file": "src/matops.zig",
+      "name": "matops.mulVecStack and mulVecSlice",
+      "source_sha256": "dbdb0bb6c314b61d1638fc99975878f8860a98224d9bcf46737ebd22c0e6cacd",
+      "arrays": [
+        {
+          "name": "mat",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0
+          ],
+          "shape": [
+            2,
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "vec",
+          "values": [
+            1.0,
+            1.0,
+            2.0
+          ],
+          "shape": [
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "mat_raw",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0
+          ],
+          "shape": [
+            6
+          ],
+          "role": "input"
+        },
+        {
+          "name": "vec_raw",
+          "values": [
+            1.0,
+            1.0,
+            2.0
+          ],
+          "shape": [
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "out_raw",
+          "values": [
+            0.0,
+            0.0
+          ],
+          "shape": [
+            2
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "2",
+        "3",
+        "1.0",
+        "2.0",
+        "3.0",
+        "4.0",
+        "5.0",
+        "6.0",
+        "3",
+        "1.0",
+        "1.0",
+        "2.0",
+        "2",
+        "3",
+        "9.0",
+        "0",
+        "21.0",
+        "1",
+        "1.0",
+        "2.0",
+        "3.0",
+        "4.0",
+        "5.0",
+        "6.0",
+        "1.0",
+        "1.0",
+        "2.0",
+        "0.0",
+        "0.0",
+        "2",
+        "3",
+        "9.0",
+        "0",
+        "21.0",
+        "1"
+      ],
+      "assertions": 4
+    },
+    {
+      "id": "legacy.matops.matops_mulMatStack_rectangular_and_mulMatSlice",
+      "file": "src/matops.zig",
+      "name": "matops.mulMatStack rectangular and mulMatSlice",
+      "source_sha256": "0619457f9667e33aa9f11171ae9a100d5d239e32e16f032fc7b07f7d23e96e09",
+      "arrays": [
+        {
+          "name": "m_a",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0
+          ],
+          "shape": [
+            2,
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "m_b",
+          "values": [
+            7.0,
+            8.0,
+            9.0,
+            1.0,
+            2.0,
+            3.0
+          ],
+          "shape": [
+            3,
+            2
+          ],
+          "role": "input"
+        },
+        {
+          "name": "a_raw",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0
+          ],
+          "shape": [
+            6
+          ],
+          "role": "input"
+        },
+        {
+          "name": "b_raw",
+          "values": [
+            7.0,
+            8.0,
+            9.0,
+            1.0,
+            2.0,
+            3.0
+          ],
+          "shape": [
+            6
+          ],
+          "role": "input"
+        },
+        {
+          "name": "out_raw",
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "shape": [
+            4
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "2",
+        "3",
+        "1.0",
+        "2.0",
+        "3.0",
+        "4.0",
+        "5.0",
+        "6.0",
+        "3",
+        "2",
+        "7.0",
+        "8.0",
+        "9.0",
+        "1.0",
+        "2.0",
+        "3.0",
+        "2",
+        "3",
+        "2",
+        "31.0",
+        "0",
+        "0",
+        "19.0",
+        "0",
+        "1",
+        "85.0",
+        "1",
+        "0",
+        "55.0",
+        "1",
+        "1",
+        "1.0",
+        "2.0",
+        "3.0",
+        "4.0",
+        "5.0",
+        "6.0",
+        "7.0",
+        "8.0",
+        "9.0",
+        "1.0",
+        "2.0",
+        "3.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "2",
+        "3",
+        "3",
+        "2",
+        "2",
+        "2",
+        "31.0",
+        "0",
+        "19.0",
+        "1",
+        "85.0",
+        "2",
+        "55.0",
+        "3"
+      ],
+      "assertions": 8
+    },
+    {
+      "id": "legacy.matops.matops_outer_and_outerAdd",
+      "file": "src/matops.zig",
+      "name": "matops.outer and outerAdd",
+      "source_sha256": "d326bc1c187a643c3ec1d0fc71f75d438b780bb2c0bec9a2991fc325d9f822e4",
+      "arrays": [
+        {
+          "name": "x",
+          "values": [
+            2.0,
+            3.0
+          ],
+          "shape": [
+            2
+          ],
+          "role": "input"
+        },
+        {
+          "name": "y",
+          "values": [
+            4.0,
+            5.0,
+            6.0
+          ],
+          "shape": [
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "raw_mat",
+          "values": [
+            1.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        },
+        {
+          "name": "raw_x",
+          "values": [
+            2.0,
+            3.0
+          ],
+          "shape": [
+            2
+          ],
+          "role": "input"
+        },
+        {
+          "name": "raw_y",
+          "values": [
+            4.0,
+            5.0,
+            6.0
+          ],
+          "shape": [
+            3
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "2",
+        "2.0",
+        "3.0",
+        "3",
+        "4.0",
+        "5.0",
+        "6.0",
+        "2",
+        "3",
+        "8.0",
+        "0",
+        "0",
+        "10.0",
+        "0",
+        "1",
+        "12.0",
+        "0",
+        "2",
+        "12.0",
+        "1",
+        "0",
+        "15.0",
+        "1",
+        "1",
+        "18.0",
+        "1",
+        "2",
+        "2",
+        "3",
+        "1.0",
+        "2",
+        "3",
+        "0.5",
+        "5.0",
+        "0",
+        "0",
+        "6.0",
+        "0",
+        "1",
+        "7.0",
+        "0",
+        "2",
+        "7.0",
+        "1",
+        "0",
+        "8.5",
+        "1",
+        "1",
+        "10.0",
+        "1",
+        "2",
+        "1.0",
+        "6",
+        "2.0",
+        "3.0",
+        "4.0",
+        "5.0",
+        "6.0",
+        "0.5",
+        "2",
+        "3",
+        "5.0",
+        "0",
+        "6.0",
+        "1",
+        "7.0",
+        "2",
+        "7.0",
+        "3",
+        "8.5",
+        "4",
+        "10.0",
+        "5"
+      ],
+      "assertions": 18
+    },
+    {
+      "id": "legacy.matops.matops_frobeniusNorm_and_maxAbs",
+      "file": "src/matops.zig",
+      "name": "matops.frobeniusNorm and maxAbs",
+      "source_sha256": "c9ad49194f54d99c61d1a97b334c818e936ebfebb395d1a235349adf77ad9341",
+      "arrays": [
+        {
+          "name": "mat",
+          "values": [
+            1.0,
+            -2.0,
+            3.0,
+            -4.0
+          ],
+          "shape": [
+            2,
+            2
+          ],
+          "role": "input"
+        },
+        {
+          "name": "raw",
+          "values": [
+            1.0,
+            -2.0,
+            3.0,
+            -4.0
+          ],
+          "shape": [
+            4
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "2",
+        "2",
+        "1.0",
+        "-2.0",
+        "3.0",
+        "-4.0",
+        "30.0",
+        "2",
+        "2",
+        "4.0",
+        "2",
+        "2",
+        "1.0",
+        "-2.0",
+        "3.0",
+        "-4.0",
+        "2",
+        "2",
+        "4.0"
+      ],
+      "assertions": 4
+    },
+    {
+      "id": "legacy.matops.matops_allFinite",
+      "file": "src/matops.zig",
+      "name": "matops.allFinite",
+      "source_sha256": "2a3c0380910b6f37efd2448adc9e1f533ddab3c805b8d86cc03bb76ddf04cbd8",
+      "arrays": [
+        {
+          "name": "raw_good",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0
+          ],
+          "shape": [
+            4
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "2",
+        "2",
+        "1.0",
+        "2",
+        "2",
+        "0",
+        "1",
+        "2",
+        "2",
+        "1.0",
+        "2.0",
+        "3.0",
+        "4.0",
+        "1.0",
+        "3.0",
+        "4.0",
+        "2",
+        "2",
+        "2",
+        "2"
+      ],
+      "assertions": 4
+    },
+    {
+      "id": "legacy.mattype.Mat22f_getRowVec",
+      "file": "src/mattype.zig",
+      "name": "Mat22f.getRowVec",
+      "source_sha256": "255771db88164dcf4901dbdf898420e6508e2c0d0b11ac74c3ae276ba9f8e2a1",
+      "arrays": [
+        {
+          "name": "mat0",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0
+          ],
+          "shape": [
+            2,
+            2
+          ],
+          "role": "input"
+        },
+        {
+          "name": "vec_exp",
+          "values": [
+            3.0,
+            4.0
+          ],
+          "shape": [
+            2
+          ],
+          "role": "expected"
+        }
+      ],
+      "numeric_literals": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "3",
+        "4",
+        "1"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.mattype.Mat22f_getColVec",
+      "file": "src/mattype.zig",
+      "name": "Mat22f.getColVec",
+      "source_sha256": "0555656c536b5c6d1f54546aa2b81fa9b329717b31c3ddfe19cc069eca88dbc0",
+      "arrays": [
+        {
+          "name": "mat0",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0
+          ],
+          "shape": [
+            2,
+            2
+          ],
+          "role": "input"
+        },
+        {
+          "name": "vec_exp",
+          "values": [
+            1.0,
+            3.0
+          ],
+          "shape": [
+            2
+          ],
+          "role": "expected"
+        }
+      ],
+      "numeric_literals": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "1",
+        "3",
+        "0"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.mattype.Mat22f_add",
+      "file": "src/mattype.zig",
+      "name": "Mat22f.add",
+      "source_sha256": "e58c779a13425ded1d6216391d84f51f1d37d03daf01a1389266ad158e815509",
+      "arrays": [
+        {
+          "name": "mat0",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0
+          ],
+          "shape": [
+            2,
+            2
+          ],
+          "role": "input"
+        },
+        {
+          "name": "mat1",
+          "values": [
+            5.0,
+            6.0,
+            7.0,
+            8.0
+          ],
+          "shape": [
+            2,
+            2
+          ],
+          "role": "input"
+        },
+        {
+          "name": "mat_exp",
+          "values": [
+            6.0,
+            8.0,
+            10.0,
+            12.0
+          ],
+          "shape": [
+            2,
+            2
+          ],
+          "role": "expected"
+        }
+      ],
+      "numeric_literals": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "6",
+        "8",
+        "10",
+        "12"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.mattype.Mat22f_sub",
+      "file": "src/mattype.zig",
+      "name": "Mat22f.sub",
+      "source_sha256": "baa55dcea4e25b2b824091d98166c3c340a0ea72a51b8804e00b7be779f33382",
+      "arrays": [
+        {
+          "name": "mat0",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0
+          ],
+          "shape": [
+            2,
+            2
+          ],
+          "role": "input"
+        },
+        {
+          "name": "mat1",
+          "values": [
+            5.0,
+            6.0,
+            7.0,
+            8.0
+          ],
+          "shape": [
+            2,
+            2
+          ],
+          "role": "input"
+        },
+        {
+          "name": "mat_exp",
+          "values": [
+            -4.0,
+            -4.0,
+            -4.0,
+            -4.0
+          ],
+          "shape": [
+            2,
+            2
+          ],
+          "role": "expected"
+        }
+      ],
+      "numeric_literals": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "-4",
+        "-4",
+        "-4",
+        "-4"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.mattype.Mat22f_trace",
+      "file": "src/mattype.zig",
+      "name": "Mat22f.trace",
+      "source_sha256": "91922fd0acc01ff17b4fdf162529290389978afab9a3b7949c5f60c4746530ba",
+      "arrays": [
+        {
+          "name": "mat0",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0
+          ],
+          "shape": [
+            2,
+            2
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.mattype.Mat22f_transpose",
+      "file": "src/mattype.zig",
+      "name": "Mat22f.transpose",
+      "source_sha256": "e49d17457d7ce0fee68385646a8925fbdbe31fc868daa2fcadd9956ae8587618",
+      "arrays": [
+        {
+          "name": "mat0",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0
+          ],
+          "shape": [
+            2,
+            2
+          ],
+          "role": "input"
+        },
+        {
+          "name": "mat_exp",
+          "values": [
+            1.0,
+            3.0,
+            2.0,
+            4.0
+          ],
+          "shape": [
+            2,
+            2
+          ],
+          "role": "expected"
+        }
+      ],
+      "numeric_literals": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "1",
+        "3",
+        "2",
+        "4"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.mattype.Mat_rectangular_transpose_and_row_construction",
+      "file": "src/mattype.zig",
+      "name": "Mat rectangular transpose and row construction",
+      "source_sha256": "160c50e71423d2041abfb8bae6bb39bc3304db0ef56b819ae7e74a6287a43472",
+      "arrays": [
+        {
+          "name": "mat",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0
+          ],
+          "shape": [
+            2,
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "expected",
+          "values": [
+            1.0,
+            4.0,
+            2.0,
+            5.0,
+            3.0,
+            6.0
+          ],
+          "shape": [
+            3,
+            2
+          ],
+          "role": "expected"
+        }
+      ],
+      "numeric_literals": [
+        "2",
+        "3",
+        "3",
+        "2",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "1",
+        "4",
+        "2",
+        "5",
+        "3",
+        "6"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.mattype.Mat22f_mulScal",
+      "file": "src/mattype.zig",
+      "name": "Mat22f.mulScal",
+      "source_sha256": "59999437cedda803a82083782aecd0df27fc7599275a40983b74ed4fc49af4d6",
+      "arrays": [
+        {
+          "name": "mat0",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0
+          ],
+          "shape": [
+            2,
+            2
+          ],
+          "role": "input"
+        },
+        {
+          "name": "mat_exp",
+          "values": [
+            2.0,
+            4.0,
+            6.0,
+            8.0
+          ],
+          "shape": [
+            2,
+            2
+          ],
+          "role": "expected"
+        }
+      ],
+      "numeric_literals": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "2",
+        "2",
+        "4",
+        "6",
+        "8"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.mattype.Mat22f_mulVec",
+      "file": "src/mattype.zig",
+      "name": "Mat22f.mulVec",
+      "source_sha256": "192c3c85bfa68c00522c1bdae9d7298403e781bb1b98a0659325944a085d4f48",
+      "arrays": [
+        {
+          "name": "mat0",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0
+          ],
+          "shape": [
+            2,
+            2
+          ],
+          "role": "input"
+        },
+        {
+          "name": "vec0",
+          "values": [
+            1.0,
+            2.0
+          ],
+          "shape": [
+            2
+          ],
+          "role": "input"
+        },
+        {
+          "name": "vec_exp",
+          "values": [
+            5.0,
+            11.0
+          ],
+          "shape": [
+            2
+          ],
+          "role": "expected"
+        }
+      ],
+      "numeric_literals": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "1",
+        "2",
+        "5",
+        "11"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.mattype.Mat22f_mulMat",
+      "file": "src/mattype.zig",
+      "name": "Mat22f.mulMat",
+      "source_sha256": "25e008521c77f3bedb964e6ff4f9c9945d856f9405b4b232217c9931730cc079",
+      "arrays": [
+        {
+          "name": "mat0",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0
+          ],
+          "shape": [
+            2,
+            2
+          ],
+          "role": "input"
+        },
+        {
+          "name": "mat1",
+          "values": [
+            4.0,
+            3.0,
+            2.0,
+            1.0
+          ],
+          "shape": [
+            2,
+            2
+          ],
+          "role": "input"
+        },
+        {
+          "name": "mat_exp",
+          "values": [
+            8.0,
+            5.0,
+            20.0,
+            13.0
+          ],
+          "shape": [
+            2,
+            2
+          ],
+          "role": "expected"
+        }
+      ],
+      "numeric_literals": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "4",
+        "3",
+        "2",
+        "1",
+        "8",
+        "5",
+        "20",
+        "13"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.mattype.Mat22f_mulMat_identity_and_negative",
+      "file": "src/mattype.zig",
+      "name": "Mat22f.mulMat.identity_and_negative",
+      "source_sha256": "e9c504c0a9b527707828b1bafb739f14a3a94af3676763066257fa9d2357c338",
+      "arrays": [
+        {
+          "name": "mat0",
+          "values": [
+            2.0,
+            -1.0,
+            3.0,
+            4.0
+          ],
+          "shape": [
+            2,
+            2
+          ],
+          "role": "input"
+        },
+        {
+          "name": "mat1",
+          "values": [
+            -1.0,
+            5.0,
+            2.0,
+            -3.0
+          ],
+          "shape": [
+            2,
+            2
+          ],
+          "role": "input"
+        },
+        {
+          "name": "mat_exp",
+          "values": [
+            -4.0,
+            13.0,
+            5.0,
+            3.0
+          ],
+          "shape": [
+            2,
+            2
+          ],
+          "role": "expected"
+        }
+      ],
+      "numeric_literals": [
+        "2",
+        "-1",
+        "3",
+        "4",
+        "-1",
+        "5",
+        "2",
+        "-3",
+        "-4",
+        "13",
+        "5",
+        "3"
+      ],
+      "assertions": 2
+    },
+    {
+      "id": "legacy.mattype.Mat22Ops_det",
+      "file": "src/mattype.zig",
+      "name": "Mat22Ops.det",
+      "source_sha256": "11d2f9d67ae4002b5a092342d96e69fc448d5b27cd5e2b965ecc21d0142cac47",
+      "arrays": [
+        {
+          "name": "mat_pos",
+          "values": [
+            3.0,
+            2.0,
+            1.0,
+            4.0
+          ],
+          "shape": [
+            2,
+            2
+          ],
+          "role": "input"
+        },
+        {
+          "name": "mat_zero",
+          "values": [
+            2.0,
+            4.0,
+            1.0,
+            2.0
+          ],
+          "shape": [
+            2,
+            2
+          ],
+          "role": "input"
+        },
+        {
+          "name": "mat_neg",
+          "values": [
+            1.0,
+            5.0,
+            3.0,
+            2.0
+          ],
+          "shape": [
+            2,
+            2
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "1",
+        "3",
+        "2",
+        "1",
+        "4",
+        "10",
+        "2",
+        "4",
+        "1",
+        "2",
+        "0",
+        "1",
+        "5",
+        "3",
+        "2",
+        "-13"
+      ],
+      "assertions": 4
+    },
+    {
+      "id": "legacy.mattype.Mat22Ops_inv",
+      "file": "src/mattype.zig",
+      "name": "Mat22Ops.inv",
+      "source_sha256": "ab7874c269bab64db5d7c324126f34ba09cfd862b978c7031c47665ae82dd2c1",
+      "arrays": [
+        {
+          "name": "mat_pos",
+          "values": [
+            4.0,
+            2.0,
+            3.0,
+            2.0
+          ],
+          "shape": [
+            2,
+            2
+          ],
+          "role": "input"
+        },
+        {
+          "name": "mat_pos_exp",
+          "values": [
+            1.0,
+            -1.0,
+            -1.5,
+            2.0
+          ],
+          "shape": [
+            2,
+            2
+          ],
+          "role": "expected"
+        },
+        {
+          "name": "mat_neg",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0
+          ],
+          "shape": [
+            2,
+            2
+          ],
+          "role": "input"
+        },
+        {
+          "name": "mat_neg_exp",
+          "values": [
+            -2.0,
+            1.0,
+            1.5,
+            -0.5
+          ],
+          "shape": [
+            2,
+            2
+          ],
+          "role": "expected"
+        }
+      ],
+      "numeric_literals": [
+        "4",
+        "2",
+        "3",
+        "2",
+        "1.0",
+        "-1.0",
+        "-1.5",
+        "2.0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "-2.0",
+        "1.0",
+        "1.5",
+        "-0.5"
+      ],
+      "assertions": 2
+    },
+    {
+      "id": "legacy.mattype.Mat22Ops_invChecked_rejects_singular_and_near_singular_matrices",
+      "file": "src/mattype.zig",
+      "name": "Mat22Ops.invChecked rejects singular and near-singular matrices",
+      "source_sha256": "3fd404724d7bbe66b5b88ca868912ca3b509df11e26f1e80ff65b86cc4c36544",
+      "arrays": [
+        {
+          "name": "valid",
+          "values": [
+            4.0,
+            2.0,
+            3.0,
+            2.0
+          ],
+          "shape": [
+            2,
+            2
+          ],
+          "role": "input"
+        },
+        {
+          "name": "singular",
+          "values": [
+            1.0,
+            2.0,
+            2.0,
+            4.0
+          ],
+          "shape": [
+            2,
+            2
+          ],
+          "role": "input"
+        },
+        {
+          "name": "near_singular",
+          "values": [
+            1.0,
+            0.0,
+            0.0,
+            1e-10
+          ],
+          "shape": [
+            2,
+            2
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "4",
+        "2",
+        "3",
+        "2",
+        "1.0e-8",
+        "1",
+        "2",
+        "2",
+        "4",
+        "0",
+        "1",
+        "0",
+        "0",
+        "1.0e-10",
+        "1.0e-8"
+      ],
+      "assertions": 3
+    },
+    {
+      "id": "legacy.mattype.Mat33f_add",
+      "file": "src/mattype.zig",
+      "name": "Mat33f.add",
+      "source_sha256": "da2ebeae44aad17c7d474130a440a9b073fc5a4b69f6794883a41596295fb2ec",
+      "arrays": [
+        {
+          "name": "mat0",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            9.0
+          ],
+          "shape": [
+            3,
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "mat_exp",
+          "values": [
+            2.0,
+            4.0,
+            6.0,
+            8.0,
+            10.0,
+            12.0,
+            14.0,
+            16.0,
+            18.0
+          ],
+          "shape": [
+            3,
+            3
+          ],
+          "role": "expected"
+        }
+      ],
+      "numeric_literals": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "2",
+        "4",
+        "6",
+        "8",
+        "10",
+        "12",
+        "14",
+        "16",
+        "18"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.mattype.Mat33f_sub",
+      "file": "src/mattype.zig",
+      "name": "Mat33f.sub",
+      "source_sha256": "501dae6ba1f84b309078156c4d5b38fd51a8c9e47858ad22b3940201dd81e75c",
+      "arrays": [
+        {
+          "name": "mat0",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            9.0
+          ],
+          "shape": [
+            3,
+            3
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.mattype.Mat33f_getRowVec",
+      "file": "src/mattype.zig",
+      "name": "Mat33f.getRowVec",
+      "source_sha256": "1e4fd88996cbb7340e811d65d0bf67516df9fcf75c3c085df9df7acf929183be",
+      "arrays": [
+        {
+          "name": "mat0",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            9.0
+          ],
+          "shape": [
+            3,
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "vec_exp",
+          "values": [
+            4.0,
+            5.0,
+            6.0
+          ],
+          "shape": [
+            3
+          ],
+          "role": "expected"
+        }
+      ],
+      "numeric_literals": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "4",
+        "5",
+        "6",
+        "1"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.mattype.Mat33f_getColVec",
+      "file": "src/mattype.zig",
+      "name": "Mat33f.getColVec",
+      "source_sha256": "4b9ad92de9b1dd3271334c73f3b145641f9a50052adf76d66d4e8581368a01c4",
+      "arrays": [
+        {
+          "name": "mat0",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            9.0
+          ],
+          "shape": [
+            3,
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "vec_exp",
+          "values": [
+            2.0,
+            5.0,
+            8.0
+          ],
+          "shape": [
+            3
+          ],
+          "role": "expected"
+        }
+      ],
+      "numeric_literals": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "2",
+        "5",
+        "8",
+        "1"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.mattype.Mat33f_getSubMat",
+      "file": "src/mattype.zig",
+      "name": "Mat33f.getSubMat",
+      "source_sha256": "c043ecce99851507c3768b20c71bbc4f7629ab015ec9239120efe949576231a8",
+      "arrays": [
+        {
+          "name": "mat0",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            9.0
+          ],
+          "shape": [
+            3,
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "mat_exp",
+          "values": [
+            5.0,
+            6.0,
+            8.0,
+            9.0
+          ],
+          "shape": [
+            2,
+            2
+          ],
+          "role": "expected"
+        }
+      ],
+      "numeric_literals": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "5",
+        "6",
+        "8",
+        "9",
+        "1",
+        "1",
+        "2",
+        "2",
+        "2",
+        "3",
+        "5",
+        "6",
+        "0",
+        "1",
+        "2",
+        "2",
+        "1",
+        "2",
+        "4",
+        "5",
+        "0",
+        "0",
+        "2",
+        "2",
+        "0",
+        "0",
+        "3",
+        "3"
+      ],
+      "assertions": 4
+    },
+    {
+      "id": "legacy.mattype.Mat33f_transpose",
+      "file": "src/mattype.zig",
+      "name": "Mat33f.transpose",
+      "source_sha256": "a9b653273b84547eb76f30fad5be42774e94fa347d52691df28ddff25d22bc41",
+      "arrays": [
+        {
+          "name": "mat0",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            9.0
+          ],
+          "shape": [
+            3,
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "mat_exp",
+          "values": [
+            1.0,
+            4.0,
+            7.0,
+            2.0,
+            5.0,
+            8.0,
+            3.0,
+            6.0,
+            9.0
+          ],
+          "shape": [
+            3,
+            3
+          ],
+          "role": "expected"
+        }
+      ],
+      "numeric_literals": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "1",
+        "4",
+        "7",
+        "2",
+        "5",
+        "8",
+        "3",
+        "6",
+        "9"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.mattype.Mat33f_mulScal",
+      "file": "src/mattype.zig",
+      "name": "Mat33f.mulScal",
+      "source_sha256": "965bc533a765ab11f8ef4f5f10a0fa2bb13511e72c124917874d35cc88a6d7ac",
+      "arrays": [
+        {
+          "name": "mat0",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            9.0
+          ],
+          "shape": [
+            3,
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "mat_exp",
+          "values": [
+            2.0,
+            4.0,
+            6.0,
+            8.0,
+            10.0,
+            12.0,
+            14.0,
+            16.0,
+            18.0
+          ],
+          "shape": [
+            3,
+            3
+          ],
+          "role": "expected"
+        }
+      ],
+      "numeric_literals": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "2",
+        "2",
+        "4",
+        "6",
+        "8",
+        "10",
+        "12",
+        "14",
+        "16",
+        "18"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.mattype.Mat33f_mulVec",
+      "file": "src/mattype.zig",
+      "name": "Mat33f.mulVec",
+      "source_sha256": "83f7aa6926b42156de6b161798ca30b617861191b8fecb5c271e933654cabbf9",
+      "arrays": [
+        {
+          "name": "mat0",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            9.0
+          ],
+          "shape": [
+            3,
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "vec0",
+          "values": [
+            3.0,
+            2.0,
+            1.0
+          ],
+          "shape": [
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "vec_exp",
+          "values": [
+            10.0,
+            28.0,
+            46.0
+          ],
+          "shape": [
+            3
+          ],
+          "role": "expected"
+        }
+      ],
+      "numeric_literals": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "3",
+        "2",
+        "1",
+        "10",
+        "28",
+        "46"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.mattype.Mat33f_mulMat",
+      "file": "src/mattype.zig",
+      "name": "Mat33f.mulMat",
+      "source_sha256": "c4ae038219996242c15b1321d1d847f3576331fcd9026f7428ddff8a2405fceb",
+      "arrays": [
+        {
+          "name": "mat0",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            9.0
+          ],
+          "shape": [
+            3,
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "mat1",
+          "values": [
+            3.0,
+            1.0,
+            1.0,
+            1.0,
+            3.0,
+            1.0,
+            1.0,
+            1.0,
+            3.0
+          ],
+          "shape": [
+            3,
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "mat_exp",
+          "values": [
+            8.0,
+            10.0,
+            12.0,
+            23.0,
+            25.0,
+            27.0,
+            38.0,
+            40.0,
+            42.0
+          ],
+          "shape": [
+            3,
+            3
+          ],
+          "role": "expected"
+        }
+      ],
+      "numeric_literals": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "3",
+        "1",
+        "1",
+        "1",
+        "3",
+        "1",
+        "1",
+        "1",
+        "3",
+        "8",
+        "10",
+        "12",
+        "23",
+        "25",
+        "27",
+        "38",
+        "40",
+        "42"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.mattype.Mat33f_mulMat_identity_and_negative",
+      "file": "src/mattype.zig",
+      "name": "Mat33f.mulMat.identity_and_negative",
+      "source_sha256": "751527b8a6f9ad526d467f3b1b2e074cb17defb1ff83ce49b88f97fbd186351e",
+      "arrays": [
+        {
+          "name": "mat0",
+          "values": [
+            1.0,
+            -2.0,
+            3.0,
+            0.0,
+            4.0,
+            -1.0,
+            -1.0,
+            2.0,
+            1.0
+          ],
+          "shape": [
+            3,
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "mat1",
+          "values": [
+            2.0,
+            1.0,
+            0.0,
+            -1.0,
+            3.0,
+            2.0,
+            4.0,
+            0.0,
+            -2.0
+          ],
+          "shape": [
+            3,
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "mat_exp",
+          "values": [
+            16.0,
+            -5.0,
+            -10.0,
+            -8.0,
+            12.0,
+            10.0,
+            0.0,
+            5.0,
+            2.0
+          ],
+          "shape": [
+            3,
+            3
+          ],
+          "role": "expected"
+        }
+      ],
+      "numeric_literals": [
+        "1",
+        "-2",
+        "3",
+        "0",
+        "4",
+        "-1",
+        "-1",
+        "2",
+        "1",
+        "2",
+        "1",
+        "0",
+        "-1",
+        "3",
+        "2",
+        "4",
+        "0",
+        "-2",
+        "16",
+        "-5",
+        "-10",
+        "-8",
+        "12",
+        "10",
+        "0",
+        "5",
+        "2"
+      ],
+      "assertions": 2
+    },
+    {
+      "id": "legacy.mattype.Mat33Ops_det",
+      "file": "src/mattype.zig",
+      "name": "Mat33Ops.det",
+      "source_sha256": "18eaf8a90ddfa700d7862ccd3749e7204dc2196a9be9e46a3d49ab4fee49c431",
+      "arrays": [
+        {
+          "name": "mat0",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            9.0
+          ],
+          "shape": [
+            3,
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "mat1",
+          "values": [
+            3.0,
+            1.0,
+            1.0,
+            1.0,
+            3.0,
+            1.0,
+            1.0,
+            1.0,
+            3.0
+          ],
+          "shape": [
+            3,
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "mat_zero",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            2.0,
+            4.0,
+            6.0,
+            5.0,
+            1.0,
+            0.0
+          ],
+          "shape": [
+            3,
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "mat_neg",
+          "values": [
+            2.0,
+            -1.0,
+            3.0,
+            1.0,
+            0.0,
+            4.0,
+            3.0,
+            2.0,
+            1.0
+          ],
+          "shape": [
+            3,
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "mat_perm",
+          "values": [
+            0.0,
+            1.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "shape": [
+            3,
+            3
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "1",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "0",
+        "3",
+        "1",
+        "1",
+        "1",
+        "3",
+        "1",
+        "1",
+        "1",
+        "3",
+        "20",
+        "1",
+        "2",
+        "3",
+        "2",
+        "4",
+        "6",
+        "5",
+        "1",
+        "0",
+        "0",
+        "2",
+        "-1",
+        "3",
+        "1",
+        "0",
+        "4",
+        "3",
+        "2",
+        "1",
+        "-21",
+        "0",
+        "1",
+        "0",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1",
+        "-1"
+      ],
+      "assertions": 6
+    },
+    {
+      "id": "legacy.mattype.Mat33Ops_inv",
+      "file": "src/mattype.zig",
+      "name": "Mat33Ops.inv",
+      "source_sha256": "d934193705623a77b776d2503ddbf750d8fe443558ed5d54e674a1e2072003c5",
+      "arrays": [
+        {
+          "name": "mat1",
+          "values": [
+            3.0,
+            1.0,
+            1.0,
+            1.0,
+            3.0,
+            1.0,
+            1.0,
+            1.0,
+            3.0
+          ],
+          "shape": [
+            3,
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "mat_exp",
+          "values": [
+            0.4,
+            -0.1,
+            -0.1,
+            -0.1,
+            0.4,
+            -0.1,
+            -0.1,
+            -0.1,
+            0.4
+          ],
+          "shape": [
+            3,
+            3
+          ],
+          "role": "expected"
+        },
+        {
+          "name": "mat_neg",
+          "values": [
+            0.0,
+            1.0,
+            1.0,
+            1.0,
+            2.0,
+            0.0,
+            2.0,
+            0.0,
+            1.0
+          ],
+          "shape": [
+            3,
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "mat_neg_exp",
+          "values": [
+            -0.4,
+            0.2,
+            0.4,
+            0.2,
+            0.4,
+            -0.2,
+            0.8,
+            -0.4,
+            0.2
+          ],
+          "shape": [
+            3,
+            3
+          ],
+          "role": "expected"
+        }
+      ],
+      "numeric_literals": [
+        "3",
+        "1",
+        "1",
+        "1",
+        "3",
+        "1",
+        "1",
+        "1",
+        "3",
+        "0.4",
+        "-0.1",
+        "-0.1",
+        "-0.1",
+        "0.4",
+        "-0.1",
+        "-0.1",
+        "-0.1",
+        "0.4",
+        "0",
+        "1",
+        "1",
+        "1",
+        "2",
+        "0",
+        "2",
+        "0",
+        "1",
+        "-0.4",
+        "0.2",
+        "0.4",
+        "0.2",
+        "0.4",
+        "-0.2",
+        "0.8",
+        "-0.4",
+        "0.2"
+      ],
+      "assertions": 2
+    },
+    {
+      "id": "legacy.mattype.Mat33Ops_invChecked_rejects_singular_matrices",
+      "file": "src/mattype.zig",
+      "name": "Mat33Ops.invChecked rejects singular matrices",
+      "source_sha256": "d7a6d0e5211ef6b4cc535c7a3a8c9a7fbcab0b7bceb2b2645195dcfd349da34f",
+      "arrays": [
+        {
+          "name": "singular",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            2.0,
+            4.0,
+            6.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          "shape": [
+            3,
+            3
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "1",
+        "2",
+        "3",
+        "2",
+        "4",
+        "6",
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.mattype.Mat44f_insertRowVec",
+      "file": "src/mattype.zig",
+      "name": "Mat44f.insertRowVec",
+      "source_sha256": "0bab5d8b9a2c87a71b35ec87008a4d30d1a4eb655d19bbf799fddce82d690f1c",
+      "arrays": [
+        {
+          "name": "mat_exp1",
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "shape": [
+            4,
+            4
+          ],
+          "role": "expected"
+        },
+        {
+          "name": "mat_exp2",
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "shape": [
+            4,
+            4
+          ],
+          "role": "expected"
+        },
+        {
+          "name": "mat_exp3",
+          "values": [
+            1.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "shape": [
+            4,
+            4
+          ],
+          "role": "expected"
+        }
+      ],
+      "numeric_literals": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1",
+        "1",
+        "0",
+        "0",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1",
+        "1",
+        "0",
+        "0",
+        "1",
+        "1",
+        "1",
+        "2",
+        "1",
+        "2",
+        "3",
+        "1",
+        "3",
+        "0",
+        "0",
+        "2"
+      ],
+      "assertions": 3
+    },
+    {
+      "id": "legacy.mattype.Mat44f_insertColVec",
+      "file": "src/mattype.zig",
+      "name": "Mat44f.insertColVec",
+      "source_sha256": "b6fa72166a1f0d3a7ec8f1fd315d6f4ab5b81d85dd151d9e306d106a1e742626",
+      "arrays": [
+        {
+          "name": "mat_exp1",
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "shape": [
+            4,
+            4
+          ],
+          "role": "expected"
+        },
+        {
+          "name": "mat_exp2",
+          "values": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "shape": [
+            4,
+            4
+          ],
+          "role": "expected"
+        },
+        {
+          "name": "mat_exp3",
+          "values": [
+            1.0,
+            0.0,
+            1.0,
+            0.0,
+            1.0,
+            0.0,
+            1.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "shape": [
+            4,
+            4
+          ],
+          "role": "expected"
+        }
+      ],
+      "numeric_literals": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1",
+        "0",
+        "0",
+        "0",
+        "1",
+        "1",
+        "0",
+        "0",
+        "0",
+        "1",
+        "0",
+        "0",
+        "0",
+        "1",
+        "0",
+        "0",
+        "1",
+        "0",
+        "0",
+        "0",
+        "1",
+        "1",
+        "0",
+        "1",
+        "0",
+        "1",
+        "0",
+        "1",
+        "0",
+        "1",
+        "0",
+        "0",
+        "1",
+        "0",
+        "0",
+        "0",
+        "1",
+        "3",
+        "2",
+        "2",
+        "0",
+        "0",
+        "3",
+        "2",
+        "0",
+        "2"
+      ],
+      "assertions": 3
+    },
+    {
+      "id": "legacy.mattype.Mat44f_insertSubMat",
+      "file": "src/mattype.zig",
+      "name": "Mat44f.insertSubMat",
+      "source_sha256": "78017067e94958deaf64a22e4c5684af9e8f5eb70c14a6faaae4988de109db96",
+      "arrays": [
+        {
+          "name": "mat_exp1",
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "shape": [
+            4,
+            4
+          ],
+          "role": "expected"
+        },
+        {
+          "name": "mat_exp2",
+          "values": [
+            1.0,
+            1.0,
+            1.0,
+            0.0,
+            1.0,
+            1.0,
+            1.0,
+            0.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "shape": [
+            4,
+            4
+          ],
+          "role": "expected"
+        }
+      ],
+      "numeric_literals": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1",
+        "1",
+        "0",
+        "0",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "0",
+        "1",
+        "1",
+        "1",
+        "0",
+        "1",
+        "1",
+        "1",
+        "1",
+        "0",
+        "0",
+        "1",
+        "1",
+        "2",
+        "2",
+        "2",
+        "2",
+        "0",
+        "0",
+        "3",
+        "3"
+      ],
+      "assertions": 2
+    },
+    {
+      "id": "legacy.mattype.Mat_insertSubMat_accepts_rectangular_matrices",
+      "file": "src/mattype.zig",
+      "name": "Mat insertSubMat accepts rectangular matrices",
+      "source_sha256": "0021ee8621730ea3ae816b01f8a4fc707dff00e9c2a2d9644e1ffce4baff1736",
+      "arrays": [
+        {
+          "name": "source",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0
+          ],
+          "shape": [
+            2,
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "expected",
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            2.0,
+            3.0,
+            0.0,
+            4.0,
+            5.0,
+            6.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "shape": [
+            4,
+            4
+          ],
+          "role": "expected"
+        }
+      ],
+      "numeric_literals": [
+        "2",
+        "3",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "1",
+        "0",
+        "2",
+        "3",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1",
+        "2",
+        "3",
+        "0",
+        "4",
+        "5",
+        "6",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.mattype.Mat44f_mulMat",
+      "file": "src/mattype.zig",
+      "name": "Mat44f.mulMat",
+      "source_sha256": "3a40660e562b038b1eef0c64617563b958ee557a9a16828d353c8c28496ede9e",
+      "arrays": [
+        {
+          "name": "mat0",
+          "values": [
+            1.0,
+            0.0,
+            2.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            2.0,
+            2.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            2.0,
+            0.0,
+            1.0
+          ],
+          "shape": [
+            4,
+            4
+          ],
+          "role": "input"
+        },
+        {
+          "name": "mat1",
+          "values": [
+            2.0,
+            1.0,
+            0.0,
+            0.0,
+            1.0,
+            2.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            2.0,
+            1.0,
+            0.0,
+            0.0,
+            1.0,
+            2.0
+          ],
+          "shape": [
+            4,
+            4
+          ],
+          "role": "input"
+        },
+        {
+          "name": "mat_exp",
+          "values": [
+            2.0,
+            1.0,
+            4.0,
+            2.0,
+            1.0,
+            2.0,
+            2.0,
+            4.0,
+            4.0,
+            2.0,
+            2.0,
+            1.0,
+            2.0,
+            4.0,
+            1.0,
+            2.0
+          ],
+          "shape": [
+            4,
+            4
+          ],
+          "role": "expected"
+        }
+      ],
+      "numeric_literals": [
+        "1",
+        "0",
+        "2",
+        "0",
+        "0",
+        "1",
+        "0",
+        "2",
+        "2",
+        "0",
+        "1",
+        "0",
+        "0",
+        "2",
+        "0",
+        "1",
+        "2",
+        "1",
+        "0",
+        "0",
+        "1",
+        "2",
+        "0",
+        "0",
+        "0",
+        "0",
+        "2",
+        "1",
+        "0",
+        "0",
+        "1",
+        "2",
+        "2",
+        "1",
+        "4",
+        "2",
+        "1",
+        "2",
+        "2",
+        "4",
+        "4",
+        "2",
+        "2",
+        "1",
+        "2",
+        "4",
+        "1",
+        "2"
+      ],
+      "assertions": 2
+    },
+    {
+      "id": "legacy.mattype.Mat44Ops_det",
+      "file": "src/mattype.zig",
+      "name": "Mat44Ops.det",
+      "source_sha256": "4b1dafdf054e0a6e156467315bd4b94287f729d510bd4c147f7af4189994bb65",
+      "arrays": [
+        {
+          "name": "mat0",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            9.0,
+            10.0,
+            11.0,
+            12.0,
+            13.0,
+            14.0,
+            15.0,
+            16.0
+          ],
+          "shape": [
+            4,
+            4
+          ],
+          "role": "input"
+        },
+        {
+          "name": "mat1",
+          "values": [
+            1.0,
+            2.0,
+            1.0,
+            2.0,
+            3.0,
+            1.0,
+            1.0,
+            3.0,
+            3.0,
+            1.0,
+            2.0,
+            3.0,
+            2.0,
+            1.0,
+            2.0,
+            1.0
+          ],
+          "shape": [
+            4,
+            4
+          ],
+          "role": "input"
+        },
+        {
+          "name": "mat_zero",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            2.0,
+            4.0,
+            6.0,
+            8.0,
+            1.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            1.0
+          ],
+          "shape": [
+            4,
+            4
+          ],
+          "role": "input"
+        },
+        {
+          "name": "mat_neg",
+          "values": [
+            1.0,
+            2.0,
+            0.0,
+            0.0,
+            3.0,
+            4.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            0.0,
+            0.0,
+            1.0,
+            2.0
+          ],
+          "shape": [
+            4,
+            4
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "1",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "0",
+        "1",
+        "2",
+        "1",
+        "2",
+        "3",
+        "1",
+        "1",
+        "3",
+        "3",
+        "1",
+        "2",
+        "3",
+        "2",
+        "1",
+        "2",
+        "1",
+        "6",
+        "1",
+        "2",
+        "3",
+        "4",
+        "2",
+        "4",
+        "6",
+        "8",
+        "1",
+        "0",
+        "1",
+        "0",
+        "0",
+        "1",
+        "0",
+        "1",
+        "0",
+        "1",
+        "2",
+        "0",
+        "0",
+        "3",
+        "4",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1",
+        "1",
+        "0",
+        "0",
+        "1",
+        "2",
+        "-2"
+      ],
+      "assertions": 5
+    },
+    {
+      "id": "legacy.mattype.Mat44Ops_insertMat22",
+      "file": "src/mattype.zig",
+      "name": "Mat44Ops.insertMat22",
+      "source_sha256": "840bea95c5d3752b337bd9c0a2dbac7f884445601fea7ecabefbd9c5163ba3c9",
+      "arrays": [
+        {
+          "name": "mat_exp",
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "shape": [
+            4,
+            4
+          ],
+          "role": "expected"
+        }
+      ],
+      "numeric_literals": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1",
+        "1",
+        "0",
+        "0",
+        "1",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1",
+        "1"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.mattype.Mat44Ops_inv",
+      "file": "src/mattype.zig",
+      "name": "Mat44Ops.inv",
+      "source_sha256": "977bcedbfa2981cd73fb645c361c3c7b2ba59bdd868979fb60bc5ed93d241738",
+      "arrays": [
+        {
+          "name": "mat0",
+          "values": [
+            0.0,
+            2.0,
+            0.0,
+            2.0,
+            2.0,
+            1.0,
+            1.0,
+            2.0,
+            2.0,
+            1.0,
+            2.0,
+            2.0,
+            2.0,
+            1.0,
+            2.0,
+            1.0
+          ],
+          "shape": [
+            4,
+            4
+          ],
+          "role": "input"
+        },
+        {
+          "name": "mat_exp",
+          "values": [
+            -0.25,
+            1.0,
+            -1.0,
+            0.5,
+            0.5,
+            0.0,
+            -1.0,
+            1.0,
+            0.0,
+            -1.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            -1.0
+          ],
+          "shape": [
+            4,
+            4
+          ],
+          "role": "expected"
+        }
+      ],
+      "numeric_literals": [
+        "0",
+        "2",
+        "0",
+        "2",
+        "2",
+        "1",
+        "1",
+        "2",
+        "2",
+        "1",
+        "2",
+        "2",
+        "2",
+        "1",
+        "2",
+        "1",
+        "-0.25",
+        "1.0",
+        "-1.0",
+        "0.5",
+        "0.5",
+        "0.0",
+        "-1.0",
+        "1.0",
+        "0.0",
+        "-1.0",
+        "1.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "1.0",
+        "-1.0"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.mattype.Mat44Ops_inv_negative_det",
+      "file": "src/mattype.zig",
+      "name": "Mat44Ops.inv.negative_det",
+      "source_sha256": "86d19c56e4e75aea6ceb217ebeb1f751684c071eef58d3d2b9b51399d60f01d3",
+      "arrays": [
+        {
+          "name": "mat0",
+          "values": [
+            1.0,
+            2.0,
+            0.0,
+            0.0,
+            3.0,
+            4.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0,
+            0.0,
+            0.0,
+            1.0,
+            2.0
+          ],
+          "shape": [
+            4,
+            4
+          ],
+          "role": "input"
+        },
+        {
+          "name": "mat_exp",
+          "values": [
+            -2.0,
+            1.0,
+            0.0,
+            0.0,
+            1.5,
+            -0.5,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            2.0,
+            -1.0,
+            0.0,
+            0.0,
+            -1.0,
+            1.0
+          ],
+          "shape": [
+            4,
+            4
+          ],
+          "role": "expected"
+        }
+      ],
+      "numeric_literals": [
+        "1",
+        "2",
+        "0",
+        "0",
+        "3",
+        "4",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1",
+        "1",
+        "0",
+        "0",
+        "1",
+        "2",
+        "-2.0",
+        "1.0",
+        "0.0",
+        "0.0",
+        "1.5",
+        "-0.5",
+        "0.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "2.0",
+        "-1.0",
+        "0.0",
+        "0.0",
+        "-1.0",
+        "1.0"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.mattype.Mat44Ops_invChecked_rejects_singular_matrices",
+      "file": "src/mattype.zig",
+      "name": "Mat44Ops.invChecked rejects singular matrices",
+      "source_sha256": "4aab748287f7579ef6c2392c19a7560cb8e070c48397e373718c37a937bef100",
+      "arrays": [
+        {
+          "name": "singular",
+          "values": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "shape": [
+            4,
+            4
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.mattype.Mat_constructors_and_rectangular_matrix_vector_multiplication",
+      "file": "src/mattype.zig",
+      "name": "Mat constructors and rectangular matrix-vector multiplication",
+      "source_sha256": "135b582a099101bf8256bcc265dd471d0ea7519347cd9fb8964cd1a62ea25328",
+      "arrays": [
+        {
+          "name": "matrix",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0
+          ],
+          "shape": [
+            2,
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "product",
+          "values": [
+            1.0,
+            0.0,
+            -1.0
+          ],
+          "shape": [
+            3
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "2",
+        "3",
+        "3",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "1",
+        "0",
+        "-1",
+        "-2",
+        "-2",
+        "1",
+        "0",
+        "2",
+        "0",
+        "1",
+        "6",
+        "2",
+        "1"
+      ],
+      "assertions": 5
+    },
+    {
+      "id": "legacy.mattype.Mat22_adjugate_and_Mat44_affine_vector_multiplication",
+      "file": "src/mattype.zig",
+      "name": "Mat22 adjugate and Mat44 affine vector multiplication",
+      "source_sha256": "bd1a8546c2e3245854e7419ef5e6b9889c0220988dc6efb7d9b62049d7a9abea",
+      "arrays": [
+        {
+          "name": "matrix",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0
+          ],
+          "shape": [
+            2,
+            2
+          ],
+          "role": "input"
+        },
+        {
+          "name": "expected_adjugate",
+          "values": [
+            4.0,
+            -2.0,
+            -3.0,
+            1.0
+          ],
+          "shape": [
+            2,
+            2
+          ],
+          "role": "expected"
+        },
+        {
+          "name": "transform",
+          "values": [
+            1.0,
+            0.0,
+            0.0,
+            10.0,
+            0.0,
+            1.0,
+            0.0,
+            20.0,
+            0.0,
+            0.0,
+            1.0,
+            30.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "shape": [
+            4,
+            4
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "4",
+        "-2",
+        "-3",
+        "1",
+        "1",
+        "0",
+        "0",
+        "10",
+        "0",
+        "1",
+        "0",
+        "20",
+        "0",
+        "0",
+        "1",
+        "30",
+        "0",
+        "0",
+        "0",
+        "1",
+        "1",
+        "2",
+        "3",
+        "11",
+        "22",
+        "33"
+      ],
+      "assertions": 2
+    },
+    {
+      "id": "legacy.mattype.Mat_mulMatRect_rectangular_multiplication",
+      "file": "src/mattype.zig",
+      "name": "Mat.mulMatRect rectangular multiplication",
+      "source_sha256": "6602bd803639e4947e79cfba3b91959a91e07fa7acb52424cbd5a326f32c9621",
+      "arrays": [
+        {
+          "name": "mat_a",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0
+          ],
+          "shape": [
+            2,
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "mat_b",
+          "values": [
+            7.0,
+            8.0,
+            9.0,
+            1.0,
+            2.0,
+            3.0
+          ],
+          "shape": [
+            3,
+            2
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "2",
+        "3",
+        "3",
+        "2",
+        "1.0",
+        "2.0",
+        "3.0",
+        "4.0",
+        "5.0",
+        "6.0",
+        "7.0",
+        "8.0",
+        "9.0",
+        "1.0",
+        "2.0",
+        "3.0",
+        "2",
+        "31.0",
+        "0",
+        "0",
+        "19.0",
+        "0",
+        "1",
+        "85.0",
+        "1",
+        "0",
+        "55.0",
+        "1",
+        "1"
+      ],
+      "assertions": 4
+    },
+    {
+      "id": "legacy.mattype.Mat_direct_mat_field_access_and_get_set_compatibility",
+      "file": "src/mattype.zig",
+      "name": "Mat direct mat field access and get set compatibility",
+      "source_sha256": "7d7b5e385510341b26e7b13e89acbf46365a2a04f63ce411d64505fad4652001",
+      "arrays": [],
+      "numeric_literals": [
+        "1.0",
+        "2.0",
+        "3.0",
+        "4.0",
+        "1.0",
+        "0",
+        "0",
+        "2.0",
+        "0",
+        "1",
+        "3.0",
+        "1",
+        "0",
+        "4.0",
+        "1",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1",
+        "0",
+        "1",
+        "1",
+        "0",
+        "1",
+        "0",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "0",
+        "42.0",
+        "42.0",
+        "1",
+        "0",
+        "1",
+        "0",
+        "99.0",
+        "99.0",
+        "1",
+        "0"
+      ],
+      "assertions": 10
+    },
+    {
+      "id": "legacy.mattype.Mat_row_slice_access_and_whole_row_copy",
+      "file": "src/mattype.zig",
+      "name": "Mat row slice access and whole row copy",
+      "source_sha256": "d28685b20813928dcae523d64801ebd24456675635dbfd8de480b853a6631779",
+      "arrays": [
+        {
+          "name": "matrix",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0
+          ],
+          "shape": [
+            2,
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "replacement_row",
+          "values": [
+            7.0,
+            8.0,
+            9.0
+          ],
+          "shape": [
+            3
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "2",
+        "3",
+        "1.0",
+        "2.0",
+        "3.0",
+        "4.0",
+        "5.0",
+        "6.0",
+        "0",
+        "1.0",
+        "2.0",
+        "3.0",
+        "7.0",
+        "8.0",
+        "9.0",
+        "1",
+        "7.0",
+        "1",
+        "0",
+        "8.0",
+        "1",
+        "1",
+        "9.0",
+        "1",
+        "2"
+      ],
+      "assertions": 4
+    },
+    {
+      "id": "legacy.mattype.Mat_initSlice_flat_array_compatibility",
+      "file": "src/mattype.zig",
+      "name": "Mat initSlice flat array compatibility",
+      "source_sha256": "0152af300b387e704ce444afd9002b4a94c03776d55ad0d24b03fb992cb069a2",
+      "arrays": [
+        {
+          "name": "flat_source",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0
+          ],
+          "shape": [
+            6
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "1.0",
+        "2.0",
+        "3.0",
+        "4.0",
+        "5.0",
+        "6.0",
+        "2",
+        "3",
+        "1.0",
+        "0",
+        "0",
+        "2.0",
+        "0",
+        "1",
+        "3.0",
+        "0",
+        "2",
+        "4.0",
+        "1",
+        "0",
+        "5.0",
+        "1",
+        "1",
+        "6.0",
+        "1",
+        "2"
+      ],
+      "assertions": 6
+    },
+    {
+      "id": "legacy.matviewtype.MatView_getSlice",
+      "file": "src/matviewtype.zig",
+      "name": "MatView.getSlice",
+      "source_sha256": "0c35012e00ece1081539e0d423fe73b8f2f792ab4c3a376ee87039f8e4d530c4",
+      "arrays": [
+        {
+          "name": "exp0",
+          "values": [
+            0.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "expected"
+        },
+        {
+          "name": "exp1",
+          "values": [
+            7.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "expected"
+        },
+        {
+          "name": "exp2",
+          "values": [
+            9.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "expected"
+        }
+      ],
+      "numeric_literals": [
+        "3",
+        "4",
+        "0.0",
+        "1",
+        "7",
+        "2",
+        "9",
+        "0",
+        "4",
+        "7",
+        "4",
+        "9",
+        "4",
+        "0",
+        "1",
+        "2"
+      ],
+      "assertions": 3
+    },
+    {
+      "id": "legacy.matviewtype.MatView_flat_helpers",
+      "file": "src/matviewtype.zig",
+      "name": "MatView flat helpers",
+      "source_sha256": "02e39a1d51654f522c39e874aa88d25514edd8e6c48a3e7072bcb375dc365061",
+      "arrays": [],
+      "numeric_literals": [
+        "3",
+        "4",
+        "0.0",
+        "2",
+        "2",
+        "3",
+        "9.0",
+        "8",
+        "11",
+        "9.0",
+        "2",
+        "3",
+        "1e-12"
+      ],
+      "assertions": 3
+    },
+    {
+      "id": "legacy.matviewtype.MatViewOps_add",
+      "file": "src/matviewtype.zig",
+      "name": "MatViewOps.add",
+      "source_sha256": "c0a3bd863dfbcfae5dd33b358eba737976535f8d616fbe1a50adc1e26fd002f1",
+      "arrays": [],
+      "numeric_literals": [
+        "3",
+        "4",
+        "1.0",
+        "1.0",
+        "2.0"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.matviewtype.MatViewOps_sub",
+      "file": "src/matviewtype.zig",
+      "name": "MatViewOps.sub",
+      "source_sha256": "c7f7ae2f1bec2f9dcdf0af0e6fc567687ffb08a30c72c539145cb1e17676f32e",
+      "arrays": [],
+      "numeric_literals": [
+        "3",
+        "4",
+        "1.0",
+        "1.0",
+        "0.0"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.matviewtype.MatViewOps_mulElemWise",
+      "file": "src/matviewtype.zig",
+      "name": "MatViewOps.mulElemWise",
+      "source_sha256": "8bdd7f0f79bb81dcfa9a0ecabd15181d5fe6dff997b533a1955e3b6bb5d26b16",
+      "arrays": [],
+      "numeric_literals": [
+        "3",
+        "4",
+        "1.0",
+        "1.0",
+        "1.0"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.matviewtype.MatViewOps_mulScal",
+      "file": "src/matviewtype.zig",
+      "name": "MatViewOps.mulScal",
+      "source_sha256": "6ef57bd0866bc0e0cc6a2410623d76d00410c78173779abbb749b7a66d6919df",
+      "arrays": [],
+      "numeric_literals": [
+        "3",
+        "4",
+        "2.0",
+        "1.0",
+        "2.0"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.matviewtype.MatViewOps_divElemWise",
+      "file": "src/matviewtype.zig",
+      "name": "MatViewOps.divElemWise",
+      "source_sha256": "3568e36fe34e88e4bdc232ebb3d909fee8c9c65d69530956cdcd2aeb8555e8db",
+      "arrays": [],
+      "numeric_literals": [
+        "3",
+        "4",
+        "1.0",
+        "1.0",
+        "1.0"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.matviewtype.MatView_addInPlace",
+      "file": "src/matviewtype.zig",
+      "name": "MatView.addInPlace",
+      "source_sha256": "0495beb8d289b070ec2397b1708e58afa458890e69b9b3c3a8d1da638583905f",
+      "arrays": [
+        {
+          "name": "m0",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0
+          ],
+          "shape": [
+            4
+          ],
+          "role": "input"
+        },
+        {
+          "name": "m1",
+          "values": [
+            5.0,
+            6.0,
+            7.0,
+            8.0
+          ],
+          "shape": [
+            4
+          ],
+          "role": "input"
+        },
+        {
+          "name": "m2",
+          "values": [
+            6.0,
+            8.0,
+            10.0,
+            12.0
+          ],
+          "shape": [
+            4
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "2",
+        "2",
+        "5",
+        "6",
+        "7",
+        "8",
+        "2",
+        "2",
+        "6",
+        "8",
+        "10",
+        "12",
+        "2",
+        "2"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.matviewtype.MatView_subInPlace",
+      "file": "src/matviewtype.zig",
+      "name": "MatView.subInPlace",
+      "source_sha256": "f8d4e49554da7a5f930fc8ad519ff1a673da6572ba972d07093f8d9d8d2222ab",
+      "arrays": [
+        {
+          "name": "m0",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0
+          ],
+          "shape": [
+            4
+          ],
+          "role": "input"
+        },
+        {
+          "name": "m1",
+          "values": [
+            5.0,
+            6.0,
+            7.0,
+            8.0
+          ],
+          "shape": [
+            4
+          ],
+          "role": "input"
+        },
+        {
+          "name": "m2",
+          "values": [
+            -4.0,
+            -4.0,
+            -4.0,
+            -4.0
+          ],
+          "shape": [
+            4
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "2",
+        "2",
+        "5",
+        "6",
+        "7",
+        "8",
+        "2",
+        "2",
+        "-4",
+        "-4",
+        "-4",
+        "-4",
+        "2",
+        "2"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.matviewtype.MatView_trace",
+      "file": "src/matviewtype.zig",
+      "name": "MatView.trace",
+      "source_sha256": "78b8c1c4cb56a1410d87d7b0f39032a82c972a4d990ad53daff4066ed45602ec",
+      "arrays": [
+        {
+          "name": "m0",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0
+          ],
+          "shape": [
+            4
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "2",
+        "2",
+        "5"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.matviewtype.MatView_transpose",
+      "file": "src/matviewtype.zig",
+      "name": "MatView.transpose",
+      "source_sha256": "656f68d068ca411b72ae21bc81aa08187445ea15937ecb2e1bb74abec18b2505",
+      "arrays": [
+        {
+          "name": "m0",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0
+          ],
+          "shape": [
+            4
+          ],
+          "role": "input"
+        },
+        {
+          "name": "m_buff",
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "shape": [
+            4
+          ],
+          "role": "input"
+        },
+        {
+          "name": "m1",
+          "values": [
+            1.0,
+            3.0,
+            2.0,
+            4.0
+          ],
+          "shape": [
+            4
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "2",
+        "2",
+        "0",
+        "0",
+        "0",
+        "0",
+        "2",
+        "2",
+        "1",
+        "3",
+        "2",
+        "4",
+        "2",
+        "2"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.matviewtype.MatView_mulScal",
+      "file": "src/matviewtype.zig",
+      "name": "MatView.mulScal",
+      "source_sha256": "347a48d7fc55b2a65a9d37c43a87595523bdc2a1d29287544417d4b6579c4e6b",
+      "arrays": [
+        {
+          "name": "m0",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0
+          ],
+          "shape": [
+            4
+          ],
+          "role": "input"
+        },
+        {
+          "name": "m1",
+          "values": [
+            2.0,
+            4.0,
+            6.0,
+            8.0
+          ],
+          "shape": [
+            4
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "2",
+        "2",
+        "2",
+        "2",
+        "4",
+        "6",
+        "8",
+        "2",
+        "2"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.matviewtype.MatViewOps_mulVec",
+      "file": "src/matviewtype.zig",
+      "name": "MatViewOps.mulVec",
+      "source_sha256": "696d8f4848712945aabbde939a057cbd948665d7364ae86c8f98d64520361773",
+      "arrays": [
+        {
+          "name": "m0",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            9.0
+          ],
+          "shape": [
+            9
+          ],
+          "role": "input"
+        },
+        {
+          "name": "v0",
+          "values": [
+            3.0,
+            2.0,
+            1.0
+          ],
+          "shape": [
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "v1",
+          "values": [
+            10.0,
+            28.0,
+            46.0
+          ],
+          "shape": [
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "v_out",
+          "values": [
+            0.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "3",
+        "3",
+        "3",
+        "2",
+        "1",
+        "10",
+        "28",
+        "46",
+        "0",
+        "3"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.matviewtype.MatViewOps_mulSquare",
+      "file": "src/matviewtype.zig",
+      "name": "MatViewOps.mulSquare",
+      "source_sha256": "9b7b8640baf10272a29c895efb8a70c44810e7535304636ed3206b28fa2ef9b5",
+      "arrays": [
+        {
+          "name": "m0",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            9.0
+          ],
+          "shape": [
+            9
+          ],
+          "role": "input"
+        },
+        {
+          "name": "m1",
+          "values": [
+            3.0,
+            1.0,
+            1.0,
+            1.0,
+            3.0,
+            1.0,
+            1.0,
+            1.0,
+            3.0
+          ],
+          "shape": [
+            9
+          ],
+          "role": "input"
+        },
+        {
+          "name": "m2",
+          "values": [
+            0.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        },
+        {
+          "name": "m3",
+          "values": [
+            8.0,
+            10.0,
+            12.0,
+            23.0,
+            25.0,
+            27.0,
+            38.0,
+            40.0,
+            42.0
+          ],
+          "shape": [
+            9
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "3",
+        "3",
+        "3",
+        "1",
+        "1",
+        "1",
+        "3",
+        "1",
+        "1",
+        "1",
+        "3",
+        "3",
+        "3",
+        "0",
+        "9",
+        "3",
+        "3",
+        "8",
+        "10",
+        "12",
+        "23",
+        "25",
+        "27",
+        "38",
+        "40",
+        "42",
+        "3",
+        "3"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.matviewtype.MatView_allocation_rectangular_trace_and_column_extrema",
+      "file": "src/matviewtype.zig",
+      "name": "MatView allocation, rectangular trace, and column extrema",
+      "source_sha256": "fc1208488f637ba6e5a95584f09d42e4f88b59cf6f3d88fb207784c975d93dee",
+      "arrays": [],
+      "numeric_literals": [
+        "3",
+        "2",
+        "0",
+        "0",
+        "0",
+        "1",
+        "1",
+        "0",
+        "-4",
+        "2",
+        "0",
+        "3",
+        "0",
+        "1",
+        "2",
+        "1",
+        "1",
+        "5",
+        "2",
+        "1",
+        "-6",
+        "6",
+        "-4",
+        "0",
+        "5",
+        "1"
+      ],
+      "assertions": 3
+    },
+    {
+      "id": "legacy.matviewtype.MatView_in_place_multiply_and_divide",
+      "file": "src/matviewtype.zig",
+      "name": "MatView in-place multiply and divide",
+      "source_sha256": "5c94123e8ffd9ac5b72e3b6f01ba0be80e16e061e0730c6deb80b1e7b9358058",
+      "arrays": [
+        {
+          "name": "values",
+          "values": [
+            2.0,
+            4.0,
+            6.0,
+            8.0
+          ],
+          "shape": [
+            4
+          ],
+          "role": "input"
+        },
+        {
+          "name": "factors",
+          "values": [
+            2.0,
+            4.0,
+            3.0,
+            2.0
+          ],
+          "shape": [
+            4
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "2",
+        "4",
+        "6",
+        "8",
+        "2",
+        "2",
+        "2",
+        "4",
+        "3",
+        "2",
+        "2",
+        "2",
+        "4",
+        "16",
+        "18",
+        "16",
+        "2",
+        "4",
+        "6",
+        "8"
+      ],
+      "assertions": 2
+    },
+    {
+      "id": "legacy.matviewtype.MatViewOps_multiplies_rectangular_matrices",
+      "file": "src/matviewtype.zig",
+      "name": "MatViewOps multiplies rectangular matrices",
+      "source_sha256": "2ea9db2715512e4ec47a1d318c0211c3a978dc421c5d0488296293a1db834b3b",
+      "arrays": [
+        {
+          "name": "left_values",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0
+          ],
+          "shape": [
+            6
+          ],
+          "role": "input"
+        },
+        {
+          "name": "right_values",
+          "values": [
+            1.0,
+            0.0,
+            0.0,
+            4.0,
+            0.0,
+            2.0,
+            0.0,
+            5.0,
+            0.0,
+            0.0,
+            3.0,
+            6.0
+          ],
+          "shape": [
+            12
+          ],
+          "role": "input"
+        },
+        {
+          "name": "output_values",
+          "values": [
+            0.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "2",
+        "3",
+        "1",
+        "0",
+        "0",
+        "4",
+        "0",
+        "2",
+        "0",
+        "5",
+        "0",
+        "0",
+        "3",
+        "6",
+        "3",
+        "4",
+        "0",
+        "8",
+        "2",
+        "4",
+        "1",
+        "4",
+        "9",
+        "32",
+        "4",
+        "10",
+        "18",
+        "77"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.matviewtype.MatView_identity_clears_dirty_storage_and_transpose_supports_rectangles",
+      "file": "src/matviewtype.zig",
+      "name": "MatView identity clears dirty storage and transpose supports rectangles",
+      "source_sha256": "fb0517a224504e84595b05c20dada4dd187889e0645647e93f10257631895a5b",
+      "arrays": [
+        {
+          "name": "square_values",
+          "values": [
+            9.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        },
+        {
+          "name": "input_values",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0
+          ],
+          "shape": [
+            6
+          ],
+          "role": "input"
+        },
+        {
+          "name": "output_values",
+          "values": [
+            0.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "9",
+        "9",
+        "3",
+        "3",
+        "1",
+        "0",
+        "0",
+        "0",
+        "1",
+        "0",
+        "0",
+        "0",
+        "1",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "2",
+        "3",
+        "0",
+        "6",
+        "3",
+        "2",
+        "1",
+        "4",
+        "2",
+        "5",
+        "3",
+        "6"
+      ],
+      "assertions": 2
+    },
+    {
+      "id": "legacy.ndarraytype.matchArrayDims",
+      "file": "src/ndarraytype.zig",
+      "name": "matchArrayDims",
+      "source_sha256": "3414025d51d696a49f5609f9ae2802c0028dcc5f5f85d5b34e88445fe377a99e",
+      "arrays": [
+        {
+          "name": "dims0",
+          "values": [
+            3.0,
+            3.0,
+            2.0
+          ],
+          "shape": [
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "dims1",
+          "values": [
+            3.0,
+            3.0,
+            2.0
+          ],
+          "shape": [
+            3
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "3",
+        "3",
+        "2",
+        "18",
+        "3",
+        "3",
+        "2",
+        "18"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.ndarraytype.getFlatIdx",
+      "file": "src/ndarraytype.zig",
+      "name": "getFlatIdx",
+      "source_sha256": "63a7b8fc386d27e5063eccebe104bc2bf3cf76368f47830b1ee2566d32a68828",
+      "arrays": [
+        {
+          "name": "dims0",
+          "values": [
+            2.0,
+            3.0,
+            3.0
+          ],
+          "shape": [
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "idxs0",
+          "values": [
+            1.0,
+            2.0,
+            1.0
+          ],
+          "shape": [
+            3
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "2",
+        "3",
+        "3",
+        "18",
+        "1",
+        "2",
+        "1",
+        "16"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.ndarraytype.calcFlatStride",
+      "file": "src/ndarraytype.zig",
+      "name": "calcFlatStride",
+      "source_sha256": "4598e254e27b6c743744cb2820cbb35e4978a7a87266eefdaeee02026516374b",
+      "arrays": [
+        {
+          "name": "dims0",
+          "values": [
+            2.0,
+            3.0,
+            3.0
+          ],
+          "shape": [
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "check0",
+          "values": [
+            9.0,
+            3.0,
+            1.0
+          ],
+          "shape": [
+            3
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "2",
+        "3",
+        "3",
+        "18",
+        "9",
+        "3",
+        "1"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.ndarraytype.getSlice",
+      "file": "src/ndarraytype.zig",
+      "name": "getSlice",
+      "source_sha256": "c9ac67b73370f2abbca30eaa6622efe4815995d73ce268ead98c078b01969bb3",
+      "arrays": [
+        {
+          "name": "dims0",
+          "values": [
+            3.0,
+            2.0,
+            2.0
+          ],
+          "shape": [
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "set_idxs",
+          "values": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "shape": [
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "fixed_idxs",
+          "values": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "shape": [
+            3
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "3",
+        "2",
+        "2",
+        "12",
+        "1",
+        "0",
+        "0",
+        "1",
+        "2",
+        "1",
+        "2",
+        "7",
+        "1",
+        "0",
+        "0",
+        "0",
+        "4",
+        "0",
+        "7"
+      ],
+      "assertions": 2
+    },
+    {
+      "id": "legacy.ndarraytype.fixedPrefixView",
+      "file": "src/ndarraytype.zig",
+      "name": "fixedPrefixView",
+      "source_sha256": "c51c3279328d5ef7c640bba2c07816d64ecc2593e8e1fca07908c903bd0e234a",
+      "arrays": [
+        {
+          "name": "dims0",
+          "values": [
+            2.0,
+            3.0,
+            2.0,
+            2.0
+          ],
+          "shape": [
+            4
+          ],
+          "role": "input"
+        },
+        {
+          "name": "fixed",
+          "values": [
+            1.0,
+            2.0
+          ],
+          "shape": [
+            2
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "2",
+        "3",
+        "2",
+        "2",
+        "24",
+        "1",
+        "2",
+        "2",
+        "2",
+        "0",
+        "2",
+        "1",
+        "1",
+        "2",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1",
+        "2",
+        "1",
+        "1",
+        "1",
+        "1"
+      ],
+      "assertions": 5
+    },
+    {
+      "id": "legacy.ndarraytype.offset_helpers",
+      "file": "src/ndarraytype.zig",
+      "name": "offset helpers",
+      "source_sha256": "886fb91d6616617557473dce2c61d9bc054fb0722e05ba5482be02c7e94903d4",
+      "arrays": [
+        {
+          "name": "dims3",
+          "values": [
+            2.0,
+            3.0,
+            4.0
+          ],
+          "shape": [
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "dims0",
+          "values": [
+            2.0,
+            3.0,
+            4.0,
+            5.0
+          ],
+          "shape": [
+            4
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "2",
+        "3",
+        "4",
+        "2",
+        "3",
+        "4",
+        "2",
+        "3",
+        "4",
+        "5",
+        "2",
+        "3",
+        "4",
+        "5",
+        "1",
+        "1",
+        "2",
+        "1",
+        "2",
+        "3",
+        "1",
+        "2",
+        "3",
+        "4",
+        "60",
+        "100",
+        "23",
+        "119"
+      ],
+      "assertions": 4
+    },
+    {
+      "id": "legacy.ndarraytype.NDArray_flat_allocation_plane_slicing_and_duplication_ownership",
+      "file": "src/ndarraytype.zig",
+      "name": "NDArray flat allocation, plane slicing, and duplication ownership",
+      "source_sha256": "68fd0648eddc81c13d82040894f26459a64d47244f0a76ef71564aa13b8e7d8a",
+      "arrays": [],
+      "numeric_literals": [
+        "2",
+        "2",
+        "2",
+        "1",
+        "1",
+        "0",
+        "1",
+        "7",
+        "7",
+        "1",
+        "0",
+        "1",
+        "1",
+        "7",
+        "1",
+        "1",
+        "1",
+        "1",
+        "0",
+        "1",
+        "9",
+        "7",
+        "1",
+        "0",
+        "1",
+        "9",
+        "1",
+        "0",
+        "1"
+      ],
+      "assertions": 4
+    },
+    {
+      "id": "legacy.ndarraytype.NDArray_shape_mismatch_and_mapped_metadata_cleanup",
+      "file": "src/ndarraytype.zig",
+      "name": "NDArray shape mismatch and mapped metadata cleanup",
+      "source_sha256": "7bc9d8ce6fec7728e88870f8a518d4ed0b1689a302febaaa0249c6cb4e4c046d",
+      "arrays": [],
+      "numeric_literals": [
+        "2",
+        "2",
+        "2",
+        "3",
+        "1",
+        "0"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.ndarraytype.NDArrayOps_arithmetic_extraction_and_empty_prefix_view",
+      "file": "src/ndarraytype.zig",
+      "name": "NDArrayOps arithmetic, extraction, and empty prefix view",
+      "source_sha256": "f05987c3e9cedcf2a64ff1bdd7eb9ca8f2cda0be47eb8c4e3e859cfa0152ebb4",
+      "arrays": [
+        {
+          "name": "matrix_values",
+          "values": [
+            0.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "2",
+        "2",
+        "2",
+        "2",
+        "2",
+        "2",
+        "1",
+        "2",
+        "3",
+        "4",
+        "2",
+        "4",
+        "6",
+        "8",
+        "3",
+        "6",
+        "9",
+        "12",
+        "2",
+        "2",
+        "2",
+        "2",
+        "2",
+        "2",
+        "3",
+        "100",
+        "10",
+        "0",
+        "6",
+        "2",
+        "3",
+        "1",
+        "0",
+        "0",
+        "1",
+        "2",
+        "100",
+        "101",
+        "102",
+        "110",
+        "111",
+        "112"
+      ],
+      "assertions": 5
+    },
+    {
+      "id": "legacy.rowops.rowops_swapRowsStack_and_swapRowsSlice",
+      "file": "src/rowops.zig",
+      "name": "rowops.swapRowsStack and swapRowsSlice",
+      "source_sha256": "8fc9e507cf408a54927307f5ca7e45386dff713a5a27b86f3cc89b9b3da0be83",
+      "arrays": [
+        {
+          "name": "mat",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0
+          ],
+          "shape": [
+            3,
+            2
+          ],
+          "role": "input"
+        },
+        {
+          "name": "raw",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0
+          ],
+          "shape": [
+            6
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "3",
+        "2",
+        "1.0",
+        "2.0",
+        "3.0",
+        "4.0",
+        "5.0",
+        "6.0",
+        "3",
+        "2",
+        "0",
+        "2",
+        "5.0",
+        "0",
+        "0",
+        "6.0",
+        "0",
+        "1",
+        "1.0",
+        "2",
+        "0",
+        "2.0",
+        "2",
+        "1",
+        "1.0",
+        "2.0",
+        "3.0",
+        "4.0",
+        "5.0",
+        "6.0",
+        "3",
+        "2",
+        "0",
+        "2",
+        "5.0",
+        "0",
+        "0",
+        "6.0",
+        "0",
+        "1",
+        "1.0",
+        "2",
+        "0",
+        "2.0",
+        "2",
+        "1"
+      ],
+      "assertions": 8
+    },
+    {
+      "id": "legacy.rowops.rowops_scaleRowStack_and_scaleRowSlice",
+      "file": "src/rowops.zig",
+      "name": "rowops.scaleRowStack and scaleRowSlice",
+      "source_sha256": "5f92163015068b8088d0461e75ae0ae2442699784b775dc1040c31752da8b004",
+      "arrays": [
+        {
+          "name": "mat",
+          "values": [
+            2.0,
+            4.0,
+            1.0,
+            3.0
+          ],
+          "shape": [
+            2,
+            2
+          ],
+          "role": "input"
+        },
+        {
+          "name": "raw",
+          "values": [
+            2.0,
+            4.0,
+            1.0,
+            3.0
+          ],
+          "shape": [
+            4
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "2",
+        "2",
+        "2.0",
+        "4.0",
+        "1.0",
+        "3.0",
+        "2",
+        "2",
+        "0",
+        "0.5",
+        "1.0",
+        "0",
+        "0",
+        "2.0",
+        "0",
+        "1",
+        "2.0",
+        "4.0",
+        "1.0",
+        "3.0",
+        "2",
+        "2",
+        "0",
+        "0.5",
+        "1.0",
+        "0",
+        "0",
+        "2.0",
+        "0",
+        "1"
+      ],
+      "assertions": 4
+    },
+    {
+      "id": "legacy.rowops.rowops_addScaledRowStack_and_addScaledRowSlice",
+      "file": "src/rowops.zig",
+      "name": "rowops.addScaledRowStack and addScaledRowSlice",
+      "source_sha256": "86c698bc8a1c376d60b45eefd597316a6d80be83ee08a4e57275c3ebc5d63081",
+      "arrays": [
+        {
+          "name": "mat",
+          "values": [
+            2.0,
+            3.0,
+            4.0,
+            5.0
+          ],
+          "shape": [
+            2,
+            2
+          ],
+          "role": "input"
+        },
+        {
+          "name": "raw",
+          "values": [
+            2.0,
+            3.0,
+            4.0,
+            5.0
+          ],
+          "shape": [
+            4
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "2",
+        "2",
+        "2.0",
+        "3.0",
+        "4.0",
+        "5.0",
+        "2",
+        "2",
+        "0",
+        "1",
+        "-2.0",
+        "0.0",
+        "1",
+        "0",
+        "-1.0",
+        "1",
+        "1",
+        "2.0",
+        "3.0",
+        "4.0",
+        "5.0",
+        "2",
+        "2",
+        "0",
+        "1",
+        "-2.0",
+        "0.0",
+        "1",
+        "0",
+        "-1.0",
+        "1",
+        "1"
+      ],
+      "assertions": 4
+    },
+    {
+      "id": "legacy.rowops.rowops_applyPermutation",
+      "file": "src/rowops.zig",
+      "name": "rowops.applyPermutation",
+      "source_sha256": "12afa252a71ce972734ebabf81a7dfbe81bba714cf7f7cee8cf0d5b7a1be4a49",
+      "arrays": [
+        {
+          "name": "perm",
+          "values": [
+            2.0,
+            0.0,
+            1.0
+          ],
+          "shape": [
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "vec",
+          "values": [
+            10.0,
+            20.0,
+            30.0
+          ],
+          "shape": [
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "raw_src",
+          "values": [
+            10.0,
+            20.0,
+            30.0
+          ],
+          "shape": [
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "raw_out",
+          "values": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "shape": [
+            3
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "2",
+        "0",
+        "1",
+        "3",
+        "10.0",
+        "20.0",
+        "30.0",
+        "3",
+        "30.0",
+        "0",
+        "10.0",
+        "1",
+        "20.0",
+        "2",
+        "10.0",
+        "20.0",
+        "30.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "30.0",
+        "0",
+        "10.0",
+        "1",
+        "20.0",
+        "2"
+      ],
+      "assertions": 6
+    },
+    {
+      "id": "legacy.sliceops.slice_add",
+      "file": "src/sliceops.zig",
+      "name": "slice.add",
+      "source_sha256": "56ac46badb42676942b15d83d40ecbaa37ccb22f5744fd4aafc6baf405da84b0",
+      "arrays": [
+        {
+          "name": "vec0",
+          "values": [
+            1.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        },
+        {
+          "name": "vec1",
+          "values": [
+            1.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        },
+        {
+          "name": "vec_exp",
+          "values": [
+            2.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "expected"
+        },
+        {
+          "name": "vec_op",
+          "values": [
+            0.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "10",
+        "1.0",
+        "1.0",
+        "2.0",
+        "0.0"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.sliceops.slice_sub",
+      "file": "src/sliceops.zig",
+      "name": "slice.sub",
+      "source_sha256": "ae177ca6f045486909ae5358d28d5a05cc5295e35dc22e32fe22a88448f828de",
+      "arrays": [
+        {
+          "name": "vec0",
+          "values": [
+            1.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        },
+        {
+          "name": "vec1",
+          "values": [
+            1.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        },
+        {
+          "name": "vec_exp",
+          "values": [
+            0.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "expected"
+        },
+        {
+          "name": "vec_op",
+          "values": [
+            -1.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "10",
+        "1.0",
+        "1.0",
+        "0.0",
+        "-1.0"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.sliceops.slice_mul",
+      "file": "src/sliceops.zig",
+      "name": "slice.mul",
+      "source_sha256": "be10902aacc8f9b7224e67a12eb7bbb86be7138866cc1cfc94012f9b3f820c47",
+      "arrays": [
+        {
+          "name": "vec0",
+          "values": [
+            1.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        },
+        {
+          "name": "vec1",
+          "values": [
+            1.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        },
+        {
+          "name": "vec_exp",
+          "values": [
+            1.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "expected"
+        },
+        {
+          "name": "vec_op",
+          "values": [
+            0.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "10",
+        "1.0",
+        "1.0",
+        "1.0",
+        "0.0"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.sliceops.slice_div",
+      "file": "src/sliceops.zig",
+      "name": "slice.div",
+      "source_sha256": "531648ba2a26d566c9161d1f3d0fcf04bf884ae8dae2bd8f540fa7413a206358",
+      "arrays": [
+        {
+          "name": "vec0",
+          "values": [
+            1.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        },
+        {
+          "name": "vec1",
+          "values": [
+            1.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        },
+        {
+          "name": "vec_exp",
+          "values": [
+            1.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "expected"
+        },
+        {
+          "name": "vec_op",
+          "values": [
+            0.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "10",
+        "1.0",
+        "1.0",
+        "1.0",
+        "0.0"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.sliceops.slice_mulScal",
+      "file": "src/sliceops.zig",
+      "name": "slice.mulScal",
+      "source_sha256": "ef683a49e852d85c3155bd9bd0cc3762451937357dd7d4f866e2a187dab06c10",
+      "arrays": [
+        {
+          "name": "vec0",
+          "values": [
+            1.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        },
+        {
+          "name": "vec_exp",
+          "values": [
+            2.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "expected"
+        },
+        {
+          "name": "vec_op",
+          "values": [
+            0.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "10",
+        "1.0",
+        "2.0",
+        "2.0",
+        "0.0"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.sliceops.slice_apply",
+      "file": "src/sliceops.zig",
+      "name": "slice.apply",
+      "source_sha256": "9060fab5f6d06b686ae15cf94bc15c3df236e2c023852d7884760e63a6e12cc0",
+      "arrays": [
+        {
+          "name": "arr_ones",
+          "values": [
+            1.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        },
+        {
+          "name": "arr_zeros",
+          "values": [
+            0.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        },
+        {
+          "name": "arr_out",
+          "values": [
+            -1.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "1",
+        "7",
+        "0",
+        "7",
+        "-1",
+        "7",
+        "-1",
+        "7",
+        "-1",
+        "7"
+      ],
+      "assertions": 3
+    },
+    {
+      "id": "legacy.sliceops.slice_max",
+      "file": "src/sliceops.zig",
+      "name": "slice.max",
+      "source_sha256": "0d305a3e16572c72906192c6093ac6ec6c09418545edce5f4386dd424d8db855",
+      "arrays": [
+        {
+          "name": "array",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            7.0,
+            0.0,
+            -3.0,
+            1.0
+          ],
+          "shape": [
+            7
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "1",
+        "2",
+        "3",
+        "7",
+        "0",
+        "-3",
+        "1",
+        "7",
+        "3"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.sliceops.slice_min",
+      "file": "src/sliceops.zig",
+      "name": "slice.min",
+      "source_sha256": "b78ccc3780355ca728bd00c61f4f2800fa2029f5ccbb5f941d07eee81c90ad3b",
+      "arrays": [
+        {
+          "name": "array",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            7.0,
+            0.0,
+            -3.0,
+            1.0
+          ],
+          "shape": [
+            7
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "1",
+        "2",
+        "3",
+        "7",
+        "0",
+        "-3",
+        "1",
+        "-3",
+        "5"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.sliceops.slice_sum",
+      "file": "src/sliceops.zig",
+      "name": "slice.sum",
+      "source_sha256": "f666f2ba33f66bd3f7d33223348c9999a77cf0ba768b8e246e407edfc40a7480",
+      "arrays": [
+        {
+          "name": "array",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            7.0,
+            0.0,
+            -3.0,
+            1.0
+          ],
+          "shape": [
+            7
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "1",
+        "2",
+        "3",
+        "7",
+        "0",
+        "-3",
+        "1",
+        "11"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.sliceops.slice_mean",
+      "file": "src/sliceops.zig",
+      "name": "slice.mean",
+      "source_sha256": "e76bda4e04cba52b25071c23fcf3cd276a428ed3465770a786a9bf99041d6bb0",
+      "arrays": [
+        {
+          "name": "array",
+          "values": [
+            1.0,
+            2.0,
+            3.0,
+            7.0,
+            0.0,
+            -3.0,
+            1.0
+          ],
+          "shape": [
+            7
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "1",
+        "2",
+        "3",
+        "7",
+        "0",
+        "-3",
+        "1",
+        "11.0",
+        "7.0"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.sliceops.slice_reductions_and_range_length",
+      "file": "src/sliceops.zig",
+      "name": "slice reductions and range length",
+      "source_sha256": "379842d031c05c715ce2bb831fd3bc78bce22897eb942c80187c5bde9cfe9af9",
+      "arrays": [
+        {
+          "name": "values",
+          "values": [
+            -3.0,
+            4.0
+          ],
+          "shape": [
+            2
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "-3",
+        "4",
+        "25",
+        "25",
+        "5",
+        "5",
+        "0",
+        "1",
+        "0.2"
+      ],
+      "assertions": 4
+    },
+    {
+      "id": "legacy.sliceops.slice_operations_support_f32_and_partial_apply_output",
+      "file": "src/sliceops.zig",
+      "name": "slice operations support f32 and partial apply output",
+      "source_sha256": "43b2b185a682caf8e14605fe41c8164f13a53b75609ca0bf0696a43cbcdc3d10",
+      "arrays": [
+        {
+          "name": "left",
+          "values": [
+            1.5,
+            -2.0
+          ],
+          "shape": [
+            2
+          ],
+          "role": "input"
+        },
+        {
+          "name": "right",
+          "values": [
+            2.0,
+            0.5
+          ],
+          "shape": [
+            2
+          ],
+          "role": "input"
+        },
+        {
+          "name": "product",
+          "values": [
+            0.0,
+            0.0
+          ],
+          "shape": [
+            2
+          ],
+          "role": "input"
+        },
+        {
+          "name": "output",
+          "values": [
+            0.0,
+            0.0,
+            99.0
+          ],
+          "shape": [
+            3
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "1.5",
+        "-2.0",
+        "2.0",
+        "0.5",
+        "0",
+        "0",
+        "3.0",
+        "-1.0",
+        "0",
+        "0",
+        "99",
+        "1.0",
+        "4.0",
+        "1.0",
+        "2.0",
+        "99.0"
+      ],
+      "assertions": 2
+    },
+    {
+      "id": "legacy.sliceops.checked_slice_operations_reject_mismatched_lengths",
+      "file": "src/sliceops.zig",
+      "name": "checked slice operations reject mismatched lengths",
+      "source_sha256": "2ad87e4acfdd306bd939f4a16a64f9590a0c1affccdb0ae2e8eb708588278eb6",
+      "arrays": [
+        {
+          "name": "output",
+          "values": [
+            0.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "0",
+        "2",
+        "1",
+        "2",
+        "1",
+        "1",
+        "2",
+        "2"
+      ],
+      "assertions": 2
+    },
+    {
+      "id": "legacy.vecops.vecops_dotStack_and_dotSlice",
+      "file": "src/vecops.zig",
+      "name": "vecops.dotStack and dotSlice",
+      "source_sha256": "d0fee5377b8b0ba1e6fe0696a1cc10e4103c5f2cf8ace76674f56351362bd7ec",
+      "arrays": [
+        {
+          "name": "v1",
+          "values": [
+            1.0,
+            2.0,
+            3.0
+          ],
+          "shape": [
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "v2",
+          "values": [
+            4.0,
+            5.0,
+            6.0
+          ],
+          "shape": [
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "raw1",
+          "values": [
+            1.0,
+            2.0,
+            3.0
+          ],
+          "shape": [
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "raw2",
+          "values": [
+            4.0,
+            5.0,
+            6.0
+          ],
+          "shape": [
+            3
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "3",
+        "1.0",
+        "2.0",
+        "3.0",
+        "3",
+        "4.0",
+        "5.0",
+        "6.0",
+        "1.0",
+        "4.0",
+        "2.0",
+        "5.0",
+        "3.0",
+        "6.0",
+        "3",
+        "1.0",
+        "2.0",
+        "3.0",
+        "4.0",
+        "5.0",
+        "6.0"
+      ],
+      "assertions": 2
+    },
+    {
+      "id": "legacy.vecops.vecops_squaredNorm_and_norm",
+      "file": "src/vecops.zig",
+      "name": "vecops.squaredNorm and norm",
+      "source_sha256": "3ba09ddbca8eea154060e1bc3a4bb814b622f9a285a5aba60177c686a9800f52",
+      "arrays": [
+        {
+          "name": "v",
+          "values": [
+            3.0,
+            4.0,
+            0.0
+          ],
+          "shape": [
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "raw",
+          "values": [
+            3.0,
+            4.0,
+            0.0
+          ],
+          "shape": [
+            3
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "3",
+        "3.0",
+        "4.0",
+        "0.0",
+        "25.0",
+        "3",
+        "5.0",
+        "3",
+        "3.0",
+        "4.0",
+        "0.0",
+        "25.0",
+        "5.0"
+      ],
+      "assertions": 4
+    },
+    {
+      "id": "legacy.vecops.vecops_maxAbs",
+      "file": "src/vecops.zig",
+      "name": "vecops.maxAbs",
+      "source_sha256": "122b1798b557aadd35aa79b3d5ed44ddc647d291e1c3bf8a2af7b81d2f252650",
+      "arrays": [
+        {
+          "name": "v",
+          "values": [
+            -10.5,
+            3.2,
+            7.1,
+            -1.0
+          ],
+          "shape": [
+            4
+          ],
+          "role": "input"
+        },
+        {
+          "name": "raw",
+          "values": [
+            -10.5,
+            3.2,
+            7.1,
+            -1.0
+          ],
+          "shape": [
+            4
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "4",
+        "-10.5",
+        "3.2",
+        "7.1",
+        "-1.0",
+        "10.5",
+        "4",
+        "-10.5",
+        "3.2",
+        "7.1",
+        "-1.0",
+        "10.5"
+      ],
+      "assertions": 2
+    },
+    {
+      "id": "legacy.vecops.vecops_allFinite",
+      "file": "src/vecops.zig",
+      "name": "vecops.allFinite",
+      "source_sha256": "8f09e6ae7a4db6d4eb01dcd42ac604848c0956a97b2369e6763b1fb306256674",
+      "arrays": [
+        {
+          "name": "v_good",
+          "values": [
+            1.0,
+            -2.0,
+            0.0
+          ],
+          "shape": [
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "raw_good",
+          "values": [
+            1.0,
+            -2.0,
+            0.0
+          ],
+          "shape": [
+            3
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "3",
+        "1.0",
+        "-2.0",
+        "0.0",
+        "3",
+        "3",
+        "1.0",
+        "0.0",
+        "3",
+        "1.0",
+        "0.0",
+        "3",
+        "3",
+        "1.0",
+        "-2.0",
+        "0.0",
+        "1.0",
+        "0.0"
+      ],
+      "assertions": 5
+    },
+    {
+      "id": "legacy.vecops.vecops_axpy",
+      "file": "src/vecops.zig",
+      "name": "vecops.axpy",
+      "source_sha256": "c8067bc930c927115fd94b1ac4589bbe566254da5b7b71b7056d1b0350a9bc57",
+      "arrays": [
+        {
+          "name": "x",
+          "values": [
+            1.0,
+            2.0,
+            3.0
+          ],
+          "shape": [
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "y",
+          "values": [
+            4.0,
+            5.0,
+            6.0
+          ],
+          "shape": [
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "raw_x",
+          "values": [
+            1.0,
+            2.0,
+            3.0
+          ],
+          "shape": [
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "raw_y",
+          "values": [
+            4.0,
+            5.0,
+            6.0
+          ],
+          "shape": [
+            3
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "3",
+        "1.0",
+        "2.0",
+        "3.0",
+        "3",
+        "4.0",
+        "5.0",
+        "6.0",
+        "3",
+        "2.0",
+        "6.0",
+        "0",
+        "9.0",
+        "1",
+        "12.0",
+        "2",
+        "1.0",
+        "2.0",
+        "3.0",
+        "4.0",
+        "5.0",
+        "6.0",
+        "2.0",
+        "6.0",
+        "0",
+        "9.0",
+        "1",
+        "12.0",
+        "2"
+      ],
+      "assertions": 6
+    },
+    {
+      "id": "legacy.vectype.VecSliceOps_max",
+      "file": "src/vectype.zig",
+      "name": "VecSliceOps.max",
+      "source_sha256": "5e17f41b0df34bbff6c66cf53cb143ff54516fc3cc040a59138462ae783a8993",
+      "arrays": [],
+      "numeric_literals": [
+        "3",
+        "0",
+        "-1.0",
+        "2.0",
+        "7.0",
+        "1",
+        "2.0",
+        "-2.0",
+        "7.0",
+        "2",
+        "5.0",
+        "-10.0",
+        "0.0",
+        "0",
+        "1",
+        "2",
+        "5.0",
+        "2.0",
+        "7.0"
+      ],
+      "assertions": 3
+    },
+    {
+      "id": "legacy.vectype.Vec_apply",
+      "file": "src/vectype.zig",
+      "name": "Vec.apply",
+      "source_sha256": "59da66c57e5de4b0b9315446dccbb1f475df94798daf6585a0802424e1ee298c",
+      "arrays": [],
+      "numeric_literals": [
+        "7"
+      ],
+      "assertions": 3
+    },
+    {
+      "id": "legacy.vectype.Vec_max",
+      "file": "src/vectype.zig",
+      "name": "Vec.max",
+      "source_sha256": "289105a5b7b80c7f8822d06baa489de04fb918cdb40d6f683434a3e9428e3f79",
+      "arrays": [
+        {
+          "name": "v0",
+          "values": [
+            1.0,
+            3.0,
+            6.0,
+            7.0,
+            8.0,
+            1.0,
+            -2.0,
+            -3.0,
+            0.0,
+            5.0
+          ],
+          "shape": [
+            10
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "1",
+        "3",
+        "6",
+        "7",
+        "8",
+        "1",
+        "-2",
+        "-3",
+        "0",
+        "5",
+        "8",
+        "4"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.vectype.Vec_min",
+      "file": "src/vectype.zig",
+      "name": "Vec.min",
+      "source_sha256": "ae56461322c7640911f191e3f5f373e20e0f00cddaab9b9b24b3b9753cae6c0c",
+      "arrays": [
+        {
+          "name": "v0",
+          "values": [
+            1.0,
+            3.0,
+            6.0,
+            7.0,
+            8.0,
+            1.0,
+            -2.0,
+            -3.0,
+            0.0,
+            5.0
+          ],
+          "shape": [
+            10
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "1",
+        "3",
+        "6",
+        "7",
+        "8",
+        "1",
+        "-2",
+        "-3",
+        "0",
+        "5",
+        "-3",
+        "7"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.vectype.Vec_sum",
+      "file": "src/vectype.zig",
+      "name": "Vec.sum",
+      "source_sha256": "ee9087cfbda7b21c88640c47bc5b1e20fba6b9e227fca83e37f5764aed6a25cd",
+      "arrays": [
+        {
+          "name": "v0",
+          "values": [
+            1.0,
+            3.0,
+            6.0,
+            7.0,
+            8.0,
+            1.0,
+            -2.0,
+            -3.0,
+            0.0,
+            5.0
+          ],
+          "shape": [
+            10
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "1",
+        "3",
+        "6",
+        "7",
+        "8",
+        "1",
+        "-2",
+        "-3",
+        "0",
+        "5",
+        "26"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.vectype.Vec_mean",
+      "file": "src/vectype.zig",
+      "name": "Vec.mean",
+      "source_sha256": "ea60870c65a1e9af10bfa63a035a3daa232ae5d43bb0328e407321d68c64d0d2",
+      "arrays": [
+        {
+          "name": "v0",
+          "values": [
+            1.0,
+            3.0,
+            6.0,
+            7.0,
+            8.0,
+            1.0,
+            -2.0,
+            -3.0,
+            0.0,
+            5.0
+          ],
+          "shape": [
+            10
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "1",
+        "3",
+        "6",
+        "7",
+        "8",
+        "1",
+        "-2",
+        "-3",
+        "0",
+        "5",
+        "2.6"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.vectype.Vec3f_add",
+      "file": "src/vectype.zig",
+      "name": "Vec3f.add",
+      "source_sha256": "206e1e554bfb2c38a379fd1f1ac2d7aad65c843c6fbc9772dadfece38becf8e5",
+      "arrays": [],
+      "numeric_literals": [
+        "2",
+        "3"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.vectype.Vec3f_sub",
+      "file": "src/vectype.zig",
+      "name": "Vec3f.sub",
+      "source_sha256": "f285311a1804b4f17c9b84ec6021c605cfa574c4d7ce06cdd0d731cb1ee2767e",
+      "arrays": [],
+      "numeric_literals": [
+        "7",
+        "-6"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.vectype.Vec3f_mulScal",
+      "file": "src/vectype.zig",
+      "name": "Vec3f.mulScal",
+      "source_sha256": "7566d8e8c629b10c6d325cbabf1c15612073b27ca1468d9c12efeb05f0ef1126",
+      "arrays": [],
+      "numeric_literals": [
+        "1.23"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.vectype.Vec3f_dot",
+      "file": "src/vectype.zig",
+      "name": "Vec3f.dot",
+      "source_sha256": "171091670f43704e7bbb67c686d76605cc6e5b3c23d255db9d4ec5921418624d",
+      "arrays": [],
+      "numeric_literals": [
+        "7.0",
+        "3"
+      ],
+      "assertions": 2
+    },
+    {
+      "id": "legacy.vectype.Vec3f_norm",
+      "file": "src/vectype.zig",
+      "name": "Vec3f.norm",
+      "source_sha256": "44e3c51158814f4faef920f63fa094049e238acf9c073edf98463189f1bd107e",
+      "arrays": [],
+      "numeric_literals": [
+        "2.0",
+        "3"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.vectype.Vec3f_length",
+      "file": "src/vectype.zig",
+      "name": "Vec3f.length",
+      "source_sha256": "fbd8c29e807b99814194c07047ce33e2133403affbf98a9b75b1d2090806f821",
+      "arrays": [
+        {
+          "name": "arr",
+          "values": [
+            2.0,
+            -1.0,
+            3.0
+          ],
+          "shape": [
+            3
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "2.0",
+        "-1.0",
+        "3.0",
+        "0",
+        "0",
+        "1",
+        "1",
+        "2",
+        "2"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.vectype.Vec3Ops_cross",
+      "file": "src/vectype.zig",
+      "name": "Vec3Ops.cross",
+      "source_sha256": "a7a1c9f36bd38100dab29564f7693459a55ebec9ac1f2d06a6496111dc662d4f",
+      "arrays": [
+        {
+          "name": "v0",
+          "values": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "shape": [
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "v1",
+          "values": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "shape": [
+            3
+          ],
+          "role": "input"
+        },
+        {
+          "name": "v2",
+          "values": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "shape": [
+            3
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "1.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "1.0",
+        "0.0",
+        "0.0",
+        "0.0",
+        "1.0"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.vectype.Vec_constructors_accessors_and_integer_arithmetic",
+      "file": "src/vectype.zig",
+      "name": "Vec constructors, accessors, and integer arithmetic",
+      "source_sha256": "390af9703c465c613d2694adc8524202b8ebb6ade62bdd56782de711c52de8b2",
+      "arrays": [],
+      "numeric_literals": [
+        "4",
+        "2",
+        "2",
+        "7",
+        "2",
+        "2",
+        "7",
+        "2",
+        "13",
+        "1"
+      ],
+      "assertions": 7
+    },
+    {
+      "id": "legacy.vectype.Vec_constructors_and_Vec3SliceOps_minimum",
+      "file": "src/vectype.zig",
+      "name": "Vec constructors and Vec3SliceOps minimum",
+      "source_sha256": "aca2bdc0ecb9d8b2923c35748bae52145f0c5875859706d41aeff270963399bb",
+      "arrays": [],
+      "numeric_literals": [
+        "2",
+        "2",
+        "3",
+        "3",
+        "1",
+        "2",
+        "3",
+        "2",
+        "4",
+        "6",
+        "-1",
+        "5",
+        "7",
+        "3",
+        "-2",
+        "8",
+        "-2",
+        "1"
+      ],
+      "assertions": 3
+    },
+    {
+      "id": "legacy.vectype.Vec_direct_vec_field_access_and_get_set_compatibility",
+      "file": "src/vectype.zig",
+      "name": "Vec direct vec field access and get set compatibility",
+      "source_sha256": "1211d2e9e3acc9a4f0d6599e522d9dd3024725f4d4c6dda4cf5e894af7da34cb",
+      "arrays": [],
+      "numeric_literals": [
+        "10.0",
+        "20.0",
+        "30.0",
+        "10.0",
+        "0",
+        "20.0",
+        "1",
+        "30.0",
+        "2",
+        "0",
+        "0",
+        "1",
+        "1",
+        "2",
+        "2",
+        "1",
+        "42.0",
+        "42.0",
+        "1",
+        "1",
+        "99.0",
+        "99.0",
+        "1"
+      ],
+      "assertions": 8
+    },
+    {
+      "id": "legacy.vecviewtype.VecView_addInPlace",
+      "file": "src/vecviewtype.zig",
+      "name": "VecView.addInPlace",
+      "source_sha256": "4518daeea700a767544b90f37a7be76aba6a994441f4374e0b0690b8c443d57b",
+      "arrays": [
+        {
+          "name": "v0",
+          "values": [
+            0.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        },
+        {
+          "name": "v1",
+          "values": [
+            0.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        },
+        {
+          "name": "ve",
+          "values": [
+            0.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "10",
+        "0.0",
+        "0.0",
+        "0.0",
+        "1.0",
+        "1.0",
+        "2.0"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.vecviewtype.VecView_subInPlace",
+      "file": "src/vecviewtype.zig",
+      "name": "VecView.subInPlace",
+      "source_sha256": "f1065c7df537cb112151215a512682e0a5aea82c98aa583c9232b9d971cc3d1a",
+      "arrays": [
+        {
+          "name": "v0",
+          "values": [
+            0.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        },
+        {
+          "name": "v1",
+          "values": [
+            0.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        },
+        {
+          "name": "ve",
+          "values": [
+            0.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "10",
+        "0.0",
+        "0.0",
+        "0.0",
+        "1.0",
+        "1.0",
+        "0.0"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.vecviewtype.VecView_mulInPlace",
+      "file": "src/vecviewtype.zig",
+      "name": "VecView.mulInPlace",
+      "source_sha256": "acc9776a8ce60a6962e9bc87aad155c3a8fa9d192e0a95a0bd74f06365f9f317",
+      "arrays": [
+        {
+          "name": "v0",
+          "values": [
+            0.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        },
+        {
+          "name": "v1",
+          "values": [
+            0.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        },
+        {
+          "name": "ve",
+          "values": [
+            0.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "10",
+        "0.0",
+        "0.0",
+        "0.0",
+        "1.0",
+        "1.0",
+        "1.0"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.vecviewtype.VecView_divInPlace",
+      "file": "src/vecviewtype.zig",
+      "name": "VecView.divInPlace",
+      "source_sha256": "d359774fb7937aefb61c89b5376d73f0b3c106e011e48c1d31bcfa9832c9b23c",
+      "arrays": [
+        {
+          "name": "v0",
+          "values": [
+            0.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        },
+        {
+          "name": "v1",
+          "values": [
+            0.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        },
+        {
+          "name": "ve",
+          "values": [
+            0.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "10",
+        "0.0",
+        "0.0",
+        "0.0",
+        "1.0",
+        "1.0",
+        "1.0"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.vecviewtype.VecView_mulScalInPlace",
+      "file": "src/vecviewtype.zig",
+      "name": "VecView.mulScalInPlace",
+      "source_sha256": "b2250497eb0db12d4c4cc8c3f519a71a3928bdd586e1bdf78db2082b42ef4abb",
+      "arrays": [
+        {
+          "name": "v0",
+          "values": [
+            0.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        },
+        {
+          "name": "ve",
+          "values": [
+            0.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "10",
+        "0.0",
+        "0.0",
+        "1.0",
+        "2.0",
+        "2.0"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.vecviewtype.VecView_max",
+      "file": "src/vecviewtype.zig",
+      "name": "VecView.max",
+      "source_sha256": "ab45b7aa7406e4be252add02a112fa70396f9025e4748c6ab3ba7a2b0ab03663",
+      "arrays": [
+        {
+          "name": "v0",
+          "values": [
+            0.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "0.0",
+        "10",
+        "4",
+        "8.0",
+        "0.0"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.vecviewtype.VecView_min",
+      "file": "src/vecviewtype.zig",
+      "name": "VecView.min",
+      "source_sha256": "e89b52dab51e318a5af5f52ead443732b91630930543edc171cfded40f11223f",
+      "arrays": [
+        {
+          "name": "v0",
+          "values": [
+            0.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "0.0",
+        "10",
+        "7",
+        "-3.0",
+        "0.0"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.vecviewtype.VecView_sum",
+      "file": "src/vecviewtype.zig",
+      "name": "VecView.sum",
+      "source_sha256": "cdce5f21d43b30a3dc2df3375fa34441a9710067a635417de563841cdaf90275",
+      "arrays": [
+        {
+          "name": "v0",
+          "values": [
+            0.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "0.0",
+        "12",
+        "1.0",
+        "0",
+        "0.0",
+        "11"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.vecviewtype.VecView_mean",
+      "file": "src/vecviewtype.zig",
+      "name": "VecView.mean",
+      "source_sha256": "e619855de5def53e52e53a07dd651db98763577d77f4df8010bf969fa6c387a6",
+      "arrays": [
+        {
+          "name": "v0",
+          "values": [
+            0.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "0.0",
+        "10",
+        "1.0",
+        "2",
+        "0.0",
+        "7",
+        "0.0",
+        "0.8"
+      ],
+      "assertions": 1
+    },
+    {
+      "id": "legacy.vecviewtype.VecView_apply",
+      "file": "src/vecviewtype.zig",
+      "name": "VecView.apply",
+      "source_sha256": "0c1a8b36e6ad777915649da6b175a2a73ceb05a2aa02517c0e1595009291f1ad",
+      "arrays": [
+        {
+          "name": "v0",
+          "values": [
+            0.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        },
+        {
+          "name": "ve1",
+          "values": [
+            1.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        },
+        {
+          "name": "ve0",
+          "values": [
+            0.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        },
+        {
+          "name": "v1",
+          "values": [
+            0.0
+          ],
+          "shape": [
+            1
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "7",
+        "0.0",
+        "1.0",
+        "0.0",
+        "1.0",
+        "1.0",
+        "0.0",
+        "0.0",
+        "0.0"
+      ],
+      "assertions": 3
+    },
+    {
+      "id": "legacy.vecviewtype.VecView_access_and_vector_reductions",
+      "file": "src/vecviewtype.zig",
+      "name": "VecView access and vector reductions",
+      "source_sha256": "87a35049a7941747891cbb61238fc3fd87239d5162aa54a4c8b49d572ef84650",
+      "arrays": [
+        {
+          "name": "values",
+          "values": [
+            -3.0,
+            4.0
+          ],
+          "shape": [
+            2
+          ],
+          "role": "input"
+        }
+      ],
+      "numeric_literals": [
+        "-3",
+        "4",
+        "-3",
+        "0",
+        "0",
+        "3",
+        "3",
+        "0",
+        "25",
+        "25",
+        "5"
+      ],
+      "assertions": 5
+    }
+  ]
+}

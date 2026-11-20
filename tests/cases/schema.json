@@ -1,0 +1,158 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "cases"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "cases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "suite",
+          "category",
+          "operation",
+          "dtype",
+          "representation",
+          "inputs",
+          "source"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "category": {
+            "enum": [
+              "analytical",
+              "regression",
+              "property",
+              "contract"
+            ]
+          },
+          "dtype": {
+            "enum": [
+              "f32",
+              "f64",
+              "i32"
+            ]
+          },
+          "inputs": {
+            "type": "object",
+            "required": [
+              "shape",
+              "a"
+            ],
+            "properties": {
+              "a": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/scalar"
+                }
+              },
+              "b": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/scalar"
+                }
+              },
+              "x": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/scalar"
+                }
+              },
+              "shape": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              }
+            }
+          },
+          "expected": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/scalar"
+            }
+          },
+          "expected_error": {
+            "type": "string"
+          },
+          "tolerance": {
+            "type": "object",
+            "required": [
+              "atol",
+              "rtol"
+            ],
+            "properties": {
+              "atol": {
+                "type": "number",
+                "minimum": 0
+              },
+              "rtol": {
+                "type": "number",
+                "minimum": 0
+              }
+            }
+          }
+        },
+        "oneOf": [
+          {
+            "required": [
+              "expected",
+              "tolerance"
+            ],
+            "not": {
+              "required": [
+                "expected_error"
+              ]
+            }
+          },
+          {
+            "required": [
+              "expected_error"
+            ],
+            "not": {
+              "required": [
+                "expected"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+  "$defs": {
+    "scalar": {
+      "oneOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "object",
+          "required": [
+            "special"
+          ],
+          "properties": {
+            "special": {
+              "enum": [
+                "nan",
+                "inf",
+                "-inf"
+              ]
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    }
+  }
+}

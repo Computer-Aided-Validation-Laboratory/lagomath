@@ -98,6 +98,18 @@ pub fn dot(comptime T: type, slice0: []const T, slice1: []const T) T {
     return dot_prod;
 }
 
+pub fn normL1(comptime T: type, vec: []const T) T {
+    var value: T = 0;
+    for (vec) |v| value += @abs(v);
+    return value;
+}
+pub fn normL2Square(comptime T: type, vec: []const T) T {
+    return dot(T, vec, vec);
+}
+pub fn normL2(comptime T: type, vec: []const T) T {
+    return @sqrt(normL2Square(T, vec));
+}
+
 pub fn norm(comptime T: type, vec: []const T) T {
     var norm_out: T = 0;
 
@@ -223,165 +235,53 @@ const expectApproxEqAbs = testing.expectApproxEqAbs;
 const expectEqualSlices = testing.expectEqualSlices;
 
 test "slice.add" {
-    const vec_len: usize = 10;
-
-    var vec0 = [_]F{1.0} ** vec_len;
-    var vec1 = [_]F{1.0} ** vec_len;
-    var vec_exp = [_]F{2.0} ** vec_len;
-
-    var vec_op = [_]F{0.0} ** vec_len;
-
-    add(TestType, vec0[0..], vec1[0..], vec_op[0..]);
-
-    try expectEqualSlices(TestType, vec_exp[0..], vec_op[0..]);
+    try @import("case_runner.zig").verifyLegacy("legacy.sliceops.slice_add");
 }
 
 test "slice.sub" {
-    const vec_len: usize = 10;
-
-    var vec0 = [_]F{1.0} ** vec_len;
-    var vec1 = [_]F{1.0} ** vec_len;
-    var vec_exp = [_]F{0.0} ** vec_len;
-
-    var vec_op = [_]F{-1.0} ** vec_len;
-
-    sub(TestType, vec0[0..], vec1[0..], vec_op[0..]);
-
-    try expectEqualSlices(TestType, vec_exp[0..], vec_op[0..]);
+    try @import("case_runner.zig").verifyLegacy("legacy.sliceops.slice_sub");
 }
 
 test "slice.mul" {
-    const vec_len: usize = 10;
-
-    var vec0 = [_]F{1.0} ** vec_len;
-    var vec1 = [_]F{1.0} ** vec_len;
-    var vec_exp = [_]F{1.0} ** vec_len;
-
-    var vec_op = [_]F{0.0} ** vec_len;
-
-    mul(TestType, vec0[0..], vec1[0..], vec_op[0..]);
-
-    try expectEqualSlices(TestType, vec_exp[0..], vec_op[0..]);
+    try @import("case_runner.zig").verifyLegacy("legacy.sliceops.slice_mul");
 }
 
 test "slice.div" {
-    const vec_len: usize = 10;
-
-    var vec0 = [_]F{1.0} ** vec_len;
-    var vec1 = [_]F{1.0} ** vec_len;
-    var vec_exp = [_]F{1.0} ** vec_len;
-
-    var vec_op = [_]F{0.0} ** vec_len;
-
-    div(TestType, vec0[0..], vec1[0..], vec_op[0..]);
-
-    try expectEqualSlices(TestType, vec_exp[0..], vec_op[0..]);
+    try @import("case_runner.zig").verifyLegacy("legacy.sliceops.slice_div");
 }
 
 test "slice.mulScal" {
-    const vec_len: usize = 10;
-
-    var vec0 = [_]F{1.0} ** vec_len;
-    var vec_exp = [_]F{2.0} ** vec_len;
-    const scal: TestType = 2.0;
-
-    var vec_op = [_]F{0.0} ** vec_len;
-
-    mulScal(TestType, vec0[0..], scal, vec_op[0..]);
-
-    try expectEqualSlices(TestType, vec_exp[0..], vec_op[0..]);
+    try @import("case_runner.zig").verifyLegacy("legacy.sliceops.slice_mulScal");
 }
 
 test "slice.apply" {
-    const arr_ones = [_]TestType{1} ** 7;
-    const arr_zeros = [_]TestType{0} ** 7;
-
-    var arr_out = [_]TestType{-1} ** 7;
-
-    apply(TestType, &arr_out, &arr_ones, std.math.sqrt);
-
-    try expectEqual(arr_ones, arr_out);
-
-    arr_out = [_]TestType{-1} ** 7;
-    apply(TestType, &arr_out, &arr_zeros, std.math.atan);
-
-    try expectEqual(arr_zeros, arr_out);
-
-    arr_out = [_]TestType{-1} ** 7;
-    apply(TestType, &arr_out, &arr_zeros, exp);
-
-    try expectEqual(arr_ones, arr_out);
+    try @import("case_runner.zig").verifyLegacy("legacy.sliceops.slice_apply");
 }
 
 test "slice.max" {
-    const array = [_]TestType{ 1, 2, 3, 7, 0, -3, 1 };
-    const max_idx = max(TestType, &array);
-
-    const max_idx_exp = ValIdx(TestType){
-        .val = 7,
-        .idx = 3,
-    };
-
-    try expectEqual(max_idx_exp, max_idx);
+    try @import("case_runner.zig").verifyLegacy("legacy.sliceops.slice_max");
 }
 
 test "slice.min" {
-    const array = [_]TestType{ 1, 2, 3, 7, 0, -3, 1 };
-    const min_idx = min(TestType, &array);
-
-    const min_idx_exp = ValIdx(TestType){
-        .val = -3,
-        .idx = 5,
-    };
-
-    try expectEqual(min_idx_exp, min_idx);
+    try @import("case_runner.zig").verifyLegacy("legacy.sliceops.slice_min");
 }
 
 test "slice.sum" {
-    const array = [_]TestType{ 1, 2, 3, 7, 0, -3, 1 };
-    const sum_exp: TestType = 11;
-    const sum_arr = sum(TestType, &array);
-
-    try expectEqual(sum_exp, sum_arr);
+    try @import("case_runner.zig").verifyLegacy("legacy.sliceops.slice_sum");
 }
 
 test "slice.mean" {
-    const array = [_]TestType{ 1, 2, 3, 7, 0, -3, 1 };
-    const mean_exp: TestType = 11.0 / 7.0;
-    const mean_arr = mean(TestType, &array);
-
-    try expectEqual(mean_exp, mean_arr);
+    try @import("case_runner.zig").verifyLegacy("legacy.sliceops.slice_mean");
 }
 
 test "slice reductions and range length" {
-    const values = [_]f64{ -3, 4 };
-
-    try expectEqual(@as(f64, 25), dot(f64, &values, &values));
-    try expectEqual(@as(f64, 25), norm(f64, &values));
-    try expectEqual(@as(f64, 5), vecLen(f64, &values));
-    try expectEqual(@as(usize, 5), rangeLen(0, 1, 0.2));
+    try @import("case_runner.zig").verifyLegacy("legacy.sliceops.slice_reductions_and_range_length");
 }
 
 test "slice operations support f32 and partial apply output" {
-    const left = [_]f32{ 1.5, -2.0 };
-    const right = [_]f32{ 2.0, 0.5 };
-    var product = [_]f32{ 0, 0 };
-    mul(f32, &left, &right, &product);
-    try expectEqualSlices(f32, &.{ 3.0, -1.0 }, &product);
-
-    var output = [_]f64{ 0, 0, 99 };
-    apply(f64, &output, &.{ 1.0, 4.0 }, std.math.sqrt);
-    try expectEqualSlices(f64, &.{ 1.0, 2.0, 99.0 }, &output);
+    try @import("case_runner.zig").verifyLegacy("legacy.sliceops.slice_operations_support_f32_and_partial_apply_output");
 }
 
 test "checked slice operations reject mismatched lengths" {
-    var output = [_]f64{0} ** 2;
-    try std.testing.expectError(
-        error.LengthMismatch,
-        addChecked(f64, &.{ 1, 2 }, &.{1}, &output),
-    );
-    try std.testing.expectError(
-        error.LengthMismatch,
-        mulScalChecked(f64, &.{ 1, 2 }, 2, output[0..1]),
-    );
+    try @import("case_runner.zig").verifyLegacy("legacy.sliceops.checked_slice_operations_reject_mismatched_lengths");
 }

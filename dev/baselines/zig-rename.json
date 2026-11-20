@@ -1,0 +1,1488 @@
+{
+  "label": "zig-rename",
+  "git_sha": "d4ebf9010496d4196dc8e8b87b8b4583a008441e",
+  "zig": "0.16.0",
+  "mode": "ReleaseFast",
+  "target": "native (Zig default CPU features)",
+  "cpu": "AMD Ryzen 7 8845HS w/ Radeon 780M Graphics",
+  "host": "Linux-7.0.0-43-generic-x86_64-with-glibc2.39",
+  "manifest_sha256": "ccb2c6608573c2e3a91dc5c80e8e25ccf04b1c1cca96c061604ba9c3973b5de7",
+  "explicit_simd": false,
+  "auto_vectorisation": "compiler default; instruction selection not audited",
+  "timing": "CLOCK_MONOTONIC; input/output barriers included; allocations and fixture parsing excluded",
+  "raw": "benchmarks/results/zig-rename.jsonl",
+  "results": {
+    "bench.dot.Vec.2.f32": {
+      "min_ns": 3.61,
+      "median_ns": 3.71,
+      "mean_ns": 3.88,
+      "max_ns": 4.51,
+      "stddev_ns": 0.3157304456109899,
+      "samples": 7
+    },
+    "bench.norm.Vec.2.f32": {
+      "min_ns": 4.5,
+      "median_ns": 4.51,
+      "mean_ns": 4.5928571428571425,
+      "max_ns": 4.81,
+      "stddev_ns": 0.11473127431577859,
+      "samples": 7
+    },
+    "bench.axpy.Vec.2.f32": {
+      "min_ns": 6.31,
+      "median_ns": 6.31,
+      "mean_ns": 6.341428571428572,
+      "max_ns": 6.42,
+      "stddev_ns": 0.0467297920965605,
+      "samples": 7
+    },
+    "bench.dot.Vec.3.f32": {
+      "min_ns": 3.9,
+      "median_ns": 3.91,
+      "mean_ns": 3.98,
+      "max_ns": 4.21,
+      "stddev_ns": 0.10406042200842458,
+      "samples": 7
+    },
+    "bench.norm.Vec.3.f32": {
+      "min_ns": 4.7,
+      "median_ns": 4.8,
+      "mean_ns": 4.807142857142857,
+      "max_ns": 5.01,
+      "stddev_ns": 0.10832679205787923,
+      "samples": 7
+    },
+    "bench.axpy.Vec.3.f32": {
+      "min_ns": 6.51,
+      "median_ns": 6.61,
+      "mean_ns": 6.642857142857143,
+      "max_ns": 6.82,
+      "stddev_ns": 0.09160696881075088,
+      "samples": 7
+    },
+    "bench.dot.Vec.4.f32": {
+      "min_ns": 3.91,
+      "median_ns": 3.91,
+      "mean_ns": 4.1085714285714285,
+      "max_ns": 5.01,
+      "stddev_ns": 0.3741821012527979,
+      "samples": 7
+    },
+    "bench.norm.Vec.4.f32": {
+      "min_ns": 4.7,
+      "median_ns": 4.81,
+      "mean_ns": 4.821428571428571,
+      "max_ns": 4.91,
+      "stddev_ns": 0.06468132241526735,
+      "samples": 7
+    },
+    "bench.axpy.Vec.4.f32": {
+      "min_ns": 6.41,
+      "median_ns": 6.51,
+      "mean_ns": 6.481428571428571,
+      "max_ns": 6.61,
+      "stddev_ns": 0.0699854212223765,
+      "samples": 7
+    },
+    "bench.dot.Vec.6.f32": {
+      "min_ns": 4.11,
+      "median_ns": 4.2,
+      "mean_ns": 4.365714285714286,
+      "max_ns": 5.41,
+      "stddev_ns": 0.43758614312276983,
+      "samples": 7
+    },
+    "bench.norm.Vec.6.f32": {
+      "min_ns": 5.01,
+      "median_ns": 5.01,
+      "mean_ns": 5.0528571428571425,
+      "max_ns": 5.21,
+      "stddev_ns": 0.07284313590846847,
+      "samples": 7
+    },
+    "bench.axpy.Vec.6.f32": {
+      "min_ns": 6.21,
+      "median_ns": 6.31,
+      "mean_ns": 6.297142857142857,
+      "max_ns": 6.41,
+      "stddev_ns": 0.06430158534243945,
+      "samples": 7
+    },
+    "bench.dot.Vec.8.f32": {
+      "min_ns": 4.31,
+      "median_ns": 4.41,
+      "mean_ns": 4.41,
+      "max_ns": 4.51,
+      "stddev_ns": 0.053452248382484926,
+      "samples": 7
+    },
+    "bench.norm.Vec.8.f32": {
+      "min_ns": 5.21,
+      "median_ns": 5.31,
+      "mean_ns": 5.281428571428571,
+      "max_ns": 5.41,
+      "stddev_ns": 0.0699854212223765,
+      "samples": 7
+    },
+    "bench.axpy.Vec.8.f32": {
+      "min_ns": 6.31,
+      "median_ns": 6.41,
+      "mean_ns": 6.381428571428572,
+      "max_ns": 6.51,
+      "stddev_ns": 0.06998542122237665,
+      "samples": 7
+    },
+    "bench.dot.Vec.12.f32": {
+      "min_ns": 4.71,
+      "median_ns": 4.81,
+      "mean_ns": 4.852857142857142,
+      "max_ns": 5.11,
+      "stddev_ns": 0.1178030178747905,
+      "samples": 7
+    },
+    "bench.norm.Vec.12.f32": {
+      "min_ns": 6.21,
+      "median_ns": 6.22,
+      "mean_ns": 6.27,
+      "max_ns": 6.41,
+      "stddev_ns": 0.08864052604279195,
+      "samples": 7
+    },
+    "bench.axpy.Vec.12.f32": {
+      "min_ns": 6.11,
+      "median_ns": 6.11,
+      "mean_ns": 6.152857142857143,
+      "max_ns": 6.21,
+      "stddev_ns": 0.04948716593053917,
+      "samples": 7
+    },
+    "bench.dot.Vec.16.f32": {
+      "min_ns": 5.51,
+      "median_ns": 5.52,
+      "mean_ns": 5.582857142857143,
+      "max_ns": 5.71,
+      "stddev_ns": 0.08696703574413969,
+      "samples": 7
+    },
+    "bench.norm.Vec.16.f32": {
+      "min_ns": 7.32,
+      "median_ns": 7.42,
+      "mean_ns": 7.46,
+      "max_ns": 7.61,
+      "stddev_ns": 0.08701395618766317,
+      "samples": 7
+    },
+    "bench.axpy.Vec.16.f32": {
+      "min_ns": 6.21,
+      "median_ns": 6.22,
+      "mean_ns": 6.241428571428571,
+      "max_ns": 6.31,
+      "stddev_ns": 0.04356557337707675,
+      "samples": 7
+    },
+    "bench.dot.VecView.1.f32": {
+      "min_ns": 0.7,
+      "median_ns": 0.71,
+      "mean_ns": 0.8157142857142857,
+      "max_ns": 1.1,
+      "stddev_ns": 0.15416662070232817,
+      "samples": 7
+    },
+    "bench.dot.VecView.3.f32": {
+      "min_ns": 1.3,
+      "median_ns": 1.41,
+      "mean_ns": 1.4042857142857141,
+      "max_ns": 1.5,
+      "stddev_ns": 0.053680840651588374,
+      "samples": 7
+    },
+    "bench.dot.VecView.7.f32": {
+      "min_ns": 2.2,
+      "median_ns": 2.3,
+      "mean_ns": 2.2728571428571427,
+      "max_ns": 2.31,
+      "stddev_ns": 0.046202747510846236,
+      "samples": 7
+    },
+    "bench.dot.VecView.16.f32": {
+      "min_ns": 3.41,
+      "median_ns": 3.51,
+      "mean_ns": 3.5642857142857145,
+      "max_ns": 3.81,
+      "stddev_ns": 0.13813628289866942,
+      "samples": 7
+    },
+    "bench.dot.VecView.31.f32": {
+      "min_ns": 8.81,
+      "median_ns": 8.82,
+      "mean_ns": 8.918571428571429,
+      "max_ns": 9.22,
+      "stddev_ns": 0.14247090644645127,
+      "samples": 7
+    },
+    "bench.dot.VecView.64.f32": {
+      "min_ns": 23.24,
+      "median_ns": 23.25,
+      "mean_ns": 23.31714285714286,
+      "max_ns": 23.45,
+      "stddev_ns": 0.08843307166024149,
+      "samples": 7
+    },
+    "bench.dot.VecView.257.f32": {
+      "min_ns": 132.45,
+      "median_ns": 132.55,
+      "mean_ns": 132.5257142857143,
+      "max_ns": 132.65,
+      "stddev_ns": 0.06986868148936183,
+      "samples": 7
+    },
+    "bench.dot.VecView.1003.f32": {
+      "min_ns": 599.45,
+      "median_ns": 599.55,
+      "mean_ns": 607.6757142857143,
+      "max_ns": 656.35,
+      "stddev_ns": 19.871428057923385,
+      "samples": 7
+    },
+    "bench.dot.VecView.4096.f32": {
+      "min_ns": 2539.96,
+      "median_ns": 2540.07,
+      "mean_ns": 2551.2400000000002,
+      "max_ns": 2585.95,
+      "stddev_ns": 17.766674260696977,
+      "samples": 7
+    },
+    "bench.dot.VecView.65537.f32": {
+      "min_ns": 41022.4,
+      "median_ns": 45404.8,
+      "mean_ns": 62631.54285714286,
+      "max_ns": 105023.0,
+      "stddev_ns": 26971.537779288592,
+      "samples": 7
+    },
+    "bench.dot.VecView.1048576.f32": {
+      "min_ns": 655410.2,
+      "median_ns": 657213.6,
+      "mean_ns": 686098.9142857143,
+      "max_ns": 810030.0,
+      "stddev_ns": 53625.86040248622,
+      "samples": 7
+    },
+    "bench.matvec.Mat.2.f32": {
+      "min_ns": 6.11,
+      "median_ns": 6.12,
+      "mean_ns": 6.168571428571429,
+      "max_ns": 6.31,
+      "stddev_ns": 0.07179903927502299,
+      "samples": 7
+    },
+    "bench.matmul.Mat.2.f32": {
+      "min_ns": 8.01,
+      "median_ns": 8.01,
+      "mean_ns": 8.024285714285714,
+      "max_ns": 8.11,
+      "stddev_ns": 0.03499271061118813,
+      "samples": 7
+    },
+    "bench.outerAdd.Mat.2.f32": {
+      "min_ns": 7.51,
+      "median_ns": 7.62,
+      "mean_ns": 7.601428571428571,
+      "max_ns": 7.72,
+      "stddev_ns": 0.0844187811582524,
+      "samples": 7
+    },
+    "bench.transpose.Mat.2.f32": {
+      "min_ns": 8.42,
+      "median_ns": 8.42,
+      "mean_ns": 8.477142857142857,
+      "max_ns": 8.62,
+      "stddev_ns": 0.0903507902905248,
+      "samples": 7
+    },
+    "bench.rowops.Mat.2.f32": {
+      "min_ns": 11.32,
+      "median_ns": 11.32,
+      "mean_ns": 11.365714285714287,
+      "max_ns": 11.52,
+      "stddev_ns": 0.07326217945690307,
+      "samples": 7
+    },
+    "bench.gauss.Mat.2.f32": {
+      "min_ns": 14.43,
+      "median_ns": 14.43,
+      "mean_ns": 14.498571428571429,
+      "max_ns": 14.72,
+      "stddev_ns": 0.09948848769417255,
+      "samples": 7
+    },
+    "bench.lu.Mat.2.f32": {
+      "min_ns": 23.44,
+      "median_ns": 23.45,
+      "mean_ns": 23.46142857142857,
+      "max_ns": 23.55,
+      "stddev_ns": 0.03642156795423434,
+      "samples": 7
+    },
+    "bench.cholesky.Mat.2.f32": {
+      "min_ns": 18.03,
+      "median_ns": 18.13,
+      "mean_ns": 18.12,
+      "max_ns": 18.24,
+      "stddev_ns": 0.08417668492946373,
+      "samples": 7
+    },
+    "bench.luReuse.Mat.2.f32": {
+      "min_ns": 1.6,
+      "median_ns": 1.6,
+      "mean_ns": 1.6614285714285715,
+      "max_ns": 1.91,
+      "stddev_ns": 0.10815710417570108,
+      "samples": 7
+    },
+    "bench.choleskyReuse.Mat.2.f32": {
+      "min_ns": 2.8,
+      "median_ns": 2.81,
+      "mean_ns": 2.862857142857143,
+      "max_ns": 3.01,
+      "stddev_ns": 0.07629159955896396,
+      "samples": 7
+    },
+    "bench.matvec.Mat.3.f32": {
+      "min_ns": 6.51,
+      "median_ns": 6.51,
+      "mean_ns": 6.541428571428571,
+      "max_ns": 6.62,
+      "stddev_ns": 0.046729792096560564,
+      "samples": 7
+    },
+    "bench.matmul.Mat.3.f32": {
+      "min_ns": 9.51,
+      "median_ns": 9.52,
+      "mean_ns": 9.53142857142857,
+      "max_ns": 9.62,
+      "stddev_ns": 0.03642156795423402,
+      "samples": 7
+    },
+    "bench.outerAdd.Mat.3.f32": {
+      "min_ns": 9.62,
+      "median_ns": 9.72,
+      "mean_ns": 9.718571428571428,
+      "max_ns": 9.82,
+      "stddev_ns": 0.0737618893910038,
+      "samples": 7
+    },
+    "bench.transpose.Mat.3.f32": {
+      "min_ns": 9.41,
+      "median_ns": 9.51,
+      "mean_ns": 9.488571428571428,
+      "max_ns": 9.62,
+      "stddev_ns": 0.07099870651308074,
+      "samples": 7
+    },
+    "bench.rowops.Mat.3.f32": {
+      "min_ns": 12.12,
+      "median_ns": 12.12,
+      "mean_ns": 12.178571428571429,
+      "max_ns": 12.32,
+      "stddev_ns": 0.08951114398754631,
+      "samples": 7
+    },
+    "bench.gauss.Mat.3.f32": {
+      "min_ns": 22.54,
+      "median_ns": 22.54,
+      "mean_ns": 22.57142857142857,
+      "max_ns": 22.74,
+      "stddev_ns": 0.06895724792084058,
+      "samples": 7
+    },
+    "bench.lu.Mat.3.f32": {
+      "min_ns": 48.09,
+      "median_ns": 48.19,
+      "mean_ns": 48.191428571428574,
+      "max_ns": 48.29,
+      "stddev_ns": 0.053566666455006594,
+      "samples": 7
+    },
+    "bench.cholesky.Mat.3.f32": {
+      "min_ns": 33.67,
+      "median_ns": 33.77,
+      "mean_ns": 33.792857142857144,
+      "max_ns": 33.87,
+      "stddev_ns": 0.06839262402048954,
+      "samples": 7
+    },
+    "bench.luReuse.Mat.3.f32": {
+      "min_ns": 2.7,
+      "median_ns": 2.71,
+      "mean_ns": 2.7485714285714287,
+      "max_ns": 2.9,
+      "stddev_ns": 0.06957597521077663,
+      "samples": 7
+    },
+    "bench.choleskyReuse.Mat.3.f32": {
+      "min_ns": 4.41,
+      "median_ns": 4.41,
+      "mean_ns": 4.481428571428571,
+      "max_ns": 4.61,
+      "stddev_ns": 0.08806305718527115,
+      "samples": 7
+    },
+    "bench.matvec.Mat.4.f32": {
+      "min_ns": 6.21,
+      "median_ns": 6.21,
+      "mean_ns": 6.255714285714285,
+      "max_ns": 6.42,
+      "stddev_ns": 0.07518684209680435,
+      "samples": 7
+    },
+    "bench.matmul.Mat.4.f32": {
+      "min_ns": 12.22,
+      "median_ns": 12.43,
+      "mean_ns": 12.40857142857143,
+      "max_ns": 12.62,
+      "stddev_ns": 0.14505452880393105,
+      "samples": 7
+    },
+    "bench.outerAdd.Mat.4.f32": {
+      "min_ns": 13.02,
+      "median_ns": 13.02,
+      "mean_ns": 13.051428571428572,
+      "max_ns": 13.13,
+      "stddev_ns": 0.04672979209656059,
+      "samples": 7
+    },
+    "bench.transpose.Mat.4.f32": {
+      "min_ns": 8.62,
+      "median_ns": 8.72,
+      "mean_ns": 8.702857142857143,
+      "max_ns": 8.81,
+      "stddev_ns": 0.061112141817736054,
+      "samples": 7
+    },
+    "bench.rowops.Mat.4.f32": {
+      "min_ns": 11.52,
+      "median_ns": 11.62,
+      "mean_ns": 11.608571428571429,
+      "max_ns": 11.72,
+      "stddev_ns": 0.06243363823832079,
+      "samples": 7
+    },
+    "bench.gauss.Mat.4.f32": {
+      "min_ns": 42.78,
+      "median_ns": 42.88,
+      "mean_ns": 42.86857142857143,
+      "max_ns": 42.99,
+      "stddev_ns": 0.06685347975312939,
+      "samples": 7
+    },
+    "bench.lu.Mat.4.f32": {
+      "min_ns": 51.29,
+      "median_ns": 51.8,
+      "mean_ns": 51.755714285714284,
+      "max_ns": 52.1,
+      "stddev_ns": 0.32212939471395063,
+      "samples": 7
+    },
+    "bench.cholesky.Mat.4.f32": {
+      "min_ns": 50.09,
+      "median_ns": 50.1,
+      "mean_ns": 50.16857142857143,
+      "max_ns": 50.6,
+      "stddev_ns": 0.17618404106652374,
+      "samples": 7
+    },
+    "bench.luReuse.Mat.4.f32": {
+      "min_ns": 5.31,
+      "median_ns": 5.31,
+      "mean_ns": 5.352857142857142,
+      "max_ns": 5.41,
+      "stddev_ns": 0.04948716593053962,
+      "samples": 7
+    },
+    "bench.choleskyReuse.Mat.4.f32": {
+      "min_ns": 7.71,
+      "median_ns": 7.82,
+      "mean_ns": 7.8428571428571425,
+      "max_ns": 7.92,
+      "stddev_ns": 0.07244984190346271,
+      "samples": 7
+    },
+    "bench.matvec.Mat.6.f32": {
+      "min_ns": 6.51,
+      "median_ns": 6.61,
+      "mean_ns": 6.828571428571428,
+      "max_ns": 7.92,
+      "stddev_ns": 0.46103698554542916,
+      "samples": 7
+    },
+    "bench.matmul.Mat.6.f32": {
+      "min_ns": 23.94,
+      "median_ns": 23.95,
+      "mean_ns": 23.958571428571428,
+      "max_ns": 24.04,
+      "stddev_ns": 0.03356382892705871,
+      "samples": 7
+    },
+    "bench.outerAdd.Mat.6.f32": {
+      "min_ns": 15.13,
+      "median_ns": 15.22,
+      "mean_ns": 15.214285714285715,
+      "max_ns": 15.33,
+      "stddev_ns": 0.08312763729129202,
+      "samples": 7
+    },
+    "bench.transpose.Mat.6.f32": {
+      "min_ns": 14.73,
+      "median_ns": 14.83,
+      "mean_ns": 14.814285714285715,
+      "max_ns": 14.93,
+      "stddev_ns": 0.06366365701473461,
+      "samples": 7
+    },
+    "bench.rowops.Mat.6.f32": {
+      "min_ns": 14.93,
+      "median_ns": 14.93,
+      "mean_ns": 14.972857142857142,
+      "max_ns": 15.03,
+      "stddev_ns": 0.04948716593053917,
+      "samples": 7
+    },
+    "bench.gauss.Mat.6.f32": {
+      "min_ns": 76.35,
+      "median_ns": 76.55,
+      "mean_ns": 76.70571428571428,
+      "max_ns": 77.75,
+      "stddev_ns": 0.43398015566406395,
+      "samples": 7
+    },
+    "bench.lu.Mat.6.f32": {
+      "min_ns": 103.8,
+      "median_ns": 104.6,
+      "mean_ns": 104.82857142857144,
+      "max_ns": 106.0,
+      "stddev_ns": 0.7759128922285881,
+      "samples": 7
+    },
+    "bench.cholesky.Mat.6.f32": {
+      "min_ns": 85.16,
+      "median_ns": 85.46,
+      "mean_ns": 85.37714285714286,
+      "max_ns": 85.56,
+      "stddev_ns": 0.16307003628715447,
+      "samples": 7
+    },
+    "bench.luReuse.Mat.6.f32": {
+      "min_ns": 13.73,
+      "median_ns": 13.83,
+      "mean_ns": 13.815714285714286,
+      "max_ns": 13.93,
+      "stddev_ns": 0.06388765649999377,
+      "samples": 7
+    },
+    "bench.choleskyReuse.Mat.6.f32": {
+      "min_ns": 18.94,
+      "median_ns": 19.04,
+      "mean_ns": 19.068571428571428,
+      "max_ns": 19.24,
+      "stddev_ns": 0.08806305718527062,
+      "samples": 7
+    },
+    "bench.matvec.Mat.8.f32": {
+      "min_ns": 6.61,
+      "median_ns": 6.62,
+      "mean_ns": 6.684285714285714,
+      "max_ns": 6.91,
+      "stddev_ns": 0.11437496514998899,
+      "samples": 7
+    },
+    "bench.matmul.Mat.8.f32": {
+      "min_ns": 32.16,
+      "median_ns": 32.26,
+      "mean_ns": 32.247142857142855,
+      "max_ns": 32.36,
+      "stddev_ns": 0.06430158534244058,
+      "samples": 7
+    },
+    "bench.outerAdd.Mat.8.f32": {
+      "min_ns": 14.53,
+      "median_ns": 14.62,
+      "mean_ns": 14.6,
+      "max_ns": 14.73,
+      "stddev_ns": 0.0694879228972308,
+      "samples": 7
+    },
+    "bench.transpose.Mat.8.f32": {
+      "min_ns": 15.83,
+      "median_ns": 16.13,
+      "mean_ns": 16.072857142857142,
+      "max_ns": 16.33,
+      "stddev_ns": 0.17612611437054174,
+      "samples": 7
+    },
+    "bench.rowops.Mat.8.f32": {
+      "min_ns": 12.32,
+      "median_ns": 12.32,
+      "mean_ns": 12.38,
+      "max_ns": 12.53,
+      "stddev_ns": 0.09180725150319752,
+      "samples": 7
+    },
+    "bench.gauss.Mat.8.f32": {
+      "min_ns": 125.34,
+      "median_ns": 125.74,
+      "mean_ns": 125.78428571428572,
+      "max_ns": 126.15,
+      "stddev_ns": 0.33044805698830654,
+      "samples": 7
+    },
+    "bench.lu.Mat.8.f32": {
+      "min_ns": 149.49,
+      "median_ns": 150.38,
+      "mean_ns": 150.31714285714287,
+      "max_ns": 150.99,
+      "stddev_ns": 0.5089124057582929,
+      "samples": 7
+    },
+    "bench.cholesky.Mat.8.f32": {
+      "min_ns": 174.23,
+      "median_ns": 174.84,
+      "mean_ns": 181.7342857142857,
+      "max_ns": 218.52,
+      "stddev_ns": 15.073052451447309,
+      "samples": 7
+    },
+    "bench.luReuse.Mat.8.f32": {
+      "min_ns": 56.11,
+      "median_ns": 56.21,
+      "mean_ns": 56.222857142857144,
+      "max_ns": 56.31,
+      "stddev_ns": 0.08189091798838057,
+      "samples": 7
+    },
+    "bench.choleskyReuse.Mat.8.f32": {
+      "min_ns": 38.78,
+      "median_ns": 38.88,
+      "mean_ns": 39.002857142857145,
+      "max_ns": 39.27,
+      "stddev_ns": 0.17918181394600244,
+      "samples": 7
+    },
+    "bench.matvec.Mat.12.f32": {
+      "min_ns": 7.11,
+      "median_ns": 7.12,
+      "mean_ns": 7.185714285714286,
+      "max_ns": 7.31,
+      "stddev_ns": 0.08633111388421759,
+      "samples": 7
+    },
+    "bench.matmul.Mat.12.f32": {
+      "min_ns": 71.03,
+      "median_ns": 71.14,
+      "mean_ns": 71.26428571428572,
+      "max_ns": 71.94,
+      "stddev_ns": 0.3024120718894824,
+      "samples": 7
+    },
+    "bench.outerAdd.Mat.12.f32": {
+      "min_ns": 16.93,
+      "median_ns": 16.93,
+      "mean_ns": 16.974285714285713,
+      "max_ns": 17.13,
+      "stddev_ns": 0.0740380486848565,
+      "samples": 7
+    },
+    "bench.transpose.Mat.12.f32": {
+      "min_ns": 33.46,
+      "median_ns": 33.47,
+      "mean_ns": 33.60857142857143,
+      "max_ns": 33.87,
+      "stddev_ns": 0.1780392068721748,
+      "samples": 7
+    },
+    "bench.rowops.Mat.12.f32": {
+      "min_ns": 19.14,
+      "median_ns": 19.33,
+      "mean_ns": 19.478571428571428,
+      "max_ns": 19.84,
+      "stddev_ns": 0.26128411309358657,
+      "samples": 7
+    },
+    "bench.gauss.Mat.12.f32": {
+      "min_ns": 360.19,
+      "median_ns": 360.99,
+      "mean_ns": 361.30571428571426,
+      "max_ns": 363.09,
+      "stddev_ns": 0.8768752500108666,
+      "samples": 7
+    },
+    "bench.lu.Mat.12.f32": {
+      "min_ns": 386.14,
+      "median_ns": 387.75,
+      "mean_ns": 387.7,
+      "max_ns": 388.95,
+      "stddev_ns": 0.7599812027750613,
+      "samples": 7
+    },
+    "bench.cholesky.Mat.12.f32": {
+      "min_ns": 403.07,
+      "median_ns": 403.37,
+      "mean_ns": 408.6114285714286,
+      "max_ns": 440.45,
+      "stddev_ns": 12.998672930695022,
+      "samples": 7
+    },
+    "bench.luReuse.Mat.12.f32": {
+      "min_ns": 119.43,
+      "median_ns": 120.03,
+      "mean_ns": 119.91571428571429,
+      "max_ns": 120.03,
+      "stddev_ns": 0.2030381486221681,
+      "samples": 7
+    },
+    "bench.choleskyReuse.Mat.12.f32": {
+      "min_ns": 94.58,
+      "median_ns": 94.69,
+      "mean_ns": 94.76857142857143,
+      "max_ns": 95.38,
+      "stddev_ns": 0.2578165777352212,
+      "samples": 7
+    },
+    "bench.dot.Vec.2.f64": {
+      "min_ns": 3.6,
+      "median_ns": 3.71,
+      "mean_ns": 3.704285714285714,
+      "max_ns": 3.9,
+      "stddev_ns": 0.10834562986204875,
+      "samples": 7
+    },
+    "bench.norm.Vec.2.f64": {
+      "min_ns": 4.51,
+      "median_ns": 4.51,
+      "mean_ns": 4.567142857142857,
+      "max_ns": 4.71,
+      "stddev_ns": 0.0728431359084685,
+      "samples": 7
+    },
+    "bench.axpy.Vec.2.f64": {
+      "min_ns": 6.41,
+      "median_ns": 6.41,
+      "mean_ns": 6.44,
+      "max_ns": 6.51,
+      "stddev_ns": 0.04440077219405715,
+      "samples": 7
+    },
+    "bench.dot.Vec.3.f64": {
+      "min_ns": 3.81,
+      "median_ns": 3.91,
+      "mean_ns": 3.9371428571428573,
+      "max_ns": 4.11,
+      "stddev_ns": 0.08859446704979235,
+      "samples": 7
+    },
+    "bench.norm.Vec.3.f64": {
+      "min_ns": 4.7,
+      "median_ns": 4.71,
+      "mean_ns": 4.7785714285714285,
+      "max_ns": 4.91,
+      "stddev_ns": 0.08724817991201418,
+      "samples": 7
+    },
+    "bench.axpy.Vec.3.f64": {
+      "min_ns": 6.31,
+      "median_ns": 6.41,
+      "mean_ns": 6.411428571428571,
+      "max_ns": 6.51,
+      "stddev_ns": 0.07567384364656594,
+      "samples": 7
+    },
+    "bench.dot.Vec.4.f64": {
+      "min_ns": 3.8,
+      "median_ns": 3.91,
+      "mean_ns": 4.091428571428572,
+      "max_ns": 5.11,
+      "stddev_ns": 0.43488680206721037,
+      "samples": 7
+    },
+    "bench.norm.Vec.4.f64": {
+      "min_ns": 4.7,
+      "median_ns": 4.71,
+      "mean_ns": 4.78,
+      "max_ns": 4.91,
+      "stddev_ns": 0.08928285709714143,
+      "samples": 7
+    },
+    "bench.axpy.Vec.4.f64": {
+      "min_ns": 6.21,
+      "median_ns": 6.31,
+      "mean_ns": 6.295714285714285,
+      "max_ns": 6.41,
+      "stddev_ns": 0.06388765649999399,
+      "samples": 7
+    },
+    "bench.dot.Vec.6.f64": {
+      "min_ns": 4.21,
+      "median_ns": 4.31,
+      "mean_ns": 4.4799999999999995,
+      "max_ns": 5.41,
+      "stddev_ns": 0.3850417417074971,
+      "samples": 7
+    },
+    "bench.norm.Vec.6.f64": {
+      "min_ns": 5.21,
+      "median_ns": 5.21,
+      "mean_ns": 5.252857142857143,
+      "max_ns": 5.41,
+      "stddev_ns": 0.07284313590846837,
+      "samples": 7
+    },
+    "bench.axpy.Vec.6.f64": {
+      "min_ns": 6.41,
+      "median_ns": 6.42,
+      "mean_ns": 6.47,
+      "max_ns": 6.61,
+      "stddev_ns": 0.07270291799999697,
+      "samples": 7
+    },
+    "bench.dot.Vec.8.f64": {
+      "min_ns": 4.21,
+      "median_ns": 4.31,
+      "mean_ns": 4.365714285714286,
+      "max_ns": 4.61,
+      "stddev_ns": 0.13003924054543187,
+      "samples": 7
+    },
+    "bench.norm.Vec.8.f64": {
+      "min_ns": 5.41,
+      "median_ns": 5.51,
+      "mean_ns": 5.4957142857142856,
+      "max_ns": 5.61,
+      "stddev_ns": 0.08329931278350435,
+      "samples": 7
+    },
+    "bench.axpy.Vec.8.f64": {
+      "min_ns": 6.21,
+      "median_ns": 6.21,
+      "mean_ns": 6.268571428571429,
+      "max_ns": 6.41,
+      "stddev_ns": 0.08951114398754605,
+      "samples": 7
+    },
+    "bench.dot.Vec.12.f64": {
+      "min_ns": 4.71,
+      "median_ns": 4.71,
+      "mean_ns": 4.78,
+      "max_ns": 4.91,
+      "stddev_ns": 0.08766820567180726,
+      "samples": 7
+    },
+    "bench.norm.Vec.12.f64": {
+      "min_ns": 6.41,
+      "median_ns": 6.51,
+      "mean_ns": 6.5,
+      "max_ns": 6.72,
+      "stddev_ns": 0.0997138763806579,
+      "samples": 7
+    },
+    "bench.axpy.Vec.12.f64": {
+      "min_ns": 6.11,
+      "median_ns": 6.11,
+      "mean_ns": 6.125714285714286,
+      "max_ns": 6.22,
+      "stddev_ns": 0.038491981672306885,
+      "samples": 7
+    },
+    "bench.dot.Vec.16.f64": {
+      "min_ns": 5.51,
+      "median_ns": 5.61,
+      "mean_ns": 5.652857142857143,
+      "max_ns": 5.81,
+      "stddev_ns": 0.10497813183356458,
+      "samples": 7
+    },
+    "bench.norm.Vec.16.f64": {
+      "min_ns": 7.62,
+      "median_ns": 7.72,
+      "mean_ns": 7.747142857142857,
+      "max_ns": 7.92,
+      "stddev_ns": 0.11646143269822176,
+      "samples": 7
+    },
+    "bench.axpy.Vec.16.f64": {
+      "min_ns": 6.11,
+      "median_ns": 6.21,
+      "mean_ns": 6.224285714285714,
+      "max_ns": 6.41,
+      "stddev_ns": 0.08329931278350428,
+      "samples": 7
+    },
+    "bench.dot.VecView.1.f64": {
+      "min_ns": 0.7,
+      "median_ns": 0.9,
+      "mean_ns": 0.8871428571428571,
+      "max_ns": 1.0,
+      "stddev_ns": 0.09779194908642762,
+      "samples": 7
+    },
+    "bench.dot.VecView.3.f64": {
+      "min_ns": 1.4,
+      "median_ns": 1.4,
+      "mean_ns": 1.4457142857142857,
+      "max_ns": 1.61,
+      "stddev_ns": 0.07518684209680446,
+      "samples": 7
+    },
+    "bench.dot.VecView.7.f64": {
+      "min_ns": 2.2,
+      "median_ns": 2.3,
+      "mean_ns": 2.26,
+      "max_ns": 2.31,
+      "stddev_ns": 0.049280538030458,
+      "samples": 7
+    },
+    "bench.dot.VecView.16.f64": {
+      "min_ns": 3.51,
+      "median_ns": 3.51,
+      "mean_ns": 3.5942857142857143,
+      "max_ns": 3.91,
+      "stddev_ns": 0.1446036101957095,
+      "samples": 7
+    },
+    "bench.dot.VecView.31.f64": {
+      "min_ns": 8.82,
+      "median_ns": 8.92,
+      "mean_ns": 8.961428571428572,
+      "max_ns": 9.22,
+      "stddev_ns": 0.1171602774503583,
+      "samples": 7
+    },
+    "bench.dot.VecView.64.f64": {
+      "min_ns": 23.14,
+      "median_ns": 23.15,
+      "mean_ns": 23.228571428571428,
+      "max_ns": 23.44,
+      "stddev_ns": 0.1129384878631569,
+      "samples": 7
+    },
+    "bench.dot.VecView.257.f64": {
+      "min_ns": 132.65,
+      "median_ns": 133.96,
+      "mean_ns": 143.00571428571428,
+      "max_ns": 184.96,
+      "stddev_ns": 17.601055047226865,
+      "samples": 7
+    },
+    "bench.dot.VecView.1003.f64": {
+      "min_ns": 594.93,
+      "median_ns": 594.94,
+      "mean_ns": 594.9957142857143,
+      "max_ns": 595.14,
+      "stddev_ns": 0.07403804868483552,
+      "samples": 7
+    },
+    "bench.dot.VecView.4096.f64": {
+      "min_ns": 2515.52,
+      "median_ns": 2515.72,
+      "mean_ns": 2526.5657142857144,
+      "max_ns": 2555.69,
+      "stddev_ns": 16.869380424851663,
+      "samples": 7
+    },
+    "bench.dot.VecView.65537.f64": {
+      "min_ns": 40601.6,
+      "median_ns": 40607.8,
+      "mean_ns": 40856.71428571428,
+      "max_ns": 41497.4,
+      "stddev_ns": 376.10264339319224,
+      "samples": 7
+    },
+    "bench.dot.VecView.1048576.f64": {
+      "min_ns": 643677.8,
+      "median_ns": 649897.6,
+      "mean_ns": 649669.8,
+      "max_ns": 655192.0,
+      "stddev_ns": 3895.4468234447395,
+      "samples": 7
+    },
+    "bench.matvec.Mat.2.f64": {
+      "min_ns": 5.81,
+      "median_ns": 5.91,
+      "mean_ns": 6.071428571428571,
+      "max_ns": 7.12,
+      "stddev_ns": 0.4325812416324186,
+      "samples": 7
+    },
+    "bench.matmul.Mat.2.f64": {
+      "min_ns": 7.82,
+      "median_ns": 7.92,
+      "mean_ns": 7.96,
+      "max_ns": 8.11,
+      "stddev_ns": 0.08864052604279155,
+      "samples": 7
+    },
+    "bench.outerAdd.Mat.2.f64": {
+      "min_ns": 7.12,
+      "median_ns": 7.31,
+      "mean_ns": 7.257142857142857,
+      "max_ns": 7.31,
+      "stddev_ns": 0.06839262402049026,
+      "samples": 7
+    },
+    "bench.transpose.Mat.2.f64": {
+      "min_ns": 8.11,
+      "median_ns": 8.12,
+      "mean_ns": 8.144285714285713,
+      "max_ns": 8.22,
+      "stddev_ns": 0.044994330708639556,
+      "samples": 7
+    },
+    "bench.rowops.Mat.2.f64": {
+      "min_ns": 11.12,
+      "median_ns": 11.22,
+      "mean_ns": 11.22,
+      "max_ns": 11.32,
+      "stddev_ns": 0.07559289460184584,
+      "samples": 7
+    },
+    "bench.gauss.Mat.2.f64": {
+      "min_ns": 15.93,
+      "median_ns": 16.03,
+      "mean_ns": 16.06,
+      "max_ns": 16.14,
+      "stddev_ns": 0.07151423434733584,
+      "samples": 7
+    },
+    "bench.lu.Mat.2.f64": {
+      "min_ns": 27.16,
+      "median_ns": 27.25,
+      "mean_ns": 27.240000000000002,
+      "max_ns": 27.35,
+      "stddev_ns": 0.060474315681476744,
+      "samples": 7
+    },
+    "bench.cholesky.Mat.2.f64": {
+      "min_ns": 19.84,
+      "median_ns": 19.84,
+      "mean_ns": 19.895714285714284,
+      "max_ns": 20.04,
+      "stddev_ns": 0.07208271892310199,
+      "samples": 7
+    },
+    "bench.luReuse.Mat.2.f64": {
+      "min_ns": 2.1,
+      "median_ns": 2.2,
+      "mean_ns": 2.177142857142857,
+      "max_ns": 2.31,
+      "stddev_ns": 0.07045044574821692,
+      "samples": 7
+    },
+    "bench.choleskyReuse.Mat.2.f64": {
+      "min_ns": 4.11,
+      "median_ns": 4.21,
+      "mean_ns": 4.25,
+      "max_ns": 4.4,
+      "stddev_ns": 0.08864052604279177,
+      "samples": 7
+    },
+    "bench.matvec.Mat.3.f64": {
+      "min_ns": 6.21,
+      "median_ns": 6.31,
+      "mean_ns": 6.297142857142857,
+      "max_ns": 6.41,
+      "stddev_ns": 0.0836172035809252,
+      "samples": 7
+    },
+    "bench.matmul.Mat.3.f64": {
+      "min_ns": 12.22,
+      "median_ns": 12.32,
+      "mean_ns": 12.321428571428571,
+      "max_ns": 12.52,
+      "stddev_ns": 0.09264811638337658,
+      "samples": 7
+    },
+    "bench.outerAdd.Mat.3.f64": {
+      "min_ns": 13.12,
+      "median_ns": 13.32,
+      "mean_ns": 13.281428571428572,
+      "max_ns": 13.43,
+      "stddev_ns": 0.11703828084722305,
+      "samples": 7
+    },
+    "bench.transpose.Mat.3.f64": {
+      "min_ns": 9.22,
+      "median_ns": 9.32,
+      "mean_ns": 9.332857142857144,
+      "max_ns": 9.42,
+      "stddev_ns": 0.06430158534243918,
+      "samples": 7
+    },
+    "bench.rowops.Mat.3.f64": {
+      "min_ns": 11.92,
+      "median_ns": 11.93,
+      "mean_ns": 11.967142857142857,
+      "max_ns": 12.13,
+      "stddev_ns": 0.0743955232359519,
+      "samples": 7
+    },
+    "bench.gauss.Mat.3.f64": {
+      "min_ns": 39.27,
+      "median_ns": 39.28,
+      "mean_ns": 39.30285714285714,
+      "max_ns": 39.38,
+      "stddev_ns": 0.04589250972631042,
+      "samples": 7
+    },
+    "bench.lu.Mat.3.f64": {
+      "min_ns": 44.99,
+      "median_ns": 45.09,
+      "mean_ns": 45.06,
+      "max_ns": 45.09,
+      "stddev_ns": 0.04440077219405761,
+      "samples": 7
+    },
+    "bench.cholesky.Mat.3.f64": {
+      "min_ns": 39.48,
+      "median_ns": 39.58,
+      "mean_ns": 39.58,
+      "max_ns": 39.68,
+      "stddev_ns": 0.07559289460184652,
+      "samples": 7
+    },
+    "bench.luReuse.Mat.3.f64": {
+      "min_ns": 3.1,
+      "median_ns": 3.2,
+      "mean_ns": 3.2014285714285715,
+      "max_ns": 3.31,
+      "stddev_ns": 0.05617029500382142,
+      "samples": 7
+    },
+    "bench.choleskyReuse.Mat.3.f64": {
+      "min_ns": 5.81,
+      "median_ns": 5.91,
+      "mean_ns": 5.881428571428572,
+      "max_ns": 6.01,
+      "stddev_ns": 0.06998542122237665,
+      "samples": 7
+    },
+    "bench.matvec.Mat.4.f64": {
+      "min_ns": 6.61,
+      "median_ns": 6.71,
+      "mean_ns": 6.884285714285714,
+      "max_ns": 7.92,
+      "stddev_ns": 0.4328595002293186,
+      "samples": 7
+    },
+    "bench.matmul.Mat.4.f64": {
+      "min_ns": 12.83,
+      "median_ns": 12.92,
+      "mean_ns": 12.965714285714286,
+      "max_ns": 13.12,
+      "stddev_ns": 0.08909980645435785,
+      "samples": 7
+    },
+    "bench.outerAdd.Mat.4.f64": {
+      "min_ns": 8.91,
+      "median_ns": 8.92,
+      "mean_ns": 8.987142857142857,
+      "max_ns": 9.12,
+      "stddev_ns": 0.09003400718050668,
+      "samples": 7
+    },
+    "bench.transpose.Mat.4.f64": {
+      "min_ns": 9.12,
+      "median_ns": 9.12,
+      "mean_ns": 9.175714285714285,
+      "max_ns": 9.31,
+      "stddev_ns": 0.0700728483910333,
+      "samples": 7
+    },
+    "bench.rowops.Mat.4.f64": {
+      "min_ns": 12.02,
+      "median_ns": 12.03,
+      "mean_ns": 12.065714285714286,
+      "max_ns": 12.22,
+      "stddev_ns": 0.07128557114214117,
+      "samples": 7
+    },
+    "bench.gauss.Mat.4.f64": {
+      "min_ns": 44.89,
+      "median_ns": 44.98,
+      "mean_ns": 44.94285714285714,
+      "max_ns": 44.99,
+      "stddev_ns": 0.045892509726310385,
+      "samples": 7
+    },
+    "bench.lu.Mat.4.f64": {
+      "min_ns": 69.03,
+      "median_ns": 69.83,
+      "mean_ns": 69.54714285714286,
+      "max_ns": 69.94,
+      "stddev_ns": 0.39318168412922727,
+      "samples": 7
+    },
+    "bench.cholesky.Mat.4.f64": {
+      "min_ns": 59.01,
+      "median_ns": 59.02,
+      "mean_ns": 59.05571428571429,
+      "max_ns": 59.12,
+      "stddev_ns": 0.05010193690500033,
+      "samples": 7
+    },
+    "bench.luReuse.Mat.4.f64": {
+      "min_ns": 5.51,
+      "median_ns": 5.61,
+      "mean_ns": 5.71,
+      "max_ns": 6.51,
+      "stddev_ns": 0.3295017884191655,
+      "samples": 7
+    },
+    "bench.choleskyReuse.Mat.4.f64": {
+      "min_ns": 8.92,
+      "median_ns": 9.01,
+      "mean_ns": 9.001428571428571,
+      "max_ns": 9.02,
+      "stddev_ns": 0.03356382892705913,
+      "samples": 7
+    },
+    "bench.matvec.Mat.6.f64": {
+      "min_ns": 6.51,
+      "median_ns": 6.52,
+      "mean_ns": 6.727142857142857,
+      "max_ns": 7.82,
+      "stddev_ns": 0.44819365348073403,
+      "samples": 7
+    },
+    "bench.matmul.Mat.6.f64": {
+      "min_ns": 29.46,
+      "median_ns": 29.66,
+      "mean_ns": 29.644285714285715,
+      "max_ns": 29.76,
+      "stddev_ns": 0.08312763729129236,
+      "samples": 7
+    },
+    "bench.outerAdd.Mat.6.f64": {
+      "min_ns": 15.63,
+      "median_ns": 15.83,
+      "mean_ns": 15.887142857142857,
+      "max_ns": 16.13,
+      "stddev_ns": 0.21946130708195946,
+      "samples": 7
+    },
+    "bench.transpose.Mat.6.f64": {
+      "min_ns": 16.43,
+      "median_ns": 16.53,
+      "mean_ns": 16.53142857142857,
+      "max_ns": 16.63,
+      "stddev_ns": 0.07376188939100278,
+      "samples": 7
+    },
+    "bench.rowops.Mat.6.f64": {
+      "min_ns": 16.13,
+      "median_ns": 16.43,
+      "mean_ns": 16.444285714285716,
+      "max_ns": 16.83,
+      "stddev_ns": 0.2474358296526966,
+      "samples": 7
+    },
+    "bench.gauss.Mat.6.f64": {
+      "min_ns": 80.46,
+      "median_ns": 80.55,
+      "mean_ns": 80.58571428571429,
+      "max_ns": 80.76,
+      "stddev_ns": 0.10390340883410686,
+      "samples": 7
+    },
+    "bench.lu.Mat.6.f64": {
+      "min_ns": 102.3,
+      "median_ns": 102.79,
+      "mean_ns": 108.00428571428571,
+      "max_ns": 140.06,
+      "stddev_ns": 13.088859883932766,
+      "samples": 7
+    },
+    "bench.cholesky.Mat.6.f64": {
+      "min_ns": 100.29,
+      "median_ns": 100.29,
+      "mean_ns": 100.37857142857143,
+      "max_ns": 100.8,
+      "stddev_ns": 0.17618404106652089,
+      "samples": 7
+    },
+    "bench.luReuse.Mat.6.f64": {
+      "min_ns": 14.62,
+      "median_ns": 14.72,
+      "mean_ns": 14.684285714285714,
+      "max_ns": 14.73,
+      "stddev_ns": 0.05010193690500065,
+      "samples": 7
+    },
+    "bench.choleskyReuse.Mat.6.f64": {
+      "min_ns": 21.04,
+      "median_ns": 21.14,
+      "mean_ns": 21.16857142857143,
+      "max_ns": 21.54,
+      "stddev_ns": 0.15779087167410358,
+      "samples": 7
+    },
+    "bench.matvec.Mat.8.f64": {
+      "min_ns": 6.41,
+      "median_ns": 6.51,
+      "mean_ns": 6.571428571428571,
+      "max_ns": 6.82,
+      "stddev_ns": 0.1330336768779751,
+      "samples": 7
+    },
+    "bench.matmul.Mat.8.f64": {
+      "min_ns": 36.67,
+      "median_ns": 37.58,
+      "mean_ns": 37.55714285714286,
+      "max_ns": 37.97,
+      "stddev_ns": 0.39802061273665806,
+      "samples": 7
+    },
+    "bench.outerAdd.Mat.8.f64": {
+      "min_ns": 23.14,
+      "median_ns": 23.24,
+      "mean_ns": 23.215714285714284,
+      "max_ns": 23.35,
+      "stddev_ns": 0.07384484561897196,
+      "samples": 7
+    },
+    "bench.transpose.Mat.8.f64": {
+      "min_ns": 34.27,
+      "median_ns": 34.86,
+      "mean_ns": 35.09428571428571,
+      "max_ns": 35.87,
+      "stddev_ns": 0.6905661681932147,
+      "samples": 7
+    },
+    "bench.rowops.Mat.8.f64": {
+      "min_ns": 18.03,
+      "median_ns": 18.13,
+      "mean_ns": 18.104285714285716,
+      "max_ns": 18.14,
+      "stddev_ns": 0.04716449719776846,
+      "samples": 7
+    },
+    "bench.gauss.Mat.8.f64": {
+      "min_ns": 138.87,
+      "median_ns": 138.97,
+      "mean_ns": 138.99142857142857,
+      "max_ns": 139.06,
+      "stddev_ns": 0.06685347975312789,
+      "samples": 7
+    },
+    "bench.lu.Mat.8.f64": {
+      "min_ns": 165.12,
+      "median_ns": 166.02,
+      "mean_ns": 166.06285714285715,
+      "max_ns": 167.42,
+      "stddev_ns": 0.6521549834578997,
+      "samples": 7
+    },
+    "bench.cholesky.Mat.8.f64": {
+      "min_ns": 189.16,
+      "median_ns": 189.56,
+      "mean_ns": 189.50571428571428,
+      "max_ns": 189.76,
+      "stddev_ns": 0.22474475317931866,
+      "samples": 7
+    },
+    "bench.luReuse.Mat.8.f64": {
+      "min_ns": 67.03,
+      "median_ns": 67.12,
+      "mean_ns": 67.08571428571429,
+      "max_ns": 67.13,
+      "stddev_ns": 0.04836088822802885,
+      "samples": 7
+    },
+    "bench.choleskyReuse.Mat.8.f64": {
+      "min_ns": 43.28,
+      "median_ns": 43.39,
+      "mean_ns": 43.41142857142857,
+      "max_ns": 43.58,
+      "stddev_ns": 0.10370680807360776,
+      "samples": 7
+    },
+    "bench.matvec.Mat.12.f64": {
+      "min_ns": 7.01,
+      "median_ns": 7.02,
+      "mean_ns": 7.155714285714286,
+      "max_ns": 7.91,
+      "stddev_ns": 0.30973985134335585,
+      "samples": 7
+    },
+    "bench.matmul.Mat.12.f64": {
+      "min_ns": 93.88,
+      "median_ns": 94.08,
+      "mean_ns": 94.15142857142857,
+      "max_ns": 94.48,
+      "stddev_ns": 0.21189138534559065,
+      "samples": 7
+    },
+    "bench.outerAdd.Mat.12.f64": {
+      "min_ns": 26.65,
+      "median_ns": 26.85,
+      "mean_ns": 26.865714285714287,
+      "max_ns": 26.96,
+      "stddev_ns": 0.10026495511638078,
+      "samples": 7
+    },
+    "bench.transpose.Mat.12.f64": {
+      "min_ns": 52.5,
+      "median_ns": 52.6,
+      "mean_ns": 52.61571428571428,
+      "max_ns": 52.8,
+      "stddev_ns": 0.11108004100739305,
+      "samples": 7
+    },
+    "bench.rowops.Mat.12.f64": {
+      "min_ns": 28.36,
+      "median_ns": 28.56,
+      "mean_ns": 33.07714285714286,
+      "max_ns": 60.31,
+      "stddev_ns": 11.118432204851436,
+      "samples": 7
+    },
+    "bench.gauss.Mat.12.f64": {
+      "min_ns": 382.73,
+      "median_ns": 383.43,
+      "mean_ns": 400.7942857142857,
+      "max_ns": 502.96,
+      "stddev_ns": 41.71874907628218,
+      "samples": 7
+    },
+    "bench.lu.Mat.12.f64": {
+      "min_ns": 416.3,
+      "median_ns": 418.1,
+      "mean_ns": 417.7842857142857,
+      "max_ns": 419.0,
+      "stddev_ns": 0.92523135551304,
+      "samples": 7
+    },
+    "bench.cholesky.Mat.12.f64": {
+      "min_ns": 572.09,
+      "median_ns": 573.6,
+      "mean_ns": 579.8685714285715,
+      "max_ns": 619.09,
+      "stddev_ns": 16.02143780650648,
+      "samples": 7
+    },
+    "bench.luReuse.Mat.12.f64": {
+      "min_ns": 125.84,
+      "median_ns": 125.95,
+      "mean_ns": 126.25714285714285,
+      "max_ns": 127.14,
+      "stddev_ns": 0.5037208491590864,
+      "samples": 7
+    },
+    "bench.choleskyReuse.Mat.12.f64": {
+      "min_ns": 103.3,
+      "median_ns": 103.49,
+      "mean_ns": 103.42714285714285,
+      "max_ns": 103.5,
+      "stddev_ns": 0.08696703574413997,
+      "samples": 7
+    }
+  }
+}

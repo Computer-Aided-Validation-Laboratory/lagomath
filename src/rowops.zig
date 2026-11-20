@@ -5,10 +5,10 @@
 
 const std = @import("std");
 const assert = std.debug.assert;
-const MatStack = @import("matstack.zig").MatStack;
-const VecStack = @import("vecstack.zig").VecStack;
-const MatSlice = @import("matslice.zig").MatSlice;
-const VecSlice = @import("vecslice.zig").VecSlice;
+const Mat = @import("mattype.zig").Mat;
+const Vec = @import("vectype.zig").Vec;
+const MatView = @import("matviewtype.zig").MatView;
+const VecView = @import("vecviewtype.zig").VecView;
 
 /// Swaps row `row_a` and row `row_b` in-place in fixed-size matrix `mat`.
 ///
@@ -20,7 +20,7 @@ pub fn swapRowsStack(
     comptime T: type,
     row_a: usize,
     row_b: usize,
-    mat: *MatStack(M, N, T),
+    mat: *Mat(M, N, T),
 ) void {
     assert(row_a < M);
     assert(row_b < M);
@@ -38,7 +38,7 @@ pub fn swapRowsSlice(
     comptime T: type,
     row_a: usize,
     row_b: usize,
-    mat: MatSlice(T),
+    mat: MatView(T),
 ) void {
     assert(row_a < mat.rows_num);
     assert(row_b < mat.rows_num);
@@ -62,7 +62,7 @@ pub fn scaleRowStack(
     comptime T: type,
     row: usize,
     scale: T,
-    mat: *MatStack(M, N, T),
+    mat: *Mat(M, N, T),
 ) void {
     assert(row < M);
     inline for (0..N) |cc| {
@@ -78,7 +78,7 @@ pub fn scaleRowSlice(
     comptime T: type,
     row: usize,
     scale: T,
-    mat: MatSlice(T),
+    mat: MatView(T),
 ) void {
     assert(row < mat.rows_num);
     for (0..mat.cols_num) |cc| {
@@ -98,7 +98,7 @@ pub fn addScaledRowStack(
     src_row: usize,
     dst_row: usize,
     scale: T,
-    mat: *MatStack(M, N, T),
+    mat: *Mat(M, N, T),
 ) void {
     assert(src_row < M);
     assert(dst_row < M);
@@ -117,7 +117,7 @@ pub fn addScaledRowSlice(
     src_row: usize,
     dst_row: usize,
     scale: T,
-    mat: MatSlice(T),
+    mat: MatView(T),
 ) void {
     assert(src_row < mat.rows_num);
     assert(dst_row < mat.rows_num);
@@ -136,9 +136,9 @@ pub fn applyPermutationStack(
     comptime N: usize,
     comptime T: type,
     perm: [N]usize,
-    vec: VecStack(N, T),
-) VecStack(N, T) {
-    var result: VecStack(N, T) = undefined;
+    vec: Vec(N, T),
+) Vec(N, T) {
+    var result: Vec(N, T) = undefined;
     inline for (0..N) |ii| {
         assert(perm[ii] < N);
         result.vec[ii] = vec.vec[perm[ii]];
@@ -153,8 +153,8 @@ pub fn applyPermutationStack(
 pub fn applyPermutationSlice(
     comptime T: type,
     perm: []const usize,
-    src: VecSlice(T),
-    out: VecSlice(T),
+    src: VecView(T),
+    out: VecView(T),
 ) void {
     assert(perm.len == src.slice.len);
     assert(src.slice.len == out.slice.len);
@@ -165,77 +165,33 @@ pub fn applyPermutationSlice(
 }
 
 test "rowops.swapRowsStack and swapRowsSlice" {
-    var mat = MatStack(3, 2, f64).initRows(.{
-        .{ 1.0, 2.0 },
-        .{ 3.0, 4.0 },
-        .{ 5.0, 6.0 },
-    });
-    swapRowsStack(3, 2, f64, 0, 2, &mat);
-    try std.testing.expectEqual(@as(f64, 5.0), mat.get(0, 0));
-    try std.testing.expectEqual(@as(f64, 6.0), mat.get(0, 1));
-    try std.testing.expectEqual(@as(f64, 1.0), mat.get(2, 0));
-    try std.testing.expectEqual(@as(f64, 2.0), mat.get(2, 1));
-
-    var raw = [_]f64{ 1.0, 2.0, 3.0, 4.0, 5.0, 6.0 };
-    const s_mat = MatSlice(f64).init(&raw, 3, 2);
-    swapRowsSlice(f64, 0, 2, s_mat);
-    try std.testing.expectEqual(@as(f64, 5.0), s_mat.get(0, 0));
-    try std.testing.expectEqual(@as(f64, 6.0), s_mat.get(0, 1));
-    try std.testing.expectEqual(@as(f64, 1.0), s_mat.get(2, 0));
-    try std.testing.expectEqual(@as(f64, 2.0), s_mat.get(2, 1));
+    try @import("case_runner.zig").verifyLegacy("legacy.rowops.rowops_swapRowsStack_and_swapRowsSlice");
 }
 
 test "rowops.scaleRowStack and scaleRowSlice" {
-    var mat = MatStack(2, 2, f64).initRows(.{
-        .{ 2.0, 4.0 },
-        .{ 1.0, 3.0 },
-    });
-    scaleRowStack(2, 2, f64, 0, 0.5, &mat);
-    try std.testing.expectEqual(@as(f64, 1.0), mat.get(0, 0));
-    try std.testing.expectEqual(@as(f64, 2.0), mat.get(0, 1));
-
-    var raw = [_]f64{ 2.0, 4.0, 1.0, 3.0 };
-    const s_mat = MatSlice(f64).init(&raw, 2, 2);
-    scaleRowSlice(f64, 0, 0.5, s_mat);
-    try std.testing.expectEqual(@as(f64, 1.0), s_mat.get(0, 0));
-    try std.testing.expectEqual(@as(f64, 2.0), s_mat.get(0, 1));
+    try @import("case_runner.zig").verifyLegacy("legacy.rowops.rowops_scaleRowStack_and_scaleRowSlice");
 }
 
 test "rowops.addScaledRowStack and addScaledRowSlice" {
-    var mat = MatStack(2, 2, f64).initRows(.{
-        .{ 2.0, 3.0 },
-        .{ 4.0, 5.0 },
-    });
-    // dst row 1 += -2 * row 0 => 4 + (-2)*2 = 0; 5 + (-2)*3 = -1
-    addScaledRowStack(2, 2, f64, 0, 1, -2.0, &mat);
-    try std.testing.expectEqual(@as(f64, 0.0), mat.get(1, 0));
-    try std.testing.expectEqual(@as(f64, -1.0), mat.get(1, 1));
-
-    var raw = [_]f64{ 2.0, 3.0, 4.0, 5.0 };
-    const s_mat = MatSlice(f64).init(&raw, 2, 2);
-    addScaledRowSlice(f64, 0, 1, -2.0, s_mat);
-    try std.testing.expectEqual(@as(f64, 0.0), s_mat.get(1, 0));
-    try std.testing.expectEqual(@as(f64, -1.0), s_mat.get(1, 1));
+    try @import("case_runner.zig").verifyLegacy("legacy.rowops.rowops_addScaledRowStack_and_addScaledRowSlice");
 }
 
 test "rowops.applyPermutation" {
-    const perm = [_]usize{ 2, 0, 1 };
-    const vec = VecStack(3, f64).initSlice(&.{ 10.0, 20.0, 30.0 });
-    const permuted = applyPermutationStack(3, f64, perm, vec);
-
-    try std.testing.expectEqual(@as(f64, 30.0), permuted.get(0));
-    try std.testing.expectEqual(@as(f64, 10.0), permuted.get(1));
-    try std.testing.expectEqual(@as(f64, 20.0), permuted.get(2));
-
-    var raw_src = [_]f64{ 10.0, 20.0, 30.0 };
-    var raw_out = [_]f64{ 0.0, 0.0, 0.0 };
-    applyPermutationSlice(
-        f64,
-        &perm,
-        VecSlice(f64).init(&raw_src),
-        VecSlice(f64).init(&raw_out),
-    );
-    try std.testing.expectEqual(@as(f64, 30.0), raw_out[0]);
-    try std.testing.expectEqual(@as(f64, 10.0), raw_out[1]);
-    try std.testing.expectEqual(@as(f64, 20.0), raw_out[2]);
+    try @import("case_runner.zig").verifyLegacy("legacy.rowops.rowops_applyPermutation");
 }
+
+pub const swapRowsMat = swapRowsStack;
+
+pub const swapRowsMatView = swapRowsSlice;
+
+pub const scaleRowMat = scaleRowStack;
+
+pub const scaleRowMatView = scaleRowSlice;
+
+pub const addScaledRowMat = addScaledRowStack;
+
+pub const addScaledRowMatView = addScaledRowSlice;
+
+pub const applyPermutationVec = applyPermutationStack;
+
+pub const applyPermutationVecView = applyPermutationSlice;

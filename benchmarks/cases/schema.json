@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "cases"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "cases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "operation",
+          "dtype",
+          "representation",
+          "shape",
+          "warmup",
+          "samples",
+          "runs_per_sample",
+          "input_rule"
+        ],
+        "properties": {
+          "dtype": {
+            "enum": [
+              "f32",
+              "f64"
+            ]
+          },
+          "shape": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "samples": {
+            "type": "integer",
+            "minimum": 2
+          },
+          "runs_per_sample": {
+            "type": "integer",
+            "minimum": 1
+          }
+        }
+      }
+    }
+  }
+}

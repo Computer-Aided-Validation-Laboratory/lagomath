@@ -1,0 +1,5226 @@
+{
+  "before": "benchmarks/results/zig-phaseA.summary.json",
+  "after": "benchmarks/results/mojo-phaseA.summary.json",
+  "cases": [
+    {
+      "id": "bench.dot.Vec.2.f32",
+      "ratio": 3.384341637010676,
+      "before_ns": 2.81,
+      "after_ns": 9.51
+    },
+    {
+      "id": "bench.normL2.Vec.2.f32",
+      "ratio": 3.8642857142857148,
+      "before_ns": 2.8,
+      "after_ns": 10.82
+    },
+    {
+      "id": "bench.axpy.Vec.2.f32",
+      "ratio": 3.2535612535612537,
+      "before_ns": 3.51,
+      "after_ns": 11.42
+    },
+    {
+      "id": "bench.dot.Vec.3.f32",
+      "ratio": 4.1402214022140225,
+      "before_ns": 2.71,
+      "after_ns": 11.22
+    },
+    {
+      "id": "bench.normL2.Vec.3.f32",
+      "ratio": 4.384341637010676,
+      "before_ns": 2.81,
+      "after_ns": 12.32
+    },
+    {
+      "id": "bench.axpy.Vec.3.f32",
+      "ratio": 4.093023255813954,
+      "before_ns": 3.01,
+      "after_ns": 12.32
+    },
+    {
+      "id": "bench.dot.Vec.4.f32",
+      "ratio": 4.374570446735395,
+      "before_ns": 2.91,
+      "after_ns": 12.73
+    },
+    {
+      "id": "bench.normL2.Vec.4.f32",
+      "ratio": 3.683760683760684,
+      "before_ns": 3.51,
+      "after_ns": 12.93
+    },
+    {
+      "id": "bench.axpy.Vec.4.f32",
+      "ratio": 4.4916943521594686,
+      "before_ns": 3.01,
+      "after_ns": 13.52
+    },
+    {
+      "id": "bench.dot.Vec.6.f32",
+      "ratio": 5.733118971061093,
+      "before_ns": 3.11,
+      "after_ns": 17.83
+    },
+    {
+      "id": "bench.normL2.Vec.6.f32",
+      "ratio": 5.7542857142857144,
+      "before_ns": 3.5,
+      "after_ns": 20.14
+    },
+    {
+      "id": "bench.axpy.Vec.6.f32",
+      "ratio": 6.990654205607477,
+      "before_ns": 3.21,
+      "after_ns": 22.44
+    },
+    {
+      "id": "bench.dot.Vec.8.f32",
+      "ratio": 9.11178247734139,
+      "before_ns": 3.31,
+      "after_ns": 30.16
+    },
+    {
+      "id": "bench.normL2.Vec.8.f32",
+      "ratio": 9.266666666666666,
+      "before_ns": 3.6,
+      "after_ns": 33.36
+    },
+    {
+      "id": "bench.axpy.Vec.8.f32",
+      "ratio": 11.956666666666665,
+      "before_ns": 3.0,
+      "after_ns": 35.87
+    },
+    {
+      "id": "bench.dot.Vec.12.f32",
+      "ratio": 3.355498721227621,
+      "before_ns": 3.91,
+      "after_ns": 13.12
+    },
+    {
+      "id": "bench.normL2.Vec.12.f32",
+      "ratio": 3.7029478458049883,
+      "before_ns": 4.41,
+      "after_ns": 16.33
+    },
+    {
+      "id": "bench.axpy.Vec.12.f32",
+      "ratio": 4.612121212121212,
+      "before_ns": 3.3,
+      "after_ns": 15.22
+    },
+    {
+      "id": "bench.dot.Vec.16.f32",
+      "ratio": 3.195227765726681,
+      "before_ns": 4.61,
+      "after_ns": 14.73
+    },
+    {
+      "id": "bench.normL2.Vec.16.f32",
+      "ratio": 2.8729582577132486,
+      "before_ns": 5.51,
+      "after_ns": 15.83
+    },
+    {
+      "id": "bench.axpy.Vec.16.f32",
+      "ratio": 5.931464174454828,
+      "before_ns": 3.21,
+      "after_ns": 19.04
+    },
+    {
+      "id": "bench.dot.VecView.1.f32",
+      "ratio": 2.1180124223602483,
+      "before_ns": 1.61,
+      "after_ns": 3.41
+    },
+    {
+      "id": "bench.dot.VecView.3.f32",
+      "ratio": 2.099476439790576,
+      "before_ns": 1.91,
+      "after_ns": 4.01
+    },
+    {
+      "id": "bench.dot.VecView.7.f32",
+      "ratio": 2.155378486055777,
+      "before_ns": 2.51,
+      "after_ns": 5.41
+    },
+    {
+      "id": "bench.dot.VecView.16.f32",
+      "ratio": 1.7447795823665895,
+      "before_ns": 4.31,
+      "after_ns": 7.52
+    },
+    {
+      "id": "bench.dot.VecView.31.f32",
+      "ratio": 1.176715176715177,
+      "before_ns": 9.62,
+      "after_ns": 11.32
+    },
+    {
+      "id": "bench.dot.VecView.64.f32",
+      "ratio": 1.0646464646464646,
+      "before_ns": 24.75,
+      "after_ns": 26.35
+    },
+    {
+      "id": "bench.dot.VecView.257.f32",
+      "ratio": 1.0364622010990643,
+      "before_ns": 134.66,
+      "after_ns": 139.57
+    },
+    {
+      "id": "bench.dot.VecView.1003.f32",
+      "ratio": 1.0264420283840983,
+      "before_ns": 602.45,
+      "after_ns": 618.38
+    },
+    {
+      "id": "bench.dot.VecView.4096.f32",
+      "ratio": 1.0128921509206725,
+      "before_ns": 2557.37,
+      "after_ns": 2590.34
+    },
+    {
+      "id": "bench.dot.VecView.65537.f32",
+      "ratio": 1.0058969718904573,
+      "before_ns": 41445.0,
+      "after_ns": 41689.4
+    },
+    {
+      "id": "bench.dot.VecView.1048576.f32",
+      "ratio": 1.0046973418921454,
+      "before_ns": 665014.4,
+      "after_ns": 668138.2
+    },
+    {
+      "id": "bench.matvec.Mat.2.f32",
+      "ratio": 3.7692307692307696,
+      "before_ns": 3.51,
+      "after_ns": 13.23
+    },
+    {
+      "id": "bench.matmul.Mat.2.f32",
+      "ratio": 4.590296495956873,
+      "before_ns": 3.71,
+      "after_ns": 17.03
+    },
+    {
+      "id": "bench.outerAdd.Mat.2.f32",
+      "ratio": 4.150895140664962,
+      "before_ns": 3.91,
+      "after_ns": 16.23
+    },
+    {
+      "id": "bench.transpose.Mat.2.f32",
+      "ratio": 3.9766454352441616,
+      "before_ns": 4.71,
+      "after_ns": 18.73
+    },
+    {
+      "id": "bench.rowops.Mat.2.f32",
+      "ratio": 2.0586854460093895,
+      "before_ns": 8.52,
+      "after_ns": 17.54
+    },
+    {
+      "id": "bench.gauss.Mat.2.f32",
+      "ratio": 2.5525321239606957,
+      "before_ns": 13.23,
+      "after_ns": 33.77
+    },
+    {
+      "id": "bench.lu.Mat.2.f32",
+      "ratio": 1.5775043936731108,
+      "before_ns": 28.45,
+      "after_ns": 44.88
+    },
+    {
+      "id": "bench.cholesky.Mat.2.f32",
+      "ratio": 3.25350532809871,
+      "before_ns": 17.83,
+      "after_ns": 58.01
+    },
+    {
+      "id": "bench.luReuse.Mat.2.f32",
+      "ratio": 4.143552311435523,
+      "before_ns": 4.11,
+      "after_ns": 17.03
+    },
+    {
+      "id": "bench.choleskyReuse.Mat.2.f32",
+      "ratio": 5.765273311897106,
+      "before_ns": 3.11,
+      "after_ns": 17.93
+    },
+    {
+      "id": "bench.matvec.Mat.3.f32",
+      "ratio": 3.869565217391304,
+      "before_ns": 3.91,
+      "after_ns": 15.13
+    },
+    {
+      "id": "bench.matmul.Mat.3.f32",
+      "ratio": 4.186691312384473,
+      "before_ns": 5.41,
+      "after_ns": 22.65
+    },
+    {
+      "id": "bench.outerAdd.Mat.3.f32",
+      "ratio": 3.644670050761421,
+      "before_ns": 5.91,
+      "after_ns": 21.54
+    },
+    {
+      "id": "bench.transpose.Mat.3.f32",
+      "ratio": 4.279441117764471,
+      "before_ns": 5.01,
+      "after_ns": 21.44
+    },
+    {
+      "id": "bench.rowops.Mat.3.f32",
+      "ratio": 2.521400778210117,
+      "before_ns": 7.71,
+      "after_ns": 19.44
+    },
+    {
+      "id": "bench.gauss.Mat.3.f32",
+      "ratio": 2.593197879858657,
+      "before_ns": 22.64,
+      "after_ns": 58.71
+    },
+    {
+      "id": "bench.lu.Mat.3.f32",
+      "ratio": 1.1370582617000957,
+      "before_ns": 62.82,
+      "after_ns": 71.43
+    },
+    {
+      "id": "bench.cholesky.Mat.3.f32",
+      "ratio": 1.9105993065874196,
+      "before_ns": 40.38,
+      "after_ns": 77.15
+    },
+    {
+      "id": "bench.luReuse.Mat.3.f32",
+      "ratio": 3.593261131167268,
+      "before_ns": 8.31,
+      "after_ns": 29.86
+    },
+    {
+      "id": "bench.choleskyReuse.Mat.3.f32",
+      "ratio": 5.115163147792706,
+      "before_ns": 5.21,
+      "after_ns": 26.65
+    },
+    {
+      "id": "bench.matvec.Mat.4.f32",
+      "ratio": 4.158730158730158,
+      "before_ns": 4.41,
+      "after_ns": 18.34
+    },
+    {
+      "id": "bench.matmul.Mat.4.f32",
+      "ratio": 6.144808743169398,
+      "before_ns": 7.32,
+      "after_ns": 44.98
+    },
+    {
+      "id": "bench.outerAdd.Mat.4.f32",
+      "ratio": 2.1850627891606083,
+      "before_ns": 15.13,
+      "after_ns": 33.06
+    },
+    {
+      "id": "bench.transpose.Mat.4.f32",
+      "ratio": 5.10873440285205,
+      "before_ns": 5.61,
+      "after_ns": 28.66
+    },
+    {
+      "id": "bench.rowops.Mat.4.f32",
+      "ratio": 2.4035874439461886,
+      "before_ns": 8.92,
+      "after_ns": 21.44
+    },
+    {
+      "id": "bench.gauss.Mat.4.f32",
+      "ratio": 2.167537963654468,
+      "before_ns": 40.17,
+      "after_ns": 87.07
+    },
+    {
+      "id": "bench.lu.Mat.4.f32",
+      "ratio": 1.7004246978111728,
+      "before_ns": 61.22,
+      "after_ns": 104.1
+    },
+    {
+      "id": "bench.cholesky.Mat.4.f32",
+      "ratio": 2.80542226487524,
+      "before_ns": 41.68,
+      "after_ns": 116.93
+    },
+    {
+      "id": "bench.luReuse.Mat.4.f32",
+      "ratio": 3.4720652856246077,
+      "before_ns": 15.93,
+      "after_ns": 55.31
+    },
+    {
+      "id": "bench.choleskyReuse.Mat.4.f32",
+      "ratio": 5.537459283387622,
+      "before_ns": 9.21,
+      "after_ns": 51.0
+    },
+    {
+      "id": "bench.matvec.Mat.6.f32",
+      "ratio": 5.245083207261724,
+      "before_ns": 6.61,
+      "after_ns": 34.67
+    },
+    {
+      "id": "bench.matmul.Mat.6.f32",
+      "ratio": 3.840283939662822,
+      "before_ns": 22.54,
+      "after_ns": 86.56
+    },
+    {
+      "id": "bench.outerAdd.Mat.6.f32",
+      "ratio": 4.9681069958847734,
+      "before_ns": 9.72,
+      "after_ns": 48.29
+    },
+    {
+      "id": "bench.transpose.Mat.6.f32",
+      "ratio": 3.975255972696246,
+      "before_ns": 11.72,
+      "after_ns": 46.59
+    },
+    {
+      "id": "bench.rowops.Mat.6.f32",
+      "ratio": 2.5443037974683547,
+      "before_ns": 13.43,
+      "after_ns": 34.17
+    },
+    {
+      "id": "bench.gauss.Mat.6.f32",
+      "ratio": 2.3435877466251296,
+      "before_ns": 77.04,
+      "after_ns": 180.55
+    },
+    {
+      "id": "bench.lu.Mat.6.f32",
+      "ratio": 1.5797252135165243,
+      "before_ns": 134.65,
+      "after_ns": 212.71
+    },
+    {
+      "id": "bench.cholesky.Mat.6.f32",
+      "ratio": 2.110985742127398,
+      "before_ns": 97.49,
+      "after_ns": 205.8
+    },
+    {
+      "id": "bench.luReuse.Mat.6.f32",
+      "ratio": 2.0979832959869626,
+      "before_ns": 49.09,
+      "after_ns": 102.99
+    },
+    {
+      "id": "bench.choleskyReuse.Mat.6.f32",
+      "ratio": 4.258355916892502,
+      "before_ns": 22.14,
+      "after_ns": 94.28
+    },
+    {
+      "id": "bench.matvec.Mat.8.f32",
+      "ratio": 7.413070283600494,
+      "before_ns": 8.11,
+      "after_ns": 60.12
+    },
+    {
+      "id": "bench.matmul.Mat.8.f32",
+      "ratio": 5.205890763511582,
+      "before_ns": 34.97,
+      "after_ns": 182.05
+    },
+    {
+      "id": "bench.outerAdd.Mat.8.f32",
+      "ratio": 6.64500792393027,
+      "before_ns": 12.62,
+      "after_ns": 83.86
+    },
+    {
+      "id": "bench.transpose.Mat.8.f32",
+      "ratio": 2.875579322638146,
+      "before_ns": 28.05,
+      "after_ns": 80.66
+    },
+    {
+      "id": "bench.rowops.Mat.8.f32",
+      "ratio": 4.196969696969697,
+      "before_ns": 11.22,
+      "after_ns": 47.09
+    },
+    {
+      "id": "bench.gauss.Mat.8.f32",
+      "ratio": 2.1308972853491746,
+      "before_ns": 144.77,
+      "after_ns": 308.49
+    },
+    {
+      "id": "bench.lu.Mat.8.f32",
+      "ratio": 1.5802327124717959,
+      "before_ns": 226.03,
+      "after_ns": 357.18
+    },
+    {
+      "id": "bench.cholesky.Mat.8.f32",
+      "ratio": 1.5983909133932797,
+      "before_ns": 211.3,
+      "after_ns": 337.74
+    },
+    {
+      "id": "bench.luReuse.Mat.8.f32",
+      "ratio": 1.3002344785401163,
+      "before_ns": 98.09,
+      "after_ns": 127.54
+    },
+    {
+      "id": "bench.choleskyReuse.Mat.8.f32",
+      "ratio": 3.3634651600753296,
+      "before_ns": 42.48,
+      "after_ns": 142.88
+    },
+    {
+      "id": "bench.matvec.Mat.12.f32",
+      "ratio": 2.708236658932715,
+      "before_ns": 17.24,
+      "after_ns": 46.69
+    },
+    {
+      "id": "bench.matmul.Mat.12.f32",
+      "ratio": 3.914058936228446,
+      "before_ns": 109.61,
+      "after_ns": 429.02
+    },
+    {
+      "id": "bench.outerAdd.Mat.12.f32",
+      "ratio": 3.7640105078809105,
+      "before_ns": 22.84,
+      "after_ns": 85.97
+    },
+    {
+      "id": "bench.transpose.Mat.12.f32",
+      "ratio": 0.8530167851202177,
+      "before_ns": 66.13,
+      "after_ns": 56.41
+    },
+    {
+      "id": "bench.rowops.Mat.12.f32",
+      "ratio": 1.1231083844580778,
+      "before_ns": 24.45,
+      "after_ns": 27.46
+    },
+    {
+      "id": "bench.gauss.Mat.12.f32",
+      "ratio": 1.5635345486839183,
+      "before_ns": 405.37,
+      "after_ns": 633.81
+    },
+    {
+      "id": "bench.lu.Mat.12.f32",
+      "ratio": 1.3343718343240505,
+      "before_ns": 523.19,
+      "after_ns": 698.13
+    },
+    {
+      "id": "bench.cholesky.Mat.12.f32",
+      "ratio": 1.2795377874287488,
+      "before_ns": 515.78,
+      "after_ns": 659.96
+    },
+    {
+      "id": "bench.luReuse.Mat.12.f32",
+      "ratio": 1.1270499528746467,
+      "before_ns": 212.2,
+      "after_ns": 239.16
+    },
+    {
+      "id": "bench.choleskyReuse.Mat.12.f32",
+      "ratio": 1.7638712202759566,
+      "before_ns": 102.19,
+      "after_ns": 180.25
+    },
+    {
+      "id": "bench.dot.Vec.2.f64",
+      "ratio": 3.623616236162362,
+      "before_ns": 2.71,
+      "after_ns": 9.82
+    },
+    {
+      "id": "bench.normL2.Vec.2.f64",
+      "ratio": 3.752577319587629,
+      "before_ns": 2.91,
+      "after_ns": 10.92
+    },
+    {
+      "id": "bench.axpy.Vec.2.f64",
+      "ratio": 3.8900343642611683,
+      "before_ns": 2.91,
+      "after_ns": 11.32
+    },
+    {
+      "id": "bench.dot.Vec.3.f64",
+      "ratio": 3.752577319587629,
+      "before_ns": 2.91,
+      "after_ns": 10.92
+    },
+    {
+      "id": "bench.normL2.Vec.3.f64",
+      "ratio": 3.7940199335548175,
+      "before_ns": 3.01,
+      "after_ns": 11.42
+    },
+    {
+      "id": "bench.axpy.Vec.3.f64",
+      "ratio": 3.6199376947040496,
+      "before_ns": 3.21,
+      "after_ns": 11.62
+    },
+    {
+      "id": "bench.dot.Vec.4.f64",
+      "ratio": 3.958762886597938,
+      "before_ns": 2.91,
+      "after_ns": 11.52
+    },
+    {
+      "id": "bench.normL2.Vec.4.f64",
+      "ratio": 3.85,
+      "before_ns": 3.2,
+      "after_ns": 12.32
+    },
+    {
+      "id": "bench.axpy.Vec.4.f64",
+      "ratio": 4.439862542955326,
+      "before_ns": 2.91,
+      "after_ns": 12.92
+    },
+    {
+      "id": "bench.dot.Vec.6.f64",
+      "ratio": 3.5112540192926045,
+      "before_ns": 3.11,
+      "after_ns": 10.92
+    },
+    {
+      "id": "bench.normL2.Vec.6.f64",
+      "ratio": 3.3514285714285714,
+      "before_ns": 3.5,
+      "after_ns": 11.73
+    },
+    {
+      "id": "bench.axpy.Vec.6.f64",
+      "ratio": 3.824242424242424,
+      "before_ns": 3.3,
+      "after_ns": 12.62
+    },
+    {
+      "id": "bench.dot.Vec.8.f64",
+      "ratio": 3.755287009063444,
+      "before_ns": 3.31,
+      "after_ns": 12.43
+    },
+    {
+      "id": "bench.normL2.Vec.8.f64",
+      "ratio": 3.4016172506738545,
+      "before_ns": 3.71,
+      "after_ns": 12.62
+    },
+    {
+      "id": "bench.axpy.Vec.8.f64",
+      "ratio": 4.1,
+      "before_ns": 3.2,
+      "after_ns": 13.12
+    },
+    {
+      "id": "bench.dot.Vec.12.f64",
+      "ratio": 3.1575,
+      "before_ns": 4.0,
+      "after_ns": 12.63
+    },
+    {
+      "id": "bench.normL2.Vec.12.f64",
+      "ratio": 2.9575371549893843,
+      "before_ns": 4.71,
+      "after_ns": 13.93
+    },
+    {
+      "id": "bench.axpy.Vec.12.f64",
+      "ratio": 5.140762463343108,
+      "before_ns": 3.41,
+      "after_ns": 17.53
+    },
+    {
+      "id": "bench.dot.Vec.16.f64",
+      "ratio": 3.0424628450106157,
+      "before_ns": 4.71,
+      "after_ns": 14.33
+    },
+    {
+      "id": "bench.normL2.Vec.16.f64",
+      "ratio": 3.1204819277108435,
+      "before_ns": 5.81,
+      "after_ns": 18.13
+    },
+    {
+      "id": "bench.axpy.Vec.16.f64",
+      "ratio": 4.548628428927681,
+      "before_ns": 4.01,
+      "after_ns": 18.24
+    },
+    {
+      "id": "bench.dot.VecView.1.f64",
+      "ratio": 1.6842105263157896,
+      "before_ns": 1.9,
+      "after_ns": 3.2
+    },
+    {
+      "id": "bench.dot.VecView.3.f64",
+      "ratio": 1.8142857142857143,
+      "before_ns": 2.1,
+      "after_ns": 3.81
+    },
+    {
+      "id": "bench.dot.VecView.7.f64",
+      "ratio": 2.0358565737051797,
+      "before_ns": 2.51,
+      "after_ns": 5.11
+    },
+    {
+      "id": "bench.dot.VecView.16.f64",
+      "ratio": 1.6349206349206349,
+      "before_ns": 4.41,
+      "after_ns": 7.21
+    },
+    {
+      "id": "bench.dot.VecView.31.f64",
+      "ratio": 1.1658084449021626,
+      "before_ns": 9.71,
+      "after_ns": 11.32
+    },
+    {
+      "id": "bench.dot.VecView.64.f64",
+      "ratio": 1.0525252525252526,
+      "before_ns": 24.75,
+      "after_ns": 26.05
+    },
+    {
+      "id": "bench.dot.VecView.257.f64",
+      "ratio": 1.0199173797580405,
+      "before_ns": 135.56,
+      "after_ns": 138.26
+    },
+    {
+      "id": "bench.dot.VecView.1003.f64",
+      "ratio": 1.010269957896475,
+      "before_ns": 605.65,
+      "after_ns": 611.87
+    },
+    {
+      "id": "bench.dot.VecView.4096.f64",
+      "ratio": 0.9978661854288734,
+      "before_ns": 2582.23,
+      "after_ns": 2576.72
+    },
+    {
+      "id": "bench.dot.VecView.65537.f64",
+      "ratio": 1.0044323998209523,
+      "before_ns": 41106.4,
+      "after_ns": 41288.6
+    },
+    {
+      "id": "bench.dot.VecView.1048576.f64",
+      "ratio": 1.0101484524467153,
+      "before_ns": 676674.6,
+      "after_ns": 683541.8
+    },
+    {
+      "id": "bench.matvec.Mat.2.f64",
+      "ratio": 4.157575757575758,
+      "before_ns": 3.3,
+      "after_ns": 13.72
+    },
+    {
+      "id": "bench.matmul.Mat.2.f64",
+      "ratio": 4.574803149606299,
+      "before_ns": 3.81,
+      "after_ns": 17.43
+    },
+    {
+      "id": "bench.outerAdd.Mat.2.f64",
+      "ratio": 4.021897810218978,
+      "before_ns": 4.11,
+      "after_ns": 16.53
+    },
+    {
+      "id": "bench.transpose.Mat.2.f64",
+      "ratio": 3.9185336048879833,
+      "before_ns": 4.91,
+      "after_ns": 19.24
+    },
+    {
+      "id": "bench.rowops.Mat.2.f64",
+      "ratio": 1.924892703862661,
+      "before_ns": 9.32,
+      "after_ns": 17.94
+    },
+    {
+      "id": "bench.gauss.Mat.2.f64",
+      "ratio": 2.5877364644487932,
+      "before_ns": 15.33,
+      "after_ns": 39.67
+    },
+    {
+      "id": "bench.lu.Mat.2.f64",
+      "ratio": 1.6813261163734778,
+      "before_ns": 29.56,
+      "after_ns": 49.7
+    },
+    {
+      "id": "bench.cholesky.Mat.2.f64",
+      "ratio": 2.9717514124293785,
+      "before_ns": 21.24,
+      "after_ns": 63.12
+    },
+    {
+      "id": "bench.luReuse.Mat.2.f64",
+      "ratio": 2.605491329479769,
+      "before_ns": 6.92,
+      "after_ns": 18.03
+    },
+    {
+      "id": "bench.choleskyReuse.Mat.2.f64",
+      "ratio": 4.630170316301703,
+      "before_ns": 4.11,
+      "after_ns": 19.03
+    },
+    {
+      "id": "bench.matvec.Mat.3.f64",
+      "ratio": 3.8439897698209715,
+      "before_ns": 3.91,
+      "after_ns": 15.03
+    },
+    {
+      "id": "bench.matmul.Mat.3.f64",
+      "ratio": 4.963031423290204,
+      "before_ns": 5.41,
+      "after_ns": 26.85
+    },
+    {
+      "id": "bench.outerAdd.Mat.3.f64",
+      "ratio": 4.282371294851794,
+      "before_ns": 6.41,
+      "after_ns": 27.45
+    },
+    {
+      "id": "bench.transpose.Mat.3.f64",
+      "ratio": 4.5461393596986825,
+      "before_ns": 5.31,
+      "after_ns": 24.14
+    },
+    {
+      "id": "bench.rowops.Mat.3.f64",
+      "ratio": 2.3637469586374693,
+      "before_ns": 8.22,
+      "after_ns": 19.43
+    },
+    {
+      "id": "bench.gauss.Mat.3.f64",
+      "ratio": 1.436034829202947,
+      "before_ns": 44.79,
+      "after_ns": 64.32
+    },
+    {
+      "id": "bench.lu.Mat.3.f64",
+      "ratio": 1.4167122787812443,
+      "before_ns": 54.81,
+      "after_ns": 77.65
+    },
+    {
+      "id": "bench.cholesky.Mat.3.f64",
+      "ratio": 2.5954586196593965,
+      "before_ns": 33.47,
+      "after_ns": 86.87
+    },
+    {
+      "id": "bench.luReuse.Mat.3.f64",
+      "ratio": 3.219167321288295,
+      "before_ns": 12.73,
+      "after_ns": 40.98
+    },
+    {
+      "id": "bench.choleskyReuse.Mat.3.f64",
+      "ratio": 7.582930756843801,
+      "before_ns": 6.21,
+      "after_ns": 47.09
+    },
+    {
+      "id": "bench.matvec.Mat.4.f64",
+      "ratio": 3.8226164079822613,
+      "before_ns": 4.51,
+      "after_ns": 17.24
+    },
+    {
+      "id": "bench.matmul.Mat.4.f64",
+      "ratio": 4.406649616368286,
+      "before_ns": 7.82,
+      "after_ns": 34.46
+    },
+    {
+      "id": "bench.outerAdd.Mat.4.f64",
+      "ratio": 3.8042049934296975,
+      "before_ns": 7.61,
+      "after_ns": 28.95
+    },
+    {
+      "id": "bench.transpose.Mat.4.f64",
+      "ratio": 4.384359400998337,
+      "before_ns": 6.01,
+      "after_ns": 26.35
+    },
+    {
+      "id": "bench.rowops.Mat.4.f64",
+      "ratio": 2.5610972568578556,
+      "before_ns": 8.02,
+      "after_ns": 20.54
+    },
+    {
+      "id": "bench.gauss.Mat.4.f64",
+      "ratio": 2.184951565667943,
+      "before_ns": 44.39,
+      "after_ns": 96.99
+    },
+    {
+      "id": "bench.lu.Mat.4.f64",
+      "ratio": 1.4713813615333773,
+      "before_ns": 75.65,
+      "after_ns": 111.31
+    },
+    {
+      "id": "bench.cholesky.Mat.4.f64",
+      "ratio": 2.3415750915750912,
+      "before_ns": 54.6,
+      "after_ns": 127.85
+    },
+    {
+      "id": "bench.luReuse.Mat.4.f64",
+      "ratio": 2.4752929190015287,
+      "before_ns": 19.63,
+      "after_ns": 48.59
+    },
+    {
+      "id": "bench.choleskyReuse.Mat.4.f64",
+      "ratio": 4.513992537313433,
+      "before_ns": 10.72,
+      "after_ns": 48.39
+    },
+    {
+      "id": "bench.matvec.Mat.6.f64",
+      "ratio": 3.1654247391952306,
+      "before_ns": 6.71,
+      "after_ns": 21.24
+    },
+    {
+      "id": "bench.matmul.Mat.6.f64",
+      "ratio": 3.186636971046771,
+      "before_ns": 22.45,
+      "after_ns": 71.54
+    },
+    {
+      "id": "bench.outerAdd.Mat.6.f64",
+      "ratio": 1.2372815533980581,
+      "before_ns": 25.75,
+      "after_ns": 31.86
+    },
+    {
+      "id": "bench.transpose.Mat.6.f64",
+      "ratio": 1.439143135345667,
+      "before_ns": 20.54,
+      "after_ns": 29.56
+    },
+    {
+      "id": "bench.rowops.Mat.6.f64",
+      "ratio": 0.9625866050808315,
+      "before_ns": 21.65,
+      "after_ns": 20.84
+    },
+    {
+      "id": "bench.gauss.Mat.6.f64",
+      "ratio": 1.8278875757274806,
+      "before_ns": 100.69,
+      "after_ns": 184.05
+    },
+    {
+      "id": "bench.lu.Mat.6.f64",
+      "ratio": 1.3479443390259331,
+      "before_ns": 158.1,
+      "after_ns": 213.11
+    },
+    {
+      "id": "bench.cholesky.Mat.6.f64",
+      "ratio": 1.672041277007417,
+      "before_ns": 124.04,
+      "after_ns": 207.4
+    },
+    {
+      "id": "bench.luReuse.Mat.6.f64",
+      "ratio": 1.6432204876337486,
+      "before_ns": 57.01,
+      "after_ns": 93.68
+    },
+    {
+      "id": "bench.choleskyReuse.Mat.6.f64",
+      "ratio": 3.2446601941747573,
+      "before_ns": 25.75,
+      "after_ns": 83.55
+    },
+    {
+      "id": "bench.matvec.Mat.8.f64",
+      "ratio": 3.0107296137339055,
+      "before_ns": 9.32,
+      "after_ns": 28.06
+    },
+    {
+      "id": "bench.matmul.Mat.8.f64",
+      "ratio": 2.975793650793651,
+      "before_ns": 50.4,
+      "after_ns": 149.98
+    },
+    {
+      "id": "bench.outerAdd.Mat.8.f64",
+      "ratio": 2.2359882005899703,
+      "before_ns": 20.34,
+      "after_ns": 45.48
+    },
+    {
+      "id": "bench.transpose.Mat.8.f64",
+      "ratio": 1.5207270408163265,
+      "before_ns": 31.36,
+      "after_ns": 47.69
+    },
+    {
+      "id": "bench.rowops.Mat.8.f64",
+      "ratio": 1.054945054945055,
+      "before_ns": 21.84,
+      "after_ns": 23.04
+    },
+    {
+      "id": "bench.gauss.Mat.8.f64",
+      "ratio": 1.6874290348742904,
+      "before_ns": 184.95,
+      "after_ns": 312.09
+    },
+    {
+      "id": "bench.lu.Mat.8.f64",
+      "ratio": 1.331117802585194,
+      "before_ns": 272.32,
+      "after_ns": 362.49
+    },
+    {
+      "id": "bench.cholesky.Mat.8.f64",
+      "ratio": 1.1141353233167872,
+      "before_ns": 300.17,
+      "after_ns": 334.43
+    },
+    {
+      "id": "bench.luReuse.Mat.8.f64",
+      "ratio": 1.3011229849664914,
+      "before_ns": 110.42,
+      "after_ns": 143.67
+    },
+    {
+      "id": "bench.choleskyReuse.Mat.8.f64",
+      "ratio": 2.5299040620534803,
+      "before_ns": 48.99,
+      "after_ns": 123.94
+    },
+    {
+      "id": "bench.matvec.Mat.12.f64",
+      "ratio": 2.1879100281162134,
+      "before_ns": 21.34,
+      "after_ns": 46.69
+    },
+    {
+      "id": "bench.matmul.Mat.12.f64",
+      "ratio": 2.445247702308899,
+      "before_ns": 178.44,
+      "after_ns": 436.33
+    },
+    {
+      "id": "bench.outerAdd.Mat.12.f64",
+      "ratio": 2.3094373865698725,
+      "before_ns": 33.06,
+      "after_ns": 76.35
+    },
+    {
+      "id": "bench.transpose.Mat.12.f64",
+      "ratio": 0.8845626542363586,
+      "before_ns": 72.94,
+      "after_ns": 64.52
+    },
+    {
+      "id": "bench.rowops.Mat.12.f64",
+      "ratio": 0.6583679114799446,
+      "before_ns": 43.38,
+      "after_ns": 28.56
+    },
+    {
+      "id": "bench.gauss.Mat.12.f64",
+      "ratio": 1.4892721571216372,
+      "before_ns": 484.72,
+      "after_ns": 721.88
+    },
+    {
+      "id": "bench.lu.Mat.12.f64",
+      "ratio": 1.2678980457137288,
+      "before_ns": 615.57,
+      "after_ns": 780.48
+    },
+    {
+      "id": "bench.cholesky.Mat.12.f64",
+      "ratio": 1.067265404379427,
+      "before_ns": 648.03,
+      "after_ns": 691.62
+    },
+    {
+      "id": "bench.luReuse.Mat.12.f64",
+      "ratio": 1.095570297453456,
+      "before_ns": 233.65,
+      "after_ns": 255.98
+    },
+    {
+      "id": "bench.choleskyReuse.Mat.12.f64",
+      "ratio": 1.8059366872926195,
+      "before_ns": 111.51,
+      "after_ns": 201.38
+    },
+    {
+      "id": "bench.matvec.MatView.2.f32",
+      "ratio": 1.4895591647331787,
+      "before_ns": 4.31,
+      "after_ns": 6.42
+    },
+    {
+      "id": "bench.matmul.MatView.2.f32",
+      "ratio": 1.557336621454994,
+      "before_ns": 8.11,
+      "after_ns": 12.63
+    },
+    {
+      "id": "bench.outerAdd.MatView.2.f32",
+      "ratio": 2.1626409017713364,
+      "before_ns": 6.21,
+      "after_ns": 13.43
+    },
+    {
+      "id": "bench.transpose.MatView.2.f32",
+      "ratio": 2.667359667359668,
+      "before_ns": 4.81,
+      "after_ns": 12.83
+    },
+    {
+      "id": "bench.rowops.MatView.2.f32",
+      "ratio": 2.2951541850220267,
+      "before_ns": 6.81,
+      "after_ns": 15.63
+    },
+    {
+      "id": "bench.gauss.MatView.2.f32",
+      "ratio": 1.626268019220502,
+      "before_ns": 18.73,
+      "after_ns": 30.46
+    },
+    {
+      "id": "bench.lu.MatView.2.f32",
+      "ratio": 1.2414529914529915,
+      "before_ns": 32.76,
+      "after_ns": 40.67
+    },
+    {
+      "id": "bench.cholesky.MatView.2.f32",
+      "ratio": 1.7235718975705843,
+      "before_ns": 30.46,
+      "after_ns": 52.5
+    },
+    {
+      "id": "bench.luReuse.MatView.2.f32",
+      "ratio": 1.9077190946024374,
+      "before_ns": 17.23,
+      "after_ns": 32.87
+    },
+    {
+      "id": "bench.choleskyReuse.MatView.2.f32",
+      "ratio": 3.0833333333333335,
+      "before_ns": 12.12,
+      "after_ns": 37.37
+    },
+    {
+      "id": "bench.matvec.MatView.3.f32",
+      "ratio": 1.370199692780338,
+      "before_ns": 6.51,
+      "after_ns": 8.92
+    },
+    {
+      "id": "bench.matmul.MatView.3.f32",
+      "ratio": 1.1883239171374764,
+      "before_ns": 15.93,
+      "after_ns": 18.93
+    },
+    {
+      "id": "bench.outerAdd.MatView.3.f32",
+      "ratio": 2.141330166270784,
+      "before_ns": 8.42,
+      "after_ns": 18.03
+    },
+    {
+      "id": "bench.transpose.MatView.3.f32",
+      "ratio": 2.2412398921832883,
+      "before_ns": 7.42,
+      "after_ns": 16.63
+    },
+    {
+      "id": "bench.rowops.MatView.3.f32",
+      "ratio": 2.6237337192474675,
+      "before_ns": 6.91,
+      "after_ns": 18.13
+    },
+    {
+      "id": "bench.gauss.MatView.3.f32",
+      "ratio": 1.4812646370023421,
+      "before_ns": 34.16,
+      "after_ns": 50.6
+    },
+    {
+      "id": "bench.lu.MatView.3.f32",
+      "ratio": 1.1806451612903226,
+      "before_ns": 52.7,
+      "after_ns": 62.22
+    },
+    {
+      "id": "bench.cholesky.MatView.3.f32",
+      "ratio": 1.1756801048836445,
+      "before_ns": 61.02,
+      "after_ns": 71.74
+    },
+    {
+      "id": "bench.luReuse.MatView.3.f32",
+      "ratio": 1.8519427402862987,
+      "before_ns": 24.45,
+      "after_ns": 45.28
+    },
+    {
+      "id": "bench.choleskyReuse.MatView.3.f32",
+      "ratio": 2.4085545722713864,
+      "before_ns": 20.34,
+      "after_ns": 48.99
+    },
+    {
+      "id": "bench.matvec.MatView.4.f32",
+      "ratio": 1.8673621460506706,
+      "before_ns": 6.71,
+      "after_ns": 12.53
+    },
+    {
+      "id": "bench.matmul.MatView.4.f32",
+      "ratio": 1.2537053182214473,
+      "before_ns": 22.94,
+      "after_ns": 28.76
+    },
+    {
+      "id": "bench.outerAdd.MatView.4.f32",
+      "ratio": 2.0998201438848922,
+      "before_ns": 11.12,
+      "after_ns": 23.35
+    },
+    {
+      "id": "bench.transpose.MatView.4.f32",
+      "ratio": 3.0422960725075527,
+      "before_ns": 6.62,
+      "after_ns": 20.14
+    },
+    {
+      "id": "bench.rowops.MatView.4.f32",
+      "ratio": 2.616125150421179,
+      "before_ns": 8.31,
+      "after_ns": 21.74
+    },
+    {
+      "id": "bench.gauss.MatView.4.f32",
+      "ratio": 1.4263940520446097,
+      "before_ns": 53.8,
+      "after_ns": 76.74
+    },
+    {
+      "id": "bench.lu.MatView.4.f32",
+      "ratio": 1.1970032573289904,
+      "before_ns": 76.75,
+      "after_ns": 91.87
+    },
+    {
+      "id": "bench.cholesky.MatView.4.f32",
+      "ratio": 1.427185705169113,
+      "before_ns": 78.35,
+      "after_ns": 111.82
+    },
+    {
+      "id": "bench.luReuse.MatView.4.f32",
+      "ratio": 1.4143819143819145,
+      "before_ns": 41.58,
+      "after_ns": 58.81
+    },
+    {
+      "id": "bench.choleskyReuse.MatView.4.f32",
+      "ratio": 2.0065019505851756,
+      "before_ns": 30.76,
+      "after_ns": 61.72
+    },
+    {
+      "id": "bench.matvec.MatView.6.f32",
+      "ratio": 1.8830935251798564,
+      "before_ns": 11.12,
+      "after_ns": 20.94
+    },
+    {
+      "id": "bench.matmul.MatView.6.f32",
+      "ratio": 0.9298462383305875,
+      "before_ns": 72.84,
+      "after_ns": 67.73
+    },
+    {
+      "id": "bench.outerAdd.MatView.6.f32",
+      "ratio": 2.2134251290877796,
+      "before_ns": 17.43,
+      "after_ns": 38.58
+    },
+    {
+      "id": "bench.transpose.MatView.6.f32",
+      "ratio": 2.5848056537102475,
+      "before_ns": 11.32,
+      "after_ns": 29.26
+    },
+    {
+      "id": "bench.rowops.MatView.6.f32",
+      "ratio": 3.4670912951167723,
+      "before_ns": 9.42,
+      "after_ns": 32.66
+    },
+    {
+      "id": "bench.gauss.MatView.6.f32",
+      "ratio": 1.2623574144486693,
+      "before_ns": 115.72,
+      "after_ns": 146.08
+    },
+    {
+      "id": "bench.lu.MatView.6.f32",
+      "ratio": 1.1540038436899422,
+      "before_ns": 156.1,
+      "after_ns": 180.14
+    },
+    {
+      "id": "bench.cholesky.MatView.6.f32",
+      "ratio": 1.1972885732730794,
+      "before_ns": 154.9,
+      "after_ns": 185.46
+    },
+    {
+      "id": "bench.luReuse.MatView.6.f32",
+      "ratio": 1.3305726117378267,
+      "before_ns": 70.03,
+      "after_ns": 93.18
+    },
+    {
+      "id": "bench.choleskyReuse.MatView.6.f32",
+      "ratio": 1.4966785896780788,
+      "before_ns": 58.71,
+      "after_ns": 87.87
+    },
+    {
+      "id": "bench.matvec.MatView.8.f32",
+      "ratio": 2.0048661800486616,
+      "before_ns": 16.44,
+      "after_ns": 32.96
+    },
+    {
+      "id": "bench.matmul.MatView.8.f32",
+      "ratio": 1.0345189067764882,
+      "before_ns": 133.55,
+      "after_ns": 138.16
+    },
+    {
+      "id": "bench.outerAdd.MatView.8.f32",
+      "ratio": 2.411090573012939,
+      "before_ns": 27.05,
+      "after_ns": 65.22
+    },
+    {
+      "id": "bench.transpose.MatView.8.f32",
+      "ratio": 1.895808383233533,
+      "before_ns": 25.05,
+      "after_ns": 47.49
+    },
+    {
+      "id": "bench.rowops.MatView.8.f32",
+      "ratio": 4.63526119402985,
+      "before_ns": 10.72,
+      "after_ns": 49.69
+    },
+    {
+      "id": "bench.gauss.MatView.8.f32",
+      "ratio": 1.2464108971532166,
+      "before_ns": 204.09,
+      "after_ns": 254.38
+    },
+    {
+      "id": "bench.lu.MatView.8.f32",
+      "ratio": 1.1456093868281605,
+      "before_ns": 264.2,
+      "after_ns": 302.67
+    },
+    {
+      "id": "bench.cholesky.MatView.8.f32",
+      "ratio": 1.1623773524207817,
+      "before_ns": 248.68,
+      "after_ns": 289.06
+    },
+    {
+      "id": "bench.luReuse.MatView.8.f32",
+      "ratio": 1.2008973537221868,
+      "before_ns": 109.21,
+      "after_ns": 131.15
+    },
+    {
+      "id": "bench.choleskyReuse.MatView.8.f32",
+      "ratio": 1.362609497464269,
+      "before_ns": 86.76,
+      "after_ns": 118.22
+    },
+    {
+      "id": "bench.matvec.MatView.12.f32",
+      "ratio": 1.7469377117539746,
+      "before_ns": 38.37,
+      "after_ns": 67.03
+    },
+    {
+      "id": "bench.matmul.MatView.12.f32",
+      "ratio": 1.003817704605106,
+      "before_ns": 419.1,
+      "after_ns": 420.7
+    },
+    {
+      "id": "bench.outerAdd.MatView.12.f32",
+      "ratio": 2.525408181984957,
+      "before_ns": 54.51,
+      "after_ns": 137.66
+    },
+    {
+      "id": "bench.transpose.MatView.12.f32",
+      "ratio": 3.1734886649874054,
+      "before_ns": 31.76,
+      "after_ns": 100.79
+    },
+    {
+      "id": "bench.rowops.MatView.12.f32",
+      "ratio": 6.527415143603133,
+      "before_ns": 15.32,
+      "after_ns": 100.0
+    },
+    {
+      "id": "bench.gauss.MatView.12.f32",
+      "ratio": 1.2810144653691922,
+      "before_ns": 476.31,
+      "after_ns": 610.16
+    },
+    {
+      "id": "bench.lu.MatView.12.f32",
+      "ratio": 1.1343454984547312,
+      "before_ns": 592.13,
+      "after_ns": 671.68
+    },
+    {
+      "id": "bench.cholesky.MatView.12.f32",
+      "ratio": 1.1411467711098322,
+      "before_ns": 538.73,
+      "after_ns": 614.77
+    },
+    {
+      "id": "bench.luReuse.MatView.12.f32",
+      "ratio": 1.116113516113516,
+      "before_ns": 207.9,
+      "after_ns": 232.04
+    },
+    {
+      "id": "bench.choleskyReuse.MatView.12.f32",
+      "ratio": 1.2048627039779802,
+      "before_ns": 152.59,
+      "after_ns": 183.85
+    },
+    {
+      "id": "bench.matvec.MatView.2.f64",
+      "ratio": 1.477223427331887,
+      "before_ns": 4.61,
+      "after_ns": 6.81
+    },
+    {
+      "id": "bench.matmul.MatView.2.f64",
+      "ratio": 1.5946969696969697,
+      "before_ns": 7.92,
+      "after_ns": 12.63
+    },
+    {
+      "id": "bench.outerAdd.MatView.2.f64",
+      "ratio": 1.7503121098626717,
+      "before_ns": 8.01,
+      "after_ns": 14.02
+    },
+    {
+      "id": "bench.transpose.MatView.2.f64",
+      "ratio": 3.1677282377919322,
+      "before_ns": 4.71,
+      "after_ns": 14.92
+    },
+    {
+      "id": "bench.rowops.MatView.2.f64",
+      "ratio": 2.534109816971714,
+      "before_ns": 6.01,
+      "after_ns": 15.23
+    },
+    {
+      "id": "bench.gauss.MatView.2.f64",
+      "ratio": 1.6564051638530288,
+      "before_ns": 20.14,
+      "after_ns": 33.36
+    },
+    {
+      "id": "bench.lu.MatView.2.f64",
+      "ratio": 1.25219112242013,
+      "before_ns": 35.37,
+      "after_ns": 44.29
+    },
+    {
+      "id": "bench.cholesky.MatView.2.f64",
+      "ratio": 1.1685464992551606,
+      "before_ns": 46.99,
+      "after_ns": 54.91
+    },
+    {
+      "id": "bench.luReuse.MatView.2.f64",
+      "ratio": 1.9880454273759711,
+      "before_ns": 16.73,
+      "after_ns": 33.26
+    },
+    {
+      "id": "bench.choleskyReuse.MatView.2.f64",
+      "ratio": 2.7791636096845194,
+      "before_ns": 13.63,
+      "after_ns": 37.88
+    },
+    {
+      "id": "bench.matvec.MatView.3.f64",
+      "ratio": 1.0828651685393258,
+      "before_ns": 7.12,
+      "after_ns": 7.71
+    },
+    {
+      "id": "bench.matmul.MatView.3.f64",
+      "ratio": 1.0764740221833042,
+      "before_ns": 17.13,
+      "after_ns": 18.44
+    },
+    {
+      "id": "bench.outerAdd.MatView.3.f64",
+      "ratio": 2.04421768707483,
+      "before_ns": 8.82,
+      "after_ns": 18.03
+    },
+    {
+      "id": "bench.transpose.MatView.3.f64",
+      "ratio": 2.2439372325249645,
+      "before_ns": 7.01,
+      "after_ns": 15.73
+    },
+    {
+      "id": "bench.rowops.MatView.3.f64",
+      "ratio": 2.8381502890173413,
+      "before_ns": 6.92,
+      "after_ns": 19.64
+    },
+    {
+      "id": "bench.gauss.MatView.3.f64",
+      "ratio": 1.4971413721413722,
+      "before_ns": 38.48,
+      "after_ns": 57.61
+    },
+    {
+      "id": "bench.lu.MatView.3.f64",
+      "ratio": 1.234532884240383,
+      "before_ns": 56.41,
+      "after_ns": 69.64
+    },
+    {
+      "id": "bench.cholesky.MatView.3.f64",
+      "ratio": 1.1574992911823079,
+      "before_ns": 70.54,
+      "after_ns": 81.65
+    },
+    {
+      "id": "bench.luReuse.MatView.3.f64",
+      "ratio": 1.7596190476190476,
+      "before_ns": 26.25,
+      "after_ns": 46.19
+    },
+    {
+      "id": "bench.choleskyReuse.MatView.3.f64",
+      "ratio": 2.3262032085561497,
+      "before_ns": 22.44,
+      "after_ns": 52.2
+    },
+    {
+      "id": "bench.matvec.MatView.4.f64",
+      "ratio": 1.361997226074896,
+      "before_ns": 7.21,
+      "after_ns": 9.82
+    },
+    {
+      "id": "bench.matmul.MatView.4.f64",
+      "ratio": 1.3535781544256122,
+      "before_ns": 21.24,
+      "after_ns": 28.75
+    },
+    {
+      "id": "bench.outerAdd.MatView.4.f64",
+      "ratio": 2.1267985611510793,
+      "before_ns": 11.12,
+      "after_ns": 23.65
+    },
+    {
+      "id": "bench.transpose.MatView.4.f64",
+      "ratio": 2.6371191135734073,
+      "before_ns": 7.22,
+      "after_ns": 19.04
+    },
+    {
+      "id": "bench.rowops.MatView.4.f64",
+      "ratio": 2.0880626223091974,
+      "before_ns": 10.22,
+      "after_ns": 21.34
+    },
+    {
+      "id": "bench.gauss.MatView.4.f64",
+      "ratio": 1.409901305316778,
+      "before_ns": 62.82,
+      "after_ns": 88.57
+    },
+    {
+      "id": "bench.lu.MatView.4.f64",
+      "ratio": 1.2214828897338403,
+      "before_ns": 84.16,
+      "after_ns": 102.8
+    },
+    {
+      "id": "bench.cholesky.MatView.4.f64",
+      "ratio": 1.282658838330887,
+      "before_ns": 95.38,
+      "after_ns": 122.34
+    },
+    {
+      "id": "bench.luReuse.MatView.4.f64",
+      "ratio": 1.3737918633400763,
+      "before_ns": 44.49,
+      "after_ns": 61.12
+    },
+    {
+      "id": "bench.choleskyReuse.MatView.4.f64",
+      "ratio": 1.6842374616171953,
+      "before_ns": 39.08,
+      "after_ns": 65.82
+    },
+    {
+      "id": "bench.matvec.MatView.6.f64",
+      "ratio": 1.1956168831168832,
+      "before_ns": 12.32,
+      "after_ns": 14.73
+    },
+    {
+      "id": "bench.matmul.MatView.6.f64",
+      "ratio": 1.033572409583397,
+      "before_ns": 65.53,
+      "after_ns": 67.73
+    },
+    {
+      "id": "bench.outerAdd.MatView.6.f64",
+      "ratio": 2.097087378640777,
+      "before_ns": 18.54,
+      "after_ns": 38.88
+    },
+    {
+      "id": "bench.transpose.MatView.6.f64",
+      "ratio": 2.428341384863124,
+      "before_ns": 12.42,
+      "after_ns": 30.16
+    },
+    {
+      "id": "bench.rowops.MatView.6.f64",
+      "ratio": 3.2295409181636727,
+      "before_ns": 10.02,
+      "after_ns": 32.36
+    },
+    {
+      "id": "bench.gauss.MatView.6.f64",
+      "ratio": 1.1180091336289628,
+      "before_ns": 151.09,
+      "after_ns": 168.92
+    },
+    {
+      "id": "bench.lu.MatView.6.f64",
+      "ratio": 1.1078112061827214,
+      "before_ns": 181.15,
+      "after_ns": 200.68
+    },
+    {
+      "id": "bench.cholesky.MatView.6.f64",
+      "ratio": 1.0892493813582624,
+      "before_ns": 181.85,
+      "after_ns": 198.08
+    },
+    {
+      "id": "bench.luReuse.MatView.6.f64",
+      "ratio": 1.285733070348455,
+      "before_ns": 76.05,
+      "after_ns": 97.78
+    },
+    {
+      "id": "bench.choleskyReuse.MatView.6.f64",
+      "ratio": 1.413533834586466,
+      "before_ns": 67.83,
+      "after_ns": 95.88
+    },
+    {
+      "id": "bench.matvec.MatView.8.f64",
+      "ratio": 1.140997830802603,
+      "before_ns": 18.44,
+      "after_ns": 21.04
+    },
+    {
+      "id": "bench.matmul.MatView.8.f64",
+      "ratio": 1.130328070031907,
+      "before_ns": 122.23,
+      "after_ns": 138.16
+    },
+    {
+      "id": "bench.outerAdd.MatView.8.f64",
+      "ratio": 2.4423342541436464,
+      "before_ns": 28.96,
+      "after_ns": 70.73
+    },
+    {
+      "id": "bench.transpose.MatView.8.f64",
+      "ratio": 2.756375474769398,
+      "before_ns": 18.43,
+      "after_ns": 50.8
+    },
+    {
+      "id": "bench.rowops.MatView.8.f64",
+      "ratio": 4.2947702060221875,
+      "before_ns": 12.62,
+      "after_ns": 54.2
+    },
+    {
+      "id": "bench.gauss.MatView.8.f64",
+      "ratio": 1.1839689408339062,
+      "before_ns": 247.27,
+      "after_ns": 292.76
+    },
+    {
+      "id": "bench.lu.MatView.8.f64",
+      "ratio": 1.08510976773783,
+      "before_ns": 314.3,
+      "after_ns": 341.05
+    },
+    {
+      "id": "bench.cholesky.MatView.8.f64",
+      "ratio": 1.0356769472033456,
+      "before_ns": 306.08,
+      "after_ns": 317.0
+    },
+    {
+      "id": "bench.luReuse.MatView.8.f64",
+      "ratio": 1.2049518569463549,
+      "before_ns": 116.32,
+      "after_ns": 140.16
+    },
+    {
+      "id": "bench.choleskyReuse.MatView.8.f64",
+      "ratio": 1.2808750882145377,
+      "before_ns": 99.19,
+      "after_ns": 127.05
+    },
+    {
+      "id": "bench.matvec.MatView.12.f64",
+      "ratio": 1.0573837367419092,
+      "before_ns": 36.77,
+      "after_ns": 38.88
+    },
+    {
+      "id": "bench.matmul.MatView.12.f64",
+      "ratio": 1.0522637647880997,
+      "before_ns": 400.66,
+      "after_ns": 421.6
+    },
+    {
+      "id": "bench.outerAdd.MatView.12.f64",
+      "ratio": 2.2281219272369714,
+      "before_ns": 61.02,
+      "after_ns": 135.96
+    },
+    {
+      "id": "bench.transpose.MatView.12.f64",
+      "ratio": 2.988058787507655,
+      "before_ns": 32.66,
+      "after_ns": 97.59
+    },
+    {
+      "id": "bench.rowops.MatView.12.f64",
+      "ratio": 4.768081002892961,
+      "before_ns": 20.74,
+      "after_ns": 98.89
+    },
+    {
+      "id": "bench.gauss.MatView.12.f64",
+      "ratio": 1.197408071905102,
+      "before_ns": 574.09,
+      "after_ns": 687.42
+    },
+    {
+      "id": "bench.lu.MatView.12.f64",
+      "ratio": 1.1099973149556968,
+      "before_ns": 670.38,
+      "after_ns": 744.12
+    },
+    {
+      "id": "bench.cholesky.MatView.12.f64",
+      "ratio": 1.0143751735200666,
+      "before_ns": 648.34,
+      "after_ns": 657.66
+    },
+    {
+      "id": "bench.luReuse.MatView.12.f64",
+      "ratio": 1.0966245109635155,
+      "before_ns": 219.82,
+      "after_ns": 241.06
+    },
+    {
+      "id": "bench.choleskyReuse.MatView.12.f64",
+      "ratio": 1.1693557884819221,
+      "before_ns": 169.82,
+      "after_ns": 198.58
+    },
+    {
+      "id": "bench.getFlatIdx.NDArray.256.f32",
+      "ratio": 4.132701421800949,
+      "before_ns": 2.11,
+      "after_ns": 8.72
+    },
+    {
+      "id": "bench.flatRead.NDArray.256.f32",
+      "ratio": 5.1684210526315795,
+      "before_ns": 1.9,
+      "after_ns": 9.82
+    },
+    {
+      "id": "bench.indexedRead.NDArray.256.f32",
+      "ratio": 6.5023696682464465,
+      "before_ns": 2.11,
+      "after_ns": 13.72
+    },
+    {
+      "id": "bench.stream.NDArray.256.f32",
+      "ratio": 1.3756007689842997,
+      "before_ns": 124.84,
+      "after_ns": 171.73
+    },
+    {
+      "id": "bench.getFlatIdx.NDArray.32x32.f32",
+      "ratio": 3.8614718614718613,
+      "before_ns": 2.31,
+      "after_ns": 8.92
+    },
+    {
+      "id": "bench.flatRead.NDArray.32x32.f32",
+      "ratio": 5.104761904761905,
+      "before_ns": 2.1,
+      "after_ns": 10.72
+    },
+    {
+      "id": "bench.indexedRead.NDArray.32x32.f32",
+      "ratio": 5.2625,
+      "before_ns": 2.4,
+      "after_ns": 12.63
+    },
+    {
+      "id": "bench.stream.NDArray.32x32.f32",
+      "ratio": 1.0897484536082473,
+      "before_ns": 606.25,
+      "after_ns": 660.66
+    },
+    {
+      "id": "bench.offset2.NDArray.32x32.f32",
+      "ratio": 6.170616113744076,
+      "before_ns": 2.11,
+      "after_ns": 13.02
+    },
+    {
+      "id": "bench.planeBase.NDArray.32x32.f32",
+      "ratio": 8.058333333333334,
+      "before_ns": 2.4,
+      "after_ns": 19.34
+    },
+    {
+      "id": "bench.subBase2.NDArray.32x32.f32",
+      "ratio": 7.496296296296295,
+      "before_ns": 2.7,
+      "after_ns": 20.24
+    },
+    {
+      "id": "bench.fixedPrefixView.NDArray.32x32.f32",
+      "ratio": 12.37696335078534,
+      "before_ns": 1.91,
+      "after_ns": 23.64
+    },
+    {
+      "id": "bench.getFlatIdx.NDArray.8x8x8.f32",
+      "ratio": 2.996884735202492,
+      "before_ns": 3.21,
+      "after_ns": 9.62
+    },
+    {
+      "id": "bench.flatRead.NDArray.8x8x8.f32",
+      "ratio": 4.76,
+      "before_ns": 2.0,
+      "after_ns": 9.52
+    },
+    {
+      "id": "bench.indexedRead.NDArray.8x8x8.f32",
+      "ratio": 4.845018450184503,
+      "before_ns": 2.71,
+      "after_ns": 13.13
+    },
+    {
+      "id": "bench.stream.NDArray.8x8x8.f32",
+      "ratio": 1.1724258779000492,
+      "before_ns": 285.34,
+      "after_ns": 334.54
+    },
+    {
+      "id": "bench.offset3.NDArray.8x8x8.f32",
+      "ratio": 6.295019157088123,
+      "before_ns": 2.61,
+      "after_ns": 16.43
+    },
+    {
+      "id": "bench.planeBase.NDArray.8x8x8.f32",
+      "ratio": 8.149377593360995,
+      "before_ns": 2.41,
+      "after_ns": 19.64
+    },
+    {
+      "id": "bench.subBase2.NDArray.8x8x8.f32",
+      "ratio": 7.8999999999999995,
+      "before_ns": 2.6,
+      "after_ns": 20.54
+    },
+    {
+      "id": "bench.fixedPrefixView.NDArray.8x8x8.f32",
+      "ratio": 12.547368421052632,
+      "before_ns": 1.9,
+      "after_ns": 23.84
+    },
+    {
+      "id": "bench.getFlatIdx.NDArray.4x8x8x8.f32",
+      "ratio": 3.565836298932384,
+      "before_ns": 2.81,
+      "after_ns": 10.02
+    },
+    {
+      "id": "bench.flatRead.NDArray.4x8x8x8.f32",
+      "ratio": 5.057142857142857,
+      "before_ns": 2.1,
+      "after_ns": 10.62
+    },
+    {
+      "id": "bench.indexedRead.NDArray.4x8x8x8.f32",
+      "ratio": 5.10727969348659,
+      "before_ns": 2.61,
+      "after_ns": 13.33
+    },
+    {
+      "id": "bench.stream.NDArray.4x8x8x8.f32",
+      "ratio": 1.057327304818782,
+      "before_ns": 1240.77,
+      "after_ns": 1311.9
+    },
+    {
+      "id": "bench.offset4.NDArray.4x8x8x8.f32",
+      "ratio": 6.604501607717042,
+      "before_ns": 3.11,
+      "after_ns": 20.54
+    },
+    {
+      "id": "bench.planeBase.NDArray.4x8x8x8.f32",
+      "ratio": 8.534782608695652,
+      "before_ns": 2.3,
+      "after_ns": 19.63
+    },
+    {
+      "id": "bench.subBase2.NDArray.4x8x8x8.f32",
+      "ratio": 8.092307692307692,
+      "before_ns": 2.6,
+      "after_ns": 21.04
+    },
+    {
+      "id": "bench.fixedPrefixView.NDArray.4x8x8x8.f32",
+      "ratio": 12.55263157894737,
+      "before_ns": 1.9,
+      "after_ns": 23.85
+    },
+    {
+      "id": "bench.getFlatIdx.NDArray.2x4x8x8x8.f32",
+      "ratio": 3.5066666666666664,
+      "before_ns": 3.0,
+      "after_ns": 10.52
+    },
+    {
+      "id": "bench.flatRead.NDArray.2x4x8x8x8.f32",
+      "ratio": 5.21,
+      "before_ns": 2.0,
+      "after_ns": 10.42
+    },
+    {
+      "id": "bench.indexedRead.NDArray.2x4x8x8x8.f32",
+      "ratio": 4.506666666666667,
+      "before_ns": 3.0,
+      "after_ns": 13.52
+    },
+    {
+      "id": "bench.stream.NDArray.2x4x8x8x8.f32",
+      "ratio": 1.0390995072325544,
+      "before_ns": 2516.4,
+      "after_ns": 2614.79
+    },
+    {
+      "id": "bench.planeBase.NDArray.2x4x8x8x8.f32",
+      "ratio": 8.886877828054299,
+      "before_ns": 2.21,
+      "after_ns": 19.64
+    },
+    {
+      "id": "bench.subBase2.NDArray.2x4x8x8x8.f32",
+      "ratio": 8.099616858237548,
+      "before_ns": 2.61,
+      "after_ns": 21.14
+    },
+    {
+      "id": "bench.fixedPrefixView.NDArray.2x4x8x8x8.f32",
+      "ratio": 14.023529411764706,
+      "before_ns": 1.7,
+      "after_ns": 23.84
+    },
+    {
+      "id": "bench.getFlatIdx.NDArray.256.f64",
+      "ratio": 3.7601809954751135,
+      "before_ns": 2.21,
+      "after_ns": 8.31
+    },
+    {
+      "id": "bench.flatRead.NDArray.256.f64",
+      "ratio": 5.3383084577114435,
+      "before_ns": 2.01,
+      "after_ns": 10.73
+    },
+    {
+      "id": "bench.indexedRead.NDArray.256.f64",
+      "ratio": 6.059090909090909,
+      "before_ns": 2.2,
+      "after_ns": 13.33
+    },
+    {
+      "id": "bench.stream.NDArray.256.f64",
+      "ratio": 1.3777278562259307,
+      "before_ns": 124.64,
+      "after_ns": 171.72
+    },
+    {
+      "id": "bench.getFlatIdx.NDArray.32x32.f64",
+      "ratio": 3.51394422310757,
+      "before_ns": 2.51,
+      "after_ns": 8.82
+    },
+    {
+      "id": "bench.flatRead.NDArray.32x32.f64",
+      "ratio": 4.96,
+      "before_ns": 2.0,
+      "after_ns": 9.92
+    },
+    {
+      "id": "bench.indexedRead.NDArray.32x32.f64",
+      "ratio": 5.396153846153846,
+      "before_ns": 2.6,
+      "after_ns": 14.03
+    },
+    {
+      "id": "bench.stream.NDArray.32x32.f64",
+      "ratio": 1.0951836193318412,
+      "before_ns": 603.15,
+      "after_ns": 660.56
+    },
+    {
+      "id": "bench.offset2.NDArray.32x32.f64",
+      "ratio": 4.934615384615385,
+      "before_ns": 2.6,
+      "after_ns": 12.83
+    },
+    {
+      "id": "bench.planeBase.NDArray.32x32.f64",
+      "ratio": 8.841628959276019,
+      "before_ns": 2.21,
+      "after_ns": 19.54
+    },
+    {
+      "id": "bench.subBase2.NDArray.32x32.f64",
+      "ratio": 9.060869565217391,
+      "before_ns": 2.3,
+      "after_ns": 20.84
+    },
+    {
+      "id": "bench.fixedPrefixView.NDArray.32x32.f64",
+      "ratio": 10.717391304347826,
+      "before_ns": 2.3,
+      "after_ns": 24.65
+    },
+    {
+      "id": "bench.getFlatIdx.NDArray.8x8x8.f64",
+      "ratio": 3.6838487972508593,
+      "before_ns": 2.91,
+      "after_ns": 10.72
+    },
+    {
+      "id": "bench.flatRead.NDArray.8x8x8.f64",
+      "ratio": 5.057142857142857,
+      "before_ns": 2.1,
+      "after_ns": 10.62
+    },
+    {
+      "id": "bench.indexedRead.NDArray.8x8x8.f64",
+      "ratio": 4.21,
+      "before_ns": 3.0,
+      "after_ns": 12.63
+    },
+    {
+      "id": "bench.stream.NDArray.8x8x8.f64",
+      "ratio": 1.1796786922209697,
+      "before_ns": 283.84,
+      "after_ns": 334.84
+    },
+    {
+      "id": "bench.offset3.NDArray.8x8x8.f64",
+      "ratio": 5.646048109965635,
+      "before_ns": 2.91,
+      "after_ns": 16.43
+    },
+    {
+      "id": "bench.planeBase.NDArray.8x8x8.f64",
+      "ratio": 8.841628959276019,
+      "before_ns": 2.21,
+      "after_ns": 19.54
+    },
+    {
+      "id": "bench.subBase2.NDArray.8x8x8.f64",
+      "ratio": 8.605809128630705,
+      "before_ns": 2.41,
+      "after_ns": 20.74
+    },
+    {
+      "id": "bench.fixedPrefixView.NDArray.8x8x8.f64",
+      "ratio": 13.694444444444443,
+      "before_ns": 1.8,
+      "after_ns": 24.65
+    },
+    {
+      "id": "bench.getFlatIdx.NDArray.4x8x8x8.f64",
+      "ratio": 4.103321033210332,
+      "before_ns": 2.71,
+      "after_ns": 11.12
+    },
+    {
+      "id": "bench.flatRead.NDArray.4x8x8x8.f64",
+      "ratio": 4.554545454545454,
+      "before_ns": 2.2,
+      "after_ns": 10.02
+    },
+    {
+      "id": "bench.indexedRead.NDArray.4x8x8x8.f64",
+      "ratio": 4.915708812260537,
+      "before_ns": 2.61,
+      "after_ns": 12.83
+    },
+    {
+      "id": "bench.stream.NDArray.4x8x8x8.f64",
+      "ratio": 1.057654331933552,
+      "before_ns": 1240.67,
+      "after_ns": 1312.2
+    },
+    {
+      "id": "bench.offset4.NDArray.4x8x8x8.f64",
+      "ratio": 6.823920265780731,
+      "before_ns": 3.01,
+      "after_ns": 20.54
+    },
+    {
+      "id": "bench.planeBase.NDArray.4x8x8x8.f64",
+      "ratio": 9.352380952380953,
+      "before_ns": 2.1,
+      "after_ns": 19.64
+    },
+    {
+      "id": "bench.subBase2.NDArray.4x8x8x8.f64",
+      "ratio": 8.933333333333334,
+      "before_ns": 2.4,
+      "after_ns": 21.44
+    },
+    {
+      "id": "bench.fixedPrefixView.NDArray.4x8x8x8.f64",
+      "ratio": 10.67099567099567,
+      "before_ns": 2.31,
+      "after_ns": 24.65
+    },
+    {
+      "id": "bench.getFlatIdx.NDArray.2x4x8x8x8.f64",
+      "ratio": 3.2149532710280373,
+      "before_ns": 3.21,
+      "after_ns": 10.32
+    },
+    {
+      "id": "bench.flatRead.NDArray.2x4x8x8x8.f64",
+      "ratio": 4.008,
+      "before_ns": 2.5,
+      "after_ns": 10.02
+    },
+    {
+      "id": "bench.indexedRead.NDArray.2x4x8x8x8.f64",
+      "ratio": 4.32890365448505,
+      "before_ns": 3.01,
+      "after_ns": 13.03
+    },
+    {
+      "id": "bench.stream.NDArray.2x4x8x8x8.f64",
+      "ratio": 1.0425126147244625,
+      "before_ns": 2516.9,
+      "after_ns": 2623.9
+    },
+    {
+      "id": "bench.planeBase.NDArray.2x4x8x8x8.f64",
+      "ratio": 9.304761904761904,
+      "before_ns": 2.1,
+      "after_ns": 19.54
+    },
+    {
+      "id": "bench.subBase2.NDArray.2x4x8x8x8.f64",
+      "ratio": 9.017391304347827,
+      "before_ns": 2.3,
+      "after_ns": 20.74
+    },
+    {
+      "id": "bench.fixedPrefixView.NDArray.2x4x8x8x8.f64",
+      "ratio": 12.263681592039802,
+      "before_ns": 2.01,
+      "after_ns": 24.65
+    },
+    {
+      "id": "bench.add.slice.1.f32",
+      "ratio": 3.771217712177122,
+      "before_ns": 2.71,
+      "after_ns": 10.22
+    },
+    {
+      "id": "bench.mul.slice.1.f32",
+      "ratio": 4.232258064516128,
+      "before_ns": 3.1,
+      "after_ns": 13.12
+    },
+    {
+      "id": "bench.sum.slice.1.f32",
+      "ratio": 5.7569060773480665,
+      "before_ns": 1.81,
+      "after_ns": 10.42
+    },
+    {
+      "id": "bench.max.slice.1.f32",
+      "ratio": 4.658823529411765,
+      "before_ns": 1.7,
+      "after_ns": 7.92
+    },
+    {
+      "id": "bench.add.slice.3.f32",
+      "ratio": 3.2787878787878793,
+      "before_ns": 3.3,
+      "after_ns": 10.82
+    },
+    {
+      "id": "bench.mul.slice.3.f32",
+      "ratio": 3.5390835579514826,
+      "before_ns": 3.71,
+      "after_ns": 13.13
+    },
+    {
+      "id": "bench.sum.slice.3.f32",
+      "ratio": 2.809954751131222,
+      "before_ns": 2.21,
+      "after_ns": 6.21
+    },
+    {
+      "id": "bench.max.slice.3.f32",
+      "ratio": 3.394422310756972,
+      "before_ns": 2.51,
+      "after_ns": 8.52
+    },
+    {
+      "id": "bench.add.slice.7.f32",
+      "ratio": 2.786223277909739,
+      "before_ns": 4.21,
+      "after_ns": 11.73
+    },
+    {
+      "id": "bench.mul.slice.7.f32",
+      "ratio": 3.5815085158150852,
+      "before_ns": 4.11,
+      "after_ns": 14.72
+    },
+    {
+      "id": "bench.sum.slice.7.f32",
+      "ratio": 2.4790996784565915,
+      "before_ns": 3.11,
+      "after_ns": 7.71
+    },
+    {
+      "id": "bench.max.slice.7.f32",
+      "ratio": 3.6370106761565837,
+      "before_ns": 2.81,
+      "after_ns": 10.22
+    },
+    {
+      "id": "bench.add.slice.16.f32",
+      "ratio": 2.395869191049914,
+      "before_ns": 5.81,
+      "after_ns": 13.92
+    },
+    {
+      "id": "bench.mul.slice.16.f32",
+      "ratio": 3.0924214417744915,
+      "before_ns": 5.41,
+      "after_ns": 16.73
+    },
+    {
+      "id": "bench.sum.slice.16.f32",
+      "ratio": 3.3407407407407406,
+      "before_ns": 2.7,
+      "after_ns": 9.02
+    },
+    {
+      "id": "bench.max.slice.16.f32",
+      "ratio": 3.523690773067332,
+      "before_ns": 4.01,
+      "after_ns": 14.13
+    },
+    {
+      "id": "bench.add.slice.31.f32",
+      "ratio": 2.0452436194895594,
+      "before_ns": 8.62,
+      "after_ns": 17.63
+    },
+    {
+      "id": "bench.mul.slice.31.f32",
+      "ratio": 2.3132250580046407,
+      "before_ns": 8.62,
+      "after_ns": 19.94
+    },
+    {
+      "id": "bench.sum.slice.31.f32",
+      "ratio": 2.44362292051756,
+      "before_ns": 5.41,
+      "after_ns": 13.22
+    },
+    {
+      "id": "bench.max.slice.31.f32",
+      "ratio": 3.7504456327985736,
+      "before_ns": 5.61,
+      "after_ns": 21.04
+    },
+    {
+      "id": "bench.add.slice.64.f32",
+      "ratio": 1.6014350945857796,
+      "before_ns": 15.33,
+      "after_ns": 24.55
+    },
+    {
+      "id": "bench.mul.slice.64.f32",
+      "ratio": 1.7271548930654568,
+      "before_ns": 15.43,
+      "after_ns": 26.65
+    },
+    {
+      "id": "bench.sum.slice.64.f32",
+      "ratio": 1.7564018384766906,
+      "before_ns": 15.23,
+      "after_ns": 26.75
+    },
+    {
+      "id": "bench.max.slice.64.f32",
+      "ratio": 2.565663976522377,
+      "before_ns": 13.63,
+      "after_ns": 34.97
+    },
+    {
+      "id": "bench.add.slice.257.f32",
+      "ratio": 1.1832705079877939,
+      "before_ns": 55.71,
+      "after_ns": 65.92
+    },
+    {
+      "id": "bench.mul.slice.257.f32",
+      "ratio": 1.2155913978494624,
+      "before_ns": 55.8,
+      "after_ns": 67.83
+    },
+    {
+      "id": "bench.sum.slice.257.f32",
+      "ratio": 1.1313979526551503,
+      "before_ns": 125.04,
+      "after_ns": 141.47
+    },
+    {
+      "id": "bench.max.slice.257.f32",
+      "ratio": 1.4055969252942588,
+      "before_ns": 83.26,
+      "after_ns": 117.03
+    },
+    {
+      "id": "bench.add.slice.1003.f32",
+      "ratio": 1.0792613636363637,
+      "before_ns": 211.2,
+      "after_ns": 227.94
+    },
+    {
+      "id": "bench.mul.slice.1003.f32",
+      "ratio": 1.090491958372753,
+      "before_ns": 211.4,
+      "after_ns": 230.53
+    },
+    {
+      "id": "bench.sum.slice.1003.f32",
+      "ratio": 1.042467310007971,
+      "before_ns": 589.63,
+      "after_ns": 614.67
+    },
+    {
+      "id": "bench.max.slice.1003.f32",
+      "ratio": 1.1173537234042552,
+      "before_ns": 391.04,
+      "after_ns": 436.93
+    },
+    {
+      "id": "bench.add.slice.4096.f32",
+      "ratio": 1.0736474694589877,
+      "before_ns": 955.0,
+      "after_ns": 1025.3333333333333
+    },
+    {
+      "id": "bench.mul.slice.4096.f32",
+      "ratio": 1.058499655884377,
+      "before_ns": 968.6666666666666,
+      "after_ns": 1025.3333333333333
+    },
+    {
+      "id": "bench.sum.slice.4096.f32",
+      "ratio": 1.0317670416942422,
+      "before_ns": 2518.3333333333335,
+      "after_ns": 2598.3333333333335
+    },
+    {
+      "id": "bench.max.slice.4096.f32",
+      "ratio": 1.043771043771044,
+      "before_ns": 1683.0,
+      "after_ns": 1756.6666666666667
+    },
+    {
+      "id": "bench.add.slice.65537.f32",
+      "ratio": 1.0932661694796983,
+      "before_ns": 15286.0,
+      "after_ns": 16711.666666666668
+    },
+    {
+      "id": "bench.mul.slice.65537.f32",
+      "ratio": 1.0379981262391877,
+      "before_ns": 15299.0,
+      "after_ns": 15880.333333333334
+    },
+    {
+      "id": "bench.sum.slice.65537.f32",
+      "ratio": 1.0268983184445613,
+      "before_ns": 40597.333333333336,
+      "after_ns": 41689.333333333336
+    },
+    {
+      "id": "bench.max.slice.65537.f32",
+      "ratio": 1.0276303638490427,
+      "before_ns": 27071.666666666668,
+      "after_ns": 27819.666666666668
+    },
+    {
+      "id": "bench.add.slice.1048576.f32",
+      "ratio": 1.0191417656835848,
+      "before_ns": 282976.3333333333,
+      "after_ns": 288393.0
+    },
+    {
+      "id": "bench.mul.slice.1048576.f32",
+      "ratio": 0.9331860868865756,
+      "before_ns": 298366.0,
+      "after_ns": 278431.0
+    },
+    {
+      "id": "bench.sum.slice.1048576.f32",
+      "ratio": 1.0130910959887733,
+      "before_ns": 661518.3333333334,
+      "after_ns": 670178.3333333334
+    },
+    {
+      "id": "bench.max.slice.1048576.f32",
+      "ratio": 1.0129690411791499,
+      "before_ns": 439842.3333333333,
+      "after_ns": 445546.6666666667
+    },
+    {
+      "id": "bench.factorLU.Mat.2x2.f32",
+      "ratio": 2.1983365323096606,
+      "before_ns": 15.63,
+      "after_ns": 34.36
+    },
+    {
+      "id": "bench.factorCholesky.Mat.2x2.f32",
+      "ratio": 3.2987686325340246,
+      "before_ns": 15.43,
+      "after_ns": 50.9
+    },
+    {
+      "id": "bench.luBatch16.Mat.2x2.f32",
+      "ratio": 3.925500910746812,
+      "before_ns": 54.9,
+      "after_ns": 215.51
+    },
+    {
+      "id": "bench.choleskyBatch16.Mat.2x2.f32",
+      "ratio": 3.016674495068107,
+      "before_ns": 42.58,
+      "after_ns": 128.45
+    },
+    {
+      "id": "bench.factorLU.MatView.2x2.f32",
+      "ratio": 1.2090483619344774,
+      "before_ns": 19.23,
+      "after_ns": 23.25
+    },
+    {
+      "id": "bench.factorCholesky.MatView.2x2.f32",
+      "ratio": 1.9398677089597114,
+      "before_ns": 16.63,
+      "after_ns": 32.26
+    },
+    {
+      "id": "bench.luBatch16.MatView.2x2.f32",
+      "ratio": 0.7789324724715871,
+      "before_ns": 226.13,
+      "after_ns": 176.14
+    },
+    {
+      "id": "bench.choleskyBatch16.MatView.2x2.f32",
+      "ratio": 1.2269938650306749,
+      "before_ns": 127.14,
+      "after_ns": 156.0
+    },
+    {
+      "id": "bench.det.Mat.2x2.f32",
+      "ratio": 1.7884996695307334,
+      "before_ns": 15.13,
+      "after_ns": 27.06
+    },
+    {
+      "id": "bench.inv.Mat.2x2.f32",
+      "ratio": 1.8403755868544602,
+      "before_ns": 17.04,
+      "after_ns": 31.36
+    },
+    {
+      "id": "bench.factorLU.Mat.3x3.f32",
+      "ratio": 1.3001449975833734,
+      "before_ns": 41.38,
+      "after_ns": 53.8
+    },
+    {
+      "id": "bench.factorCholesky.Mat.3x3.f32",
+      "ratio": 3.059814658803707,
+      "before_ns": 23.74,
+      "after_ns": 72.64
+    },
+    {
+      "id": "bench.luBatch16.Mat.3x3.f32",
+      "ratio": 3.029374605180038,
+      "before_ns": 126.64,
+      "after_ns": 383.64
+    },
+    {
+      "id": "bench.choleskyBatch16.Mat.3x3.f32",
+      "ratio": 4.3078883820767375,
+      "before_ns": 74.54,
+      "after_ns": 321.11
+    },
+    {
+      "id": "bench.factorLU.MatView.3x3.f32",
+      "ratio": 1.0061218243036423,
+      "before_ns": 32.67,
+      "after_ns": 32.87
+    },
+    {
+      "id": "bench.factorCholesky.MatView.3x3.f32",
+      "ratio": 1.342283699484676,
+      "before_ns": 36.87,
+      "after_ns": 49.49
+    },
+    {
+      "id": "bench.luBatch16.MatView.3x3.f32",
+      "ratio": 0.8876929098635652,
+      "before_ns": 357.68,
+      "after_ns": 317.51
+    },
+    {
+      "id": "bench.choleskyBatch16.MatView.3x3.f32",
+      "ratio": 1.07137642258965,
+      "before_ns": 232.85,
+      "after_ns": 249.47
+    },
+    {
+      "id": "bench.det.Mat.3x3.f32",
+      "ratio": 1.8768632534024627,
+      "before_ns": 15.43,
+      "after_ns": 28.96
+    },
+    {
+      "id": "bench.inv.Mat.3x3.f32",
+      "ratio": 1.8214867064568638,
+      "before_ns": 18.43,
+      "after_ns": 33.57
+    },
+    {
+      "id": "bench.factorLU.Mat.4x4.f32",
+      "ratio": 2.208430913348946,
+      "before_ns": 34.16,
+      "after_ns": 75.44
+    },
+    {
+      "id": "bench.factorCholesky.Mat.4x4.f32",
+      "ratio": 3.9435168738898763,
+      "before_ns": 28.15,
+      "after_ns": 111.01
+    },
+    {
+      "id": "bench.luBatch16.Mat.4x4.f32",
+      "ratio": 3.544181170056616,
+      "before_ns": 238.45,
+      "after_ns": 845.11
+    },
+    {
+      "id": "bench.choleskyBatch16.Mat.4x4.f32",
+      "ratio": 5.03628085651277,
+      "before_ns": 140.57,
+      "after_ns": 707.95
+    },
+    {
+      "id": "bench.factorLU.MatView.4x4.f32",
+      "ratio": 1.1249731124973112,
+      "before_ns": 46.49,
+      "after_ns": 52.3
+    },
+    {
+      "id": "bench.factorCholesky.MatView.4x4.f32",
+      "ratio": 1.2621153846153845,
+      "before_ns": 52.0,
+      "after_ns": 65.63
+    },
+    {
+      "id": "bench.luBatch16.MatView.4x4.f32",
+      "ratio": 0.8687005730403271,
+      "before_ns": 560.17,
+      "after_ns": 486.62
+    },
+    {
+      "id": "bench.choleskyBatch16.MatView.4x4.f32",
+      "ratio": 1.0314188156151258,
+      "before_ns": 392.44,
+      "after_ns": 404.77
+    },
+    {
+      "id": "bench.det.Mat.4x4.f32",
+      "ratio": 2.539564220183486,
+      "before_ns": 17.44,
+      "after_ns": 44.29
+    },
+    {
+      "id": "bench.inv.Mat.4x4.f32",
+      "ratio": 5.27504835589942,
+      "before_ns": 25.85,
+      "after_ns": 136.36
+    },
+    {
+      "id": "bench.factorLU.Mat.6x6.f32",
+      "ratio": 1.964467668190725,
+      "before_ns": 76.55,
+      "after_ns": 150.38
+    },
+    {
+      "id": "bench.factorCholesky.Mat.6x6.f32",
+      "ratio": 2.083782327586207,
+      "before_ns": 74.24,
+      "after_ns": 154.7
+    },
+    {
+      "id": "bench.luBatch16.Mat.6x6.f32",
+      "ratio": 2.1192637973240767,
+      "before_ns": 772.07,
+      "after_ns": 1636.22
+    },
+    {
+      "id": "bench.choleskyBatch16.Mat.6x6.f32",
+      "ratio": 4.158929437612349,
+      "before_ns": 350.47,
+      "after_ns": 1457.58
+    },
+    {
+      "id": "bench.factorLU.MatView.6x6.f32",
+      "ratio": 1.1275139067180147,
+      "before_ns": 93.48,
+      "after_ns": 105.4
+    },
+    {
+      "id": "bench.factorCholesky.MatView.6x6.f32",
+      "ratio": 1.405840886203424,
+      "before_ns": 89.37,
+      "after_ns": 125.64
+    },
+    {
+      "id": "bench.luBatch16.MatView.6x6.f32",
+      "ratio": 0.9969089686601174,
+      "before_ns": 1070.84,
+      "after_ns": 1067.53
+    },
+    {
+      "id": "bench.choleskyBatch16.MatView.6x6.f32",
+      "ratio": 0.9838449576686056,
+      "before_ns": 694.52,
+      "after_ns": 683.3
+    },
+    {
+      "id": "bench.factorLU.Mat.8x8.f32",
+      "ratio": 1.855141242937853,
+      "before_ns": 132.75,
+      "after_ns": 246.27
+    },
+    {
+      "id": "bench.factorCholesky.Mat.8x8.f32",
+      "ratio": 1.8692286232389455,
+      "before_ns": 143.38,
+      "after_ns": 268.01
+    },
+    {
+      "id": "bench.luBatch16.Mat.8x8.f32",
+      "ratio": 1.2080180283998516,
+      "before_ns": 1561.98,
+      "after_ns": 1886.9
+    },
+    {
+      "id": "bench.choleskyBatch16.Mat.8x8.f32",
+      "ratio": 3.372259244148269,
+      "before_ns": 661.77,
+      "after_ns": 2231.66
+    },
+    {
+      "id": "bench.factorLU.MatView.8x8.f32",
+      "ratio": 1.1782955317965516,
+      "before_ns": 161.81,
+      "after_ns": 190.66
+    },
+    {
+      "id": "bench.factorCholesky.MatView.8x8.f32",
+      "ratio": 1.171170098797762,
+      "before_ns": 168.02,
+      "after_ns": 196.78
+    },
+    {
+      "id": "bench.luBatch16.MatView.8x8.f32",
+      "ratio": 0.9954709666049874,
+      "before_ns": 1702.35,
+      "after_ns": 1694.64
+    },
+    {
+      "id": "bench.choleskyBatch16.MatView.8x8.f32",
+      "ratio": 0.8236625207231698,
+      "before_ns": 1272.73,
+      "after_ns": 1048.3
+    },
+    {
+      "id": "bench.factorLU.Mat.12x12.f32",
+      "ratio": 1.4856668307086613,
+      "before_ns": 325.12,
+      "after_ns": 483.02
+    },
+    {
+      "id": "bench.factorCholesky.Mat.12x12.f32",
+      "ratio": 1.1931542178931818,
+      "before_ns": 399.37,
+      "after_ns": 476.51
+    },
+    {
+      "id": "bench.luBatch16.Mat.12x12.f32",
+      "ratio": 1.1847708013110485,
+      "before_ns": 3194.39,
+      "after_ns": 3784.62
+    },
+    {
+      "id": "bench.choleskyBatch16.Mat.12x12.f32",
+      "ratio": 1.7423451988128376,
+      "before_ns": 1627.41,
+      "after_ns": 2835.51
+    },
+    {
+      "id": "bench.factorLU.MatView.12x12.f32",
+      "ratio": 1.210020644751469,
+      "before_ns": 377.82,
+      "after_ns": 457.17
+    },
+    {
+      "id": "bench.factorCholesky.MatView.12x12.f32",
+      "ratio": 1.131634874559403,
+      "before_ns": 385.84,
+      "after_ns": 436.63
+    },
+    {
+      "id": "bench.luBatch16.MatView.12x12.f32",
+      "ratio": 0.9947360632518023,
+      "before_ns": 3311.21,
+      "after_ns": 3293.78
+    },
+    {
+      "id": "bench.choleskyBatch16.MatView.12x12.f32",
+      "ratio": 0.946205945816351,
+      "before_ns": 2335.76,
+      "after_ns": 2210.11
+    },
+    {
+      "id": "bench.matmulRect.Mat.2x3x4.f32",
+      "ratio": 3.5568445475638053,
+      "before_ns": 4.31,
+      "after_ns": 15.33
+    },
+    {
+      "id": "bench.matmulRect.MatView.2x3x4.f32",
+      "ratio": 4.44054054054054,
+      "before_ns": 3.7,
+      "after_ns": 16.43
+    },
+    {
+      "id": "bench.matmulRect.Mat.3x2x3.f32",
+      "ratio": 5.367521367521368,
+      "before_ns": 3.51,
+      "after_ns": 18.84
+    },
+    {
+      "id": "bench.matmulRect.MatView.3x2x3.f32",
+      "ratio": 3.8360128617363345,
+      "before_ns": 3.11,
+      "after_ns": 11.93
+    },
+    {
+      "id": "bench.matmulRect.Mat.4x8x3.f32",
+      "ratio": 4.918426802621996,
+      "before_ns": 13.73,
+      "after_ns": 67.53
+    },
+    {
+      "id": "bench.matmulRect.MatView.4x8x3.f32",
+      "ratio": 2.4183427192276747,
+      "before_ns": 12.43,
+      "after_ns": 30.06
+    },
+    {
+      "id": "bench.matmulRect.Mat.6x12x8.f32",
+      "ratio": 8.406477197620621,
+      "before_ns": 30.26,
+      "after_ns": 254.38
+    },
+    {
+      "id": "bench.matmulRect.MatView.6x12x8.f32",
+      "ratio": 4.272316043425814,
+      "before_ns": 33.16,
+      "after_ns": 141.67
+    },
+    {
+      "id": "bench.matmulRect.Mat.12x6x3.f32",
+      "ratio": 2.675633528265107,
+      "before_ns": 25.65,
+      "after_ns": 68.63
+    },
+    {
+      "id": "bench.matmulRect.MatView.12x6x3.f32",
+      "ratio": 2.2835606604450827,
+      "before_ns": 27.86,
+      "after_ns": 63.62
+    },
+    {
+      "id": "bench.flatWrite.NDArray.17.f32",
+      "ratio": 2.242857142857143,
+      "before_ns": 2.1,
+      "after_ns": 4.71
+    },
+    {
+      "id": "bench.indexedWrite.NDArray.17.f32",
+      "ratio": 2.7473309608540926,
+      "before_ns": 2.81,
+      "after_ns": 7.72
+    },
+    {
+      "id": "bench.flatWrite.NDArray.2x3.f32",
+      "ratio": 2.176470588235294,
+      "before_ns": 2.21,
+      "after_ns": 4.81
+    },
+    {
+      "id": "bench.indexedWrite.NDArray.2x3.f32",
+      "ratio": 2.529595015576324,
+      "before_ns": 3.21,
+      "after_ns": 8.12
+    },
+    {
+      "id": "bench.flatWrite.NDArray.2x3x4.f32",
+      "ratio": 2.2904761904761903,
+      "before_ns": 2.1,
+      "after_ns": 4.81
+    },
+    {
+      "id": "bench.indexedWrite.NDArray.2x3x4.f32",
+      "ratio": 2.8398950131233596,
+      "before_ns": 3.81,
+      "after_ns": 10.82
+    },
+    {
+      "id": "bench.flatWrite.NDArray.2x3x4x5.f32",
+      "ratio": 2.279620853080569,
+      "before_ns": 2.11,
+      "after_ns": 4.81
+    },
+    {
+      "id": "bench.indexedWrite.NDArray.2x3x4x5.f32",
+      "ratio": 3.0512129380053907,
+      "before_ns": 3.71,
+      "after_ns": 11.32
+    },
+    {
+      "id": "bench.flatWrite.NDArray.2x2x2x2x2.f32",
+      "ratio": 2.2904761904761903,
+      "before_ns": 2.1,
+      "after_ns": 4.81
+    },
+    {
+      "id": "bench.indexedWrite.NDArray.2x2x2x2x2.f32",
+      "ratio": 2.6349206349206344,
+      "before_ns": 4.41,
+      "after_ns": 11.62
+    },
+    {
+      "id": "bench.add.slice.1.f64",
+      "ratio": 3.494661921708185,
+      "before_ns": 2.81,
+      "after_ns": 9.82
+    },
+    {
+      "id": "bench.mul.slice.1.f64",
+      "ratio": 4.455172413793104,
+      "before_ns": 2.9,
+      "after_ns": 12.92
+    },
+    {
+      "id": "bench.sum.slice.1.f64",
+      "ratio": 5.6464088397790055,
+      "before_ns": 1.81,
+      "after_ns": 10.22
+    },
+    {
+      "id": "bench.max.slice.1.f64",
+      "ratio": 4.39766081871345,
+      "before_ns": 1.71,
+      "after_ns": 7.52
+    },
+    {
+      "id": "bench.add.slice.3.f64",
+      "ratio": 3.414790996784566,
+      "before_ns": 3.11,
+      "after_ns": 10.62
+    },
+    {
+      "id": "bench.mul.slice.3.f64",
+      "ratio": 3.2598425196850394,
+      "before_ns": 3.81,
+      "after_ns": 12.42
+    },
+    {
+      "id": "bench.sum.slice.3.f64",
+      "ratio": 2.504166666666667,
+      "before_ns": 2.4,
+      "after_ns": 6.01
+    },
+    {
+      "id": "bench.max.slice.3.f64",
+      "ratio": 3.030651340996169,
+      "before_ns": 2.61,
+      "after_ns": 7.91
+    },
+    {
+      "id": "bench.add.slice.7.f64",
+      "ratio": 3.135734072022161,
+      "before_ns": 3.61,
+      "after_ns": 11.32
+    },
+    {
+      "id": "bench.mul.slice.7.f64",
+      "ratio": 3.0928074245939676,
+      "before_ns": 4.31,
+      "after_ns": 13.33
+    },
+    {
+      "id": "bench.sum.slice.7.f64",
+      "ratio": 2.0574018126888216,
+      "before_ns": 3.31,
+      "after_ns": 6.81
+    },
+    {
+      "id": "bench.max.slice.7.f64",
+      "ratio": 3.2066666666666666,
+      "before_ns": 3.0,
+      "after_ns": 9.62
+    },
+    {
+      "id": "bench.add.slice.16.f64",
+      "ratio": 2.445632798573975,
+      "before_ns": 5.61,
+      "after_ns": 13.72
+    },
+    {
+      "id": "bench.mul.slice.16.f64",
+      "ratio": 2.714795008912656,
+      "before_ns": 5.61,
+      "after_ns": 15.23
+    },
+    {
+      "id": "bench.sum.slice.16.f64",
+      "ratio": 3.1387900355871885,
+      "before_ns": 2.81,
+      "after_ns": 8.82
+    },
+    {
+      "id": "bench.max.slice.16.f64",
+      "ratio": 3.5605263157894735,
+      "before_ns": 3.8,
+      "after_ns": 13.53
+    },
+    {
+      "id": "bench.add.slice.31.f64",
+      "ratio": 1.93416572077185,
+      "before_ns": 8.81,
+      "after_ns": 17.04
+    },
+    {
+      "id": "bench.mul.slice.31.f64",
+      "ratio": 2.254988913525499,
+      "before_ns": 9.02,
+      "after_ns": 20.34
+    },
+    {
+      "id": "bench.sum.slice.31.f64",
+      "ratio": 2.3226381461675576,
+      "before_ns": 5.61,
+      "after_ns": 13.03
+    },
+    {
+      "id": "bench.max.slice.31.f64",
+      "ratio": 3.458544839255499,
+      "before_ns": 5.91,
+      "after_ns": 20.44
+    },
+    {
+      "id": "bench.add.slice.64.f64",
+      "ratio": 1.5091023226616447,
+      "before_ns": 15.93,
+      "after_ns": 24.04
+    },
+    {
+      "id": "bench.mul.slice.64.f64",
+      "ratio": 1.7106089139987446,
+      "before_ns": 15.93,
+      "after_ns": 27.25
+    },
+    {
+      "id": "bench.sum.slice.64.f64",
+      "ratio": 1.7206740116655865,
+      "before_ns": 15.43,
+      "after_ns": 26.55
+    },
+    {
+      "id": "bench.max.slice.64.f64",
+      "ratio": 2.467336683417085,
+      "before_ns": 13.93,
+      "after_ns": 34.37
+    },
+    {
+      "id": "bench.add.slice.257.f64",
+      "ratio": 1.1484746958208427,
+      "before_ns": 56.71,
+      "after_ns": 65.13
+    },
+    {
+      "id": "bench.mul.slice.257.f64",
+      "ratio": 1.2049021336624934,
+      "before_ns": 56.71,
+      "after_ns": 68.33
+    },
+    {
+      "id": "bench.sum.slice.257.f64",
+      "ratio": 1.1078043375019788,
+      "before_ns": 126.34,
+      "after_ns": 139.96
+    },
+    {
+      "id": "bench.max.slice.257.f64",
+      "ratio": 1.38212927756654,
+      "before_ns": 84.16,
+      "after_ns": 116.32
+    },
+    {
+      "id": "bench.add.slice.1003.f64",
+      "ratio": 1.0655576842203636,
+      "before_ns": 214.01,
+      "after_ns": 228.04
+    },
+    {
+      "id": "bench.mul.slice.1003.f64",
+      "ratio": 1.0719518454575148,
+      "before_ns": 214.31,
+      "after_ns": 229.73
+    },
+    {
+      "id": "bench.sum.slice.1003.f64",
+      "ratio": 1.0322846014371097,
+      "before_ns": 595.64,
+      "after_ns": 614.87
+    },
+    {
+      "id": "bench.max.slice.1003.f64",
+      "ratio": 1.0946962101463806,
+      "before_ns": 398.96,
+      "after_ns": 436.74
+    },
+    {
+      "id": "bench.add.slice.4096.f64",
+      "ratio": 1.0328299409061064,
+      "before_ns": 1015.3333333333334,
+      "after_ns": 1048.6666666666667
+    },
+    {
+      "id": "bench.mul.slice.4096.f64",
+      "ratio": 1.0425392670157068,
+      "before_ns": 1018.6666666666666,
+      "after_ns": 1062.0
+    },
+    {
+      "id": "bench.sum.slice.4096.f64",
+      "ratio": 1.0156148340923878,
+      "before_ns": 2561.6666666666665,
+      "after_ns": 2601.6666666666665
+    },
+    {
+      "id": "bench.max.slice.4096.f64",
+      "ratio": 1.02729044834308,
+      "before_ns": 1710.0,
+      "after_ns": 1756.6666666666667
+    },
+    {
+      "id": "bench.add.slice.65537.f64",
+      "ratio": 1.0421925433425463,
+      "before_ns": 17246.333333333332,
+      "after_ns": 17974.0
+    },
+    {
+      "id": "bench.mul.slice.65537.f64",
+      "ratio": 1.0428671003717471,
+      "before_ns": 17216.0,
+      "after_ns": 17954.0
+    },
+    {
+      "id": "bench.sum.slice.65537.f64",
+      "ratio": 1.0165266425077595,
+      "before_ns": 41024.666666666664,
+      "after_ns": 41702.666666666664
+    },
+    {
+      "id": "bench.max.slice.65537.f64",
+      "ratio": 1.0175710090535781,
+      "before_ns": 27355.666666666668,
+      "after_ns": 27836.333333333332
+    },
+    {
+      "id": "bench.add.slice.1048576.f64",
+      "ratio": 1.0449581622576791,
+      "before_ns": 641366.6666666666,
+      "after_ns": 670201.3333333334
+    },
+    {
+      "id": "bench.mul.slice.1048576.f64",
+      "ratio": 0.7340233447928696,
+      "before_ns": 865460.6666666666,
+      "after_ns": 635268.3333333334
+    },
+    {
+      "id": "bench.sum.slice.1048576.f64",
+      "ratio": 1.006285146870609,
+      "before_ns": 659968.6666666666,
+      "after_ns": 664116.6666666666
+    },
+    {
+      "id": "bench.max.slice.1048576.f64",
+      "ratio": 1.0746507333464512,
+      "before_ns": 440446.6666666667,
+      "after_ns": 473326.3333333333
+    },
+    {
+      "id": "bench.factorLU.Mat.2x2.f64",
+      "ratio": 2.086138049058756,
+      "before_ns": 17.53,
+      "after_ns": 36.57
+    },
+    {
+      "id": "bench.factorCholesky.Mat.2x2.f64",
+      "ratio": 2.923408845738943,
+      "before_ns": 18.54,
+      "after_ns": 54.2
+    },
+    {
+      "id": "bench.luBatch16.Mat.2x2.f64",
+      "ratio": 2.0321403752605973,
+      "before_ns": 115.12,
+      "after_ns": 233.94
+    },
+    {
+      "id": "bench.choleskyBatch16.Mat.2x2.f64",
+      "ratio": 2.4210526315789473,
+      "before_ns": 60.42,
+      "after_ns": 146.28
+    },
+    {
+      "id": "bench.factorLU.MatView.2x2.f64",
+      "ratio": 1.2436627004655976,
+      "before_ns": 19.33,
+      "after_ns": 24.04
+    },
+    {
+      "id": "bench.factorCholesky.MatView.2x2.f64",
+      "ratio": 1.2849613492621224,
+      "before_ns": 28.46,
+      "after_ns": 36.57
+    },
+    {
+      "id": "bench.luBatch16.MatView.2x2.f64",
+      "ratio": 0.7931879543094497,
+      "before_ns": 240.75,
+      "after_ns": 190.96
+    },
+    {
+      "id": "bench.choleskyBatch16.MatView.2x2.f64",
+      "ratio": 1.3288892274874298,
+      "before_ns": 131.26,
+      "after_ns": 174.43
+    },
+    {
+      "id": "bench.det.Mat.2x2.f64",
+      "ratio": 1.8023637557452397,
+      "before_ns": 15.23,
+      "after_ns": 27.45
+    },
+    {
+      "id": "bench.inv.Mat.2x2.f64",
+      "ratio": 1.8924088463837418,
+      "before_ns": 16.73,
+      "after_ns": 31.66
+    },
+    {
+      "id": "bench.factorLU.Mat.3x3.f64",
+      "ratio": 1.855263157894737,
+      "before_ns": 31.16,
+      "after_ns": 57.81
+    },
+    {
+      "id": "bench.factorCholesky.Mat.3x3.f64",
+      "ratio": 2.872998137802607,
+      "before_ns": 26.85,
+      "after_ns": 77.14
+    },
+    {
+      "id": "bench.luBatch16.Mat.3x3.f64",
+      "ratio": 3.2962722149978325,
+      "before_ns": 184.56,
+      "after_ns": 608.36
+    },
+    {
+      "id": "bench.choleskyBatch16.Mat.3x3.f64",
+      "ratio": 7.528868855977676,
+      "before_ns": 93.18,
+      "after_ns": 701.54
+    },
+    {
+      "id": "bench.factorLU.MatView.3x3.f64",
+      "ratio": 1.1560945273631842,
+      "before_ns": 32.16,
+      "after_ns": 37.18
+    },
+    {
+      "id": "bench.factorCholesky.MatView.3x3.f64",
+      "ratio": 1.1671238657944714,
+      "before_ns": 47.39,
+      "after_ns": 55.31
+    },
+    {
+      "id": "bench.luBatch16.MatView.3x3.f64",
+      "ratio": 0.9078981621283907,
+      "before_ns": 384.14,
+      "after_ns": 348.76
+    },
+    {
+      "id": "bench.choleskyBatch16.MatView.3x3.f64",
+      "ratio": 0.9504440188055024,
+      "before_ns": 287.15,
+      "after_ns": 272.92
+    },
+    {
+      "id": "bench.det.Mat.3x3.f64",
+      "ratio": 1.836921069797782,
+      "before_ns": 15.33,
+      "after_ns": 28.16
+    },
+    {
+      "id": "bench.inv.Mat.3x3.f64",
+      "ratio": 1.738630423418714,
+      "before_ns": 19.13,
+      "after_ns": 33.26
+    },
+    {
+      "id": "bench.factorLU.Mat.4x4.f64",
+      "ratio": 1.7495388399262144,
+      "before_ns": 48.79,
+      "after_ns": 85.36
+    },
+    {
+      "id": "bench.factorCholesky.Mat.4x4.f64",
+      "ratio": 2.829781494469922,
+      "before_ns": 37.07,
+      "after_ns": 104.9
+    },
+    {
+      "id": "bench.luBatch16.Mat.4x4.f64",
+      "ratio": 2.121709357537388,
+      "before_ns": 309.59,
+      "after_ns": 656.86
+    },
+    {
+      "id": "bench.choleskyBatch16.Mat.4x4.f64",
+      "ratio": 3.041630636195182,
+      "before_ns": 161.9,
+      "after_ns": 492.44
+    },
+    {
+      "id": "bench.factorLU.MatView.4x4.f64",
+      "ratio": 1.1421641791044777,
+      "before_ns": 53.6,
+      "after_ns": 61.22
+    },
+    {
+      "id": "bench.factorCholesky.MatView.4x4.f64",
+      "ratio": 1.1678886727517581,
+      "before_ns": 66.83,
+      "after_ns": 78.05
+    },
+    {
+      "id": "bench.luBatch16.MatView.4x4.f64",
+      "ratio": 0.9020316484555756,
+      "before_ns": 592.13,
+      "after_ns": 534.12
+    },
+    {
+      "id": "bench.choleskyBatch16.MatView.4x4.f64",
+      "ratio": 1.0375622933258815,
+      "before_ns": 429.42,
+      "after_ns": 445.55
+    },
+    {
+      "id": "bench.det.Mat.4x4.f64",
+      "ratio": 2.417136414881624,
+      "before_ns": 17.74,
+      "after_ns": 42.88
+    },
+    {
+      "id": "bench.inv.Mat.4x4.f64",
+      "ratio": 5.328491620111731,
+      "before_ns": 26.85,
+      "after_ns": 143.07
+    },
+    {
+      "id": "bench.factorLU.Mat.6x6.f64",
+      "ratio": 1.4850035827617976,
+      "before_ns": 97.69,
+      "after_ns": 145.07
+    },
+    {
+      "id": "bench.factorCholesky.Mat.6x6.f64",
+      "ratio": 1.6074622263336416,
+      "before_ns": 97.29,
+      "after_ns": 156.39
+    },
+    {
+      "id": "bench.luBatch16.Mat.6x6.f64",
+      "ratio": 1.501962110960758,
+      "before_ns": 886.8,
+      "after_ns": 1331.94
+    },
+    {
+      "id": "bench.choleskyBatch16.Mat.6x6.f64",
+      "ratio": 2.575241933477623,
+      "before_ns": 401.97,
+      "after_ns": 1035.17
+    },
+    {
+      "id": "bench.factorLU.MatView.6x6.f64",
+      "ratio": 1.1262712627126272,
+      "before_ns": 111.11,
+      "after_ns": 125.14
+    },
+    {
+      "id": "bench.factorCholesky.MatView.6x6.f64",
+      "ratio": 1.139451422712125,
+      "before_ns": 117.03,
+      "after_ns": 133.35
+    },
+    {
+      "id": "bench.luBatch16.MatView.6x6.f64",
+      "ratio": 1.0057767584625201,
+      "before_ns": 1159.82,
+      "after_ns": 1166.52
+    },
+    {
+      "id": "bench.choleskyBatch16.MatView.6x6.f64",
+      "ratio": 0.8586324374548333,
+      "before_ns": 871.77,
+      "after_ns": 748.53
+    },
+    {
+      "id": "bench.factorLU.Mat.8x8.f64",
+      "ratio": 1.3989017903105874,
+      "before_ns": 174.83,
+      "after_ns": 244.57
+    },
+    {
+      "id": "bench.factorCholesky.Mat.8x8.f64",
+      "ratio": 1.0731167566610604,
+      "before_ns": 225.94,
+      "after_ns": 242.46
+    },
+    {
+      "id": "bench.luBatch16.Mat.8x8.f64",
+      "ratio": 1.3441326039106243,
+      "before_ns": 1712.77,
+      "after_ns": 2302.19
+    },
+    {
+      "id": "bench.choleskyBatch16.Mat.8x8.f64",
+      "ratio": 2.5082775062264426,
+      "before_ns": 750.83,
+      "after_ns": 1883.29
+    },
+    {
+      "id": "bench.factorLU.MatView.8x8.f64",
+      "ratio": 1.133062232974726,
+      "before_ns": 194.27,
+      "after_ns": 220.12
+    },
+    {
+      "id": "bench.factorCholesky.MatView.8x8.f64",
+      "ratio": 1.0249048446971478,
+      "before_ns": 212.81,
+      "after_ns": 218.11
+    },
+    {
+      "id": "bench.luBatch16.MatView.8x8.f64",
+      "ratio": 0.9956517496015007,
+      "before_ns": 1844.42,
+      "after_ns": 1836.4
+    },
+    {
+      "id": "bench.choleskyBatch16.MatView.8x8.f64",
+      "ratio": 0.8442275134181045,
+      "before_ns": 1388.05,
+      "after_ns": 1171.83
+    },
+    {
+      "id": "bench.factorLU.Mat.12x12.f64",
+      "ratio": 1.393739053210647,
+      "before_ns": 405.37,
+      "after_ns": 564.98
+    },
+    {
+      "id": "bench.factorCholesky.Mat.12x12.f64",
+      "ratio": 1.0397962740617375,
+      "before_ns": 516.38,
+      "after_ns": 536.93
+    },
+    {
+      "id": "bench.luBatch16.Mat.12x12.f64",
+      "ratio": 1.0946775210253814,
+      "before_ns": 3712.18,
+      "after_ns": 4063.64
+    },
+    {
+      "id": "bench.choleskyBatch16.Mat.12x12.f64",
+      "ratio": 1.812538078291815,
+      "before_ns": 1756.25,
+      "after_ns": 3183.27
+    },
+    {
+      "id": "bench.factorLU.MatView.12x12.f64",
+      "ratio": 1.1778832034338642,
+      "before_ns": 442.65,
+      "after_ns": 521.39
+    },
+    {
+      "id": "bench.factorCholesky.MatView.12x12.f64",
+      "ratio": 1.0195424713258268,
+      "before_ns": 476.91,
+      "after_ns": 486.23
+    },
+    {
+      "id": "bench.luBatch16.MatView.12x12.f64",
+      "ratio": 1.015993207248703,
+      "before_ns": 3438.96,
+      "after_ns": 3493.96
+    },
+    {
+      "id": "bench.choleskyBatch16.MatView.12x12.f64",
+      "ratio": 0.9527001148985063,
+      "before_ns": 2558.78,
+      "after_ns": 2437.75
+    },
+    {
+      "id": "bench.matmulRect.Mat.2x3x4.f64",
+      "ratio": 3.288248337028825,
+      "before_ns": 4.51,
+      "after_ns": 14.83
+    },
+    {
+      "id": "bench.matmulRect.MatView.2x3x4.f64",
+      "ratio": 2.920716112531969,
+      "before_ns": 3.91,
+      "after_ns": 11.42
+    },
+    {
+      "id": "bench.matmulRect.Mat.3x2x3.f64",
+      "ratio": 4.984615384615385,
+      "before_ns": 3.9,
+      "after_ns": 19.44
+    },
+    {
+      "id": "bench.matmulRect.MatView.3x2x3.f64",
+      "ratio": 3.8310249307479225,
+      "before_ns": 3.61,
+      "after_ns": 13.83
+    },
+    {
+      "id": "bench.matmulRect.Mat.4x8x3.f64",
+      "ratio": 4.061390532544379,
+      "before_ns": 13.52,
+      "after_ns": 54.91
+    },
+    {
+      "id": "bench.matmulRect.MatView.4x8x3.f64",
+      "ratio": 3.6907137375287804,
+      "before_ns": 13.03,
+      "after_ns": 48.09
+    },
+    {
+      "id": "bench.matmulRect.Mat.6x12x8.f64",
+      "ratio": 2.775717017208413,
+      "before_ns": 52.3,
+      "after_ns": 145.17
+    },
+    {
+      "id": "bench.matmulRect.MatView.6x12x8.f64",
+      "ratio": 2.406516547253497,
+      "before_ns": 58.62,
+      "after_ns": 141.07
+    },
+    {
+      "id": "bench.matmulRect.Mat.12x6x3.f64",
+      "ratio": 2.6978473581213307,
+      "before_ns": 25.55,
+      "after_ns": 68.93
+    },
+    {
+      "id": "bench.matmulRect.MatView.12x6x3.f64",
+      "ratio": 2.31700288184438,
+      "before_ns": 27.76,
+      "after_ns": 64.32
+    },
+    {
+      "id": "bench.flatWrite.NDArray.17.f64",
+      "ratio": 2.231818181818182,
+      "before_ns": 2.2,
+      "after_ns": 4.91
+    },
+    {
+      "id": "bench.indexedWrite.NDArray.17.f64",
+      "ratio": 2.8964285714285714,
+      "before_ns": 2.8,
+      "after_ns": 8.11
+    },
+    {
+      "id": "bench.flatWrite.NDArray.2x3.f64",
+      "ratio": 2.1688311688311686,
+      "before_ns": 2.31,
+      "after_ns": 5.01
+    },
+    {
+      "id": "bench.indexedWrite.NDArray.2x3.f64",
+      "ratio": 2.480362537764351,
+      "before_ns": 3.31,
+      "after_ns": 8.21
+    },
+    {
+      "id": "bench.flatWrite.NDArray.2x3x4.f64",
+      "ratio": 2.231818181818182,
+      "before_ns": 2.2,
+      "after_ns": 4.91
+    },
+    {
+      "id": "bench.indexedWrite.NDArray.2x3x4.f64",
+      "ratio": 2.3746630727762805,
+      "before_ns": 3.71,
+      "after_ns": 8.81
+    },
+    {
+      "id": "bench.flatWrite.NDArray.2x3x4x5.f64",
+      "ratio": 2.1255411255411256,
+      "before_ns": 2.31,
+      "after_ns": 4.91
+    },
+    {
+      "id": "bench.indexedWrite.NDArray.2x3x4x5.f64",
+      "ratio": 2.5121293800539086,
+      "before_ns": 3.71,
+      "after_ns": 9.32
+    },
+    {
+      "id": "bench.flatWrite.NDArray.2x2x2x2x2.f64",
+      "ratio": 2.231818181818182,
+      "before_ns": 2.2,
+      "after_ns": 4.91
+    },
+    {
+      "id": "bench.indexedWrite.NDArray.2x2x2x2x2.f64",
+      "ratio": 2.155210643015521,
+      "before_ns": 4.51,
+      "after_ns": 9.72
+    },
+    {
+      "id": "bench.outer.Mat.3x3.f32",
+      "ratio": 5.691842900302115,
+      "before_ns": 3.31,
+      "after_ns": 18.84
+    },
+    {
+      "id": "bench.outer.MatView.3x3.f32",
+      "ratio": 1.620253164556962,
+      "before_ns": 7.11,
+      "after_ns": 11.52
+    },
+    {
+      "id": "bench.outer.Mat.6x6.f32",
+      "ratio": 3.893271461716938,
+      "before_ns": 8.62,
+      "after_ns": 33.56
+    },
+    {
+      "id": "bench.outer.MatView.6x6.f32",
+      "ratio": 1.9827882960413081,
+      "before_ns": 11.62,
+      "after_ns": 23.04
+    },
+    {
+      "id": "bench.outer.Mat.12x12.f32",
+      "ratio": 3.2011995637949835,
+      "before_ns": 18.34,
+      "after_ns": 58.71
+    },
+    {
+      "id": "bench.outer.MatView.12x12.f32",
+      "ratio": 1.974051896207585,
+      "before_ns": 35.07,
+      "after_ns": 69.23
+    },
+    {
+      "id": "bench.matvecRect.Mat.2x3x4.f32",
+      "ratio": 4.027491408934708,
+      "before_ns": 2.91,
+      "after_ns": 11.72
+    },
+    {
+      "id": "bench.transposeRect.Mat.2x3x4.f32",
+      "ratio": 6.572,
+      "before_ns": 2.5,
+      "after_ns": 16.43
+    },
+    {
+      "id": "bench.rowopsRect.Mat.2x3x4.f32",
+      "ratio": 0.6745230078563411,
+      "before_ns": 8.91,
+      "after_ns": 6.01
+    },
+    {
+      "id": "bench.matvecRect.MatView.2x3x4.f32",
+      "ratio": 3.368,
+      "before_ns": 2.5,
+      "after_ns": 8.42
+    },
+    {
+      "id": "bench.transposeRect.MatView.2x3x4.f32",
+      "ratio": 3.660516605166052,
+      "before_ns": 2.71,
+      "after_ns": 9.92
+    },
+    {
+      "id": "bench.rowopsRect.MatView.2x3x4.f32",
+      "ratio": 0.7085201793721974,
+      "before_ns": 8.92,
+      "after_ns": 6.32
+    },
+    {
+      "id": "bench.matvecRect.Mat.3x2x3.f32",
+      "ratio": 3.9278350515463916,
+      "before_ns": 2.91,
+      "after_ns": 11.43
+    },
+    {
+      "id": "bench.transposeRect.Mat.3x2x3.f32",
+      "ratio": 6.817427385892116,
+      "before_ns": 2.41,
+      "after_ns": 16.43
+    },
+    {
+      "id": "bench.rowopsRect.Mat.3x2x3.f32",
+      "ratio": 3.6740740740740736,
+      "before_ns": 2.7,
+      "after_ns": 9.92
+    },
+    {
+      "id": "bench.matvecRect.MatView.3x2x3.f32",
+      "ratio": 4.091666666666667,
+      "before_ns": 2.4,
+      "after_ns": 9.82
+    },
+    {
+      "id": "bench.transposeRect.MatView.3x2x3.f32",
+      "ratio": 3.155555555555555,
+      "before_ns": 2.7,
+      "after_ns": 8.52
+    },
+    {
+      "id": "bench.rowopsRect.MatView.3x2x3.f32",
+      "ratio": 2.0727969348659006,
+      "before_ns": 2.61,
+      "after_ns": 5.41
+    },
+    {
+      "id": "bench.matvecRect.Mat.4x8x3.f32",
+      "ratio": 5.112519809825674,
+      "before_ns": 6.31,
+      "after_ns": 32.26
+    },
+    {
+      "id": "bench.transposeRect.Mat.4x8x3.f32",
+      "ratio": 7.299303944315546,
+      "before_ns": 4.31,
+      "after_ns": 31.46
+    },
+    {
+      "id": "bench.rowopsRect.Mat.4x8x3.f32",
+      "ratio": 2.3773584905660377,
+      "before_ns": 3.71,
+      "after_ns": 8.82
+    },
+    {
+      "id": "bench.matvecRect.MatView.4x8x3.f32",
+      "ratio": 2.3453355155482813,
+      "before_ns": 6.11,
+      "after_ns": 14.33
+    },
+    {
+      "id": "bench.transposeRect.MatView.4x8x3.f32",
+      "ratio": 4.548628428927681,
+      "before_ns": 4.01,
+      "after_ns": 18.24
+    },
+    {
+      "id": "bench.rowopsRect.MatView.4x8x3.f32",
+      "ratio": 2.3477088948787066,
+      "before_ns": 3.71,
+      "after_ns": 8.71
+    },
+    {
+      "id": "bench.matvecRect.Mat.6x12x8.f32",
+      "ratio": 2.778652668416448,
+      "before_ns": 11.43,
+      "after_ns": 31.76
+    },
+    {
+      "id": "bench.transposeRect.Mat.6x12x8.f32",
+      "ratio": 5.009501187648456,
+      "before_ns": 8.42,
+      "after_ns": 42.18
+    },
+    {
+      "id": "bench.rowopsRect.Mat.6x12x8.f32",
+      "ratio": 0.5979926043317486,
+      "before_ns": 18.93,
+      "after_ns": 11.32
+    },
+    {
+      "id": "bench.matvecRect.MatView.6x12x8.f32",
+      "ratio": 2.243705035971223,
+      "before_ns": 11.12,
+      "after_ns": 24.95
+    },
+    {
+      "id": "bench.transposeRect.MatView.6x12x8.f32",
+      "ratio": 3.094951923076923,
+      "before_ns": 8.32,
+      "after_ns": 25.75
+    },
+    {
+      "id": "bench.rowopsRect.MatView.6x12x8.f32",
+      "ratio": 1.8502495840266222,
+      "before_ns": 6.01,
+      "after_ns": 11.12
+    },
+    {
+      "id": "bench.matvecRect.Mat.12x6x3.f32",
+      "ratio": 4.296178343949045,
+      "before_ns": 9.42,
+      "after_ns": 40.47
+    },
+    {
+      "id": "bench.transposeRect.Mat.12x6x3.f32",
+      "ratio": 2.046692607003891,
+      "before_ns": 15.42,
+      "after_ns": 31.56
+    },
+    {
+      "id": "bench.rowopsRect.Mat.12x6x3.f32",
+      "ratio": 0.8303393213572855,
+      "before_ns": 10.02,
+      "after_ns": 8.32
+    },
+    {
+      "id": "bench.matvecRect.MatView.12x6x3.f32",
+      "ratio": 4.1039915966386555,
+      "before_ns": 9.52,
+      "after_ns": 39.07
+    },
+    {
+      "id": "bench.transposeRect.MatView.12x6x3.f32",
+      "ratio": 1.5355255431591308,
+      "before_ns": 17.03,
+      "after_ns": 26.15
+    },
+    {
+      "id": "bench.rowopsRect.MatView.12x6x3.f32",
+      "ratio": 0.8517786561264822,
+      "before_ns": 10.12,
+      "after_ns": 8.62
+    },
+    {
+      "id": "bench.flatWrite.NDArray.256.f32",
+      "ratio": 2.242857142857143,
+      "before_ns": 2.1,
+      "after_ns": 4.71
+    },
+    {
+      "id": "bench.indexedWrite.NDArray.256.f32",
+      "ratio": 3.4432989690721647,
+      "before_ns": 2.91,
+      "after_ns": 10.02
+    },
+    {
+      "id": "bench.flatWrite.NDArray.32x32.f32",
+      "ratio": 2.3857142857142857,
+      "before_ns": 2.1,
+      "after_ns": 5.01
+    },
+    {
+      "id": "bench.indexedWrite.NDArray.32x32.f32",
+      "ratio": 2.59190031152648,
+      "before_ns": 3.21,
+      "after_ns": 8.32
+    },
+    {
+      "id": "bench.flatWrite.NDArray.8x8x8.f32",
+      "ratio": 2.1409090909090907,
+      "before_ns": 2.2,
+      "after_ns": 4.71
+    },
+    {
+      "id": "bench.indexedWrite.NDArray.8x8x8.f32",
+      "ratio": 2.338461538461538,
+      "before_ns": 3.9,
+      "after_ns": 9.12
+    },
+    {
+      "id": "bench.flatWrite.NDArray.4x8x8x8.f32",
+      "ratio": 2.455,
+      "before_ns": 2.0,
+      "after_ns": 4.91
+    },
+    {
+      "id": "bench.indexedWrite.NDArray.4x8x8x8.f32",
+      "ratio": 2.5633423180592994,
+      "before_ns": 3.71,
+      "after_ns": 9.51
+    },
+    {
+      "id": "bench.flatWrite.NDArray.2x4x8x8x8.f32",
+      "ratio": 1.3333333333333335,
+      "before_ns": 10.0,
+      "after_ns": 13.333333333333334
+    },
+    {
+      "id": "bench.indexedWrite.NDArray.2x4x8x8x8.f32",
+      "ratio": 1.525,
+      "before_ns": 13.333333333333334,
+      "after_ns": 20.333333333333332
+    },
+    {
+      "id": "bench.flatRead.NDArray.8x8x16.f32",
+      "ratio": 5.2460732984293195,
+      "before_ns": 1.91,
+      "after_ns": 10.02
+    },
+    {
+      "id": "bench.indexedRead.NDArray.8x8x16.f32",
+      "ratio": 4.881918819188192,
+      "before_ns": 2.71,
+      "after_ns": 13.23
+    },
+    {
+      "id": "bench.stream.NDArray.8x8x16.f32",
+      "ratio": 1.1010030672303739,
+      "before_ns": 603.15,
+      "after_ns": 664.07
+    },
+    {
+      "id": "bench.flatRead.NDArray.4x8x8x4.f32",
+      "ratio": 5.536842105263158,
+      "before_ns": 1.9,
+      "after_ns": 10.52
+    },
+    {
+      "id": "bench.indexedRead.NDArray.4x8x8x4.f32",
+      "ratio": 5.270370370370371,
+      "before_ns": 2.7,
+      "after_ns": 14.23
+    },
+    {
+      "id": "bench.stream.NDArray.4x8x8x4.f32",
+      "ratio": 1.103410505352253,
+      "before_ns": 602.55,
+      "after_ns": 664.86
+    },
+    {
+      "id": "bench.gauss.Mat.3x3.pivot_required.f32",
+      "ratio": 2.5552182163187855,
+      "before_ns": 26.35,
+      "after_ns": 67.33
+    },
+    {
+      "id": "bench.lu.Mat.3x3.pivot_required.f32",
+      "ratio": 1.1644437930529092,
+      "before_ns": 68.23,
+      "after_ns": 79.45
+    },
+    {
+      "id": "bench.matvec.Mat.3x3.pivot_required.f32",
+      "ratio": 3.895140664961637,
+      "before_ns": 3.91,
+      "after_ns": 15.23
+    },
+    {
+      "id": "bench.matmul.Mat.3x3.pivot_required.f32",
+      "ratio": 4.0924214417744915,
+      "before_ns": 5.41,
+      "after_ns": 22.14
+    },
+    {
+      "id": "bench.gauss.MatView.3x3.pivot_required.f32",
+      "ratio": 1.503997936548878,
+      "before_ns": 38.77,
+      "after_ns": 58.31
+    },
+    {
+      "id": "bench.lu.MatView.3x3.pivot_required.f32",
+      "ratio": 1.2315118083089123,
+      "before_ns": 58.01,
+      "after_ns": 71.44
+    },
+    {
+      "id": "bench.matvec.MatView.3x3.pivot_required.f32",
+      "ratio": 1.477726574500768,
+      "before_ns": 6.51,
+      "after_ns": 9.62
+    },
+    {
+      "id": "bench.matmul.MatView.3x3.pivot_required.f32",
+      "ratio": 1.1831964624131397,
+      "before_ns": 15.83,
+      "after_ns": 18.73
+    },
+    {
+      "id": "bench.gauss.Mat.6x6.pivot_required.f32",
+      "ratio": 2.2331243972999038,
+      "before_ns": 82.96,
+      "after_ns": 185.26
+    },
+    {
+      "id": "bench.lu.Mat.6x6.pivot_required.f32",
+      "ratio": 1.6320660686316388,
+      "before_ns": 140.46,
+      "after_ns": 229.24
+    },
+    {
+      "id": "bench.matvec.Mat.6x6.pivot_required.f32",
+      "ratio": 5.4243369734789395,
+      "before_ns": 6.41,
+      "after_ns": 34.77
+    },
+    {
+      "id": "bench.matmul.Mat.6x6.pivot_required.f32",
+      "ratio": 3.9312359550561795,
+      "before_ns": 22.25,
+      "after_ns": 87.47
+    },
+    {
+      "id": "bench.gauss.MatView.6x6.pivot_required.f32",
+      "ratio": 1.311756593690743,
+      "before_ns": 116.02,
+      "after_ns": 152.19
+    },
+    {
+      "id": "bench.lu.MatView.6x6.pivot_required.f32",
+      "ratio": 1.1751430387794024,
+      "before_ns": 157.3,
+      "after_ns": 184.85
+    },
+    {
+      "id": "bench.matvec.MatView.6x6.pivot_required.f32",
+      "ratio": 1.919064748201439,
+      "before_ns": 11.12,
+      "after_ns": 21.34
+    },
+    {
+      "id": "bench.matmul.MatView.6x6.pivot_required.f32",
+      "ratio": 0.9444136401441641,
+      "before_ns": 72.14,
+      "after_ns": 68.13
+    },
+    {
+      "id": "bench.gauss.Mat.12x12.pivot_required.f32",
+      "ratio": 1.5262884037747453,
+      "before_ns": 422.81,
+      "after_ns": 645.33
+    },
+    {
+      "id": "bench.lu.Mat.12x12.pivot_required.f32",
+      "ratio": 1.3046789787957778,
+      "before_ns": 540.93,
+      "after_ns": 705.74
+    },
+    {
+      "id": "bench.matvec.Mat.12x12.pivot_required.f32",
+      "ratio": 2.7548161120840633,
+      "before_ns": 17.13,
+      "after_ns": 47.19
+    },
+    {
+      "id": "bench.matmul.Mat.12x12.pivot_required.f32",
+      "ratio": 3.923807800199077,
+      "before_ns": 110.51,
+      "after_ns": 433.62
+    },
+    {
+      "id": "bench.gauss.MatView.12x12.pivot_required.f32",
+      "ratio": 1.2804943801584339,
+      "before_ns": 482.22,
+      "after_ns": 617.48
+    },
+    {
+      "id": "bench.lu.MatView.12x12.pivot_required.f32",
+      "ratio": 1.1457794020608092,
+      "before_ns": 591.03,
+      "after_ns": 677.19
+    },
+    {
+      "id": "bench.matvec.MatView.12x12.pivot_required.f32",
+      "ratio": 1.994372037914692,
+      "before_ns": 33.76,
+      "after_ns": 67.33
+    },
+    {
+      "id": "bench.matmul.MatView.12x12.pivot_required.f32",
+      "ratio": 1.0202948912859866,
+      "before_ns": 414.39,
+      "after_ns": 422.8
+    },
+    {
+      "id": "bench.gauss.Mat.3x3.signed_alternating.f32",
+      "ratio": 2.649664429530201,
+      "before_ns": 22.35,
+      "after_ns": 59.22
+    },
+    {
+      "id": "bench.lu.Mat.3x3.signed_alternating.f32",
+      "ratio": 1.1685538660627628,
+      "before_ns": 61.82,
+      "after_ns": 72.24
+    },
+    {
+      "id": "bench.cholesky.Mat.3x3.signed_alternating.f32",
+      "ratio": 2.0433555669574144,
+      "before_ns": 38.98,
+      "after_ns": 79.65
+    },
+    {
+      "id": "bench.matvec.Mat.3x3.signed_alternating.f32",
+      "ratio": 3.8229426433915212,
+      "before_ns": 4.01,
+      "after_ns": 15.33
+    },
+    {
+      "id": "bench.matmul.Mat.3x3.signed_alternating.f32",
+      "ratio": 4.265536723163842,
+      "before_ns": 5.31,
+      "after_ns": 22.65
+    },
+    {
+      "id": "bench.gauss.MatView.3x3.signed_alternating.f32",
+      "ratio": 1.5047675804529201,
+      "before_ns": 33.56,
+      "after_ns": 50.5
+    },
+    {
+      "id": "bench.lu.MatView.3x3.signed_alternating.f32",
+      "ratio": 1.2140796306982111,
+      "before_ns": 51.99,
+      "after_ns": 63.12
+    },
+    {
+      "id": "bench.cholesky.MatView.3x3.signed_alternating.f32",
+      "ratio": 1.2869596157267391,
+      "before_ns": 56.21,
+      "after_ns": 72.34
+    },
+    {
+      "id": "bench.matvec.MatView.3x3.signed_alternating.f32",
+      "ratio": 1.498442367601246,
+      "before_ns": 6.42,
+      "after_ns": 9.62
+    },
+    {
+      "id": "bench.matmul.MatView.3x3.signed_alternating.f32",
+      "ratio": 1.1201434548714881,
+      "before_ns": 16.73,
+      "after_ns": 18.74
+    },
+    {
+      "id": "bench.gauss.Mat.6x6.signed_alternating.f32",
+      "ratio": 2.426257571767185,
+      "before_ns": 75.94,
+      "after_ns": 184.25
+    },
+    {
+      "id": "bench.lu.Mat.6x6.signed_alternating.f32",
+      "ratio": 1.6120527306967984,
+      "before_ns": 132.75,
+      "after_ns": 214.0
+    },
+    {
+      "id": "bench.cholesky.Mat.6x6.signed_alternating.f32",
+      "ratio": 2.0738857313790007,
+      "before_ns": 100.29,
+      "after_ns": 207.99
+    },
+    {
+      "id": "bench.matvec.Mat.6x6.signed_alternating.f32",
+      "ratio": 5.439937597503899,
+      "before_ns": 6.41,
+      "after_ns": 34.87
+    },
+    {
+      "id": "bench.matmul.Mat.6x6.signed_alternating.f32",
+      "ratio": 3.9375,
+      "before_ns": 22.24,
+      "after_ns": 87.57
+    },
+    {
+      "id": "bench.gauss.MatView.6x6.signed_alternating.f32",
+      "ratio": 1.293666026871401,
+      "before_ns": 114.62,
+      "after_ns": 148.28
+    },
+    {
+      "id": "bench.lu.MatView.6x6.signed_alternating.f32",
+      "ratio": 1.166925064599483,
+      "before_ns": 154.8,
+      "after_ns": 180.64
+    },
+    {
+      "id": "bench.cholesky.MatView.6x6.signed_alternating.f32",
+      "ratio": 1.2655525817612117,
+      "before_ns": 153.19,
+      "after_ns": 193.87
+    },
+    {
+      "id": "bench.matvec.MatView.6x6.signed_alternating.f32",
+      "ratio": 1.9183303085299457,
+      "before_ns": 11.02,
+      "after_ns": 21.14
+    },
+    {
+      "id": "bench.matmul.MatView.6x6.signed_alternating.f32",
+      "ratio": 0.9956159579131958,
+      "before_ns": 68.43,
+      "after_ns": 68.13
+    },
+    {
+      "id": "bench.gauss.Mat.12x12.signed_alternating.f32",
+      "ratio": 1.60021985160017,
+      "before_ns": 400.27,
+      "after_ns": 640.52
+    },
+    {
+      "id": "bench.lu.Mat.12x12.signed_alternating.f32",
+      "ratio": 1.3651083326861846,
+      "before_ns": 515.08,
+      "after_ns": 703.14
+    },
+    {
+      "id": "bench.cholesky.Mat.12x12.signed_alternating.f32",
+      "ratio": 1.2595910189168484,
+      "before_ns": 509.07,
+      "after_ns": 641.22
+    },
+    {
+      "id": "bench.matvec.Mat.12x12.signed_alternating.f32",
+      "ratio": 2.7765460910151694,
+      "before_ns": 17.14,
+      "after_ns": 47.59
+    },
+    {
+      "id": "bench.matmul.Mat.12x12.signed_alternating.f32",
+      "ratio": 3.970607087263071,
+      "before_ns": 109.21,
+      "after_ns": 433.63
+    },
+    {
+      "id": "bench.gauss.MatView.12x12.signed_alternating.f32",
+      "ratio": 1.3016988744956468,
+      "before_ns": 470.9,
+      "after_ns": 612.97
+    },
+    {
+      "id": "bench.lu.MatView.12x12.signed_alternating.f32",
+      "ratio": 1.149263630488759,
+      "before_ns": 588.02,
+      "after_ns": 675.79
+    },
+    {
+      "id": "bench.cholesky.MatView.12x12.signed_alternating.f32",
+      "ratio": 1.1575777977259125,
+      "before_ns": 534.72,
+      "after_ns": 618.98
+    },
+    {
+      "id": "bench.matvec.MatView.12x12.signed_alternating.f32",
+      "ratio": 1.9997021149836163,
+      "before_ns": 33.57,
+      "after_ns": 67.13
+    },
+    {
+      "id": "bench.matmul.MatView.12x12.signed_alternating.f32",
+      "ratio": 1.0199951818838833,
+      "before_ns": 415.1,
+      "after_ns": 423.4
+    },
+    {
+      "id": "bench.gauss.Mat.3x3.dense_random.f32",
+      "ratio": 2.6758093525179856,
+      "before_ns": 22.24,
+      "after_ns": 59.51
+    },
+    {
+      "id": "bench.lu.Mat.3x3.dense_random.f32",
+      "ratio": 1.1685538660627628,
+      "before_ns": 61.82,
+      "after_ns": 72.24
+    },
+    {
+      "id": "bench.matvec.Mat.3x3.dense_random.f32",
+      "ratio": 3.920716112531969,
+      "before_ns": 3.91,
+      "after_ns": 15.33
+    },
+    {
+      "id": "bench.matmul.Mat.3x3.dense_random.f32",
+      "ratio": 4.378531073446328,
+      "before_ns": 5.31,
+      "after_ns": 23.25
+    },
+    {
+      "id": "bench.gauss.MatView.3x3.dense_random.f32",
+      "ratio": 1.5119545726240287,
+      "before_ns": 33.46,
+      "after_ns": 50.59
+    },
+    {
+      "id": "bench.lu.MatView.3x3.dense_random.f32",
+      "ratio": 1.2146718146718147,
+      "before_ns": 51.8,
+      "after_ns": 62.92
+    },
+    {
+      "id": "bench.matvec.MatView.3x3.dense_random.f32",
+      "ratio": 1.5007800312012478,
+      "before_ns": 6.41,
+      "after_ns": 9.62
+    },
+    {
+      "id": "bench.matmul.MatView.3x3.dense_random.f32",
+      "ratio": 1.1134878193701723,
+      "before_ns": 16.83,
+      "after_ns": 18.74
+    },
+    {
+      "id": "bench.gauss.Mat.6x6.dense_random.f32",
+      "ratio": 2.3563517915309444,
+      "before_ns": 76.75,
+      "after_ns": 180.85
+    },
+    {
+      "id": "bench.lu.Mat.6x6.dense_random.f32",
+      "ratio": 1.6038273921200752,
+      "before_ns": 133.25,
+      "after_ns": 213.71
+    },
+    {
+      "id": "bench.matvec.Mat.6x6.dense_random.f32",
+      "ratio": 5.438377535101404,
+      "before_ns": 6.41,
+      "after_ns": 34.86
+    },
+    {
+      "id": "bench.matmul.Mat.6x6.dense_random.f32",
+      "ratio": 3.902406417112299,
+      "before_ns": 22.44,
+      "after_ns": 87.57
+    },
+    {
+      "id": "bench.gauss.MatView.6x6.dense_random.f32",
+      "ratio": 1.2874309271116569,
+      "before_ns": 114.01,
+      "after_ns": 146.78
+    },
+    {
+      "id": "bench.lu.MatView.6x6.dense_random.f32",
+      "ratio": 1.1666774548514467,
+      "before_ns": 154.49,
+      "after_ns": 180.24
+    },
+    {
+      "id": "bench.matvec.MatView.6x6.dense_random.f32",
+      "ratio": 1.9010791366906477,
+      "before_ns": 11.12,
+      "after_ns": 21.14
+    },
+    {
+      "id": "bench.matmul.MatView.6x6.dense_random.f32",
+      "ratio": 0.9941631402305559,
+      "before_ns": 68.53,
+      "after_ns": 68.13
+    },
+    {
+      "id": "bench.gauss.Mat.12x12.dense_random.f32",
+      "ratio": 1.6030633697066774,
+      "before_ns": 399.56,
+      "after_ns": 640.52
+    },
+    {
+      "id": "bench.lu.Mat.12x12.dense_random.f32",
+      "ratio": 1.370024102005909,
+      "before_ns": 514.48,
+      "after_ns": 704.85
+    },
+    {
+      "id": "bench.matvec.Mat.12x12.dense_random.f32",
+      "ratio": 2.792840375586855,
+      "before_ns": 17.04,
+      "after_ns": 47.59
+    },
+    {
+      "id": "bench.matmul.Mat.12x12.dense_random.f32",
+      "ratio": 3.9682525160109794,
+      "before_ns": 109.3,
+      "after_ns": 433.73
+    },
+    {
+      "id": "bench.gauss.MatView.12x12.dense_random.f32",
+      "ratio": 1.2908229846348136,
+      "before_ns": 475.1,
+      "after_ns": 613.27
+    },
+    {
+      "id": "bench.lu.MatView.12x12.dense_random.f32",
+      "ratio": 1.1489546297398907,
+      "before_ns": 587.83,
+      "after_ns": 675.39
+    },
+    {
+      "id": "bench.matvec.MatView.12x12.dense_random.f32",
+      "ratio": 2.0032777115613825,
+      "before_ns": 33.56,
+      "after_ns": 67.23
+    },
+    {
+      "id": "bench.matmul.MatView.12x12.dense_random.f32",
+      "ratio": 1.020550423309776,
+      "before_ns": 414.59,
+      "after_ns": 423.11
+    },
+    {
+      "id": "bench.outer.Mat.3x3.f64",
+      "ratio": 5.700879765395895,
+      "before_ns": 3.41,
+      "after_ns": 19.44
+    },
+    {
+      "id": "bench.outer.MatView.3x3.f64",
+      "ratio": 2.0172117039586923,
+      "before_ns": 5.81,
+      "after_ns": 11.72
+    },
+    {
+      "id": "bench.outer.Mat.6x6.f64",
+      "ratio": 1.806224310041104,
+      "before_ns": 17.03,
+      "after_ns": 30.76
+    },
+    {
+      "id": "bench.outer.MatView.6x6.f64",
+      "ratio": 1.7263313609467457,
+      "before_ns": 13.52,
+      "after_ns": 23.34
+    },
+    {
+      "id": "bench.outer.Mat.12x12.f64",
+      "ratio": 2.035529715762274,
+      "before_ns": 30.96,
+      "after_ns": 63.02
+    },
+    {
+      "id": "bench.outer.MatView.12x12.f64",
+      "ratio": 1.9939948527309124,
+      "before_ns": 34.97,
+      "after_ns": 69.73
+    },
+    {
+      "id": "bench.matvecRect.Mat.2x3x4.f64",
+      "ratio": 3.5092250922509223,
+      "before_ns": 2.71,
+      "after_ns": 9.51
+    },
+    {
+      "id": "bench.transposeRect.Mat.2x3x4.f64",
+      "ratio": 5.046428571428572,
+      "before_ns": 2.8,
+      "after_ns": 14.13
+    },
+    {
+      "id": "bench.rowopsRect.Mat.2x3x4.f64",
+      "ratio": 0.5746785361028685,
+      "before_ns": 10.11,
+      "after_ns": 5.81
+    },
+    {
+      "id": "bench.matvecRect.MatView.2x3x4.f64",
+      "ratio": 4.383333333333334,
+      "before_ns": 2.4,
+      "after_ns": 10.52
+    },
+    {
+      "id": "bench.transposeRect.MatView.2x3x4.f64",
+      "ratio": 3.40893470790378,
+      "before_ns": 2.91,
+      "after_ns": 9.92
+    },
+    {
+      "id": "bench.rowopsRect.MatView.2x3x4.f64",
+      "ratio": 0.9316005471956225,
+      "before_ns": 7.31,
+      "after_ns": 6.81
+    },
+    {
+      "id": "bench.matvecRect.Mat.3x2x3.f64",
+      "ratio": 4.114285714285715,
+      "before_ns": 2.8,
+      "after_ns": 11.52
+    },
+    {
+      "id": "bench.transposeRect.Mat.3x2x3.f64",
+      "ratio": 4.543333333333334,
+      "before_ns": 3.0,
+      "after_ns": 13.63
+    },
+    {
+      "id": "bench.rowopsRect.Mat.3x2x3.f64",
+      "ratio": 3.2292358803986714,
+      "before_ns": 3.01,
+      "after_ns": 9.72
+    },
+    {
+      "id": "bench.matvecRect.MatView.3x2x3.f64",
+      "ratio": 3.4522821576763483,
+      "before_ns": 2.41,
+      "after_ns": 8.32
+    },
+    {
+      "id": "bench.transposeRect.MatView.3x2x3.f64",
+      "ratio": 3.1387900355871885,
+      "before_ns": 2.81,
+      "after_ns": 8.82
+    },
+    {
+      "id": "bench.rowopsRect.MatView.3x2x3.f64",
+      "ratio": 2.2039999999999997,
+      "before_ns": 2.5,
+      "after_ns": 5.51
+    },
+    {
+      "id": "bench.matvecRect.Mat.4x8x3.f64",
+      "ratio": 3.591527987897125,
+      "before_ns": 6.61,
+      "after_ns": 23.74
+    },
+    {
+      "id": "bench.transposeRect.Mat.4x8x3.f64",
+      "ratio": 4.2439372325249645,
+      "before_ns": 7.01,
+      "after_ns": 29.75
+    },
+    {
+      "id": "bench.rowopsRect.Mat.4x8x3.f64",
+      "ratio": 0.48399348887683125,
+      "before_ns": 18.43,
+      "after_ns": 8.92
+    },
+    {
+      "id": "bench.matvecRect.MatView.4x8x3.f64",
+      "ratio": 2.3741830065359477,
+      "before_ns": 6.12,
+      "after_ns": 14.53
+    },
+    {
+      "id": "bench.transposeRect.MatView.4x8x3.f64",
+      "ratio": 1.9524361948955917,
+      "before_ns": 8.62,
+      "after_ns": 16.83
+    },
+    {
+      "id": "bench.rowopsRect.MatView.4x8x3.f64",
+      "ratio": 1.6038034865293185,
+      "before_ns": 6.31,
+      "after_ns": 10.12
+    },
+    {
+      "id": "bench.matvecRect.Mat.6x12x8.f64",
+      "ratio": 2.238134206219313,
+      "before_ns": 12.22,
+      "after_ns": 27.35
+    },
+    {
+      "id": "bench.transposeRect.Mat.6x12x8.f64",
+      "ratio": 2.171372291529875,
+      "before_ns": 15.23,
+      "after_ns": 33.07
+    },
+    {
+      "id": "bench.rowopsRect.Mat.6x12x8.f64",
+      "ratio": 0.42493638676844786,
+      "before_ns": 35.37,
+      "after_ns": 15.03
+    },
+    {
+      "id": "bench.matvecRect.MatView.6x12x8.f64",
+      "ratio": 2.1434563758389262,
+      "before_ns": 11.92,
+      "after_ns": 25.55
+    },
+    {
+      "id": "bench.transposeRect.MatView.6x12x8.f64",
+      "ratio": 2.2857991681521095,
+      "before_ns": 16.83,
+      "after_ns": 38.47
+    },
+    {
+      "id": "bench.rowopsRect.MatView.6x12x8.f64",
+      "ratio": 1.4520153550863724,
+      "before_ns": 10.42,
+      "after_ns": 15.13
+    },
+    {
+      "id": "bench.matvecRect.Mat.12x6x3.f64",
+      "ratio": 4.1097804391217565,
+      "before_ns": 10.02,
+      "after_ns": 41.18
+    },
+    {
+      "id": "bench.transposeRect.Mat.12x6x3.f64",
+      "ratio": 2.2298095863427445,
+      "before_ns": 15.23,
+      "after_ns": 33.96
+    },
+    {
+      "id": "bench.rowopsRect.Mat.12x6x3.f64",
+      "ratio": 0.5564588979223125,
+      "before_ns": 22.14,
+      "after_ns": 12.32
+    },
+    {
+      "id": "bench.matvecRect.MatView.12x6x3.f64",
+      "ratio": 3.8858024691358026,
+      "before_ns": 9.72,
+      "after_ns": 37.77
+    },
+    {
+      "id": "bench.transposeRect.MatView.12x6x3.f64",
+      "ratio": 1.5597147950089127,
+      "before_ns": 16.83,
+      "after_ns": 26.25
+    },
+    {
+      "id": "bench.rowopsRect.MatView.12x6x3.f64",
+      "ratio": 1.3447905477980664,
+      "before_ns": 9.31,
+      "after_ns": 12.52
+    },
+    {
+      "id": "bench.flatWrite.NDArray.256.f64",
+      "ratio": 2.262443438914027,
+      "before_ns": 2.21,
+      "after_ns": 5.0
+    },
+    {
+      "id": "bench.indexedWrite.NDArray.256.f64",
+      "ratio": 2.789285714285714,
+      "before_ns": 2.8,
+      "after_ns": 7.81
+    },
+    {
+      "id": "bench.flatWrite.NDArray.32x32.f64",
+      "ratio": 2.368181818181818,
+      "before_ns": 2.2,
+      "after_ns": 5.21
+    },
+    {
+      "id": "bench.indexedWrite.NDArray.32x32.f64",
+      "ratio": 2.439882697947214,
+      "before_ns": 3.41,
+      "after_ns": 8.32
+    },
+    {
+      "id": "bench.flatWrite.NDArray.8x8x8.f64",
+      "ratio": 2.2217194570135748,
+      "before_ns": 2.21,
+      "after_ns": 4.91
+    },
+    {
+      "id": "bench.indexedWrite.NDArray.8x8x8.f64",
+      "ratio": 2.3773584905660377,
+      "before_ns": 3.71,
+      "after_ns": 8.82
+    },
+    {
+      "id": "bench.flatWrite.NDArray.4x8x8x8.f64",
+      "ratio": 2.3380952380952382,
+      "before_ns": 2.1,
+      "after_ns": 4.91
+    },
+    {
+      "id": "bench.indexedWrite.NDArray.4x8x8x8.f64",
+      "ratio": 2.45,
+      "before_ns": 3.8,
+      "after_ns": 9.31
+    },
+    {
+      "id": "bench.flatWrite.NDArray.2x4x8x8x8.f64",
+      "ratio": 1.5,
+      "before_ns": 6.666666666666667,
+      "after_ns": 10.0
+    },
+    {
+      "id": "bench.indexedWrite.NDArray.2x4x8x8x8.f64",
+      "ratio": 1.5,
+      "before_ns": 13.333333333333334,
+      "after_ns": 20.0
+    },
+    {
+      "id": "bench.flatRead.NDArray.8x8x16.f64",
+      "ratio": 4.207792207792208,
+      "before_ns": 2.31,
+      "after_ns": 9.72
+    },
+    {
+      "id": "bench.indexedRead.NDArray.8x8x16.f64",
+      "ratio": 4.494661921708185,
+      "before_ns": 2.81,
+      "after_ns": 12.63
+    },
+    {
+      "id": "bench.stream.NDArray.8x8x16.f64",
+      "ratio": 1.1122537853410157,
+      "before_ns": 597.04,
+      "after_ns": 664.06
+    },
+    {
+      "id": "bench.flatRead.NDArray.4x8x8x4.f64",
+      "ratio": 5.36,
+      "before_ns": 2.0,
+      "after_ns": 10.72
+    },
+    {
+      "id": "bench.indexedRead.NDArray.4x8x8x4.f64",
+      "ratio": 5.151394422310758,
+      "before_ns": 2.51,
+      "after_ns": 12.93
+    },
+    {
+      "id": "bench.stream.NDArray.4x8x8x4.f64",
+      "ratio": 1.1079656351655682,
+      "before_ns": 599.45,
+      "after_ns": 664.17
+    },
+    {
+      "id": "bench.gauss.Mat.3x3.pivot_required.f64",
+      "ratio": 1.2725697452781146,
+      "before_ns": 57.71,
+      "after_ns": 73.44
+    },
+    {
+      "id": "bench.lu.Mat.3x3.pivot_required.f64",
+      "ratio": 1.4701453335668009,
+      "before_ns": 57.11,
+      "after_ns": 83.96
+    },
+    {
+      "id": "bench.matvec.Mat.3x3.pivot_required.f64",
+      "ratio": 3.918158567774936,
+      "before_ns": 3.91,
+      "after_ns": 15.32
+    },
+    {
+      "id": "bench.matmul.Mat.3x3.pivot_required.f64",
+      "ratio": 5.055452865064695,
+      "before_ns": 5.41,
+      "after_ns": 27.35
+    },
+    {
+      "id": "bench.gauss.MatView.3x3.pivot_required.f64",
+      "ratio": 1.7572505138159398,
+      "before_ns": 43.79,
+      "after_ns": 76.95
+    },
+    {
+      "id": "bench.lu.MatView.3x3.pivot_required.f64",
+      "ratio": 1.2332589285714286,
+      "before_ns": 62.72,
+      "after_ns": 77.35
+    },
+    {
+      "id": "bench.matvec.MatView.3x3.pivot_required.f64",
+      "ratio": 1.1569186875891584,
+      "before_ns": 7.01,
+      "after_ns": 8.11
+    },
+    {
+      "id": "bench.matmul.MatView.3x3.pivot_required.f64",
+      "ratio": 1.2131358660656795,
+      "before_ns": 15.53,
+      "after_ns": 18.84
+    },
+    {
+      "id": "bench.gauss.Mat.6x6.pivot_required.f64",
+      "ratio": 1.5283399177618318,
+      "before_ns": 124.03,
+      "after_ns": 189.56
+    },
+    {
+      "id": "bench.lu.Mat.6x6.pivot_required.f64",
+      "ratio": 1.2787642638463679,
+      "before_ns": 179.65,
+      "after_ns": 229.73
+    },
+    {
+      "id": "bench.matvec.Mat.6x6.pivot_required.f64",
+      "ratio": 3.2576687116564416,
+      "before_ns": 6.52,
+      "after_ns": 21.24
+    },
+    {
+      "id": "bench.matmul.Mat.6x6.pivot_required.f64",
+      "ratio": 3.3017319963536917,
+      "before_ns": 21.94,
+      "after_ns": 72.44
+    },
+    {
+      "id": "bench.gauss.MatView.6x6.pivot_required.f64",
+      "ratio": 1.195717374625096,
+      "before_ns": 143.37,
+      "after_ns": 171.43
+    },
+    {
+      "id": "bench.lu.MatView.6x6.pivot_required.f64",
+      "ratio": 1.1494857013676951,
+      "before_ns": 176.94,
+      "after_ns": 203.39
+    },
+    {
+      "id": "bench.matvec.MatView.6x6.pivot_required.f64",
+      "ratio": 1.2273489932885906,
+      "before_ns": 11.92,
+      "after_ns": 14.63
+    },
+    {
+      "id": "bench.matmul.MatView.6x6.pivot_required.f64",
+      "ratio": 1.0592350746268657,
+      "before_ns": 64.32,
+      "after_ns": 68.13
+    },
+    {
+      "id": "bench.gauss.Mat.12x12.pivot_required.f64",
+      "ratio": 1.4129124765060357,
+      "before_ns": 516.09,
+      "after_ns": 729.19
+    },
+    {
+      "id": "bench.lu.Mat.12x12.pivot_required.f64",
+      "ratio": 1.2132523058888853,
+      "before_ns": 648.34,
+      "after_ns": 786.6
+    },
+    {
+      "id": "bench.matvec.Mat.12x12.pivot_required.f64",
+      "ratio": 2.233365019011407,
+      "before_ns": 21.04,
+      "after_ns": 46.99
+    },
+    {
+      "id": "bench.matmul.Mat.12x12.pivot_required.f64",
+      "ratio": 2.508914750902941,
+      "before_ns": 174.43,
+      "after_ns": 437.63
+    },
+    {
+      "id": "bench.gauss.MatView.12x12.pivot_required.f64",
+      "ratio": 1.2225135958042204,
+      "before_ns": 568.19,
+      "after_ns": 694.62
+    },
+    {
+      "id": "bench.lu.MatView.12x12.pivot_required.f64",
+      "ratio": 1.1315853032635932,
+      "before_ns": 662.46,
+      "after_ns": 749.63
+    },
+    {
+      "id": "bench.matvec.MatView.12x12.pivot_required.f64",
+      "ratio": 1.0829416643627316,
+      "before_ns": 36.17,
+      "after_ns": 39.17
+    },
+    {
+      "id": "bench.matmul.MatView.12x12.pivot_required.f64",
+      "ratio": 1.0709930423782417,
+      "before_ns": 395.25,
+      "after_ns": 423.31
+    },
+    {
+      "id": "bench.gauss.Mat.3x3.signed_alternating.f64",
+      "ratio": 1.472776769509982,
+      "before_ns": 44.08,
+      "after_ns": 64.92
+    },
+    {
+      "id": "bench.lu.Mat.3x3.signed_alternating.f64",
+      "ratio": 1.4410199963309485,
+      "before_ns": 54.51,
+      "after_ns": 78.55
+    },
+    {
+      "id": "bench.cholesky.Mat.3x3.signed_alternating.f64",
+      "ratio": 2.5573341094295694,
+      "before_ns": 34.36,
+      "after_ns": 87.87
+    },
+    {
+      "id": "bench.matvec.Mat.3x3.signed_alternating.f64",
+      "ratio": 3.7575,
+      "before_ns": 4.0,
+      "after_ns": 15.03
+    },
+    {
+      "id": "bench.matmul.Mat.3x3.signed_alternating.f64",
+      "ratio": 5.057301293900185,
+      "before_ns": 5.41,
+      "after_ns": 27.36
+    },
+    {
+      "id": "bench.gauss.MatView.3x3.signed_alternating.f64",
+      "ratio": 1.3860698898994732,
+      "before_ns": 41.78,
+      "after_ns": 57.91
+    },
+    {
+      "id": "bench.lu.MatView.3x3.signed_alternating.f64",
+      "ratio": 1.24875,
+      "before_ns": 56.0,
+      "after_ns": 69.93
+    },
+    {
+      "id": "bench.cholesky.MatView.3x3.signed_alternating.f64",
+      "ratio": 1.1556162807421255,
+      "before_ns": 69.53,
+      "after_ns": 80.35
+    },
+    {
+      "id": "bench.matvec.MatView.3x3.signed_alternating.f64",
+      "ratio": 1.0784574468085106,
+      "before_ns": 7.52,
+      "after_ns": 8.11
+    },
+    {
+      "id": "bench.matmul.MatView.3x3.signed_alternating.f64",
+      "ratio": 1.1873792659368965,
+      "before_ns": 15.53,
+      "after_ns": 18.44
+    },
+    {
+      "id": "bench.gauss.Mat.6x6.signed_alternating.f64",
+      "ratio": 1.8658818794647347,
+      "before_ns": 99.39,
+      "after_ns": 185.45
+    },
+    {
+      "id": "bench.lu.Mat.6x6.signed_alternating.f64",
+      "ratio": 1.4051211705532693,
+      "before_ns": 153.09,
+      "after_ns": 215.11
+    },
+    {
+      "id": "bench.cholesky.Mat.6x6.signed_alternating.f64",
+      "ratio": 1.7280406790781595,
+      "before_ns": 121.93,
+      "after_ns": 210.7
+    },
+    {
+      "id": "bench.matvec.Mat.6x6.signed_alternating.f64",
+      "ratio": 3.2450832072617244,
+      "before_ns": 6.61,
+      "after_ns": 21.45
+    },
+    {
+      "id": "bench.matmul.Mat.6x6.signed_alternating.f64",
+      "ratio": 3.2719060523938572,
+      "before_ns": 22.14,
+      "after_ns": 72.44
+    },
+    {
+      "id": "bench.gauss.MatView.6x6.signed_alternating.f64",
+      "ratio": 1.191268337193795,
+      "before_ns": 142.47,
+      "after_ns": 169.72
+    },
+    {
+      "id": "bench.lu.MatView.6x6.signed_alternating.f64",
+      "ratio": 1.1379699672575365,
+      "before_ns": 177.14,
+      "after_ns": 201.58
+    },
+    {
+      "id": "bench.cholesky.MatView.6x6.signed_alternating.f64",
+      "ratio": 1.1233693207377418,
+      "before_ns": 177.84,
+      "after_ns": 199.78
+    },
+    {
+      "id": "bench.matvec.MatView.6x6.signed_alternating.f64",
+      "ratio": 1.2246256239600666,
+      "before_ns": 12.02,
+      "after_ns": 14.72
+    },
+    {
+      "id": "bench.matmul.MatView.6x6.signed_alternating.f64",
+      "ratio": 1.057590810307358,
+      "before_ns": 64.42,
+      "after_ns": 68.13
+    },
+    {
+      "id": "bench.gauss.Mat.12x12.signed_alternating.f64",
+      "ratio": 1.5203878197729324,
+      "before_ns": 476.51,
+      "after_ns": 724.48
+    },
+    {
+      "id": "bench.lu.Mat.12x12.signed_alternating.f64",
+      "ratio": 1.2926728756284513,
+      "before_ns": 606.65,
+      "after_ns": 784.2
+    },
+    {
+      "id": "bench.cholesky.Mat.12x12.signed_alternating.f64",
+      "ratio": 1.0881450400801602,
+      "before_ns": 638.72,
+      "after_ns": 695.02
+    },
+    {
+      "id": "bench.matvec.Mat.12x12.signed_alternating.f64",
+      "ratio": 2.244030563514804,
+      "before_ns": 20.94,
+      "after_ns": 46.99
+    },
+    {
+      "id": "bench.matmul.Mat.12x12.signed_alternating.f64",
+      "ratio": 2.488822060826146,
+      "before_ns": 176.24,
+      "after_ns": 438.63
+    },
+    {
+      "id": "bench.gauss.MatView.12x12.signed_alternating.f64",
+      "ratio": 1.2131136032573406,
+      "before_ns": 569.79,
+      "after_ns": 691.22
+    },
+    {
+      "id": "bench.lu.MatView.12x12.signed_alternating.f64",
+      "ratio": 1.061481143118166,
+      "before_ns": 700.54,
+      "after_ns": 743.61
+    },
+    {
+      "id": "bench.cholesky.MatView.12x12.signed_alternating.f64",
+      "ratio": 1.0095217684158961,
+      "before_ns": 653.24,
+      "after_ns": 659.46
+    },
+    {
+      "id": "bench.matvec.MatView.12x12.signed_alternating.f64",
+      "ratio": 1.0482962167963508,
+      "before_ns": 37.27,
+      "after_ns": 39.07
+    },
+    {
+      "id": "bench.matmul.MatView.12x12.signed_alternating.f64",
+      "ratio": 1.0299011451502398,
+      "before_ns": 408.68,
+      "after_ns": 420.9
+    },
+    {
+      "id": "bench.gauss.Mat.3x3.dense_random.f64",
+      "ratio": 1.428065515714918,
+      "before_ns": 45.18,
+      "after_ns": 64.52
+    },
+    {
+      "id": "bench.lu.Mat.3x3.dense_random.f64",
+      "ratio": 1.3969534050179213,
+      "before_ns": 55.8,
+      "after_ns": 77.95
+    },
+    {
+      "id": "bench.matvec.Mat.3x3.dense_random.f64",
+      "ratio": 3.5170731707317078,
+      "before_ns": 4.1,
+      "after_ns": 14.42
+    },
+    {
+      "id": "bench.matmul.Mat.3x3.dense_random.f64",
+      "ratio": 4.927911275415896,
+      "before_ns": 5.41,
+      "after_ns": 26.66
+    },
+    {
+      "id": "bench.gauss.MatView.3x3.dense_random.f64",
+      "ratio": 1.3174567000911577,
+      "before_ns": 43.88,
+      "after_ns": 57.81
+    },
+    {
+      "id": "bench.lu.MatView.3x3.dense_random.f64",
+      "ratio": 1.2090071291949227,
+      "before_ns": 57.51,
+      "after_ns": 69.53
+    },
+    {
+      "id": "bench.matvec.MatView.3x3.dense_random.f64",
+      "ratio": 1.0656167979002624,
+      "before_ns": 7.62,
+      "after_ns": 8.12
+    },
+    {
+      "id": "bench.matmul.MatView.3x3.dense_random.f64",
+      "ratio": 1.0361077111383108,
+      "before_ns": 16.34,
+      "after_ns": 16.93
+    },
+    {
+      "id": "bench.gauss.Mat.6x6.dense_random.f64",
+      "ratio": 1.8168944832333562,
+      "before_ns": 101.69,
+      "after_ns": 184.76
+    },
+    {
+      "id": "bench.lu.Mat.6x6.dense_random.f64",
+      "ratio": 1.362826225334182,
+      "before_ns": 157.1,
+      "after_ns": 214.1
+    },
+    {
+      "id": "bench.matvec.Mat.6x6.dense_random.f64",
+      "ratio": 3.1336270190895745,
+      "before_ns": 6.81,
+      "after_ns": 21.34
+    },
+    {
+      "id": "bench.matmul.Mat.6x6.dense_random.f64",
+      "ratio": 3.1849889624724064,
+      "before_ns": 22.65,
+      "after_ns": 72.14
+    },
+    {
+      "id": "bench.gauss.MatView.6x6.dense_random.f64",
+      "ratio": 1.1508379888268156,
+      "before_ns": 146.78,
+      "after_ns": 168.92
+    },
+    {
+      "id": "bench.lu.MatView.6x6.dense_random.f64",
+      "ratio": 1.1001372495196267,
+      "before_ns": 182.15,
+      "after_ns": 200.39
+    },
+    {
+      "id": "bench.matvec.MatView.6x6.dense_random.f64",
+      "ratio": 1.0427655024946545,
+      "before_ns": 14.03,
+      "after_ns": 14.63
+    },
+    {
+      "id": "bench.matmul.MatView.6x6.dense_random.f64",
+      "ratio": 1.0257458730879903,
+      "before_ns": 66.03,
+      "after_ns": 67.73
+    },
+    {
+      "id": "bench.gauss.Mat.12x12.dense_random.f64",
+      "ratio": 1.4786681392399885,
+      "before_ns": 488.94,
+      "after_ns": 722.98
+    },
+    {
+      "id": "bench.lu.Mat.12x12.dense_random.f64",
+      "ratio": 1.252814854077322,
+      "before_ns": 622.59,
+      "after_ns": 779.99
+    },
+    {
+      "id": "bench.matvec.Mat.12x12.dense_random.f64",
+      "ratio": 2.1414187643020592,
+      "before_ns": 21.85,
+      "after_ns": 46.79
+    },
+    {
+      "id": "bench.matmul.Mat.12x12.dense_random.f64",
+      "ratio": 2.4258960822450684,
+      "before_ns": 179.95,
+      "after_ns": 436.54
+    },
+    {
+      "id": "bench.gauss.MatView.12x12.dense_random.f64",
+      "ratio": 1.1785358992830435,
+      "before_ns": 583.02,
+      "after_ns": 687.11
+    },
+    {
+      "id": "bench.lu.MatView.12x12.dense_random.f64",
+      "ratio": 1.0508089014482516,
+      "before_ns": 707.75,
+      "after_ns": 743.71
+    },
+    {
+      "id": "bench.matvec.MatView.12x12.dense_random.f64",
+      "ratio": 1.0569568755085437,
+      "before_ns": 36.87,
+      "after_ns": 38.97
+    },
+    {
+      "id": "bench.matmul.MatView.12x12.dense_random.f64",
+      "ratio": 1.0309404726880456,
+      "before_ns": 407.88,
+      "after_ns": 420.5
+    }
+  ]
+}

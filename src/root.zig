@@ -18,11 +18,11 @@ pub const rowops = @import("rowops.zig");
 pub const linsolve = @import("linsolve.zig");
 
 pub const NDArray = ndarray.NDArray;
-pub const MatSlice = matslice.MatSlice;
-pub const MatSliceOps = matslice.MatSliceOps;
-pub const MatStack = matstack.MatStack;
-pub const VecSlice = vecslice.VecSlice;
-pub const VecStack = vecstack.VecStack;
+pub const MatView = matviewtype.MatView;
+pub const MatViewOps = matviewtype.MatViewOps;
+pub const Mat = mattype.Mat;
+pub const VecView = vecviewtype.VecView;
+pub const Vec = vectype.Vec;
 
 test {
     _ = ndarray;
@@ -36,3 +36,45 @@ test {
     _ = rowops;
     _ = linsolve;
 }
+
+// Compatibility aliases retained during migration.
+pub const VecStack = Vec;
+pub const MatStack = Mat;
+pub const VecSlice = VecView;
+pub const MatSlice = MatView;
+pub const MatSliceOps = MatViewOps;
+pub const vectype = @import("vectype.zig");
+pub const mattype = @import("mattype.zig");
+pub const vecviewtype = @import("vecviewtype.zig");
+pub const matviewtype = @import("matviewtype.zig");
+pub const ndarraytype = @import("ndarraytype.zig");
+
+pub const Mat22Ops = mattype.Mat22Ops;
+pub const Mat33Ops = mattype.Mat33Ops;
+pub const Mat44Ops = mattype.Mat44Ops;
+pub const Vec3Ops = vectype.Vec3Ops;
+
+test "compatibility modules retain canonical type identity" {
+    try std.testing.expect(Vec(3, f64) == vecstack.VecStack(3, f64));
+    try std.testing.expect(Mat(2, 3, f64) == matstack.MatStack(2, 3, f64));
+    try std.testing.expect(VecView(f64) == vecslice.VecSlice(f64));
+    try std.testing.expect(MatView(f64) == matslice.MatSlice(f64));
+    try std.testing.expect(NDArray(f64) == ndarray.NDArray(f64));
+}
+
+pub const Vec3SliceOps = vectype.Vec3SliceOps;
+pub const NDArrayOps = ndarraytype.NDArrayOps;
+pub const MappedNDArray = ndarraytype.MappedNDArray;
+pub const matchArrayDims = ndarraytype.matchArrayDims;
+pub const Vec2T = vectype.Vec2T;
+pub const Vec3T = vectype.Vec3T;
+pub const Vec2f = vectype.Vec2f;
+pub const Vec3f = vectype.Vec3f;
+pub const initVec2 = vectype.initVec2;
+pub const initVec3 = vectype.initVec3;
+pub const Mat22T = mattype.Mat22T;
+pub const Mat33T = mattype.Mat33T;
+pub const Mat44T = mattype.Mat44T;
+pub const Mat22f = mattype.Mat22f;
+pub const Mat33f = mattype.Mat33f;
+pub const Mat44f = mattype.Mat44f;
