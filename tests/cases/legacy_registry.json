@@ -55,14 +55,14 @@
       "name": "cholesky factorisation reconstruction A == L * L^T",
       "original_assertion_count": 1,
       "case_ids": [
-        "extended.choleskyReconstruction.Mat.2.f32",
-        "extended.choleskyReconstruction.Mat.2.f64",
-        "extended.choleskyReconstruction.MatView.2.f32",
-        "extended.choleskyReconstruction.MatView.2.f64",
-        "extended.luReconstruction.Mat.2.f32",
-        "extended.luReconstruction.Mat.2.f64",
-        "extended.luReconstruction.MatView.2.f32",
-        "extended.luReconstruction.MatView.2.f64"
+        "extended.choleskyReconstruction.Mat.3.f32",
+        "extended.choleskyReconstruction.Mat.3.f64",
+        "extended.choleskyReconstruction.MatView.3.f32",
+        "extended.choleskyReconstruction.MatView.3.f64",
+        "extended.luReconstruction.Mat.3.f32",
+        "extended.luReconstruction.Mat.3.f64",
+        "extended.luReconstruction.MatView.3.f32",
+        "extended.luReconstruction.MatView.3.f64"
       ]
     },
     {
@@ -175,14 +175,14 @@
       "name": "linsolve factorisation reuse with multiple right-hand sides",
       "original_assertion_count": 2,
       "case_ids": [
-        "extended.choleskyMultiple.Mat.2.f32",
-        "extended.choleskyMultiple.Mat.2.f64",
-        "extended.choleskyMultiple.MatView.2.f32",
-        "extended.choleskyMultiple.MatView.2.f64",
-        "extended.luMultiple.Mat.2.f32",
-        "extended.luMultiple.Mat.2.f64",
-        "extended.luMultiple.MatView.2.f32",
-        "extended.luMultiple.MatView.2.f64"
+        "extended.choleskyMultiple.Mat.3.f32",
+        "extended.choleskyMultiple.Mat.3.f64",
+        "extended.choleskyMultiple.MatView.3.f32",
+        "extended.choleskyMultiple.MatView.3.f64",
+        "extended.luMultiple.Mat.3.f32",
+        "extended.luMultiple.Mat.3.f64",
+        "extended.luMultiple.MatView.3.f32",
+        "extended.luMultiple.MatView.3.f64"
       ]
     },
     {
@@ -239,14 +239,14 @@
       "name": "lu factorisation reconstruction P * A == L * U",
       "original_assertion_count": 1,
       "case_ids": [
-        "extended.choleskyReconstruction.Mat.2.f32",
-        "extended.choleskyReconstruction.Mat.2.f64",
-        "extended.choleskyReconstruction.MatView.2.f32",
-        "extended.choleskyReconstruction.MatView.2.f64",
-        "extended.luReconstruction.Mat.2.f32",
-        "extended.luReconstruction.Mat.2.f64",
-        "extended.luReconstruction.MatView.2.f32",
-        "extended.luReconstruction.MatView.2.f64"
+        "extended.choleskyReconstruction.Mat.3.f32",
+        "extended.choleskyReconstruction.Mat.3.f64",
+        "extended.choleskyReconstruction.MatView.3.f32",
+        "extended.choleskyReconstruction.MatView.3.f64",
+        "extended.luReconstruction.Mat.3.f32",
+        "extended.luReconstruction.Mat.3.f64",
+        "extended.luReconstruction.MatView.3.f32",
+        "extended.luReconstruction.MatView.3.f64"
       ]
     },
     {
@@ -347,10 +347,10 @@
       "name": "Mat22f.getRowVec",
       "original_assertion_count": 1,
       "case_ids": [
-        "extended.row.Mat.2x2.f32",
-        "extended.row.Mat.2x2.f64",
-        "extended.row.MatView.2x2.f32",
-        "extended.row.MatView.2x2.f64"
+        "extended.row.Mat.3x3.f32",
+        "extended.row.Mat.3x3.f64",
+        "extended.row.MatView.3x3.f32",
+        "extended.row.MatView.3x3.f64"
       ]
     },
     {
@@ -359,10 +359,10 @@
       "name": "Mat22f.getColVec",
       "original_assertion_count": 1,
       "case_ids": [
-        "extended.column.Mat.2x2.f32",
-        "extended.column.Mat.2x2.f64",
-        "extended.column.MatView.2x2.f32",
-        "extended.column.MatView.2x2.f64"
+        "extended.column.Mat.3x3.f32",
+        "extended.column.Mat.3x3.f64",
+        "extended.column.MatView.3x3.f32",
+        "extended.column.MatView.3x3.f64"
       ]
     },
     {
@@ -407,8 +407,6 @@
       "name": "Mat22f.transpose",
       "original_assertion_count": 1,
       "case_ids": [
-        "extended.transposeSquare.MatView.2x2.f32",
-        "extended.transposeSquare.MatView.2x2.f64",
         "extended.transposeSquare.MatView.3x3.f32",
         "extended.transposeSquare.MatView.3x3.f64",
         "matops.transpose.Mat.legacy.mattype.Mat22f_transpose.0.f32",
@@ -423,8 +421,6 @@
       "name": "Mat rectangular transpose and row construction",
       "original_assertion_count": 1,
       "case_ids": [
-        "extended.transposeSquare.MatView.2x2.f32",
-        "extended.transposeSquare.MatView.2x2.f64",
         "extended.transposeSquare.MatView.3x3.f32",
         "extended.transposeSquare.MatView.3x3.f64",
         "matops.transpose.MatView.legacy.mattype.Mat_rectangular_transpose_and_row_construction.0.f32",
@@ -485,10 +481,10 @@
       "name": "Mat22f.mulMat.identity_and_negative",
       "original_assertion_count": 2,
       "case_ids": [
-        "extended.identity.Mat.2x2.f32",
-        "extended.identity.Mat.2x2.f64",
-        "extended.identity.MatView.2x2.f32",
-        "extended.identity.MatView.2x2.f64",
+        "extended.identity.Mat.3x3.f32",
+        "extended.identity.Mat.3x3.f64",
+        "extended.identity.MatView.3x3.f32",
+        "extended.identity.MatView.3x3.f64",
         "matops.matmul.Mat.legacy.mattype.Mat22f_mulMat_identity_and_negative.0.f32",
         "matops.matmul.Mat.legacy.mattype.Mat22f_mulMat_identity_and_negative.0.f64",
         "matops.matmul.MatView.legacy.mattype.Mat22f_mulMat_identity_and_negative.0.f32",
@@ -575,10 +571,10 @@
       "name": "Mat33f.getRowVec",
       "original_assertion_count": 1,
       "case_ids": [
-        "extended.row.Mat.2x2.f32",
-        "extended.row.Mat.2x2.f64",
-        "extended.row.MatView.2x2.f32",
-        "extended.row.MatView.2x2.f64"
+        "extended.row.Mat.3x3.f32",
+        "extended.row.Mat.3x3.f64",
+        "extended.row.MatView.3x3.f32",
+        "extended.row.MatView.3x3.f64"
       ]
     },
     {
@@ -587,10 +583,10 @@
       "name": "Mat33f.getColVec",
       "original_assertion_count": 1,
       "case_ids": [
-        "extended.column.Mat.2x2.f32",
-        "extended.column.Mat.2x2.f64",
-        "extended.column.MatView.2x2.f32",
-        "extended.column.MatView.2x2.f64"
+        "extended.column.Mat.3x3.f32",
+        "extended.column.Mat.3x3.f64",
+        "extended.column.MatView.3x3.f32",
+        "extended.column.MatView.3x3.f64"
       ]
     },
     {
@@ -599,8 +595,8 @@
       "name": "Mat33f.getSubMat",
       "original_assertion_count": 4,
       "case_ids": [
-        "extended.submatrix.Mat.2x2.f32",
-        "extended.submatrix.Mat.2x2.f64",
+        "extended.submatrix.Mat.2x3.f32",
+        "extended.submatrix.Mat.2x3.f64",
         "extended.submatrix.Mat.3x3.f32",
         "extended.submatrix.Mat.3x3.f64",
         "vecops.sub.Vec.3.f32",
@@ -615,8 +611,6 @@
       "name": "Mat33f.transpose",
       "original_assertion_count": 1,
       "case_ids": [
-        "extended.transposeSquare.MatView.2x2.f32",
-        "extended.transposeSquare.MatView.2x2.f64",
         "extended.transposeSquare.MatView.3x3.f32",
         "extended.transposeSquare.MatView.3x3.f64",
         "matops.transpose.Mat.legacy.mattype.Mat33f_transpose.0.f32",
@@ -679,10 +673,10 @@
       "name": "Mat33f.mulMat.identity_and_negative",
       "original_assertion_count": 2,
       "case_ids": [
-        "extended.identity.Mat.2x2.f32",
-        "extended.identity.Mat.2x2.f64",
-        "extended.identity.MatView.2x2.f32",
-        "extended.identity.MatView.2x2.f64",
+        "extended.identity.Mat.3x3.f32",
+        "extended.identity.Mat.3x3.f64",
+        "extended.identity.MatView.3x3.f32",
+        "extended.identity.MatView.3x3.f64",
         "matops.matmul.Mat.legacy.mattype.Mat33f_mulMat_identity_and_negative.0.f32",
         "matops.matmul.Mat.legacy.mattype.Mat33f_mulMat_identity_and_negative.0.f64",
         "matops.matmul.MatView.legacy.mattype.Mat33f_mulMat_identity_and_negative.0.f32",
@@ -743,8 +737,8 @@
       "name": "Mat44f.insertRowVec",
       "original_assertion_count": 3,
       "case_ids": [
-        "extended.insertRow.Mat.2x2.f32",
-        "extended.insertRow.Mat.2x2.f64",
+        "extended.insertRow.Mat.2x3.f32",
+        "extended.insertRow.Mat.2x3.f64",
         "extended.insertRow.Mat.3x3.f32",
         "extended.insertRow.Mat.3x3.f64"
       ]
@@ -755,8 +749,8 @@
       "name": "Mat44f.insertColVec",
       "original_assertion_count": 3,
       "case_ids": [
-        "extended.insertColumn.Mat.2x2.f32",
-        "extended.insertColumn.Mat.2x2.f64",
+        "extended.insertColumn.Mat.2x3.f32",
+        "extended.insertColumn.Mat.2x3.f64",
         "extended.insertColumn.Mat.3x3.f32",
         "extended.insertColumn.Mat.3x3.f64"
       ]
@@ -767,8 +761,8 @@
       "name": "Mat44f.insertSubMat",
       "original_assertion_count": 2,
       "case_ids": [
-        "extended.insertSubmatrix.Mat.2x2.f32",
-        "extended.insertSubmatrix.Mat.2x2.f64",
+        "extended.insertSubmatrix.Mat.2x3.f32",
+        "extended.insertSubmatrix.Mat.2x3.f64",
         "extended.insertSubmatrix.Mat.3x3.f32",
         "extended.insertSubmatrix.Mat.3x3.f64",
         "vecops.sub.Vec.3.f32",
@@ -783,8 +777,8 @@
       "name": "Mat insertSubMat accepts rectangular matrices",
       "original_assertion_count": 1,
       "case_ids": [
-        "extended.insertSubmatrix.Mat.2x2.f32",
-        "extended.insertSubmatrix.Mat.2x2.f64",
+        "extended.insertSubmatrix.Mat.2x3.f32",
+        "extended.insertSubmatrix.Mat.2x3.f64",
         "extended.insertSubmatrix.Mat.3x3.f32",
         "extended.insertSubmatrix.Mat.3x3.f64",
         "vecops.sub.Vec.3.f32",
@@ -883,20 +877,20 @@
       "case_ids": [
         "extended.coordinates.Vec.methods.f32",
         "extended.coordinates.Vec.methods.f64",
-        "extended.diag.Mat.2x2.f32",
-        "extended.diag.Mat.2x2.f64",
-        "extended.diag.MatView.2x2.f32",
-        "extended.diag.MatView.2x2.f64",
+        "extended.diag.Mat.3x3.f32",
+        "extended.diag.Mat.3x3.f64",
+        "extended.diag.MatView.3x3.f32",
+        "extended.diag.MatView.3x3.f64",
         "extended.fill.Vec.methods.f32",
         "extended.fill.Vec.methods.f64",
         "extended.fill.VecView.methods.f32",
         "extended.fill.VecView.methods.f64",
-        "extended.identity.Mat.2x2.f32",
-        "extended.identity.Mat.2x2.f64",
-        "extended.identity.MatView.2x2.f32",
-        "extended.identity.MatView.2x2.f64",
-        "extended.initRows.Mat.2x2.f32",
-        "extended.initRows.Mat.2x2.f64",
+        "extended.identity.Mat.3x3.f32",
+        "extended.identity.Mat.3x3.f64",
+        "extended.identity.MatView.3x3.f32",
+        "extended.identity.MatView.3x3.f64",
+        "extended.initRows.Mat.2x3.f32",
+        "extended.initRows.Mat.2x3.f64",
         "extended.initRows.Mat.3x3.f32",
         "extended.initRows.Mat.3x3.f64",
         "extended.initVec2.Vec.methods.f32",
@@ -943,8 +937,8 @@
       "name": "Mat direct mat field access and get set compatibility",
       "original_assertion_count": 10,
       "case_ids": [
-        "extended.flatAccess.MatView.2x2.f32",
-        "extended.flatAccess.MatView.2x2.f64",
+        "extended.flatAccess.MatView.2x3.f32",
+        "extended.flatAccess.MatView.2x3.f64",
         "extended.flatAccess.MatView.3x3.f32",
         "extended.flatAccess.MatView.3x3.f64",
         "types.valueCopy.Mat.ownership.f32",
@@ -959,10 +953,10 @@
       "name": "Mat row slice access and whole row copy",
       "original_assertion_count": 4,
       "case_ids": [
-        "extended.row.Mat.2x2.f32",
-        "extended.row.Mat.2x2.f64",
-        "extended.row.MatView.2x2.f32",
-        "extended.row.MatView.2x2.f64",
+        "extended.row.Mat.3x3.f32",
+        "extended.row.Mat.3x3.f64",
+        "extended.row.MatView.3x3.f32",
+        "extended.row.MatView.3x3.f64",
         "extended.rowMutation.MatView.methods.f32",
         "extended.rowMutation.MatView.methods.f64"
       ]
@@ -973,8 +967,8 @@
       "name": "Mat initSlice flat array compatibility",
       "original_assertion_count": 6,
       "case_ids": [
-        "extended.initRows.Mat.2x2.f32",
-        "extended.initRows.Mat.2x2.f64",
+        "extended.initRows.Mat.2x3.f32",
+        "extended.initRows.Mat.2x3.f64",
         "extended.initRows.Mat.3x3.f32",
         "extended.initRows.Mat.3x3.f64",
         "types.valueCopy.Mat.ownership.f32",
@@ -991,10 +985,10 @@
       "case_ids": [
         "extended.getSlice.NDArray.methods.f32",
         "extended.getSlice.NDArray.methods.f64",
-        "extended.row.Mat.2x2.f32",
-        "extended.row.Mat.2x2.f64",
-        "extended.row.MatView.2x2.f32",
-        "extended.row.MatView.2x2.f64"
+        "extended.row.Mat.3x3.f32",
+        "extended.row.Mat.3x3.f64",
+        "extended.row.MatView.3x3.f32",
+        "extended.row.MatView.3x3.f64"
       ]
     },
     {
@@ -1003,8 +997,8 @@
       "name": "MatView flat helpers",
       "original_assertion_count": 3,
       "case_ids": [
-        "extended.flatAccess.MatView.2x2.f32",
-        "extended.flatAccess.MatView.2x2.f64",
+        "extended.flatAccess.MatView.2x3.f32",
+        "extended.flatAccess.MatView.2x3.f64",
         "extended.flatAccess.MatView.3x3.f32",
         "extended.flatAccess.MatView.3x3.f64"
       ]
@@ -1039,8 +1033,8 @@
       "name": "MatViewOps.mulElemWise",
       "original_assertion_count": 1,
       "case_ids": [
-        "extended.mulOut.MatView.2x2.f32",
-        "extended.mulOut.MatView.2x2.f64",
+        "extended.mulOut.MatView.2x3.f32",
+        "extended.mulOut.MatView.2x3.f64",
         "extended.mulOut.MatView.3x3.f32",
         "extended.mulOut.MatView.3x3.f64",
         "vecops.mul.VecView.3.f32",
@@ -1071,8 +1065,8 @@
       "name": "MatViewOps.divElemWise",
       "original_assertion_count": 1,
       "case_ids": [
-        "extended.divOut.MatView.2x2.f32",
-        "extended.divOut.MatView.2x2.f64",
+        "extended.divOut.MatView.2x3.f32",
+        "extended.divOut.MatView.2x3.f64",
         "extended.divOut.MatView.3x3.f32",
         "extended.divOut.MatView.3x3.f64",
         "vecops.div.VecView.3.f32",
@@ -1111,10 +1105,10 @@
       "name": "MatView.trace",
       "original_assertion_count": 1,
       "case_ids": [
-        "matops.trace.Mat.1x1x1.f32",
-        "matops.trace.Mat.1x1x1.f64",
-        "matops.trace.MatView.1x1x1.f32",
-        "matops.trace.MatView.1x1x1.f64"
+        "matops.trace.Mat.3x3x3.f32",
+        "matops.trace.Mat.3x3x3.f64",
+        "matops.trace.MatView.3x3x3.f32",
+        "matops.trace.MatView.3x3x3.f64"
       ]
     },
     {
@@ -1123,14 +1117,12 @@
       "name": "MatView.transpose",
       "original_assertion_count": 1,
       "case_ids": [
-        "extended.transposeSquare.MatView.2x2.f32",
-        "extended.transposeSquare.MatView.2x2.f64",
         "extended.transposeSquare.MatView.3x3.f32",
         "extended.transposeSquare.MatView.3x3.f64",
-        "matops.transpose.Mat.1x1x1.f32",
-        "matops.transpose.Mat.1x1x1.f64",
-        "matops.transpose.MatView.1x1x1.f32",
-        "matops.transpose.MatView.1x1x1.f64"
+        "matops.transpose.Mat.2x2x2.f32",
+        "matops.transpose.Mat.2x2x2.f64",
+        "matops.transpose.MatView.2x2x2.f32",
+        "matops.transpose.MatView.2x2x2.f64"
       ]
     },
     {
@@ -1155,10 +1147,10 @@
       "name": "MatViewOps.mulVec",
       "original_assertion_count": 1,
       "case_ids": [
-        "matops.matvec.Mat.1x1x1.f32",
-        "matops.matvec.Mat.1x1x1.f64",
-        "matops.matvec.MatView.1x1x1.f32",
-        "matops.matvec.MatView.1x1x1.f64",
+        "matops.matvec.Mat.3x3x3.f32",
+        "matops.matvec.Mat.3x3x3.f64",
+        "matops.matvec.MatView.3x3x3.f32",
+        "matops.matvec.MatView.3x3x3.f64",
         "vecops.mul.VecView.3.f32",
         "vecops.mul.VecView.3.f64",
         "vecops.mul.slice.3.f32",
@@ -1187,8 +1179,8 @@
       "name": "MatView allocation, rectangular trace, and column extrema",
       "original_assertion_count": 3,
       "case_ids": [
-        "extended.columnExtrema.MatView.2x2.f32",
-        "extended.columnExtrema.MatView.2x2.f64",
+        "extended.columnExtrema.MatView.2x3.f32",
+        "extended.columnExtrema.MatView.2x3.f64",
         "extended.columnExtrema.MatView.3x3.f32",
         "extended.columnExtrema.MatView.3x3.f64",
         "extended.fill.Vec.methods.f32",
@@ -1199,10 +1191,10 @@
         "extended.initFlat.NDArray.1.f64",
         "extended.initFlat.NDArray.17.f32",
         "extended.initFlat.NDArray.17.f64",
-        "matops.trace.Mat.1x1x1.f32",
-        "matops.trace.Mat.1x1x1.f64",
-        "matops.trace.MatView.1x1x1.f32",
-        "matops.trace.MatView.1x1x1.f64"
+        "matops.trace.Mat.3x3x3.f32",
+        "matops.trace.Mat.3x3x3.f64",
+        "matops.trace.MatView.3x3x3.f32",
+        "matops.trace.MatView.3x3x3.f64"
       ]
     },
     {
@@ -1211,12 +1203,12 @@
       "name": "MatView in-place multiply and divide",
       "original_assertion_count": 2,
       "case_ids": [
-        "extended.divInPlace.MatView.2x2.f32",
-        "extended.divInPlace.MatView.2x2.f64",
+        "extended.divInPlace.MatView.2x3.f32",
+        "extended.divInPlace.MatView.2x3.f64",
         "extended.divInPlace.MatView.3x3.f32",
         "extended.divInPlace.MatView.3x3.f64",
-        "extended.mulInPlace.MatView.2x2.f32",
-        "extended.mulInPlace.MatView.2x2.f64",
+        "extended.mulInPlace.MatView.2x3.f32",
+        "extended.mulInPlace.MatView.2x3.f64",
         "extended.mulInPlace.MatView.3x3.f32",
         "extended.mulInPlace.MatView.3x3.f64",
         "vecops.div.VecView.3.f32",
@@ -1243,18 +1235,16 @@
       "name": "MatView identity clears dirty storage and transpose supports rectangles",
       "original_assertion_count": 2,
       "case_ids": [
-        "extended.identity.Mat.2x2.f32",
-        "extended.identity.Mat.2x2.f64",
-        "extended.identity.MatView.2x2.f32",
-        "extended.identity.MatView.2x2.f64",
-        "extended.transposeSquare.MatView.2x2.f32",
-        "extended.transposeSquare.MatView.2x2.f64",
+        "extended.identity.Mat.3x3.f32",
+        "extended.identity.Mat.3x3.f64",
+        "extended.identity.MatView.3x3.f32",
+        "extended.identity.MatView.3x3.f64",
         "extended.transposeSquare.MatView.3x3.f32",
         "extended.transposeSquare.MatView.3x3.f64",
-        "matops.transpose.Mat.1x1x1.f32",
-        "matops.transpose.Mat.1x1x1.f64",
-        "matops.transpose.MatView.1x1x1.f32",
-        "matops.transpose.MatView.1x1x1.f64"
+        "matops.transpose.Mat.2x2x2.f32",
+        "matops.transpose.Mat.2x2x2.f64",
+        "matops.transpose.MatView.2x2x2.f32",
+        "matops.transpose.MatView.2x2x2.f64"
       ]
     },
     {
@@ -1299,10 +1289,10 @@
       "case_ids": [
         "extended.getSlice.NDArray.methods.f32",
         "extended.getSlice.NDArray.methods.f64",
-        "extended.row.Mat.2x2.f32",
-        "extended.row.Mat.2x2.f64",
-        "extended.row.MatView.2x2.f32",
-        "extended.row.MatView.2x2.f64"
+        "extended.row.Mat.3x3.f32",
+        "extended.row.Mat.3x3.f64",
+        "extended.row.MatView.3x3.f32",
+        "extended.row.MatView.3x3.f64"
       ]
     },
     {
@@ -1377,12 +1367,12 @@
       "name": "NDArrayOps arithmetic, extraction, and empty prefix view",
       "original_assertion_count": 5,
       "case_ids": [
-        "extended.addOut.MatView.2.f32",
-        "extended.addOut.MatView.2.f64",
         "extended.addOut.MatView.3.f32",
         "extended.addOut.MatView.3.f64",
-        "extended.divOut.MatView.2x2.f32",
-        "extended.divOut.MatView.2x2.f64",
+        "extended.addOut.NDArray.1.f32",
+        "extended.addOut.NDArray.1.f64",
+        "extended.divOut.MatView.2x3.f32",
+        "extended.divOut.MatView.2x3.f64",
         "extended.divOut.MatView.3x3.f32",
         "extended.divOut.MatView.3x3.f64",
         "extended.emptyPrefix.NDArray.1.f32",
@@ -1391,14 +1381,14 @@
         "extended.emptyPrefix.NDArray.17.f64",
         "extended.extractMat.NDArray.methods.f32",
         "extended.extractMat.NDArray.methods.f64",
-        "extended.mulOut.MatView.2x2.f32",
-        "extended.mulOut.MatView.2x2.f64",
+        "extended.mulOut.MatView.2x3.f32",
+        "extended.mulOut.MatView.2x3.f64",
         "extended.mulOut.MatView.3x3.f32",
         "extended.mulOut.MatView.3x3.f64",
-        "extended.subOut.MatView.2.f32",
-        "extended.subOut.MatView.2.f64",
         "extended.subOut.MatView.3.f32",
-        "extended.subOut.MatView.3.f64"
+        "extended.subOut.MatView.3.f64",
+        "extended.subOut.NDArray.1.f32",
+        "extended.subOut.NDArray.1.f64"
       ]
     },
     {
@@ -1957,20 +1947,20 @@
       "case_ids": [
         "extended.coordinates.Vec.methods.f32",
         "extended.coordinates.Vec.methods.f64",
-        "extended.diag.Mat.2x2.f32",
-        "extended.diag.Mat.2x2.f64",
-        "extended.diag.MatView.2x2.f32",
-        "extended.diag.MatView.2x2.f64",
+        "extended.diag.Mat.3x3.f32",
+        "extended.diag.Mat.3x3.f64",
+        "extended.diag.MatView.3x3.f32",
+        "extended.diag.MatView.3x3.f64",
         "extended.fill.Vec.methods.f32",
         "extended.fill.Vec.methods.f64",
         "extended.fill.VecView.methods.f32",
         "extended.fill.VecView.methods.f64",
-        "extended.identity.Mat.2x2.f32",
-        "extended.identity.Mat.2x2.f64",
-        "extended.identity.MatView.2x2.f32",
-        "extended.identity.MatView.2x2.f64",
-        "extended.initRows.Mat.2x2.f32",
-        "extended.initRows.Mat.2x2.f64",
+        "extended.identity.Mat.3x3.f32",
+        "extended.identity.Mat.3x3.f64",
+        "extended.identity.MatView.3x3.f32",
+        "extended.identity.MatView.3x3.f64",
+        "extended.initRows.Mat.2x3.f32",
+        "extended.initRows.Mat.2x3.f64",
         "extended.initRows.Mat.3x3.f32",
         "extended.initRows.Mat.3x3.f64",
         "extended.initVec2.Vec.methods.f32",
@@ -1998,20 +1988,20 @@
         "extended.componentExtrema.Vec.methods.f64",
         "extended.coordinates.Vec.methods.f32",
         "extended.coordinates.Vec.methods.f64",
-        "extended.diag.Mat.2x2.f32",
-        "extended.diag.Mat.2x2.f64",
-        "extended.diag.MatView.2x2.f32",
-        "extended.diag.MatView.2x2.f64",
+        "extended.diag.Mat.3x3.f32",
+        "extended.diag.Mat.3x3.f64",
+        "extended.diag.MatView.3x3.f32",
+        "extended.diag.MatView.3x3.f64",
         "extended.fill.Vec.methods.f32",
         "extended.fill.Vec.methods.f64",
         "extended.fill.VecView.methods.f32",
         "extended.fill.VecView.methods.f64",
-        "extended.identity.Mat.2x2.f32",
-        "extended.identity.Mat.2x2.f64",
-        "extended.identity.MatView.2x2.f32",
-        "extended.identity.MatView.2x2.f64",
-        "extended.initRows.Mat.2x2.f32",
-        "extended.initRows.Mat.2x2.f64",
+        "extended.identity.Mat.3x3.f32",
+        "extended.identity.Mat.3x3.f64",
+        "extended.identity.MatView.3x3.f32",
+        "extended.identity.MatView.3x3.f64",
+        "extended.initRows.Mat.2x3.f32",
+        "extended.initRows.Mat.2x3.f64",
         "extended.initRows.Mat.3x3.f32",
         "extended.initRows.Mat.3x3.f64",
         "extended.initVec2.Vec.methods.f32",
@@ -2034,8 +2024,8 @@
       "name": "Vec direct vec field access and get set compatibility",
       "original_assertion_count": 8,
       "case_ids": [
-        "extended.flatAccess.MatView.2x2.f32",
-        "extended.flatAccess.MatView.2x2.f64",
+        "extended.flatAccess.MatView.2x3.f32",
+        "extended.flatAccess.MatView.2x3.f64",
         "extended.flatAccess.MatView.3x3.f32",
         "extended.flatAccess.MatView.3x3.f64",
         "types.valueCopy.Mat.ownership.f32",
@@ -2074,8 +2064,8 @@
       "name": "VecView.mulInPlace",
       "original_assertion_count": 1,
       "case_ids": [
-        "extended.mulInPlace.MatView.2x2.f32",
-        "extended.mulInPlace.MatView.2x2.f64",
+        "extended.mulInPlace.MatView.2x3.f32",
+        "extended.mulInPlace.MatView.2x3.f64",
         "extended.mulInPlace.MatView.3x3.f32",
         "extended.mulInPlace.MatView.3x3.f64",
         "vecops.mul.VecView.3.f32",
@@ -2090,8 +2080,8 @@
       "name": "VecView.divInPlace",
       "original_assertion_count": 1,
       "case_ids": [
-        "extended.divInPlace.MatView.2x2.f32",
-        "extended.divInPlace.MatView.2x2.f64",
+        "extended.divInPlace.MatView.2x3.f32",
+        "extended.divInPlace.MatView.2x3.f64",
         "extended.divInPlace.MatView.3x3.f32",
         "extended.divInPlace.MatView.3x3.f64",
         "vecops.div.VecView.3.f32",

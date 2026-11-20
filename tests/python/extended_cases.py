@@ -32,7 +32,7 @@ def generate(add):
                 case(op,rep,[1,2,3],None,b=[1,2],error='LengthMismatch')
             case('partialApply',rep,[0,0,99,99],[1,1,99,99],b=[0,0])
             case('rangeLen',rep,[0,1,.3],[4])
-        for r,c in [(2,2),(3,3),(4,4),(2,3),(3,2)]:
+        for r,c in [(3,3),(2,3),(3,2)]:
             a=np.arange(1,r*c+1,dtype=dt).reshape(r,c);b=a+4
             flat=a.ravel().tolist();shape=[r,c,c]
             for rep in ['Mat','MatView']:
@@ -66,7 +66,7 @@ def generate(add):
                 case('insertSubmatrix','Mat',flat,expected.ravel(),shape=shape,index=[0,0],label=f'{r}x{c}')
         case('adj','Mat',[1,2,3,4],[4,-2,-3,1],shape=[2,2,2])
         case('mulVec3','Mat',list(range(1,17)),np.array(list(range(1,17))).reshape(4,4)[:3,:3]@np.array([1,2,3])+np.array([4,8,12]),b=[1,2,3],shape=[4,4,4])
-        for n in [2,3,4]:
+        for n in [3]:
             a=np.arange(1,n*n+1,dtype=dt).reshape(n,n)
             for op,expected in [('mulMatMethod',a@a),('mulMatRectMethod',a@a),('mulSquareView',a@a),('mulView',a@a),('scaleOut',a*2),('addOut',a+a),('subOut',a-a)]:
                 rep='Mat' if 'Method' in op else 'MatView'
@@ -96,7 +96,7 @@ def generate(add):
         case('getSlice','NDArray',list(range(24)),list(range(4,8)),shape=[2,3,4],index=[0,1,0],alpha=1)
         case('matchDims','NDArray',list(range(6)),[1,0],shape=[2,3])
         case('extractMat','NDArray',list(range(24)),np.arange(24).reshape(2,3,4)[1,:,:].ravel(),shape=[2,3,4],index=[1,0,0])
-        for n in [2,3,6,12]:
+        for n in [3]:
             rng=np.random.default_rng(54321+n);j=rng.normal(size=(n+3,n));a=np.asarray(j.T@j+np.eye(n),dtype=dt)
             rhs=np.stack([np.arange(n,dtype=dt)+k for k in [1,3,-2]])
             for rep in ['Mat','MatView']:

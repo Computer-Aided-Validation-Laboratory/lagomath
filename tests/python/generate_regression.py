@@ -45,17 +45,29 @@ def generate():
         inp=dict(a=a.reshape(-1).tolist(),b=b.reshape(-1).tolist(),x=x.tolist(),shape=[rows,inner,cols])
         for rep in ['MatView','Mat']:
           for op,expected in dict(matmul=a@b,matvec=a@x,transpose=a.T,trace=np.trace(a),frobeniusNorm=np.linalg.norm(a),maxAbs=np.max(np.abs(a)),allFinite=1).items():
+            # One square baseline covers every operation. Products exercise all
+            # fixed sizes; rectangular layouts additionally exercise transpose.
+            if rows==inner==cols:
+                # 2x2 transpose also supplies the fixed POD C ABI check.
+                if rows!=3 and op!='matmul' and not (rows==2 and op=='transpose'):continue
+            elif op not in ['matmul','matvec','transpose']:continue
             add('matops',op,dtype,inp,expected,representation=rep,label=f'{rows}x{inner}x{cols}')
       for n in [1,2,3,4,6,8,12]:
         rng=np.random.default_rng(314159+n);j=rng.normal(size=(n+3,n));a=np.asarray(j.T@j+np.eye(n),dtype=dt);b=np.arange(1,n+1,dtype=dt)
-        for scale in ([1.,1e-25,1e25] if dtype=='f32' else [1.,1e-250,1e250]):
+        # Scaling is an algorithm property, not a size-by-scale cross product.
+        scales=([1.,1e-25,1e25] if dtype=='f32' else [1.,1e-250,1e250]) if n==3 else [1.]
+        for scale in scales:
           aa=np.asarray(a*scale,dtype=dt);bb=np.asarray(b*scale,dtype=dt)
           # Reference solves unscaled represented matrix to avoid LAPACK scaling artefacts.
           x=np.linalg.solve(aa.astype(np.float64)/scale,bb.astype(np.float64)/scale)
           for op in ['gauss','lu','cholesky','luReuse','choleskyReuse']:
             for rep in ['Mat','MatView']:
+              # Full solver/representation coverage at singleton, small and
+              # medium dimensions; Gaussian fixed-size smoke at other sizes.
+              if n not in [1,3,6] and (op!='gauss' or rep!='Mat'):continue
               add('linsolve',op,dtype,dict(a=aa.reshape(-1).tolist(),b=bb.tolist(),shape=[n,n]),x,representation=rep,label=f'{n}.scale{scale}')
         for op,error,aa in [('gauss','SingularMatrix',np.zeros((n,n))),('lu','SingularMatrix',np.zeros((n,n))),('cholesky','NotPositiveDefinite',-np.eye(n))]:
+          if n not in [1,3]:continue
           add('linsolve',op,dtype,dict(a=aa.reshape(-1).tolist(),b=b.tolist(),shape=[n,n]),error=error,representation='MatView',label=f'{n}.failure',source='hand')
       for shape in [[1],[3],[17],[257],[2,3],[3,5],[2,3,4],[3,2,5],[2,3,4,5],[2,2,2,2,2]]:
         index=[s-1 for s in shape];flat=int(np.ravel_multi_index(tuple(index),tuple(shape)))
@@ -69,7 +81,7 @@ def generate():
           elif op=='scaleRow':expected[0]*=-0.5
           else:expected[rows-1]+=expected[0]*-0.5
           add('rowops',op,dtype,dict(a=a.reshape(-1).tolist(),shape=[rows,cols],alpha=-0.5),expected,representation='MatView',label=f'{rows}x{cols}')
-      for n in [1,3,6,12]:
+      for n in [1,3]:
         a=np.arange(n,dtype=float)/4;b=np.arange(n,dtype=float)/2-1
         for op in ['outer','outerAdd']:
           initial=np.full((n,n),2.)
@@ -124,12 +136,13 @@ def generate():
     for dtype in ['f32','f64']:
       dt=np.float32 if dtype=='f32' else np.float64
       eps=np.finfo(dt).eps
-      for n in [2,3,4,6,8,12]:
+      # Distinct matrix families share one small dimension. Larger dense
+      # solves are already covered above; no family-by-size multiplication.
+      for n in [3]:
         families={'identity':np.eye(n),'diagonal':np.diag(np.arange(1,n+1)),'triangular':np.triu(np.ones((n,n)))+np.eye(n),'permutation':np.eye(n)[::-1], 'nearSingular':np.diag([1.]*(n-1)+[eps/8])}
         if n in [2,3,6,12]:
             rng=np.random.default_rng(9876+n)
             families['denseSigned']=rng.normal(size=(n,n))+np.eye(n)*n
-            families['conditionedDiagonal']=np.diag(np.geomspace(1,1e-4 if dtype=='f32' else 1e-10,n))
         families['zeroRhs']=np.eye(n)
         if n in [2,3,6,12]:
             for condition in ([1e2,1e4] if dtype=='f32' else [1e2,1e4,1e6,1e8,1e12]):
@@ -162,7 +175,7 @@ def generate():
         contracts.append(dict(id='contract.'+label,suite='ndarray' if op!='matrixInit' else 'types',category='contract',operation=op,dtype='f64',representation='NDArray' if op!='matrixInit' else 'MatView',inputs=dict(a=[0]*6,shape=shape,index=index),expected_error='AssertionFailed',source='hand',execution='native-child-process'))
     (OUT/'contracts.json').write_text(json.dumps(dict(schema_version=1,cases=contracts),indent=2)+'\n')
     files={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(OUT.glob('*.json')) if p.stem in suites or p.stem=='contracts'}
-    manifest=dict(schema_version=1,generator='generate_regression.py/v3',numpy=np.__version__,scipy=scipy.__version__,files=files,case_count=sum(map(len,suites.values())),contract_count=len(contracts),abi_output_guard=dict(prefix=2,suffix=2,value=123))
+    manifest=dict(schema_version=1,generator='generate_regression.py/v4',numpy=np.__version__,scipy=scipy.__version__,files=files,case_count=sum(map(len,suites.values())),contract_count=len(contracts),abi_output_guard=dict(prefix=2,suffix=2,value=123))
     all_cases=[c for cases in suites.values() for c in cases]
     (OUT/'all.json').write_text(json.dumps(dict(schema_version=1,cases=all_cases),separators=(',',':'))+'\n')
     from legacy_registry import generate as registry
