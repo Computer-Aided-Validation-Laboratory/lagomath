@@ -194,13 +194,18 @@ def fixed[N: Int, dtype: DType](c: PythonObject, json: PythonObject) raises:
 
 def dynamic[dtype: DType](c: PythonObject, json: PythonObject) raises:
     var n = Int(py=c["shape"][0])
-    var a = List[Scalar[dtype]](length=n, fill=1)
-    var b = List[Scalar[dtype]](length=n, fill=1)
+    var batch = String(py=c["operation"])=="dotBatch3"
+    var length = n*3 if batch else n
+    var a = List[Scalar[dtype]](length=length, fill=1)
+    var b = List[Scalar[dtype]](length=length, fill=1)
     var av = lm.VecView(Span(a))
     var bv = lm.VecView(Span(b))
-    var output = List[Scalar[dtype]](length=n, fill=0)
+    var output = List[Scalar[dtype]](length=length, fill=0)
     var dst = Span(output)
     var op = String(py=c["operation"])
+    var perm = List[Int](length=length,fill=0)
+    for i in range(length):
+        perm[i] = (17*i)%length
     var checksum: Scalar[dtype] = 0
     var runs = Int(py=c["runs_per_sample"])
     var warmup = Int(py=c["warmup"])
@@ -214,17 +219,61 @@ def dynamic[dtype: DType](c: PythonObject, json: PythonObject) raises:
             keep(av)
             keep(bv)
             if op == "dot":
-                checksum = lm.vecops.dotVecView(av, bv)
-            elif op == "sum":
+                checksum = lm.vecops.dotVecView(av,bv)
+            elif op=="sum":
                 checksum = lm.sliceops.sum(av.data)
-            elif op == "max":
+            elif op=="mean":
+                checksum = lm.sliceops.mean(av.data)
+            elif op=="min":
+                checksum = lm.sliceops.min(av.data).val
+            elif op=="max":
                 checksum = lm.sliceops.max(av.data).val
-            elif op == "add":
-                lm.sliceops.add(av.data, bv.data, dst)
+            elif op=="normL1":
+                checksum = lm.vecops.normL1VecView(av)
+            elif op=="normL2":
+                checksum = lm.vecops.normL2VecView(av)
+            elif op=="normL2Square":
+                checksum = lm.vecops.normL2SquareVecView(av)
+            elif op=="maxAbs":
+                checksum = lm.vecops.maxAbsVecView(av)
+            elif op=="allFinite":
+                checksum = Scalar[dtype](Int(lm.vecops.allFiniteVecView(av)))
+            elif op=="add":
+                lm.sliceops.add(av.data,bv.data,dst)
                 keep(dst)
                 checksum = dst[0]
-            elif op == "mul":
-                lm.sliceops.mul(av.data, bv.data, dst)
+            elif op=="sub":
+                lm.sliceops.sub(av.data,bv.data,dst)
+                keep(dst)
+                checksum = dst[0]
+            elif op=="mul":
+                lm.sliceops.mul(av.data,bv.data,dst)
+                keep(dst)
+                checksum = dst[0]
+            elif op=="div":
+                lm.sliceops.div(av.data,bv.data,dst)
+                keep(dst)
+                checksum = dst[0]
+            elif op=="scale":
+                lm.sliceops.mulScal(av.data,Scalar[dtype](0.5),dst)
+                keep(dst)
+                checksum = dst[0]
+            elif op=="fill":
+                dst.fill(2)
+                keep(dst)
+                checksum = dst[0]
+            elif op=="permute":
+                lm.rowops.applyPermutationVecView(Span(perm),av,lm.VecView(dst))
+                keep(dst)
+                checksum = dst[0]
+            elif op=="dotBatch3":
+                batchDotScalar(av.data.as_imm(),bv.data.as_imm(),dst[0:n])
+                keep(dst)
+                checksum = dst[0]
+            elif op=="axpy":
+                for i in range(n):
+                    dst[i] = b[i]
+                lm.vecops.axpyVecView(Scalar[dtype](0.5),av,lm.VecView(dst))
                 keep(dst)
                 checksum = dst[0]
             else:
@@ -235,6 +284,14 @@ def dynamic[dtype: DType](c: PythonObject, json: PythonObject) raises:
             raise Error("InvalidChecksum")
         if sample >= 0:
             record(c, sample, Int(elapsed), runs, Float64(checksum), json)
+
+
+def batchDotScalar[dtype: DType,oa: Origin,ob: Origin,od: Origin[mut=True]](a: Span[Scalar[dtype],oa],b: Span[Scalar[dtype],ob],dst: Span[Scalar[dtype],od]):
+    for i in range(len(dst)):
+        var value: Scalar[dtype] = 0
+        comptime for k in range(3):
+            value += a[i*3+k]*b[i*3+k]
+        dst[i] = value
 
 
 def views[dtype: DType](c: PythonObject, json: PythonObject) raises:
@@ -306,6 +363,50 @@ def views[dtype: DType](c: PythonObject, json: PythonObject) raises:
                 lm.matops.mulMatMatView(matrix, matrix2, wm)
                 keep(wm)
                 checksum = wm.get(0, 0)
+            elif op == "addMatrix":
+                lm.MatViewOps[dtype].add(matrix, matrix2, wm)
+                keep(wm)
+                checksum = wm.get(0, 0)
+            elif op=="subMatrix":
+                lm.MatViewOps[dtype].sub(matrix,matrix2,wm)
+                keep(wm)
+                checksum = wm.get(0,0)
+            elif op=="mulMatrix":
+                lm.MatViewOps[dtype].mulElemWise(matrix,matrix2,wm)
+                keep(wm)
+                checksum = wm.get(0,0)
+            elif op=="divMatrix":
+                lm.MatViewOps[dtype].divElemWise(matrix,matrix2,wm)
+                keep(wm)
+                checksum = wm.get(0,0)
+            elif op=="scaleMatrix":
+                lm.MatViewOps[dtype].mulScal(matrix,Scalar[dtype](0.5),wm)
+                keep(wm)
+                checksum = wm.get(0,0)
+            elif op=="fillMatrix":
+                wm.fill(2)
+                keep(wm)
+                checksum = wm.get(0,0)
+            elif op=="matrixNorm":
+                checksum = lm.matops.frobeniusNormMatView(matrix)
+            elif op=="matrixMaxAbs":
+                checksum = lm.matops.maxAbsMatView(matrix)
+            elif op=="matrixAllFinite":
+                checksum = Scalar[dtype](Int(lm.matops.allFiniteMatView(matrix)))
+            elif op=="trace":
+                checksum = matrix.trace()
+            elif op=="scaleRow":
+                for i in range(n*n):
+                    work[i] = a[i]
+                lm.rowops.scaleRowMatView(0,Scalar[dtype](0.5),wm)
+                keep(wm)
+                checksum = wm.get(0,0)
+            elif op=="addScaledRow":
+                for i in range(n*n):
+                    work[i] = a[i]
+                lm.rowops.addScaledRowMatView(0,n-1,Scalar[dtype](0.5),wm)
+                keep(wm)
+                checksum = wm.get(n-1,0)
             elif op == "outer":
                 lm.matops.outerMatView(vector, vector2, wm)
                 keep(wm)
@@ -511,7 +612,39 @@ def rectangular[
             record(c, sample, Int(elapsed), runs, Float64(checksum), json)
 
 
+def rectangular_view[dtype: DType](c: PythonObject, json: PythonObject) raises:
+    var r = Int(py=c["shape"][0])
+    var k = Int(py=c["shape"][1])
+    var p = Int(py=c["shape"][2])
+    var a = List[Scalar[dtype]](length=r * k, fill=1)
+    var b = List[Scalar[dtype]](length=k * p, fill=1)
+    var out = List[Scalar[dtype]](length=r * p, fill=0)
+    var av = lm.MatView(Span(a), r, k)
+    var bv = lm.MatView(Span(b), k, p)
+    var ov = lm.MatView(Span(out), r, p)
+    var runs = Int(py=c["runs_per_sample"])
+    var checksum: Scalar[dtype] = 0
+    for sample in range(-1, Int(py=c["samples"])):
+        var count = runs if sample >= 0 else Int(py=c["warmup"])
+        var start = perf_counter_ns()
+        for iteration in range(count):
+            keep(av)
+            keep(bv)
+            lm.matops.mulMatMatView(av, bv, ov)
+            keep(ov)
+            checksum = ov.get(0, 0)
+            keep(checksum)
+        var elapsed = perf_counter_ns() - start
+        if checksum != Scalar[dtype](Float64(py=c["expected_checksum"])):
+            raise Error("InvalidChecksum")
+        if sample >= 0:
+            record(c, sample, Int(elapsed), runs, Float64(checksum), json)
+
+
 def dispatch[dtype: DType](c: PythonObject, json: PythonObject) raises:
+    if String(py=c["operation"]) == "matmulRect" and String(py=c["representation"]) == "MatView":
+        rectangular_view[dtype](c, json)
+        return
     if String(py=c["operation"]).endswith("Rect"):
         var r = Int(py=c["shape"][0])
         var k = Int(py=c["shape"][1])

@@ -45,21 +45,23 @@ pub fn build(b: *std.Build) void {
     const example_step = b.step("run-example", "Run the basic example");
     example_step.dependOn(&run_example.step);
     const benchmark = b.addExecutable(.{ .name = "lagomath-benchmark", .root_module = b.createModule(.{
-        .root_source_file = b.path("src/benchmark.zig"),
+        .root_source_file = b.path(b.option([]const u8, "bench-source", "Benchmark adapter source") orelse "src/benchmark.zig"),
         .target = target,
         .optimize = optimize,
         .imports = &.{.{ .name = "bench_cases", .module = b.createModule(.{ .root_source_file = b.path(b.option([]const u8, "bench-cases", "Benchmark fixture module") orelse "benchmarks/cases/data.zig") }) }},
         .link_libc = true,
     }) });
+    benchmark.root_module.addImport("lagomath", lagomath);
     const run_benchmark = b.addRunArtifact(benchmark);
     if (b.args) |args| run_benchmark.addArgs(args);
     b.step("bench", "Run shared JSON scalar benchmark cases").dependOn(&run_benchmark.step);
     const runner = b.addExecutable(.{ .name = "lagomath-cases", .root_module = b.createModule(.{
-        .root_source_file = b.path("src/case_runner.zig"),
+        .root_source_file = b.path(b.option([]const u8, "cases-source", "Numerical adapter source") orelse "src/case_runner.zig"),
         .target = target,
         .optimize = optimize,
-        .imports = &.{.{ .name = "shared_cases", .module = b.createModule(.{ .root_source_file = b.path("tests/cases/data.zig") }) }},
+        .imports = &.{.{ .name = "shared_cases", .module = b.createModule(.{ .root_source_file = b.path(b.option([]const u8, "cases-data", "Numerical fixture module") orelse "tests/cases/data.zig") }) }},
     }) });
+    runner.root_module.addImport("lagomath", lagomath);
     const run_cases = b.addRunArtifact(runner);
     if (b.args) |args| run_cases.addArgs(args);
     b.step("cases", "Run shared numerical fixtures").dependOn(&run_cases.step);

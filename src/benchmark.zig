@@ -159,9 +159,11 @@ fn fixed(comptime N: usize, comptime T: type, c: Case) !void {
     }
 }
 fn dynamic(comptime T: type, c: Case) !void {
-    const a = try std.heap.page_allocator.alloc(T, c.shape[0]);
+    const batch = eq(c.operation, "dotBatch3");
+    const count = c.shape[0] * (if (batch) @as(usize, 3) else 1);
+    const a = try std.heap.page_allocator.alloc(T, count);
     defer std.heap.page_allocator.free(a);
-    const b = try std.heap.page_allocator.alloc(T, c.shape[0]);
+    const b = try std.heap.page_allocator.alloc(T, count);
     defer std.heap.page_allocator.free(b);
     @memset(a, 1);
     @memset(b, 1);
@@ -169,6 +171,9 @@ fn dynamic(comptime T: type, c: Case) !void {
     const w = lm.VecView(T).init(b);
     const out = try std.heap.page_allocator.alloc(T, a.len);
     defer std.heap.page_allocator.free(out);
+    const perm = try std.heap.page_allocator.alloc(usize, a.len);
+    defer std.heap.page_allocator.free(perm);
+    for (perm, 0..) |*value, i| value.* = (17 * i) % a.len;
     for (0..c.samples + 1) |sample| {
         const runs = if (sample == 0) c.warmup else c.runs_per_sample;
         if (runs == 0) continue;
@@ -177,8 +182,12 @@ fn dynamic(comptime T: type, c: Case) !void {
         for (0..runs) |_| {
             std.mem.doNotOptimizeAway(a.ptr);
             std.mem.doNotOptimizeAway(b.ptr);
-            if (eq(c.operation, "dot")) checksum = lm.vecops.dotVecView(T, v, w) else if (eq(c.operation, "sum")) checksum = lm.sliceops.sum(T, a) else if (eq(c.operation, "max")) checksum = lm.sliceops.max(T, a).val else {
-                if (eq(c.operation, "add")) lm.sliceops.add(T, a, b, out) else if (eq(c.operation, "mul")) lm.sliceops.mul(T, a, b, out) else return error.UnknownOperation;
+            const op = c.operation;
+            if (eq(op, "dot")) checksum = lm.vecops.dotVecView(T, v, w) else if (eq(op, "sum")) checksum = lm.sliceops.sum(T, a) else if (eq(op, "mean")) checksum = lm.sliceops.mean(T, a) else if (eq(op, "min")) checksum = lm.sliceops.min(T, a).val else if (eq(op, "max")) checksum = lm.sliceops.max(T, a).val else if (eq(op, "normL1")) checksum = lm.vecops.normL1VecView(T, v) else if (eq(op, "normL2")) checksum = lm.vecops.normL2VecView(T, v) else if (eq(op, "normL2Square")) checksum = lm.vecops.normL2SquareVecView(T, v) else if (eq(op, "maxAbs")) checksum = lm.vecops.maxAbsVecView(T, v) else if (eq(op, "allFinite")) checksum = if (lm.vecops.allFiniteVecView(T, v)) 1 else 0 else {
+                if (eq(op, "add")) lm.sliceops.add(T, a, b, out) else if (eq(op, "sub")) lm.sliceops.sub(T, a, b, out) else if (eq(op, "mul")) lm.sliceops.mul(T, a, b, out) else if (eq(op, "div")) lm.sliceops.div(T, a, b, out) else if (eq(op, "scale")) lm.sliceops.mulScal(T, a, 0.5, out) else if (eq(op, "fill")) @memset(out, 2) else if (eq(op, "permute")) lm.rowops.applyPermutationVecView(T, perm, v, lm.VecView(T).init(out)) else if (eq(op, "dotBatch3")) batchDotScalar(T, a, b, out[0..c.shape[0]]) else if (eq(op, "axpy")) {
+                    @memcpy(out, b);
+                    lm.vecops.axpyVecView(T, 0.5, v, lm.VecView(T).init(out));
+                } else return error.UnknownOperation;
                 std.mem.doNotOptimizeAway(out);
                 checksum = out[0];
             }
@@ -187,6 +196,13 @@ fn dynamic(comptime T: type, c: Case) !void {
         const elapsed = now() - start;
         if (checksum != @as(T, @floatCast(c.expected_checksum))) return error.InvalidChecksum;
         if (sample > 0 and jsonl) std.debug.print("{{\"id\":\"{s}\",\"backend\":\"zig\",\"sample\":{d},\"ns\":{d},\"runs\":{d},\"checksum\":{d}}}\n", .{ c.id, sample - 1, elapsed, c.runs_per_sample, checksum });
+    }
+}
+fn batchDotScalar(comptime T: type, a: []const T, b: []const T, out: []T) void {
+    for (out, 0..) |*value, i| {
+        var acc: T = 0;
+        inline for (0..3) |k| acc += a[i * 3 + k] * b[i * 3 + k];
+        value.* = acc;
     }
 }
 fn view(comptime T: type, c: Case) !void {
@@ -255,6 +271,48 @@ fn view(comptime T: type, c: Case) !void {
                 lm.matops.mulMatMatView(T, matrix, matrix2, dest);
                 std.mem.doNotOptimizeAway(work);
                 checksum = work[0];
+            } else if (eq(op, "addMatrix")) {
+                lm.MatViewOps(T).add(&matrix, &matrix2, &dest);
+                std.mem.doNotOptimizeAway(work);
+                checksum = work[0];
+            } else if (eq(op, "subMatrix")) {
+                lm.MatViewOps(T).sub(&matrix, &matrix2, &dest);
+                std.mem.doNotOptimizeAway(work);
+                checksum = work[0];
+            } else if (eq(op, "mulMatrix")) {
+                lm.MatViewOps(T).mulElemWise(&matrix, &matrix2, &dest);
+                std.mem.doNotOptimizeAway(work);
+                checksum = work[0];
+            } else if (eq(op, "divMatrix")) {
+                lm.MatViewOps(T).divElemWise(&matrix, &matrix2, &dest);
+                std.mem.doNotOptimizeAway(work);
+                checksum = work[0];
+            } else if (eq(op, "scaleMatrix")) {
+                lm.MatViewOps(T).mulScal(&matrix, 0.5, &dest);
+                std.mem.doNotOptimizeAway(work);
+                checksum = work[0];
+            } else if (eq(op, "fillMatrix")) {
+                dest.fill(2);
+                std.mem.doNotOptimizeAway(work);
+                checksum = work[0];
+            } else if (eq(op, "matrixNorm")) {
+                checksum = lm.matops.frobeniusNormMatView(T, matrix);
+            } else if (eq(op, "matrixMaxAbs")) {
+                checksum = lm.matops.maxAbsMatView(T, matrix);
+            } else if (eq(op, "matrixAllFinite")) {
+                checksum = if (lm.matops.allFiniteMatView(T, matrix)) @as(T, 1) else @as(T, 0);
+            } else if (eq(op, "trace")) {
+                checksum = matrix.trace();
+            } else if (eq(op, "scaleRow")) {
+                @memcpy(work, a);
+                lm.rowops.scaleRowMatView(T, 0, 0.5, dest);
+                std.mem.doNotOptimizeAway(work);
+                checksum = work[0];
+            } else if (eq(op, "addScaledRow")) {
+                @memcpy(work, a);
+                lm.rowops.addScaledRowMatView(T, 0, n - 1, 0.5, dest);
+                std.mem.doNotOptimizeAway(work);
+                checksum = work[(n - 1) * n];
             } else if (eq(op, "outer")) {
                 lm.matops.outerMatView(T, vector, vector2, dest);
                 std.mem.doNotOptimizeAway(work);
@@ -297,7 +355,7 @@ fn view(comptime T: type, c: Case) !void {
             }
         }
         const elapsed = now() - start;
-        if (@abs(@as(f64, @floatCast(checksum)) - c.expected_checksum) > 1e-4 * @max(1, @abs(c.expected_checksum))) return error.InvalidChecksum;
+        if (!std.math.isFinite(checksum) or @abs(@as(f64, @floatCast(checksum)) - c.expected_checksum) > 1e-4 * @max(1, @abs(c.expected_checksum))) return error.InvalidChecksum;
         if (sample > 0) if (jsonl) std.debug.print("{{\"id\":\"{s}\",\"backend\":\"zig\",\"sample\":{d},\"ns\":{d},\"runs\":{d},\"checksum\":{d}}}\n", .{ c.id, sample - 1, elapsed, c.runs_per_sample, checksum });
     }
 }
@@ -385,7 +443,41 @@ fn rectangular(comptime R: usize, comptime C: usize, comptime P: usize, comptime
         if (sample > 0) if (jsonl) std.debug.print("{{\"id\":\"{s}\",\"backend\":\"zig\",\"sample\":{d},\"ns\":{d},\"runs\":{d},\"checksum\":{d}}}\n", .{ c.id, sample - 1, elapsed, c.runs_per_sample, checksum });
     }
 }
+fn rectangularView(comptime T: type, c: Case) !void {
+    const r = c.shape[0];
+    const k = c.shape[1];
+    const p = c.shape[2];
+    const alloc = std.heap.page_allocator;
+    const a = try alloc.alloc(T, r * k);
+    defer alloc.free(a);
+    const b = try alloc.alloc(T, k * p);
+    defer alloc.free(b);
+    const out = try alloc.alloc(T, r * p);
+    defer alloc.free(out);
+    @memset(a, 1);
+    @memset(b, 1);
+    const av = lm.MatView(T).init(a, r, k);
+    const bv = lm.MatView(T).init(b, k, p);
+    const ov = lm.MatView(T).init(out, r, p);
+    var checksum: T = 0;
+    for (0..c.samples + 1) |sample| {
+        const count = if (sample == 0) c.warmup else c.runs_per_sample;
+        const start = now();
+        for (0..count) |_| {
+            std.mem.doNotOptimizeAway(a.ptr);
+            std.mem.doNotOptimizeAway(b.ptr);
+            lm.matops.mulMatMatView(T, av, bv, ov);
+            std.mem.doNotOptimizeAway(out);
+            checksum = out[0];
+            std.mem.doNotOptimizeAway(checksum);
+        }
+        const elapsed = now() - start;
+        if (!std.math.isFinite(checksum) or @abs(@as(f64, @floatCast(checksum)) - c.expected_checksum) > 1e-4 * @max(1, @abs(c.expected_checksum))) return error.InvalidChecksum;
+        if (sample > 0 and jsonl) std.debug.print("{{\"id\":\"{s}\",\"backend\":\"zig\",\"sample\":{d},\"ns\":{d},\"runs\":{d},\"checksum\":{d}}}\n", .{ c.id, sample - 1, elapsed, c.runs_per_sample, checksum });
+    }
+}
 fn dispatch(comptime T: type, c: Case) !void {
+    if (eq(c.operation, "matmulRect") and eq(c.representation, "MatView")) return rectangularView(T, c);
     if (std.mem.endsWith(u8, c.operation, "Rect")) {
         inline for (.{ .{ 2, 3, 4 }, .{ 3, 2, 3 }, .{ 4, 8, 3 }, .{ 6, 12, 8 }, .{ 12, 6, 3 } }) |dims| {
             if (c.shape[0] == dims[0] and c.shape[1] == dims[1] and c.shape[2] == dims[2]) return rectangular(dims[0], dims[1], dims[2], T, c);

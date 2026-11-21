@@ -78,3 +78,16 @@ pub const Mat44T = mattype.Mat44T;
 pub const Mat22f = mattype.Mat22f;
 pub const Mat33f = mattype.Mat33f;
 pub const Mat44f = mattype.Mat44f;
+
+pub const sliceops_simd = @import("sliceops_simd.zig");
+pub const vecops_simd = @import("vecops_simd.zig");
+pub const matops_simd = @import("matops_simd.zig");
+pub const rowops_simd = @import("rowops_simd.zig");
+pub const linsolve_simd = @import("linsolve_simd.zig");
+pub const smallmatops_simd = @import("smallmatops_simd.zig");
+
+test {
+    _ = @import("simd_tests.zig");
+}
+
+pub const ndarrayops_simd = @import("ndarrayops_simd.zig");

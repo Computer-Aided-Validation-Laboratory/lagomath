@@ -36,3 +36,11 @@ import mattype
 import vecviewtype
 import matviewtype
 import ndarraytype
+
+import sliceops_simd
+import vecops_simd
+import matops_simd
+import rowops_simd
+import linsolve_simd
+import smallmatops_simd
+import ndarrayops_simd

@@ -1552,7 +1552,21 @@
         "bench.matmul.MatView.12x12.signed_alternating.f64",
         "bench.matmul.MatView.3x3.dense_random.f64",
         "bench.matmul.MatView.6x6.dense_random.f64",
-        "bench.matmul.MatView.12x12.dense_random.f64"
+        "bench.matmul.MatView.12x12.dense_random.f64",
+        "bench.matmul.MatView.16.f32",
+        "bench.matmul.MatView.32.f32",
+        "bench.matmul.MatView.64.f32",
+        "bench.matmul.MatView.127.f32",
+        "bench.matmul.MatView.128.f32",
+        "bench.matmul.MatView.256.f32",
+        "bench.matmul.MatView.512.f32",
+        "bench.matmul.MatView.16.f64",
+        "bench.matmul.MatView.32.f64",
+        "bench.matmul.MatView.64.f64",
+        "bench.matmul.MatView.127.f64",
+        "bench.matmul.MatView.128.f64",
+        "bench.matmul.MatView.256.f64",
+        "bench.matmul.MatView.512.f64"
       ],
       "cabi": false,
       "verification": "shared native numerical cases"
@@ -1707,7 +1721,21 @@
         "bench.matmul.MatView.12x12.signed_alternating.f64",
         "bench.matmul.MatView.3x3.dense_random.f64",
         "bench.matmul.MatView.6x6.dense_random.f64",
-        "bench.matmul.MatView.12x12.dense_random.f64"
+        "bench.matmul.MatView.12x12.dense_random.f64",
+        "bench.matmul.MatView.16.f32",
+        "bench.matmul.MatView.32.f32",
+        "bench.matmul.MatView.64.f32",
+        "bench.matmul.MatView.127.f32",
+        "bench.matmul.MatView.128.f32",
+        "bench.matmul.MatView.256.f32",
+        "bench.matmul.MatView.512.f32",
+        "bench.matmul.MatView.16.f64",
+        "bench.matmul.MatView.32.f64",
+        "bench.matmul.MatView.64.f64",
+        "bench.matmul.MatView.127.f64",
+        "bench.matmul.MatView.128.f64",
+        "bench.matmul.MatView.256.f64",
+        "bench.matmul.MatView.512.f64"
       ],
       "cabi": false,
       "verification": "shared native numerical cases"
@@ -1786,7 +1814,21 @@
         "bench.matmul.MatView.12x12.signed_alternating.f64",
         "bench.matmul.MatView.3x3.dense_random.f64",
         "bench.matmul.MatView.6x6.dense_random.f64",
-        "bench.matmul.MatView.12x12.dense_random.f64"
+        "bench.matmul.MatView.12x12.dense_random.f64",
+        "bench.matmul.MatView.16.f32",
+        "bench.matmul.MatView.32.f32",
+        "bench.matmul.MatView.64.f32",
+        "bench.matmul.MatView.127.f32",
+        "bench.matmul.MatView.128.f32",
+        "bench.matmul.MatView.256.f32",
+        "bench.matmul.MatView.512.f32",
+        "bench.matmul.MatView.16.f64",
+        "bench.matmul.MatView.32.f64",
+        "bench.matmul.MatView.64.f64",
+        "bench.matmul.MatView.127.f64",
+        "bench.matmul.MatView.128.f64",
+        "bench.matmul.MatView.256.f64",
+        "bench.matmul.MatView.512.f64"
       ],
       "cabi": false,
       "verification": "shared native numerical cases"
@@ -1929,7 +1971,23 @@
         "bench.transpose.MatView.4.f64",
         "bench.transpose.MatView.6.f64",
         "bench.transpose.MatView.8.f64",
-        "bench.transpose.MatView.12.f64"
+        "bench.transpose.MatView.12.f64",
+        "bench.transpose.MatView.16.f32",
+        "bench.transpose.MatView.32.f32",
+        "bench.transpose.MatView.64.f32",
+        "bench.transpose.MatView.127.f32",
+        "bench.transpose.MatView.128.f32",
+        "bench.transpose.MatView.256.f32",
+        "bench.transpose.MatView.512.f32",
+        "bench.transpose.MatView.1024.f32",
+        "bench.transpose.MatView.16.f64",
+        "bench.transpose.MatView.32.f64",
+        "bench.transpose.MatView.64.f64",
+        "bench.transpose.MatView.127.f64",
+        "bench.transpose.MatView.128.f64",
+        "bench.transpose.MatView.256.f64",
+        "bench.transpose.MatView.512.f64",
+        "bench.transpose.MatView.1024.f64"
       ],
       "cabi": false,
       "verification": "shared native numerical cases"
@@ -1948,7 +2006,16 @@
         "matops.trace.MatView.legacy.mattype.Mat22f_trace.0.f32",
         "matops.trace.MatView.legacy.mattype.Mat22f_trace.0.f64"
       ],
-      "benchmark_ids": [],
+      "benchmark_ids": [
+        "bench.trace.MatView.3.f32",
+        "bench.trace.MatView.33.f32",
+        "bench.trace.MatView.128.f32",
+        "bench.trace.MatView.512.f32",
+        "bench.trace.MatView.3.f64",
+        "bench.trace.MatView.33.f64",
+        "bench.trace.MatView.128.f64",
+        "bench.trace.MatView.512.f64"
+      ],
       "cabi": false,
       "verification": "shared native numerical cases"
     },
@@ -4047,7 +4114,16 @@
         "vecops.mean.slice.legacy.vecviewtype.VecView_mean.0.f32",
         "vecops.mean.slice.legacy.vecviewtype.VecView_mean.0.f64"
       ],
-      "benchmark_ids": [],
+      "benchmark_ids": [
+        "bench.mean.slice.3.f32",
+        "bench.mean.slice.33.f32",
+        "bench.mean.slice.4096.f32",
+        "bench.mean.slice.65537.f32",
+        "bench.mean.slice.3.f64",
+        "bench.mean.slice.33.f64",
+        "bench.mean.slice.4096.f64",
+        "bench.mean.slice.65537.f64"
+      ],
       "cabi": false,
       "verification": "shared native numerical cases"
     },
@@ -4159,7 +4235,16 @@
         "vecops.normL1.slice.legacy.vecviewtype.VecView_access_and_vector_reductions.0.f32",
         "vecops.normL1.slice.legacy.vecviewtype.VecView_access_and_vector_reductions.0.f64"
       ],
-      "benchmark_ids": [],
+      "benchmark_ids": [
+        "bench.normL1.slice.3.f32",
+        "bench.normL1.slice.33.f32",
+        "bench.normL1.slice.4096.f32",
+        "bench.normL1.slice.65537.f32",
+        "bench.normL1.slice.3.f64",
+        "bench.normL1.slice.33.f64",
+        "bench.normL1.slice.4096.f64",
+        "bench.normL1.slice.65537.f64"
+      ],
       "cabi": false,
       "verification": "shared native numerical cases"
     },
@@ -4189,7 +4274,16 @@
         "vecops.normL2.slice.legacy.vecviewtype.VecView_access_and_vector_reductions.0.f32",
         "vecops.normL2.slice.legacy.vecviewtype.VecView_access_and_vector_reductions.0.f64"
       ],
-      "benchmark_ids": [],
+      "benchmark_ids": [
+        "bench.normL2.slice.3.f32",
+        "bench.normL2.slice.33.f32",
+        "bench.normL2.slice.4096.f32",
+        "bench.normL2.slice.65537.f32",
+        "bench.normL2.slice.3.f64",
+        "bench.normL2.slice.33.f64",
+        "bench.normL2.slice.4096.f64",
+        "bench.normL2.slice.65537.f64"
+      ],
       "cabi": false,
       "verification": "shared native numerical cases"
     },
@@ -4215,7 +4309,16 @@
         "vecops.normL2Square.slice.legacy.vecviewtype.VecView_access_and_vector_reductions.0.f32",
         "vecops.normL2Square.slice.legacy.vecviewtype.VecView_access_and_vector_reductions.0.f64"
       ],
-      "benchmark_ids": [],
+      "benchmark_ids": [
+        "bench.normL2Square.slice.3.f32",
+        "bench.normL2Square.slice.33.f32",
+        "bench.normL2Square.slice.4096.f32",
+        "bench.normL2Square.slice.65537.f32",
+        "bench.normL2Square.slice.3.f64",
+        "bench.normL2Square.slice.33.f64",
+        "bench.normL2Square.slice.4096.f64",
+        "bench.normL2Square.slice.65537.f64"
+      ],
       "cabi": false,
       "verification": "shared native numerical cases"
     },
@@ -4332,7 +4435,16 @@
         "vecops.sub.slice.legacy.vecviewtype.VecView_subInPlace.0.f32",
         "vecops.sub.slice.legacy.vecviewtype.VecView_subInPlace.0.f64"
       ],
-      "benchmark_ids": [],
+      "benchmark_ids": [
+        "bench.sub.slice.3.f32",
+        "bench.sub.slice.33.f32",
+        "bench.sub.slice.4096.f32",
+        "bench.sub.slice.65537.f32",
+        "bench.sub.slice.3.f64",
+        "bench.sub.slice.33.f64",
+        "bench.sub.slice.4096.f64",
+        "bench.sub.slice.65537.f64"
+      ],
       "cabi": false,
       "verification": "shared native numerical cases"
     },
@@ -4389,7 +4501,16 @@
         "vecops.div.slice.zeroDivisor.f32",
         "vecops.div.slice.zeroDivisor.f64"
       ],
-      "benchmark_ids": [],
+      "benchmark_ids": [
+        "bench.div.slice.3.f32",
+        "bench.div.slice.33.f32",
+        "bench.div.slice.4096.f32",
+        "bench.div.slice.65537.f32",
+        "bench.div.slice.3.f64",
+        "bench.div.slice.33.f64",
+        "bench.div.slice.4096.f64",
+        "bench.div.slice.65537.f64"
+      ],
       "cabi": false,
       "verification": "shared native numerical cases"
     },
@@ -4405,7 +4526,16 @@
         "extended.scale.slice.methods.f32",
         "extended.scale.slice.methods.f64"
       ],
-      "benchmark_ids": [],
+      "benchmark_ids": [
+        "bench.scale.slice.3.f32",
+        "bench.scale.slice.33.f32",
+        "bench.scale.slice.4096.f32",
+        "bench.scale.slice.65537.f32",
+        "bench.scale.slice.3.f64",
+        "bench.scale.slice.33.f64",
+        "bench.scale.slice.4096.f64",
+        "bench.scale.slice.65537.f64"
+      ],
       "cabi": false,
       "verification": "shared native numerical cases"
     },
@@ -5040,7 +5170,23 @@
         "bench.matvec.MatView.12x12.signed_alternating.f64",
         "bench.matvec.MatView.3x3.dense_random.f64",
         "bench.matvec.MatView.6x6.dense_random.f64",
-        "bench.matvec.MatView.12x12.dense_random.f64"
+        "bench.matvec.MatView.12x12.dense_random.f64",
+        "bench.matvec.MatView.16.f32",
+        "bench.matvec.MatView.32.f32",
+        "bench.matvec.MatView.64.f32",
+        "bench.matvec.MatView.127.f32",
+        "bench.matvec.MatView.128.f32",
+        "bench.matvec.MatView.256.f32",
+        "bench.matvec.MatView.512.f32",
+        "bench.matvec.MatView.1024.f32",
+        "bench.matvec.MatView.16.f64",
+        "bench.matvec.MatView.32.f64",
+        "bench.matvec.MatView.64.f64",
+        "bench.matvec.MatView.127.f64",
+        "bench.matvec.MatView.128.f64",
+        "bench.matvec.MatView.256.f64",
+        "bench.matvec.MatView.512.f64",
+        "bench.matvec.MatView.1024.f64"
       ],
       "cabi": true
     },
@@ -5196,7 +5342,21 @@
         "bench.matmul.MatView.12x12.signed_alternating.f64",
         "bench.matmul.MatView.3x3.dense_random.f64",
         "bench.matmul.MatView.6x6.dense_random.f64",
-        "bench.matmul.MatView.12x12.dense_random.f64"
+        "bench.matmul.MatView.12x12.dense_random.f64",
+        "bench.matmul.MatView.16.f32",
+        "bench.matmul.MatView.32.f32",
+        "bench.matmul.MatView.64.f32",
+        "bench.matmul.MatView.127.f32",
+        "bench.matmul.MatView.128.f32",
+        "bench.matmul.MatView.256.f32",
+        "bench.matmul.MatView.512.f32",
+        "bench.matmul.MatView.16.f64",
+        "bench.matmul.MatView.32.f64",
+        "bench.matmul.MatView.64.f64",
+        "bench.matmul.MatView.127.f64",
+        "bench.matmul.MatView.128.f64",
+        "bench.matmul.MatView.256.f64",
+        "bench.matmul.MatView.512.f64"
       ],
       "cabi": true
     },
@@ -5248,7 +5408,15 @@
         "bench.outer.MatView.12x12.f32",
         "bench.outer.MatView.3x3.f64",
         "bench.outer.MatView.6x6.f64",
-        "bench.outer.MatView.12x12.f64"
+        "bench.outer.MatView.12x12.f64",
+        "bench.outer.MatView.3.f32",
+        "bench.outer.MatView.33.f32",
+        "bench.outer.MatView.128.f32",
+        "bench.outer.MatView.512.f32",
+        "bench.outer.MatView.3.f64",
+        "bench.outer.MatView.33.f64",
+        "bench.outer.MatView.128.f64",
+        "bench.outer.MatView.512.f64"
       ],
       "cabi": false
     },
@@ -5312,7 +5480,13 @@
         "bench.outerAdd.MatView.4.f64",
         "bench.outerAdd.MatView.6.f64",
         "bench.outerAdd.MatView.8.f64",
-        "bench.outerAdd.MatView.12.f64"
+        "bench.outerAdd.MatView.12.f64",
+        "bench.outerAdd.MatView.33.f32",
+        "bench.outerAdd.MatView.128.f32",
+        "bench.outerAdd.MatView.512.f32",
+        "bench.outerAdd.MatView.33.f64",
+        "bench.outerAdd.MatView.128.f64",
+        "bench.outerAdd.MatView.512.f64"
       ],
       "cabi": false
     },
@@ -5814,7 +5988,19 @@
         "bench.lu.MatView.12x12.signed_alternating.f64",
         "bench.lu.MatView.3x3.dense_random.f64",
         "bench.lu.MatView.6x6.dense_random.f64",
-        "bench.lu.MatView.12x12.dense_random.f64"
+        "bench.lu.MatView.12x12.dense_random.f64",
+        "bench.lu.MatView.16.f32",
+        "bench.lu.MatView.32.f32",
+        "bench.lu.MatView.64.f32",
+        "bench.lu.MatView.128.f32",
+        "bench.lu.MatView.256.f32",
+        "bench.lu.MatView.512.f32",
+        "bench.lu.MatView.16.f64",
+        "bench.lu.MatView.32.f64",
+        "bench.lu.MatView.64.f64",
+        "bench.lu.MatView.128.f64",
+        "bench.lu.MatView.256.f64",
+        "bench.lu.MatView.512.f64"
       ],
       "cabi": false
     },
@@ -5956,7 +6142,19 @@
         "bench.cholesky.MatView.12x12.signed_alternating.f32",
         "bench.cholesky.MatView.3x3.signed_alternating.f64",
         "bench.cholesky.MatView.6x6.signed_alternating.f64",
-        "bench.cholesky.MatView.12x12.signed_alternating.f64"
+        "bench.cholesky.MatView.12x12.signed_alternating.f64",
+        "bench.cholesky.MatView.16.f32",
+        "bench.cholesky.MatView.32.f32",
+        "bench.cholesky.MatView.64.f32",
+        "bench.cholesky.MatView.128.f32",
+        "bench.cholesky.MatView.256.f32",
+        "bench.cholesky.MatView.512.f32",
+        "bench.cholesky.MatView.16.f64",
+        "bench.cholesky.MatView.32.f64",
+        "bench.cholesky.MatView.64.f64",
+        "bench.cholesky.MatView.128.f64",
+        "bench.cholesky.MatView.256.f64",
+        "bench.cholesky.MatView.512.f64"
       ],
       "cabi": true
     },
@@ -6040,7 +6238,19 @@
         "bench.luReuse.MatView.4.f64",
         "bench.luReuse.MatView.6.f64",
         "bench.luReuse.MatView.8.f64",
-        "bench.luReuse.MatView.12.f64"
+        "bench.luReuse.MatView.12.f64",
+        "bench.luReuse.MatView.16.f32",
+        "bench.luReuse.MatView.32.f32",
+        "bench.luReuse.MatView.64.f32",
+        "bench.luReuse.MatView.128.f32",
+        "bench.luReuse.MatView.256.f32",
+        "bench.luReuse.MatView.512.f32",
+        "bench.luReuse.MatView.16.f64",
+        "bench.luReuse.MatView.32.f64",
+        "bench.luReuse.MatView.64.f64",
+        "bench.luReuse.MatView.128.f64",
+        "bench.luReuse.MatView.256.f64",
+        "bench.luReuse.MatView.512.f64"
       ],
       "cabi": false
     },
@@ -6120,7 +6330,19 @@
         "bench.choleskyReuse.MatView.4.f64",
         "bench.choleskyReuse.MatView.6.f64",
         "bench.choleskyReuse.MatView.8.f64",
-        "bench.choleskyReuse.MatView.12.f64"
+        "bench.choleskyReuse.MatView.12.f64",
+        "bench.choleskyReuse.MatView.16.f32",
+        "bench.choleskyReuse.MatView.32.f32",
+        "bench.choleskyReuse.MatView.64.f32",
+        "bench.choleskyReuse.MatView.128.f32",
+        "bench.choleskyReuse.MatView.256.f32",
+        "bench.choleskyReuse.MatView.512.f32",
+        "bench.choleskyReuse.MatView.16.f64",
+        "bench.choleskyReuse.MatView.32.f64",
+        "bench.choleskyReuse.MatView.64.f64",
+        "bench.choleskyReuse.MatView.128.f64",
+        "bench.choleskyReuse.MatView.256.f64",
+        "bench.choleskyReuse.MatView.512.f64"
       ],
       "cabi": false
     },
@@ -6244,7 +6466,19 @@
         "bench.luReuse.MatView.4.f64",
         "bench.luReuse.MatView.6.f64",
         "bench.luReuse.MatView.8.f64",
-        "bench.luReuse.MatView.12.f64"
+        "bench.luReuse.MatView.12.f64",
+        "bench.luReuse.MatView.16.f32",
+        "bench.luReuse.MatView.32.f32",
+        "bench.luReuse.MatView.64.f32",
+        "bench.luReuse.MatView.128.f32",
+        "bench.luReuse.MatView.256.f32",
+        "bench.luReuse.MatView.512.f32",
+        "bench.luReuse.MatView.16.f64",
+        "bench.luReuse.MatView.32.f64",
+        "bench.luReuse.MatView.64.f64",
+        "bench.luReuse.MatView.128.f64",
+        "bench.luReuse.MatView.256.f64",
+        "bench.luReuse.MatView.512.f64"
       ],
       "cabi": false
     },
@@ -6284,7 +6518,19 @@
         "bench.choleskyReuse.MatView.4.f64",
         "bench.choleskyReuse.MatView.6.f64",
         "bench.choleskyReuse.MatView.8.f64",
-        "bench.choleskyReuse.MatView.12.f64"
+        "bench.choleskyReuse.MatView.12.f64",
+        "bench.choleskyReuse.MatView.16.f32",
+        "bench.choleskyReuse.MatView.32.f32",
+        "bench.choleskyReuse.MatView.64.f32",
+        "bench.choleskyReuse.MatView.128.f32",
+        "bench.choleskyReuse.MatView.256.f32",
+        "bench.choleskyReuse.MatView.512.f32",
+        "bench.choleskyReuse.MatView.16.f64",
+        "bench.choleskyReuse.MatView.32.f64",
+        "bench.choleskyReuse.MatView.64.f64",
+        "bench.choleskyReuse.MatView.128.f64",
+        "bench.choleskyReuse.MatView.256.f64",
+        "bench.choleskyReuse.MatView.512.f64"
       ],
       "cabi": false
     },
@@ -7054,7 +7300,16 @@
         "rowops.scaleRow.MatView.3x2.f64",
         "rowops.scaleRow.MatView.6x6.f64"
       ],
-      "benchmark_ids": [],
+      "benchmark_ids": [
+        "bench.scaleRow.MatView.3.f32",
+        "bench.scaleRow.MatView.33.f32",
+        "bench.scaleRow.MatView.128.f32",
+        "bench.scaleRow.MatView.512.f32",
+        "bench.scaleRow.MatView.3.f64",
+        "bench.scaleRow.MatView.33.f64",
+        "bench.scaleRow.MatView.128.f64",
+        "bench.scaleRow.MatView.512.f64"
+      ],
       "cabi": false
     },
     {
@@ -7078,7 +7333,16 @@
         "rowops.addScaledRow.MatView.3x2.f64",
         "rowops.addScaledRow.MatView.6x6.f64"
       ],
-      "benchmark_ids": [],
+      "benchmark_ids": [
+        "bench.addScaledRow.MatView.3.f32",
+        "bench.addScaledRow.MatView.33.f32",
+        "bench.addScaledRow.MatView.128.f32",
+        "bench.addScaledRow.MatView.512.f32",
+        "bench.addScaledRow.MatView.3.f64",
+        "bench.addScaledRow.MatView.33.f64",
+        "bench.addScaledRow.MatView.128.f64",
+        "bench.addScaledRow.MatView.512.f64"
+      ],
       "cabi": false
     },
     {
@@ -7277,7 +7541,19 @@
         "bench.lu.MatView.12x12.signed_alternating.f64",
         "bench.lu.MatView.3x3.dense_random.f64",
         "bench.lu.MatView.6x6.dense_random.f64",
-        "bench.lu.MatView.12x12.dense_random.f64"
+        "bench.lu.MatView.12x12.dense_random.f64",
+        "bench.lu.MatView.16.f32",
+        "bench.lu.MatView.32.f32",
+        "bench.lu.MatView.64.f32",
+        "bench.lu.MatView.128.f32",
+        "bench.lu.MatView.256.f32",
+        "bench.lu.MatView.512.f32",
+        "bench.lu.MatView.16.f64",
+        "bench.lu.MatView.32.f64",
+        "bench.lu.MatView.64.f64",
+        "bench.lu.MatView.128.f64",
+        "bench.lu.MatView.256.f64",
+        "bench.lu.MatView.512.f64"
       ],
       "cabi": false
     },
@@ -7355,7 +7631,19 @@
         "bench.cholesky.MatView.12x12.signed_alternating.f32",
         "bench.cholesky.MatView.3x3.signed_alternating.f64",
         "bench.cholesky.MatView.6x6.signed_alternating.f64",
-        "bench.cholesky.MatView.12x12.signed_alternating.f64"
+        "bench.cholesky.MatView.12x12.signed_alternating.f64",
+        "bench.cholesky.MatView.16.f32",
+        "bench.cholesky.MatView.32.f32",
+        "bench.cholesky.MatView.64.f32",
+        "bench.cholesky.MatView.128.f32",
+        "bench.cholesky.MatView.256.f32",
+        "bench.cholesky.MatView.512.f32",
+        "bench.cholesky.MatView.16.f64",
+        "bench.cholesky.MatView.32.f64",
+        "bench.cholesky.MatView.64.f64",
+        "bench.cholesky.MatView.128.f64",
+        "bench.cholesky.MatView.256.f64",
+        "bench.cholesky.MatView.512.f64"
       ],
       "cabi": false
     },
@@ -7400,7 +7688,19 @@
         "bench.luReuse.MatView.4.f64",
         "bench.luReuse.MatView.6.f64",
         "bench.luReuse.MatView.8.f64",
-        "bench.luReuse.MatView.12.f64"
+        "bench.luReuse.MatView.12.f64",
+        "bench.luReuse.MatView.16.f32",
+        "bench.luReuse.MatView.32.f32",
+        "bench.luReuse.MatView.64.f32",
+        "bench.luReuse.MatView.128.f32",
+        "bench.luReuse.MatView.256.f32",
+        "bench.luReuse.MatView.512.f32",
+        "bench.luReuse.MatView.16.f64",
+        "bench.luReuse.MatView.32.f64",
+        "bench.luReuse.MatView.64.f64",
+        "bench.luReuse.MatView.128.f64",
+        "bench.luReuse.MatView.256.f64",
+        "bench.luReuse.MatView.512.f64"
       ],
       "cabi": false
     },
@@ -7443,7 +7743,19 @@
         "bench.choleskyReuse.MatView.4.f64",
         "bench.choleskyReuse.MatView.6.f64",
         "bench.choleskyReuse.MatView.8.f64",
-        "bench.choleskyReuse.MatView.12.f64"
+        "bench.choleskyReuse.MatView.12.f64",
+        "bench.choleskyReuse.MatView.16.f32",
+        "bench.choleskyReuse.MatView.32.f32",
+        "bench.choleskyReuse.MatView.64.f32",
+        "bench.choleskyReuse.MatView.128.f32",
+        "bench.choleskyReuse.MatView.256.f32",
+        "bench.choleskyReuse.MatView.512.f32",
+        "bench.choleskyReuse.MatView.16.f64",
+        "bench.choleskyReuse.MatView.32.f64",
+        "bench.choleskyReuse.MatView.64.f64",
+        "bench.choleskyReuse.MatView.128.f64",
+        "bench.choleskyReuse.MatView.256.f64",
+        "bench.choleskyReuse.MatView.512.f64"
       ],
       "cabi": false
     },
@@ -7486,7 +7798,19 @@
         "bench.luReuse.MatView.4.f64",
         "bench.luReuse.MatView.6.f64",
         "bench.luReuse.MatView.8.f64",
-        "bench.luReuse.MatView.12.f64"
+        "bench.luReuse.MatView.12.f64",
+        "bench.luReuse.MatView.16.f32",
+        "bench.luReuse.MatView.32.f32",
+        "bench.luReuse.MatView.64.f32",
+        "bench.luReuse.MatView.128.f32",
+        "bench.luReuse.MatView.256.f32",
+        "bench.luReuse.MatView.512.f32",
+        "bench.luReuse.MatView.16.f64",
+        "bench.luReuse.MatView.32.f64",
+        "bench.luReuse.MatView.64.f64",
+        "bench.luReuse.MatView.128.f64",
+        "bench.luReuse.MatView.256.f64",
+        "bench.luReuse.MatView.512.f64"
       ],
       "cabi": false
     },
@@ -7527,7 +7851,19 @@
         "bench.choleskyReuse.MatView.4.f64",
         "bench.choleskyReuse.MatView.6.f64",
         "bench.choleskyReuse.MatView.8.f64",
-        "bench.choleskyReuse.MatView.12.f64"
+        "bench.choleskyReuse.MatView.12.f64",
+        "bench.choleskyReuse.MatView.16.f32",
+        "bench.choleskyReuse.MatView.32.f32",
+        "bench.choleskyReuse.MatView.64.f32",
+        "bench.choleskyReuse.MatView.128.f32",
+        "bench.choleskyReuse.MatView.256.f32",
+        "bench.choleskyReuse.MatView.512.f32",
+        "bench.choleskyReuse.MatView.16.f64",
+        "bench.choleskyReuse.MatView.32.f64",
+        "bench.choleskyReuse.MatView.64.f64",
+        "bench.choleskyReuse.MatView.128.f64",
+        "bench.choleskyReuse.MatView.256.f64",
+        "bench.choleskyReuse.MatView.512.f64"
       ],
       "cabi": false
     },
@@ -7567,13 +7903,34 @@
         "solveCholeskyFactoredSliceChecked",
         "solveCholeskySliceChecked"
       ],
+      "src/cholesky_simd.zig": [
+        "factorCholeskyStackSIMD",
+        "solveCholeskyFactoredStackSIMD",
+        "solveCholeskyStackSIMD",
+        "factorCholeskySliceSIMD",
+        "solveCholeskyFactoredSliceSIMD",
+        "solveCholeskySliceSIMD",
+        "factorCholeskyStackCheckedSIMD",
+        "solveCholeskyFactoredStackCheckedSIMD",
+        "solveCholeskyStackCheckedSIMD",
+        "factorCholeskySliceCheckedSIMD",
+        "solveCholeskyFactoredSliceCheckedSIMD",
+        "solveCholeskySliceCheckedSIMD"
+      ],
       "src/gauss.zig": [
         "solveStack",
         "solveSlice",
         "solveStackChecked",
         "solveSliceChecked"
       ],
+      "src/gauss_simd.zig": [
+        "solveStackSIMD",
+        "solveSliceSIMD",
+        "solveStackCheckedSIMD",
+        "solveSliceCheckedSIMD"
+      ],
       "src/linsolve.zig": [],
+      "src/linsolve_simd.zig": [],
       "src/lu.zig": [
         "LUStack",
         "factorLUStack",
@@ -7588,6 +7945,20 @@
         "factorLUSliceChecked",
         "solveLUFactoredSliceChecked",
         "solveLUSliceChecked"
+      ],
+      "src/lu_simd.zig": [
+        "factorLUStackSIMD",
+        "solveLUFactoredStackSIMD",
+        "solveLUStackSIMD",
+        "factorLUSliceSIMD",
+        "solveLUFactoredSliceSIMD",
+        "solveLUSliceSIMD",
+        "factorLUStackCheckedSIMD",
+        "solveLUFactoredStackCheckedSIMD",
+        "solveLUStackCheckedSIMD",
+        "factorLUSliceCheckedSIMD",
+        "solveLUFactoredSliceCheckedSIMD",
+        "solveLUSliceCheckedSIMD"
       ],
       "src/matops.zig": [
         "mulVecStack",
@@ -7604,6 +7975,39 @@
         "maxAbsSlice",
         "allFiniteStack",
         "allFiniteSlice"
+      ],
+      "src/matops_simd.zig": [
+        "mulMatSIMD",
+        "mulMatMatViewSIMD",
+        "mulMatMatSIMD",
+        "mulVecMatViewSIMD",
+        "mulVecMatSIMD",
+        "transposeSIMD",
+        "transposeMatViewSIMD",
+        "transposeMatSIMD",
+        "outerMatViewSIMD",
+        "outerAddMatViewSIMD",
+        "outerMatSIMD",
+        "outerAddMatSIMD",
+        "maxAbsMatViewSIMD",
+        "maxAbsMatSIMD",
+        "allFiniteMatViewSIMD",
+        "allFiniteMatSIMD",
+        "frobeniusNormMatViewSIMD",
+        "frobeniusNormMatSIMD",
+        "addMatViewSIMD",
+        "addMatSIMD",
+        "subMatViewSIMD",
+        "subMatSIMD",
+        "mulElemWiseMatViewSIMD",
+        "mulElemWiseMatSIMD",
+        "divElemWiseMatViewSIMD",
+        "divElemWiseMatSIMD",
+        "mulScalMatViewSIMD",
+        "mulScalMatSIMD",
+        "fillMatViewSIMD",
+        "traceMatViewSIMD",
+        "traceMatSIMD"
       ],
       "src/matslice.zig": [],
       "src/matstack.zig": [],
@@ -7685,6 +8089,14 @@
         "mul"
       ],
       "src/ndarray.zig": [],
+      "src/ndarrayops_simd.zig": [
+        "addNDArraySIMD",
+        "subNDArraySIMD",
+        "mulElemWiseNDArraySIMD",
+        "divElemWiseNDArraySIMD",
+        "fillNDArraySIMD",
+        "mulScalNDArraySIMD"
+      ],
       "src/ndarraytype.zig": [
         "NDArray",
         "init",
@@ -7732,6 +8144,17 @@
         "applyPermutationStack",
         "applyPermutationSlice"
       ],
+      "src/rowops_simd.zig": [
+        "swapRowsMatViewSIMD",
+        "scaleRowMatViewSIMD",
+        "addScaledRowMatViewSIMD",
+        "swapRowsMatSIMD",
+        "scaleRowMatSIMD",
+        "addScaledRowMatSIMD",
+        "applyPermutationVecViewSIMD",
+        "applyPermutationVecSIMD"
+      ],
+      "src/simd_tests.zig": [],
       "src/sliceops.zig": [
         "ValIdx",
         "max",
@@ -7759,6 +8182,40 @@
         "mulScalChecked",
         "slicePrint"
       ],
+      "src/sliceops_simd.zig": [
+        "dotSIMD",
+        "sumSIMD",
+        "meanSIMD",
+        "normL1SIMD",
+        "normL2SquareSIMD",
+        "normL2SIMD",
+        "maxAbsSIMD",
+        "allFiniteSIMD",
+        "minSIMD",
+        "maxSIMD",
+        "addSIMD",
+        "subSIMD",
+        "mulSIMD",
+        "divSIMD",
+        "mulScalSIMD",
+        "fillSIMD",
+        "axpySIMD",
+        "swapSIMD",
+        "subtractProductsSIMD",
+        "addCheckedSIMD",
+        "subCheckedSIMD",
+        "mulCheckedSIMD",
+        "divCheckedSIMD",
+        "mulScalCheckedSIMD",
+        "divScalSIMD",
+        "subtractScaledSIMD",
+        "subtractStridedProductsSIMD"
+      ],
+      "src/smallmatops_simd.zig": [
+        "detMatSIMD",
+        "invMatSIMD",
+        "invMatCheckedSIMD"
+      ],
       "src/vecops.zig": [
         "dotStack",
         "dotSlice",
@@ -7778,6 +8235,41 @@
         "normL1VecView",
         "normL2VecView",
         "normL2SquareVecView"
+      ],
+      "src/vecops_simd.zig": [
+        "dotVecSIMD",
+        "dotVecViewSIMD",
+        "normL1VecSIMD",
+        "normL1VecViewSIMD",
+        "normL2VecSIMD",
+        "normL2VecViewSIMD",
+        "normL2SquareVecSIMD",
+        "normL2SquareVecViewSIMD",
+        "maxAbsVecSIMD",
+        "maxAbsVecViewSIMD",
+        "allFiniteVecSIMD",
+        "allFiniteVecViewSIMD",
+        "sumVecSIMD",
+        "sumVecViewSIMD",
+        "meanVecSIMD",
+        "meanVecViewSIMD",
+        "minVecSIMD",
+        "minVecViewSIMD",
+        "maxVecSIMD",
+        "maxVecViewSIMD",
+        "addVecSIMD",
+        "addVecViewSIMD",
+        "subVecSIMD",
+        "subVecViewSIMD",
+        "mulVecSIMD",
+        "mulVecViewSIMD",
+        "divVecSIMD",
+        "divVecViewSIMD",
+        "axpyVecSIMD",
+        "axpyVecViewSIMD",
+        "mulScalVecSIMD",
+        "mulScalVecViewSIMD",
+        "dotBatchSIMD"
       ],
       "src/vecslice.zig": [],
       "src/vecstack.zig": [],
@@ -7852,10 +8344,23 @@
         "factorCholeskyMatViewChecked",
         "solveCholeskyFactoredMatViewChecked"
       ],
+      "src/mojo/cholesky_simd.mojo": [
+        "factorCholeskyMatViewSIMD",
+        "solveCholeskyFactoredMatViewSIMD",
+        "solveCholeskyMatViewSIMD",
+        "solveCholeskyMatViewCheckedSIMD",
+        "factorCholeskyMatViewCheckedSIMD",
+        "solveCholeskyFactoredMatViewCheckedSIMD"
+      ],
       "src/mojo/gauss.mojo": [
         "epsilon",
         "solveMatView",
         "solveMatViewChecked"
+      ],
+      "src/mojo/gauss_simd.mojo": [
+        "epsilonSIMD",
+        "solveMatViewSIMD",
+        "solveMatViewCheckedSIMD"
       ],
       "src/mojo/lagomath.mojo": [],
       "src/mojo/linsolve.mojo": [
@@ -7878,6 +8383,22 @@
         "solveLUFactoredMatChecked",
         "solveCholeskyFactoredMatChecked"
       ],
+      "src/mojo/linsolve_simd.mojo": [
+        "solveGaussMatSIMD",
+        "solveGaussMatCheckedSIMD",
+        "solveLUMatSIMD",
+        "solveLUMatCheckedSIMD",
+        "solveCholeskyMatSIMD",
+        "solveCholeskyMatCheckedSIMD",
+        "factorLUMatSIMD",
+        "solveLUFactoredMatSIMD",
+        "factorCholeskyMatSIMD",
+        "solveCholeskyFactoredMatSIMD",
+        "factorLUMatCheckedSIMD",
+        "factorCholeskyMatCheckedSIMD",
+        "solveLUFactoredMatCheckedSIMD",
+        "solveCholeskyFactoredMatCheckedSIMD"
+      ],
       "src/mojo/lu.mojo": [
         "factorLUMatView",
         "solveLUFactoredMatView",
@@ -7885,6 +8406,14 @@
         "solveLUMatViewChecked",
         "factorLUMatViewChecked",
         "solveLUFactoredMatViewChecked"
+      ],
+      "src/mojo/lu_simd.mojo": [
+        "factorLUMatViewSIMD",
+        "solveLUFactoredMatViewSIMD",
+        "solveLUMatViewSIMD",
+        "solveLUMatViewCheckedSIMD",
+        "factorLUMatViewCheckedSIMD",
+        "solveLUFactoredMatViewCheckedSIMD"
       ],
       "src/mojo/mappedndarraytype.mojo": [
         "MappedNDArray",
@@ -7905,6 +8434,39 @@
         "outerAddMatView",
         "outerMat",
         "outerAddMat"
+      ],
+      "src/mojo/matops_simd.mojo": [
+        "mulMatSIMD",
+        "mulMatMatViewSIMD",
+        "mulMatMatSIMD",
+        "mulVecMatViewSIMD",
+        "mulVecMatSIMD",
+        "transposeSIMD",
+        "transposeMatViewSIMD",
+        "transposeMatSIMD",
+        "outerMatViewSIMD",
+        "outerAddMatViewSIMD",
+        "outerMatSIMD",
+        "outerAddMatSIMD",
+        "maxAbsMatViewSIMD",
+        "maxAbsMatSIMD",
+        "allFiniteMatViewSIMD",
+        "allFiniteMatSIMD",
+        "frobeniusNormMatViewSIMD",
+        "frobeniusNormMatSIMD",
+        "addMatViewSIMD",
+        "addMatSIMD",
+        "subMatViewSIMD",
+        "subMatSIMD",
+        "mulElemWiseMatViewSIMD",
+        "mulElemWiseMatSIMD",
+        "divElemWiseMatViewSIMD",
+        "divElemWiseMatSIMD",
+        "mulScalMatViewSIMD",
+        "mulScalMatSIMD",
+        "fillMatViewSIMD",
+        "traceMatViewSIMD",
+        "traceMatSIMD"
       ],
       "src/mojo/mattype.mojo": [
         "Mat",
@@ -7980,6 +8542,14 @@
         "divElemWise",
         "extractMat"
       ],
+      "src/mojo/ndarrayops_simd.mojo": [
+        "addNDArraySIMD",
+        "subNDArraySIMD",
+        "mulElemWiseNDArraySIMD",
+        "divElemWiseNDArraySIMD",
+        "fillNDArraySIMD",
+        "mulScalNDArraySIMD"
+      ],
       "src/mojo/ndarraytype.mojo": [
         "NDArray",
         "__init__",
@@ -8019,6 +8589,18 @@
         "applyPermutationVec",
         "applyPermutationVecView"
       ],
+      "src/mojo/rowops_simd.mojo": [
+        "rowOpSIMD",
+        "swapRowsMatViewSIMD",
+        "swapRowsMatSIMD",
+        "scaleRowMatViewSIMD",
+        "scaleRowMatSIMD",
+        "addScaledRowMatViewSIMD",
+        "addScaledRowMatSIMD",
+        "subtractScaledRowMatViewSIMD",
+        "applyPermutationVecSIMD",
+        "applyPermutationVecViewSIMD"
+      ],
       "src/mojo/sliceops.mojo": [
         "dot",
         "normL1",
@@ -8045,6 +8627,38 @@
         "mulScal",
         "mulScalChecked"
       ],
+      "src/mojo/sliceops_simd.mojo": [
+        "dotSIMD",
+        "sumSIMD",
+        "meanSIMD",
+        "normL1SIMD",
+        "normL2SquareSIMD",
+        "normL2SIMD",
+        "maxAbsSIMD",
+        "allFiniteSIMD",
+        "extremaSIMD",
+        "minSIMD",
+        "maxSIMD",
+        "binarySIMD",
+        "addSIMD",
+        "addCheckedSIMD",
+        "subSIMD",
+        "subCheckedSIMD",
+        "mulSIMD",
+        "mulCheckedSIMD",
+        "divSIMD",
+        "divCheckedSIMD",
+        "mulScalSIMD",
+        "mulScalCheckedSIMD",
+        "fillSIMD",
+        "axpySIMD",
+        "swapSIMD",
+        "subtractProductsSIMD",
+        "axpyInPlaceSIMD",
+        "mulScalInPlaceSIMD",
+        "divScalSIMD",
+        "subtractStridedProductsSIMD"
+      ],
       "src/mojo/smallmatops.mojo": [
         "Mat22Ops",
         "adj",
@@ -8061,6 +8675,13 @@
         "invChecked",
         "insertMat22",
         "mulVec3"
+      ],
+      "src/mojo/smallmatops_simd.mojo": [
+        "cofactorsSIMD",
+        "detMatSIMD",
+        "inverseSIMD",
+        "invMatSIMD",
+        "invMatCheckedSIMD"
       ],
       "src/mojo/valueindex.mojo": [
         "ValIdx"
@@ -8080,6 +8701,41 @@
         "maxAbsVecView",
         "allFiniteVecView",
         "axpyVecView"
+      ],
+      "src/mojo/vecops_simd.mojo": [
+        "dotVecSIMD",
+        "dotVecViewSIMD",
+        "normL1VecSIMD",
+        "normL1VecViewSIMD",
+        "normL2VecSIMD",
+        "normL2VecViewSIMD",
+        "normL2SquareVecSIMD",
+        "normL2SquareVecViewSIMD",
+        "maxAbsVecSIMD",
+        "maxAbsVecViewSIMD",
+        "allFiniteVecSIMD",
+        "allFiniteVecViewSIMD",
+        "sumVecSIMD",
+        "sumVecViewSIMD",
+        "meanVecSIMD",
+        "meanVecViewSIMD",
+        "minVecSIMD",
+        "minVecViewSIMD",
+        "maxVecSIMD",
+        "maxVecViewSIMD",
+        "addVecSIMD",
+        "addVecViewSIMD",
+        "subVecSIMD",
+        "subVecViewSIMD",
+        "mulVecSIMD",
+        "mulVecViewSIMD",
+        "divVecSIMD",
+        "divVecViewSIMD",
+        "axpyVecSIMD",
+        "axpyVecViewSIMD",
+        "mulScalVecSIMD",
+        "mulScalVecViewSIMD",
+        "dotBatchSIMD"
       ],
       "src/mojo/vectype.mojo": [
         "Vec",
