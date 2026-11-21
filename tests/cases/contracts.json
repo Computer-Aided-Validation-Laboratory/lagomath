@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "id": "ndarray.init.zero_dimension",
+      "suite": "ndarray",
+      "category": "contract",
+      "operation": "init",
+      "dtype": "f64",
+      "representation": "NDArray",
+      "inputs": {
+        "a": [
+          0
+        ],
+        "shape": [
+          2,
+          0,
+          3
+        ]
+      },
+      "expected_error": "AssertionFailed",
+      "source": "hand",
+      "execution": "native-child-process"
+    },
+    {
+      "id": "ndarray.init.rank_zero",
+      "suite": "ndarray",
+      "category": "contract",
+      "operation": "init",
+      "dtype": "f64",
+      "representation": "NDArray",
+      "inputs": {
+        "a": [
+          0
+        ],
+        "shape": []
+      },
+      "expected_error": "AssertionFailed",
+      "source": "hand",
+      "execution": "native-child-process"
+    },
+    {
+      "id": "contract.index_bounds",
+      "suite": "ndarray",
+      "category": "contract",
+      "operation": "get",
+      "dtype": "f64",
+      "representation": "NDArray",
+      "inputs": {
+        "a": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "shape": [
+          2,
+          3
+        ],
+        "index": [
+          2,
+          0
+        ]
+      },
+      "expected_error": "AssertionFailed",
+      "source": "hand",
+      "execution": "native-child-process"
+    },
+    {
+      "id": "contract.wrong_offset_rank",
+      "suite": "ndarray",
+      "category": "contract",
+      "operation": "offset3",
+      "dtype": "f64",
+      "representation": "NDArray",
+      "inputs": {
+        "a": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "shape": [
+          2,
+          3
+        ],
+        "index": [
+          0,
+          0,
+          0
+        ]
+      },
+      "expected_error": "AssertionFailed",
+      "source": "hand",
+      "execution": "native-child-process"
+    },
+    {
+      "id": "contract.view_length",
+      "suite": "types",
+      "category": "contract",
+      "operation": "matrixInit",
+      "dtype": "f64",
+      "representation": "MatView",
+      "inputs": {
+        "a": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "shape": [
+          2,
+          3
+        ],
+        "index": []
+      },
+      "expected_error": "AssertionFailed",
+      "source": "hand",
+      "execution": "native-child-process"
+    }
+  ]
+}

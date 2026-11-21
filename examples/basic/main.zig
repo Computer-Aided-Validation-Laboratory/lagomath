@@ -1,9 +1,9 @@
 const std = @import("std");
-const lagomath = @import("lagomath");
+const lm = @import("lagomath");
 
 pub fn main(init: std.process.Init) !void {
-    const Mat22 = lagomath.MatStack(2, 2, f64);
-    const Vec2 = lagomath.VecStack(2, f64);
+    const Mat22 = lm.Mat(2, 2, f64);
+    const Vec2 = lm.Vec(2, f64);
 
     const matrix = Mat22.initRows(.{ .{ 1, 2 }, .{ 3, 4 } });
     const vector = Vec2.initSlice(&.{ 5, 6 });
@@ -11,7 +11,7 @@ pub fn main(init: std.process.Init) !void {
 
     try std.testing.expectEqualSlices(f64, &.{ 17, 39 }, &product.vec);
 
-    var array = try lagomath.NDArray(f64).initFlat(init.gpa, &.{ 2, 2 });
+    var array = try lm.NDArray(f64).initFlat(init.gpa, &.{ 2, 2 });
     defer init.gpa.free(array.slice);
     defer array.deinit(init.gpa);
 

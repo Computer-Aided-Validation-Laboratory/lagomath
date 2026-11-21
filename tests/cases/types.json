@@ -1,0 +1,251 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "id": "types.valueCopy.Vec.ownership.f32",
+      "suite": "types",
+      "category": "analytical",
+      "operation": "valueCopy",
+      "dtype": "f32",
+      "representation": "Vec",
+      "inputs": {
+        "a": [
+          1,
+          2,
+          3
+        ],
+        "b": [
+          1,
+          2,
+          3
+        ],
+        "shape": [
+          3
+        ],
+        "mutate_index": 1,
+        "mutate_value": 7
+      },
+      "source": "hand",
+      "expected": [
+        1,
+        2,
+        3,
+        1,
+        7,
+        3
+      ],
+      "tolerance": {
+        "atol": 0,
+        "rtol": 0
+      }
+    },
+    {
+      "id": "types.viewMutation.VecView.ownership.f32",
+      "suite": "types",
+      "category": "analytical",
+      "operation": "viewMutation",
+      "dtype": "f32",
+      "representation": "VecView",
+      "inputs": {
+        "a": [
+          99,
+          1,
+          2,
+          3,
+          99
+        ],
+        "b": [
+          1,
+          2,
+          3
+        ],
+        "shape": [
+          3
+        ],
+        "mutate_index": 1,
+        "mutate_value": 7,
+        "view_start": 1
+      },
+      "source": "hand",
+      "expected": [
+        99,
+        1,
+        7,
+        3,
+        99
+      ],
+      "tolerance": {
+        "atol": 0,
+        "rtol": 0
+      }
+    },
+    {
+      "id": "types.valueCopy.Mat.ownership.f32",
+      "suite": "types",
+      "category": "analytical",
+      "operation": "valueCopy",
+      "dtype": "f32",
+      "representation": "Mat",
+      "inputs": {
+        "a": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "b": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "x": [],
+        "shape": [
+          2,
+          2,
+          2
+        ],
+        "mutate_index": 1,
+        "mutate_value": 7
+      },
+      "source": "hand",
+      "expected": [
+        1,
+        2,
+        3,
+        4,
+        1,
+        7,
+        3,
+        4
+      ],
+      "tolerance": {
+        "atol": 0,
+        "rtol": 0
+      }
+    },
+    {
+      "id": "types.valueCopy.Vec.ownership.f64",
+      "suite": "types",
+      "category": "analytical",
+      "operation": "valueCopy",
+      "dtype": "f64",
+      "representation": "Vec",
+      "inputs": {
+        "a": [
+          1,
+          2,
+          3
+        ],
+        "b": [
+          1,
+          2,
+          3
+        ],
+        "shape": [
+          3
+        ],
+        "mutate_index": 1,
+        "mutate_value": 7
+      },
+      "source": "hand",
+      "expected": [
+        1,
+        2,
+        3,
+        1,
+        7,
+        3
+      ],
+      "tolerance": {
+        "atol": 0,
+        "rtol": 0
+      }
+    },
+    {
+      "id": "types.viewMutation.VecView.ownership.f64",
+      "suite": "types",
+      "category": "analytical",
+      "operation": "viewMutation",
+      "dtype": "f64",
+      "representation": "VecView",
+      "inputs": {
+        "a": [
+          99,
+          1,
+          2,
+          3,
+          99
+        ],
+        "b": [
+          1,
+          2,
+          3
+        ],
+        "shape": [
+          3
+        ],
+        "mutate_index": 1,
+        "mutate_value": 7,
+        "view_start": 1
+      },
+      "source": "hand",
+      "expected": [
+        99,
+        1,
+        7,
+        3,
+        99
+      ],
+      "tolerance": {
+        "atol": 0,
+        "rtol": 0
+      }
+    },
+    {
+      "id": "types.valueCopy.Mat.ownership.f64",
+      "suite": "types",
+      "category": "analytical",
+      "operation": "valueCopy",
+      "dtype": "f64",
+      "representation": "Mat",
+      "inputs": {
+        "a": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "b": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "x": [],
+        "shape": [
+          2,
+          2,
+          2
+        ],
+        "mutate_index": 1,
+        "mutate_value": 7
+      },
+      "source": "hand",
+      "expected": [
+        1,
+        2,
+        3,
+        4,
+        1,
+        7,
+        3,
+        4
+      ],
+      "tolerance": {
+        "atol": 0,
+        "rtol": 0
+      }
+    }
+  ]
+}

@@ -40,3 +40,31 @@ jobs:
         working-directory: integration/consumer
       - run: zig build run -Doptimize=ReleaseFast
         working-directory: integration/consumer
+
+  shared-verification:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: mlugg/setup-zig@v2
+        with:
+          version: 0.16.0
+      - uses: astral-sh/setup-uv@v6
+      - run: uv sync --locked
+      - run: .venv/bin/python tests/python/validate_cases.py
+      - run: .venv/bin/python tools/audit_api.py --check
+      - run: .venv/bin/python -m pytest -q tests/python
+      - run: .venv/bin/python tools/check_source_package.py
+      - run: .venv/bin/python tools/inspect_cabi.py
+      - run: zig build examples
+      - run: .venv/bin/python tools/run_examples.py
+      - run: .venv/bin/python benchmarks/python/run_benchmarks.py --label ci-zig --samples 2 --runs 2
+      - run: .venv/bin/python benchmarks/python/run_benchmarks.py --backend mojo --label ci-mojo --samples 2 --runs 2
+      - uses: actions/upload-artifact@v4
+        with:
+          name: numerical-coverage-and-benchmarks
+          path: |
+            build/coverage-*.json
+            build/abi-inspection.json
+            build/logs/
+            benchmarks/results/*.json
+            benchmarks/results/*.jsonl

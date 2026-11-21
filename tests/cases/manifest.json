@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "generator": "generate_regression.py/v4",
+  "numpy": "2.5.5",
+  "scipy": "1.18.1",
+  "files": {
+    "contracts.json": "63a75ad14b5e1ae8f2f04e9b8754178d49c70324826f9fa9bc342daa5d855985",
+    "extended.json": "c277bd50478524f85d7b6c9cc55da7233c5d7fa6eaf7d2232b2ed9cd0dcf25b8",
+    "linsolve.json": "7377fc1218327257e82eb51726621fcc9c8ea9d5eb0c7ba39014d2b01df577f5",
+    "matops.json": "e6c633bd21745d9e4abca30e90b0c6808eae98e8a80ed609ee7dc5926c2900b6",
+    "ndarray.json": "1a2867203980d4c9e95ed998ce6a131cb8410e51713eec9c25336b25c779ea9d",
+    "rowops.json": "22768804984275f01f547916baad9a31f06eb1b83aa5dca21a5dd910c7ce679d",
+    "types.json": "b7721fe5f189174f9a6a9668deeaf2ac2dfa7bcb6dc1a0e866f26c4b2d2c28f2",
+    "vecops.json": "c21e5824c52fd646ed561510e894bbf7d987e985d9af6286f0bcb3eb51c68660"
+  },
+  "case_count": 1887,
+  "contract_count": 5,
+  "abi_output_guard": {
+    "prefix": 2,
+    "suffix": 2,
+    "value": 123
+  },
+  "provenance_files": {
+    "historical_inputs.json": "d57be82b2bce394e03c31ee321711f1f984652c80f1c1cdd2697e6373efa3991"
+  },
+  "derived_files": {
+    "all.json": "c6670636636acfb50a53c77b4e39641b65c59ba97dbb62ce38276171e9fa3e21",
+    "legacy_registry.json": "68cdb2d8e677a8cb7826e232483a72da7c0d9c606b9efcb8414f2faee647e72c",
+    "legacy_cases.json": "3cf15a39f5b0e5adf81881784d2e63760161aef50f2b341a0ee630dfaca64b70"
+  }
+}

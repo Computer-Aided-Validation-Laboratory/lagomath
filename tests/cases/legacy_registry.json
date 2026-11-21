@@ -1,0 +1,2212 @@
+{
+  "schema_version": 1,
+  "tests": [
+    {
+      "id": "legacy.cholesky.cholesky_factorCholeskyStack_and_solveCholeskyStack_2x2",
+      "file": "src/cholesky.zig",
+      "name": "cholesky.factorCholeskyStack and solveCholeskyStack 2x2",
+      "original_assertion_count": 8,
+      "case_ids": [
+        "linsolve.cholesky.Mat.legacy.cholesky.cholesky_factorCholeskyStack_and_solveCholeskyStack_2x2.0.f32",
+        "linsolve.cholesky.Mat.legacy.cholesky.cholesky_factorCholeskyStack_and_solveCholeskyStack_2x2.0.f64",
+        "linsolve.cholesky.MatView.legacy.cholesky.cholesky_factorCholeskyStack_and_solveCholeskyStack_2x2.0.f32",
+        "linsolve.cholesky.MatView.legacy.cholesky.cholesky_factorCholeskyStack_and_solveCholeskyStack_2x2.0.f64",
+        "linsolve.choleskyReuse.Mat.legacy.cholesky.cholesky_factorCholeskyStack_and_solveCholeskyStack_2x2.0.f32",
+        "linsolve.choleskyReuse.Mat.legacy.cholesky.cholesky_factorCholeskyStack_and_solveCholeskyStack_2x2.0.f64",
+        "linsolve.choleskyReuse.MatView.legacy.cholesky.cholesky_factorCholeskyStack_and_solveCholeskyStack_2x2.0.f32",
+        "linsolve.choleskyReuse.MatView.legacy.cholesky.cholesky_factorCholeskyStack_and_solveCholeskyStack_2x2.0.f64"
+      ]
+    },
+    {
+      "id": "legacy.cholesky.cholesky_factorCholeskyStack_rejects_non_positive_definite",
+      "file": "src/cholesky.zig",
+      "name": "cholesky.factorCholeskyStack rejects non-positive-definite",
+      "original_assertion_count": 2,
+      "case_ids": [
+        "linsolve.cholesky.Mat.1.scale1.0.f32",
+        "linsolve.cholesky.Mat.1.scale1.0.f64",
+        "linsolve.cholesky.MatView.1.scale1.0.f32",
+        "linsolve.cholesky.MatView.1.scale1.0.f64",
+        "linsolve.choleskyReuse.Mat.1.scale1.0.f32",
+        "linsolve.choleskyReuse.Mat.1.scale1.0.f64",
+        "linsolve.choleskyReuse.MatView.1.scale1.0.f32",
+        "linsolve.choleskyReuse.MatView.1.scale1.0.f64"
+      ]
+    },
+    {
+      "id": "legacy.cholesky.cholesky_solveCholeskySlice_2x2",
+      "file": "src/cholesky.zig",
+      "name": "cholesky.solveCholeskySlice 2x2",
+      "original_assertion_count": 2,
+      "case_ids": [
+        "linsolve.cholesky.Mat.1.scale1.0.f32",
+        "linsolve.cholesky.Mat.1.scale1.0.f64",
+        "linsolve.cholesky.MatView.1.scale1.0.f32",
+        "linsolve.cholesky.MatView.1.scale1.0.f64",
+        "linsolve.choleskyReuse.Mat.1.scale1.0.f32",
+        "linsolve.choleskyReuse.Mat.1.scale1.0.f64",
+        "linsolve.choleskyReuse.MatView.1.scale1.0.f32",
+        "linsolve.choleskyReuse.MatView.1.scale1.0.f64"
+      ]
+    },
+    {
+      "id": "legacy.cholesky.cholesky_factorisation_reconstruction_A_L_L_T",
+      "file": "src/cholesky.zig",
+      "name": "cholesky factorisation reconstruction A == L * L^T",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "extended.choleskyReconstruction.Mat.3.f32",
+        "extended.choleskyReconstruction.Mat.3.f64",
+        "extended.choleskyReconstruction.MatView.3.f32",
+        "extended.choleskyReconstruction.MatView.3.f64",
+        "extended.luReconstruction.Mat.3.f32",
+        "extended.luReconstruction.Mat.3.f64",
+        "extended.luReconstruction.MatView.3.f32",
+        "extended.luReconstruction.MatView.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.gauss.gauss_solveStack_2x2_known_system",
+      "file": "src/gauss.zig",
+      "name": "gauss.solveStack 2x2 known system",
+      "original_assertion_count": 2,
+      "case_ids": [
+        "linsolve.gauss.Mat.legacy.gauss.gauss_solveStack_2x2_known_system.0.f32",
+        "linsolve.gauss.Mat.legacy.gauss.gauss_solveStack_2x2_known_system.0.f64",
+        "linsolve.gauss.MatView.legacy.gauss.gauss_solveStack_2x2_known_system.0.f32",
+        "linsolve.gauss.MatView.legacy.gauss.gauss_solveStack_2x2_known_system.0.f64"
+      ]
+    },
+    {
+      "id": "legacy.gauss.gauss_solveStack_3x3_requiring_pivoting",
+      "file": "src/gauss.zig",
+      "name": "gauss.solveStack 3x3 requiring pivoting",
+      "original_assertion_count": 3,
+      "case_ids": [
+        "linsolve.gauss.Mat.legacy.gauss.gauss_solveStack_3x3_requiring_pivoting.0.f32",
+        "linsolve.gauss.Mat.legacy.gauss.gauss_solveStack_3x3_requiring_pivoting.0.f64",
+        "linsolve.gauss.MatView.legacy.gauss.gauss_solveStack_3x3_requiring_pivoting.0.f32",
+        "linsolve.gauss.MatView.legacy.gauss.gauss_solveStack_3x3_requiring_pivoting.0.f64"
+      ]
+    },
+    {
+      "id": "legacy.gauss.gauss_solveStack_singular_matrix",
+      "file": "src/gauss.zig",
+      "name": "gauss.solveStack singular matrix",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "linsolve.gauss.Mat.1.scale1.0.f32",
+        "linsolve.gauss.Mat.1.scale1.0.f64",
+        "linsolve.gauss.MatView.1.scale1.0.f32",
+        "linsolve.gauss.MatView.1.scale1.0.f64"
+      ]
+    },
+    {
+      "id": "legacy.gauss.gauss_solveStack_non_finite_input",
+      "file": "src/gauss.zig",
+      "name": "gauss.solveStack non-finite input",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "linsolve.gauss.Mat.1.scale1.0.f32",
+        "linsolve.gauss.Mat.1.scale1.0.f64",
+        "linsolve.gauss.MatView.1.scale1.0.f32",
+        "linsolve.gauss.MatView.1.scale1.0.f64"
+      ]
+    },
+    {
+      "id": "legacy.gauss.gauss_solveSlice_3x3_with_scratch",
+      "file": "src/gauss.zig",
+      "name": "gauss.solveSlice 3x3 with scratch",
+      "original_assertion_count": 3,
+      "case_ids": [
+        "linsolve.gauss.Mat.1.scale1.0.f32",
+        "linsolve.gauss.Mat.1.scale1.0.f64",
+        "linsolve.gauss.MatView.1.scale1.0.f32",
+        "linsolve.gauss.MatView.1.scale1.0.f64"
+      ]
+    },
+    {
+      "id": "legacy.linsolve.linsolve_cross_solver_verification_2x2_SPD_system",
+      "file": "src/linsolve.zig",
+      "name": "linsolve cross-solver verification 2x2 SPD system",
+      "original_assertion_count": 4,
+      "case_ids": [
+        "extended.cross.Vec.basis.f32",
+        "extended.cross.Vec.basis.f64",
+        "extended.cross.Vec.signed.f32",
+        "extended.cross.Vec.signed.f64",
+        "linsolve.cholesky.Mat.legacy.linsolve.linsolve_cross_solver_verification_2x2_SPD_system.0.f32",
+        "linsolve.cholesky.Mat.legacy.linsolve.linsolve_cross_solver_verification_2x2_SPD_system.0.f64",
+        "linsolve.cholesky.MatView.legacy.linsolve.linsolve_cross_solver_verification_2x2_SPD_system.0.f32",
+        "linsolve.cholesky.MatView.legacy.linsolve.linsolve_cross_solver_verification_2x2_SPD_system.0.f64",
+        "linsolve.gauss.Mat.legacy.linsolve.linsolve_cross_solver_verification_2x2_SPD_system.0.f32",
+        "linsolve.gauss.Mat.legacy.linsolve.linsolve_cross_solver_verification_2x2_SPD_system.0.f64",
+        "linsolve.gauss.MatView.legacy.linsolve.linsolve_cross_solver_verification_2x2_SPD_system.0.f32",
+        "linsolve.gauss.MatView.legacy.linsolve.linsolve_cross_solver_verification_2x2_SPD_system.0.f64",
+        "linsolve.lu.Mat.legacy.linsolve.linsolve_cross_solver_verification_2x2_SPD_system.0.f32",
+        "linsolve.lu.Mat.legacy.linsolve.linsolve_cross_solver_verification_2x2_SPD_system.0.f64",
+        "linsolve.lu.MatView.legacy.linsolve.linsolve_cross_solver_verification_2x2_SPD_system.0.f32",
+        "linsolve.lu.MatView.legacy.linsolve.linsolve_cross_solver_verification_2x2_SPD_system.0.f64"
+      ]
+    },
+    {
+      "id": "legacy.linsolve.linsolve_representative_6x6_DIC_SPD_Hessian_solve",
+      "file": "src/linsolve.zig",
+      "name": "linsolve representative 6x6 DIC SPD Hessian solve",
+      "original_assertion_count": 4,
+      "case_ids": [
+        "linsolve.cholesky.Mat.legacy.linsolve.linsolve_representative_6x6_DIC_SPD_Hessian_solve.0.f32",
+        "linsolve.cholesky.Mat.legacy.linsolve.linsolve_representative_6x6_DIC_SPD_Hessian_solve.0.f64",
+        "linsolve.cholesky.MatView.legacy.linsolve.linsolve_representative_6x6_DIC_SPD_Hessian_solve.0.f32",
+        "linsolve.cholesky.MatView.legacy.linsolve.linsolve_representative_6x6_DIC_SPD_Hessian_solve.0.f64",
+        "linsolve.gauss.Mat.legacy.linsolve.linsolve_representative_6x6_DIC_SPD_Hessian_solve.0.f32",
+        "linsolve.gauss.Mat.legacy.linsolve.linsolve_representative_6x6_DIC_SPD_Hessian_solve.0.f64",
+        "linsolve.gauss.MatView.legacy.linsolve.linsolve_representative_6x6_DIC_SPD_Hessian_solve.0.f32",
+        "linsolve.gauss.MatView.legacy.linsolve.linsolve_representative_6x6_DIC_SPD_Hessian_solve.0.f64",
+        "linsolve.lu.Mat.legacy.linsolve.linsolve_representative_6x6_DIC_SPD_Hessian_solve.0.f32",
+        "linsolve.lu.Mat.legacy.linsolve.linsolve_representative_6x6_DIC_SPD_Hessian_solve.0.f64",
+        "linsolve.lu.MatView.legacy.linsolve.linsolve_representative_6x6_DIC_SPD_Hessian_solve.0.f32",
+        "linsolve.lu.MatView.legacy.linsolve.linsolve_representative_6x6_DIC_SPD_Hessian_solve.0.f64"
+      ]
+    },
+    {
+      "id": "legacy.linsolve.linsolve_factorisation_reuse_with_multiple_right_hand_sides",
+      "file": "src/linsolve.zig",
+      "name": "linsolve factorisation reuse with multiple right-hand sides",
+      "original_assertion_count": 2,
+      "case_ids": [
+        "extended.choleskyMultiple.Mat.3.f32",
+        "extended.choleskyMultiple.Mat.3.f64",
+        "extended.choleskyMultiple.MatView.3.f32",
+        "extended.choleskyMultiple.MatView.3.f64",
+        "extended.luMultiple.Mat.3.f32",
+        "extended.luMultiple.Mat.3.f64",
+        "extended.luMultiple.MatView.3.f32",
+        "extended.luMultiple.MatView.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.lu.lu_factorLUStack_and_solveLUStack_2x2",
+      "file": "src/lu.zig",
+      "name": "lu.factorLUStack and solveLUStack 2x2",
+      "original_assertion_count": 4,
+      "case_ids": [
+        "linsolve.lu.Mat.legacy.lu.lu_factorLUStack_and_solveLUStack_2x2.0.f32",
+        "linsolve.lu.Mat.legacy.lu.lu_factorLUStack_and_solveLUStack_2x2.0.f64",
+        "linsolve.lu.MatView.legacy.lu.lu_factorLUStack_and_solveLUStack_2x2.0.f32",
+        "linsolve.lu.MatView.legacy.lu.lu_factorLUStack_and_solveLUStack_2x2.0.f64",
+        "linsolve.luReuse.Mat.legacy.lu.lu_factorLUStack_and_solveLUStack_2x2.0.f32",
+        "linsolve.luReuse.Mat.legacy.lu.lu_factorLUStack_and_solveLUStack_2x2.0.f64",
+        "linsolve.luReuse.MatView.legacy.lu.lu_factorLUStack_and_solveLUStack_2x2.0.f32",
+        "linsolve.luReuse.MatView.legacy.lu.lu_factorLUStack_and_solveLUStack_2x2.0.f64"
+      ]
+    },
+    {
+      "id": "legacy.lu.lu_solveLUStack_3x3_requiring_pivoting",
+      "file": "src/lu.zig",
+      "name": "lu.solveLUStack 3x3 requiring pivoting",
+      "original_assertion_count": 3,
+      "case_ids": [
+        "linsolve.lu.Mat.legacy.lu.lu_solveLUStack_3x3_requiring_pivoting.0.f32",
+        "linsolve.lu.Mat.legacy.lu.lu_solveLUStack_3x3_requiring_pivoting.0.f64",
+        "linsolve.lu.MatView.legacy.lu.lu_solveLUStack_3x3_requiring_pivoting.0.f32",
+        "linsolve.lu.MatView.legacy.lu.lu_solveLUStack_3x3_requiring_pivoting.0.f64",
+        "linsolve.luReuse.Mat.legacy.lu.lu_solveLUStack_3x3_requiring_pivoting.0.f32",
+        "linsolve.luReuse.Mat.legacy.lu.lu_solveLUStack_3x3_requiring_pivoting.0.f64",
+        "linsolve.luReuse.MatView.legacy.lu.lu_solveLUStack_3x3_requiring_pivoting.0.f32",
+        "linsolve.luReuse.MatView.legacy.lu.lu_solveLUStack_3x3_requiring_pivoting.0.f64"
+      ]
+    },
+    {
+      "id": "legacy.lu.lu_solveLUSlice_3x3",
+      "file": "src/lu.zig",
+      "name": "lu.solveLUSlice 3x3",
+      "original_assertion_count": 3,
+      "case_ids": [
+        "linsolve.lu.Mat.1.scale1.0.f32",
+        "linsolve.lu.Mat.1.scale1.0.f64",
+        "linsolve.lu.MatView.1.scale1.0.f32",
+        "linsolve.lu.MatView.1.scale1.0.f64",
+        "linsolve.luReuse.Mat.1.scale1.0.f32",
+        "linsolve.luReuse.Mat.1.scale1.0.f64",
+        "linsolve.luReuse.MatView.1.scale1.0.f32",
+        "linsolve.luReuse.MatView.1.scale1.0.f64"
+      ]
+    },
+    {
+      "id": "legacy.lu.lu_factorisation_reconstruction_P_A_L_U",
+      "file": "src/lu.zig",
+      "name": "lu factorisation reconstruction P * A == L * U",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "extended.choleskyReconstruction.Mat.3.f32",
+        "extended.choleskyReconstruction.Mat.3.f64",
+        "extended.choleskyReconstruction.MatView.3.f32",
+        "extended.choleskyReconstruction.MatView.3.f64",
+        "extended.luReconstruction.Mat.3.f32",
+        "extended.luReconstruction.Mat.3.f64",
+        "extended.luReconstruction.MatView.3.f32",
+        "extended.luReconstruction.MatView.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.matops.matops_mulVecStack_and_mulVecSlice",
+      "file": "src/matops.zig",
+      "name": "matops.mulVecStack and mulVecSlice",
+      "original_assertion_count": 4,
+      "case_ids": [
+        "matops.matvec.MatView.legacy.matops.matops_mulVecStack_and_mulVecSlice.0.f32",
+        "matops.matvec.MatView.legacy.matops.matops_mulVecStack_and_mulVecSlice.0.f64",
+        "vecops.mul.VecView.3.f32",
+        "vecops.mul.VecView.3.f64",
+        "vecops.mul.slice.3.f32",
+        "vecops.mul.slice.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.matops.matops_mulMatStack_rectangular_and_mulMatSlice",
+      "file": "src/matops.zig",
+      "name": "matops.mulMatStack rectangular and mulMatSlice",
+      "original_assertion_count": 8,
+      "case_ids": [
+        "matops.matmul.MatView.legacy.matops.matops_mulMatStack_rectangular_and_mulMatSlice.0.f32",
+        "matops.matmul.MatView.legacy.matops.matops_mulMatStack_rectangular_and_mulMatSlice.0.f64",
+        "vecops.mul.VecView.3.f32",
+        "vecops.mul.VecView.3.f64",
+        "vecops.mul.slice.3.f32",
+        "vecops.mul.slice.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.matops.matops_outer_and_outerAdd",
+      "file": "src/matops.zig",
+      "name": "matops.outer and outerAdd",
+      "original_assertion_count": 18,
+      "case_ids": [
+        "matops.outer.Mat.1.f32",
+        "matops.outer.Mat.1.f64",
+        "matops.outer.MatView.1.f32",
+        "matops.outer.MatView.1.f64",
+        "matops.outerAdd.Mat.1.f32",
+        "matops.outerAdd.Mat.1.f64",
+        "matops.outerAdd.MatView.1.f32",
+        "matops.outerAdd.MatView.1.f64",
+        "vecops.add.Vec.legacy.matops.matops_outer_and_outerAdd.0.f32",
+        "vecops.add.Vec.legacy.matops.matops_outer_and_outerAdd.0.f64",
+        "vecops.add.VecView.legacy.matops.matops_outer_and_outerAdd.0.f32",
+        "vecops.add.VecView.legacy.matops.matops_outer_and_outerAdd.0.f64"
+      ]
+    },
+    {
+      "id": "legacy.matops.matops_frobeniusNorm_and_maxAbs",
+      "file": "src/matops.zig",
+      "name": "matops.frobeniusNorm and maxAbs",
+      "original_assertion_count": 4,
+      "case_ids": [
+        "extended.legacyNorms.Vec.methods.f32",
+        "extended.legacyNorms.Vec.methods.f64",
+        "extended.legacyNorms.VecView.methods.f32",
+        "extended.legacyNorms.VecView.methods.f64",
+        "matops.frobeniusNorm.Mat.legacy.matops.matops_frobeniusNorm_and_maxAbs.0.f32",
+        "matops.frobeniusNorm.Mat.legacy.matops.matops_frobeniusNorm_and_maxAbs.0.f64",
+        "matops.frobeniusNorm.MatView.legacy.matops.matops_frobeniusNorm_and_maxAbs.0.f32",
+        "matops.frobeniusNorm.MatView.legacy.matops.matops_frobeniusNorm_and_maxAbs.0.f64",
+        "matops.maxAbs.Mat.legacy.matops.matops_frobeniusNorm_and_maxAbs.0.f32",
+        "matops.maxAbs.Mat.legacy.matops.matops_frobeniusNorm_and_maxAbs.0.f64",
+        "matops.maxAbs.MatView.legacy.matops.matops_frobeniusNorm_and_maxAbs.0.f32",
+        "matops.maxAbs.MatView.legacy.matops.matops_frobeniusNorm_and_maxAbs.0.f64",
+        "vecops.normL1.Vec.legacy.matops.matops_frobeniusNorm_and_maxAbs.1.f32",
+        "vecops.normL1.Vec.legacy.matops.matops_frobeniusNorm_and_maxAbs.1.f64",
+        "vecops.normL1.VecView.legacy.matops.matops_frobeniusNorm_and_maxAbs.1.f32",
+        "vecops.normL1.VecView.legacy.matops.matops_frobeniusNorm_and_maxAbs.1.f64",
+        "vecops.normL2.Vec.legacy.matops.matops_frobeniusNorm_and_maxAbs.1.f32",
+        "vecops.normL2.Vec.legacy.matops.matops_frobeniusNorm_and_maxAbs.1.f64",
+        "vecops.normL2.VecView.legacy.matops.matops_frobeniusNorm_and_maxAbs.1.f32",
+        "vecops.normL2.VecView.legacy.matops.matops_frobeniusNorm_and_maxAbs.1.f64",
+        "vecops.normL2Square.Vec.legacy.matops.matops_frobeniusNorm_and_maxAbs.1.f32",
+        "vecops.normL2Square.Vec.legacy.matops.matops_frobeniusNorm_and_maxAbs.1.f64",
+        "vecops.normL2Square.VecView.legacy.matops.matops_frobeniusNorm_and_maxAbs.1.f32",
+        "vecops.normL2Square.VecView.legacy.matops.matops_frobeniusNorm_and_maxAbs.1.f64"
+      ]
+    },
+    {
+      "id": "legacy.matops.matops_allFinite",
+      "file": "src/matops.zig",
+      "name": "matops.allFinite",
+      "original_assertion_count": 4,
+      "case_ids": [
+        "vecops.allFinite.Vec.3.f32",
+        "vecops.allFinite.Vec.3.f64",
+        "vecops.allFinite.VecView.3.f32",
+        "vecops.allFinite.VecView.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.mattype.Mat22f_getRowVec",
+      "file": "src/mattype.zig",
+      "name": "Mat22f.getRowVec",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "extended.row.Mat.3x3.f32",
+        "extended.row.Mat.3x3.f64",
+        "extended.row.MatView.3x3.f32",
+        "extended.row.MatView.3x3.f64"
+      ]
+    },
+    {
+      "id": "legacy.mattype.Mat22f_getColVec",
+      "file": "src/mattype.zig",
+      "name": "Mat22f.getColVec",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "extended.column.Mat.3x3.f32",
+        "extended.column.Mat.3x3.f64",
+        "extended.column.MatView.3x3.f32",
+        "extended.column.MatView.3x3.f64"
+      ]
+    },
+    {
+      "id": "legacy.mattype.Mat22f_add",
+      "file": "src/mattype.zig",
+      "name": "Mat22f.add",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "vecops.add.Vec.1.f32",
+        "vecops.add.Vec.1.f64",
+        "vecops.add.VecView.1.f32",
+        "vecops.add.VecView.1.f64"
+      ]
+    },
+    {
+      "id": "legacy.mattype.Mat22f_sub",
+      "file": "src/mattype.zig",
+      "name": "Mat22f.sub",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "vecops.sub.Vec.3.f32",
+        "vecops.sub.Vec.3.f64",
+        "vecops.sub.VecView.3.f32",
+        "vecops.sub.VecView.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.mattype.Mat22f_trace",
+      "file": "src/mattype.zig",
+      "name": "Mat22f.trace",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "matops.trace.Mat.legacy.mattype.Mat22f_trace.0.f32",
+        "matops.trace.Mat.legacy.mattype.Mat22f_trace.0.f64",
+        "matops.trace.MatView.legacy.mattype.Mat22f_trace.0.f32",
+        "matops.trace.MatView.legacy.mattype.Mat22f_trace.0.f64"
+      ]
+    },
+    {
+      "id": "legacy.mattype.Mat22f_transpose",
+      "file": "src/mattype.zig",
+      "name": "Mat22f.transpose",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "extended.transposeSquare.MatView.3x3.f32",
+        "extended.transposeSquare.MatView.3x3.f64",
+        "matops.transpose.Mat.legacy.mattype.Mat22f_transpose.0.f32",
+        "matops.transpose.Mat.legacy.mattype.Mat22f_transpose.0.f64",
+        "matops.transpose.MatView.legacy.mattype.Mat22f_transpose.0.f32",
+        "matops.transpose.MatView.legacy.mattype.Mat22f_transpose.0.f64"
+      ]
+    },
+    {
+      "id": "legacy.mattype.Mat_rectangular_transpose_and_row_construction",
+      "file": "src/mattype.zig",
+      "name": "Mat rectangular transpose and row construction",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "extended.transposeSquare.MatView.3x3.f32",
+        "extended.transposeSquare.MatView.3x3.f64",
+        "matops.transpose.MatView.legacy.mattype.Mat_rectangular_transpose_and_row_construction.0.f32",
+        "matops.transpose.MatView.legacy.mattype.Mat_rectangular_transpose_and_row_construction.0.f64"
+      ]
+    },
+    {
+      "id": "legacy.mattype.Mat22f_mulScal",
+      "file": "src/mattype.zig",
+      "name": "Mat22f.mulScal",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "extended.scale.Vec.methods.f32",
+        "extended.scale.Vec.methods.f64",
+        "extended.scale.VecView.methods.f32",
+        "extended.scale.VecView.methods.f64",
+        "vecops.mul.VecView.3.f32",
+        "vecops.mul.VecView.3.f64",
+        "vecops.mul.slice.3.f32",
+        "vecops.mul.slice.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.mattype.Mat22f_mulVec",
+      "file": "src/mattype.zig",
+      "name": "Mat22f.mulVec",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "matops.matvec.Mat.legacy.mattype.Mat22f_mulVec.0.f32",
+        "matops.matvec.Mat.legacy.mattype.Mat22f_mulVec.0.f64",
+        "matops.matvec.MatView.legacy.mattype.Mat22f_mulVec.0.f32",
+        "matops.matvec.MatView.legacy.mattype.Mat22f_mulVec.0.f64",
+        "vecops.mul.VecView.3.f32",
+        "vecops.mul.VecView.3.f64",
+        "vecops.mul.slice.3.f32",
+        "vecops.mul.slice.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.mattype.Mat22f_mulMat",
+      "file": "src/mattype.zig",
+      "name": "Mat22f.mulMat",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "matops.matmul.Mat.legacy.mattype.Mat22f_mulMat.0.f32",
+        "matops.matmul.Mat.legacy.mattype.Mat22f_mulMat.0.f64",
+        "matops.matmul.MatView.legacy.mattype.Mat22f_mulMat.0.f32",
+        "matops.matmul.MatView.legacy.mattype.Mat22f_mulMat.0.f64",
+        "vecops.mul.VecView.3.f32",
+        "vecops.mul.VecView.3.f64",
+        "vecops.mul.slice.3.f32",
+        "vecops.mul.slice.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.mattype.Mat22f_mulMat_identity_and_negative",
+      "file": "src/mattype.zig",
+      "name": "Mat22f.mulMat.identity_and_negative",
+      "original_assertion_count": 2,
+      "case_ids": [
+        "extended.identity.Mat.3x3.f32",
+        "extended.identity.Mat.3x3.f64",
+        "extended.identity.MatView.3x3.f32",
+        "extended.identity.MatView.3x3.f64",
+        "matops.matmul.Mat.legacy.mattype.Mat22f_mulMat_identity_and_negative.0.f32",
+        "matops.matmul.Mat.legacy.mattype.Mat22f_mulMat_identity_and_negative.0.f64",
+        "matops.matmul.MatView.legacy.mattype.Mat22f_mulMat_identity_and_negative.0.f32",
+        "matops.matmul.MatView.legacy.mattype.Mat22f_mulMat_identity_and_negative.0.f64",
+        "matops.transpose.Mat.legacy.mattype.Mat22f_mulMat_identity_and_negative.0.f32",
+        "matops.transpose.Mat.legacy.mattype.Mat22f_mulMat_identity_and_negative.0.f64",
+        "matops.transpose.MatView.legacy.mattype.Mat22f_mulMat_identity_and_negative.0.f32",
+        "matops.transpose.MatView.legacy.mattype.Mat22f_mulMat_identity_and_negative.0.f64",
+        "vecops.mul.VecView.3.f32",
+        "vecops.mul.VecView.3.f64",
+        "vecops.mul.slice.3.f32",
+        "vecops.mul.slice.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.mattype.Mat22Ops_det",
+      "file": "src/mattype.zig",
+      "name": "Mat22Ops.det",
+      "original_assertion_count": 4,
+      "case_ids": [
+        "matops.det.Mat.legacy.mattype.Mat22Ops_det.0.f32",
+        "matops.det.Mat.legacy.mattype.Mat22Ops_det.0.f64"
+      ]
+    },
+    {
+      "id": "legacy.mattype.Mat22Ops_inv",
+      "file": "src/mattype.zig",
+      "name": "Mat22Ops.inv",
+      "original_assertion_count": 2,
+      "case_ids": [
+        "matops.inv.Mat.legacy.mattype.Mat22Ops_inv.0.f32",
+        "matops.inv.Mat.legacy.mattype.Mat22Ops_inv.0.f64",
+        "matops.inv.Mat.legacy.mattype.Mat22Ops_invChecked_rejects_singular_and_near_singular_matrices.0.f32",
+        "matops.inv.Mat.legacy.mattype.Mat22Ops_invChecked_rejects_singular_and_near_singular_matrices.0.f64",
+        "matops.inverseIdentity.Mat.2.f32",
+        "matops.inverseIdentity.Mat.2.f64",
+        "matops.inverseIdentity.Mat.3.f32",
+        "matops.inverseIdentity.Mat.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.mattype.Mat22Ops_invChecked_rejects_singular_and_near_singular_matrices",
+      "file": "src/mattype.zig",
+      "name": "Mat22Ops.invChecked rejects singular and near-singular matrices",
+      "original_assertion_count": 3,
+      "case_ids": [
+        "extended.invThreshold.Mat.methods.f32",
+        "extended.invThreshold.Mat.methods.f64",
+        "matops.inv.Mat.legacy.mattype.Mat22Ops_invChecked_rejects_singular_and_near_singular_matrices.0.f32",
+        "matops.inv.Mat.legacy.mattype.Mat22Ops_invChecked_rejects_singular_and_near_singular_matrices.0.f64",
+        "matops.inverseIdentity.Mat.2.f32",
+        "matops.inverseIdentity.Mat.2.f64",
+        "matops.inverseIdentity.Mat.3.f32",
+        "matops.inverseIdentity.Mat.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.mattype.Mat33f_add",
+      "file": "src/mattype.zig",
+      "name": "Mat33f.add",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "vecops.add.Vec.1.f32",
+        "vecops.add.Vec.1.f64",
+        "vecops.add.VecView.1.f32",
+        "vecops.add.VecView.1.f64"
+      ]
+    },
+    {
+      "id": "legacy.mattype.Mat33f_sub",
+      "file": "src/mattype.zig",
+      "name": "Mat33f.sub",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "vecops.sub.Vec.3.f32",
+        "vecops.sub.Vec.3.f64",
+        "vecops.sub.VecView.3.f32",
+        "vecops.sub.VecView.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.mattype.Mat33f_getRowVec",
+      "file": "src/mattype.zig",
+      "name": "Mat33f.getRowVec",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "extended.row.Mat.3x3.f32",
+        "extended.row.Mat.3x3.f64",
+        "extended.row.MatView.3x3.f32",
+        "extended.row.MatView.3x3.f64"
+      ]
+    },
+    {
+      "id": "legacy.mattype.Mat33f_getColVec",
+      "file": "src/mattype.zig",
+      "name": "Mat33f.getColVec",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "extended.column.Mat.3x3.f32",
+        "extended.column.Mat.3x3.f64",
+        "extended.column.MatView.3x3.f32",
+        "extended.column.MatView.3x3.f64"
+      ]
+    },
+    {
+      "id": "legacy.mattype.Mat33f_getSubMat",
+      "file": "src/mattype.zig",
+      "name": "Mat33f.getSubMat",
+      "original_assertion_count": 4,
+      "case_ids": [
+        "extended.submatrix.Mat.2x3.f32",
+        "extended.submatrix.Mat.2x3.f64",
+        "extended.submatrix.Mat.3x3.f32",
+        "extended.submatrix.Mat.3x3.f64",
+        "vecops.sub.Vec.3.f32",
+        "vecops.sub.Vec.3.f64",
+        "vecops.sub.VecView.3.f32",
+        "vecops.sub.VecView.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.mattype.Mat33f_transpose",
+      "file": "src/mattype.zig",
+      "name": "Mat33f.transpose",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "extended.transposeSquare.MatView.3x3.f32",
+        "extended.transposeSquare.MatView.3x3.f64",
+        "matops.transpose.Mat.legacy.mattype.Mat33f_transpose.0.f32",
+        "matops.transpose.Mat.legacy.mattype.Mat33f_transpose.0.f64",
+        "matops.transpose.MatView.legacy.mattype.Mat33f_transpose.0.f32",
+        "matops.transpose.MatView.legacy.mattype.Mat33f_transpose.0.f64"
+      ]
+    },
+    {
+      "id": "legacy.mattype.Mat33f_mulScal",
+      "file": "src/mattype.zig",
+      "name": "Mat33f.mulScal",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "extended.scale.Vec.methods.f32",
+        "extended.scale.Vec.methods.f64",
+        "extended.scale.VecView.methods.f32",
+        "extended.scale.VecView.methods.f64",
+        "vecops.mul.VecView.3.f32",
+        "vecops.mul.VecView.3.f64",
+        "vecops.mul.slice.3.f32",
+        "vecops.mul.slice.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.mattype.Mat33f_mulVec",
+      "file": "src/mattype.zig",
+      "name": "Mat33f.mulVec",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "matops.matvec.Mat.legacy.mattype.Mat33f_mulVec.0.f32",
+        "matops.matvec.Mat.legacy.mattype.Mat33f_mulVec.0.f64",
+        "matops.matvec.MatView.legacy.mattype.Mat33f_mulVec.0.f32",
+        "matops.matvec.MatView.legacy.mattype.Mat33f_mulVec.0.f64",
+        "vecops.mul.VecView.3.f32",
+        "vecops.mul.VecView.3.f64",
+        "vecops.mul.slice.3.f32",
+        "vecops.mul.slice.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.mattype.Mat33f_mulMat",
+      "file": "src/mattype.zig",
+      "name": "Mat33f.mulMat",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "matops.matmul.Mat.legacy.mattype.Mat33f_mulMat.0.f32",
+        "matops.matmul.Mat.legacy.mattype.Mat33f_mulMat.0.f64",
+        "matops.matmul.MatView.legacy.mattype.Mat33f_mulMat.0.f32",
+        "matops.matmul.MatView.legacy.mattype.Mat33f_mulMat.0.f64",
+        "vecops.mul.VecView.3.f32",
+        "vecops.mul.VecView.3.f64",
+        "vecops.mul.slice.3.f32",
+        "vecops.mul.slice.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.mattype.Mat33f_mulMat_identity_and_negative",
+      "file": "src/mattype.zig",
+      "name": "Mat33f.mulMat.identity_and_negative",
+      "original_assertion_count": 2,
+      "case_ids": [
+        "extended.identity.Mat.3x3.f32",
+        "extended.identity.Mat.3x3.f64",
+        "extended.identity.MatView.3x3.f32",
+        "extended.identity.MatView.3x3.f64",
+        "matops.matmul.Mat.legacy.mattype.Mat33f_mulMat_identity_and_negative.0.f32",
+        "matops.matmul.Mat.legacy.mattype.Mat33f_mulMat_identity_and_negative.0.f64",
+        "matops.matmul.MatView.legacy.mattype.Mat33f_mulMat_identity_and_negative.0.f32",
+        "matops.matmul.MatView.legacy.mattype.Mat33f_mulMat_identity_and_negative.0.f64",
+        "matops.transpose.Mat.legacy.mattype.Mat33f_mulMat_identity_and_negative.0.f32",
+        "matops.transpose.Mat.legacy.mattype.Mat33f_mulMat_identity_and_negative.0.f64",
+        "matops.transpose.MatView.legacy.mattype.Mat33f_mulMat_identity_and_negative.0.f32",
+        "matops.transpose.MatView.legacy.mattype.Mat33f_mulMat_identity_and_negative.0.f64",
+        "vecops.mul.VecView.3.f32",
+        "vecops.mul.VecView.3.f64",
+        "vecops.mul.slice.3.f32",
+        "vecops.mul.slice.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.mattype.Mat33Ops_det",
+      "file": "src/mattype.zig",
+      "name": "Mat33Ops.det",
+      "original_assertion_count": 6,
+      "case_ids": [
+        "matops.det.Mat.legacy.mattype.Mat33Ops_det.0.f32",
+        "matops.det.Mat.legacy.mattype.Mat33Ops_det.0.f64"
+      ]
+    },
+    {
+      "id": "legacy.mattype.Mat33Ops_inv",
+      "file": "src/mattype.zig",
+      "name": "Mat33Ops.inv",
+      "original_assertion_count": 2,
+      "case_ids": [
+        "matops.inv.Mat.legacy.mattype.Mat33Ops_inv.0.f32",
+        "matops.inv.Mat.legacy.mattype.Mat33Ops_inv.0.f64",
+        "matops.inverseIdentity.Mat.2.f32",
+        "matops.inverseIdentity.Mat.2.f64",
+        "matops.inverseIdentity.Mat.3.f32",
+        "matops.inverseIdentity.Mat.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.mattype.Mat33Ops_invChecked_rejects_singular_matrices",
+      "file": "src/mattype.zig",
+      "name": "Mat33Ops.invChecked rejects singular matrices",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "matops.inv.Mat.2.dense.f32",
+        "matops.inv.Mat.2.dense.f64",
+        "matops.inv.Mat.2.singular.f32",
+        "matops.inv.Mat.2.singular.f64",
+        "matops.inverseIdentity.Mat.2.f32",
+        "matops.inverseIdentity.Mat.2.f64",
+        "matops.inverseIdentity.Mat.3.f32",
+        "matops.inverseIdentity.Mat.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.mattype.Mat44f_insertRowVec",
+      "file": "src/mattype.zig",
+      "name": "Mat44f.insertRowVec",
+      "original_assertion_count": 3,
+      "case_ids": [
+        "extended.insertRow.Mat.2x3.f32",
+        "extended.insertRow.Mat.2x3.f64",
+        "extended.insertRow.Mat.3x3.f32",
+        "extended.insertRow.Mat.3x3.f64"
+      ]
+    },
+    {
+      "id": "legacy.mattype.Mat44f_insertColVec",
+      "file": "src/mattype.zig",
+      "name": "Mat44f.insertColVec",
+      "original_assertion_count": 3,
+      "case_ids": [
+        "extended.insertColumn.Mat.2x3.f32",
+        "extended.insertColumn.Mat.2x3.f64",
+        "extended.insertColumn.Mat.3x3.f32",
+        "extended.insertColumn.Mat.3x3.f64"
+      ]
+    },
+    {
+      "id": "legacy.mattype.Mat44f_insertSubMat",
+      "file": "src/mattype.zig",
+      "name": "Mat44f.insertSubMat",
+      "original_assertion_count": 2,
+      "case_ids": [
+        "extended.insertSubmatrix.Mat.2x3.f32",
+        "extended.insertSubmatrix.Mat.2x3.f64",
+        "extended.insertSubmatrix.Mat.3x3.f32",
+        "extended.insertSubmatrix.Mat.3x3.f64",
+        "vecops.sub.Vec.3.f32",
+        "vecops.sub.Vec.3.f64",
+        "vecops.sub.VecView.3.f32",
+        "vecops.sub.VecView.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.mattype.Mat_insertSubMat_accepts_rectangular_matrices",
+      "file": "src/mattype.zig",
+      "name": "Mat insertSubMat accepts rectangular matrices",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "extended.insertSubmatrix.Mat.2x3.f32",
+        "extended.insertSubmatrix.Mat.2x3.f64",
+        "extended.insertSubmatrix.Mat.3x3.f32",
+        "extended.insertSubmatrix.Mat.3x3.f64",
+        "vecops.sub.Vec.3.f32",
+        "vecops.sub.Vec.3.f64",
+        "vecops.sub.VecView.3.f32",
+        "vecops.sub.VecView.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.mattype.Mat44f_mulMat",
+      "file": "src/mattype.zig",
+      "name": "Mat44f.mulMat",
+      "original_assertion_count": 2,
+      "case_ids": [
+        "matops.matmul.Mat.legacy.mattype.Mat44f_mulMat.0.f32",
+        "matops.matmul.Mat.legacy.mattype.Mat44f_mulMat.0.f64",
+        "matops.matmul.MatView.legacy.mattype.Mat44f_mulMat.0.f32",
+        "matops.matmul.MatView.legacy.mattype.Mat44f_mulMat.0.f64",
+        "vecops.mul.VecView.3.f32",
+        "vecops.mul.VecView.3.f64",
+        "vecops.mul.slice.3.f32",
+        "vecops.mul.slice.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.mattype.Mat44Ops_det",
+      "file": "src/mattype.zig",
+      "name": "Mat44Ops.det",
+      "original_assertion_count": 5,
+      "case_ids": [
+        "matops.det.Mat.legacy.mattype.Mat44Ops_det.0.f32",
+        "matops.det.Mat.legacy.mattype.Mat44Ops_det.0.f64"
+      ]
+    },
+    {
+      "id": "legacy.mattype.Mat44Ops_insertMat22",
+      "file": "src/mattype.zig",
+      "name": "Mat44Ops.insertMat22",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "extended.insertMat22.Mat.methods.f32",
+        "extended.insertMat22.Mat.methods.f64"
+      ]
+    },
+    {
+      "id": "legacy.mattype.Mat44Ops_inv",
+      "file": "src/mattype.zig",
+      "name": "Mat44Ops.inv",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "matops.inv.Mat.legacy.mattype.Mat44Ops_inv.0.f32",
+        "matops.inv.Mat.legacy.mattype.Mat44Ops_inv.0.f64",
+        "matops.inv.Mat.legacy.mattype.Mat44Ops_inv_negative_det.0.f32",
+        "matops.inv.Mat.legacy.mattype.Mat44Ops_inv_negative_det.0.f64",
+        "matops.inverseIdentity.Mat.2.f32",
+        "matops.inverseIdentity.Mat.2.f64",
+        "matops.inverseIdentity.Mat.3.f32",
+        "matops.inverseIdentity.Mat.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.mattype.Mat44Ops_inv_negative_det",
+      "file": "src/mattype.zig",
+      "name": "Mat44Ops.inv.negative_det",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "matops.inv.Mat.legacy.mattype.Mat44Ops_inv_negative_det.0.f32",
+        "matops.inv.Mat.legacy.mattype.Mat44Ops_inv_negative_det.0.f64",
+        "matops.inverseIdentity.Mat.2.f32",
+        "matops.inverseIdentity.Mat.2.f64",
+        "matops.inverseIdentity.Mat.3.f32",
+        "matops.inverseIdentity.Mat.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.mattype.Mat44Ops_invChecked_rejects_singular_matrices",
+      "file": "src/mattype.zig",
+      "name": "Mat44Ops.invChecked rejects singular matrices",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "matops.inv.Mat.2.dense.f32",
+        "matops.inv.Mat.2.dense.f64",
+        "matops.inv.Mat.2.singular.f32",
+        "matops.inv.Mat.2.singular.f64",
+        "matops.inverseIdentity.Mat.2.f32",
+        "matops.inverseIdentity.Mat.2.f64",
+        "matops.inverseIdentity.Mat.3.f32",
+        "matops.inverseIdentity.Mat.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.mattype.Mat_constructors_and_rectangular_matrix_vector_multiplication",
+      "file": "src/mattype.zig",
+      "name": "Mat constructors and rectangular matrix-vector multiplication",
+      "original_assertion_count": 5,
+      "case_ids": [
+        "extended.coordinates.Vec.methods.f32",
+        "extended.coordinates.Vec.methods.f64",
+        "extended.diag.Mat.3x3.f32",
+        "extended.diag.Mat.3x3.f64",
+        "extended.diag.MatView.3x3.f32",
+        "extended.diag.MatView.3x3.f64",
+        "extended.fill.Vec.methods.f32",
+        "extended.fill.Vec.methods.f64",
+        "extended.fill.VecView.methods.f32",
+        "extended.fill.VecView.methods.f64",
+        "extended.identity.Mat.3x3.f32",
+        "extended.identity.Mat.3x3.f64",
+        "extended.identity.MatView.3x3.f32",
+        "extended.identity.MatView.3x3.f64",
+        "extended.initRows.Mat.2x3.f32",
+        "extended.initRows.Mat.2x3.f64",
+        "extended.initRows.Mat.3x3.f32",
+        "extended.initRows.Mat.3x3.f64",
+        "extended.initVec2.Vec.methods.f32",
+        "extended.initVec2.Vec.methods.f64",
+        "extended.initVec3.Vec.methods.f32",
+        "extended.initVec3.Vec.methods.f64",
+        "extended.ones.Vec.methods.f32",
+        "extended.ones.Vec.methods.f64",
+        "extended.ones.VecView.methods.f32",
+        "extended.ones.VecView.methods.f64",
+        "extended.zeros.Vec.methods.f32",
+        "extended.zeros.Vec.methods.f64",
+        "extended.zeros.VecView.methods.f32",
+        "extended.zeros.VecView.methods.f64"
+      ]
+    },
+    {
+      "id": "legacy.mattype.Mat22_adjugate_and_Mat44_affine_vector_multiplication",
+      "file": "src/mattype.zig",
+      "name": "Mat22 adjugate and Mat44 affine vector multiplication",
+      "original_assertion_count": 2,
+      "case_ids": [
+        "extended.adj.Mat.methods.f32",
+        "extended.adj.Mat.methods.f64"
+      ]
+    },
+    {
+      "id": "legacy.mattype.Mat_mulMatRect_rectangular_multiplication",
+      "file": "src/mattype.zig",
+      "name": "Mat.mulMatRect rectangular multiplication",
+      "original_assertion_count": 4,
+      "case_ids": [
+        "matops.matmul.MatView.legacy.mattype.Mat_mulMatRect_rectangular_multiplication.0.f32",
+        "matops.matmul.MatView.legacy.mattype.Mat_mulMatRect_rectangular_multiplication.0.f64",
+        "vecops.mul.VecView.3.f32",
+        "vecops.mul.VecView.3.f64",
+        "vecops.mul.slice.3.f32",
+        "vecops.mul.slice.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.mattype.Mat_direct_mat_field_access_and_get_set_compatibility",
+      "file": "src/mattype.zig",
+      "name": "Mat direct mat field access and get set compatibility",
+      "original_assertion_count": 10,
+      "case_ids": [
+        "extended.flatAccess.MatView.2x3.f32",
+        "extended.flatAccess.MatView.2x3.f64",
+        "extended.flatAccess.MatView.3x3.f32",
+        "extended.flatAccess.MatView.3x3.f64",
+        "types.valueCopy.Mat.ownership.f32",
+        "types.valueCopy.Mat.ownership.f64",
+        "types.valueCopy.Vec.ownership.f32",
+        "types.valueCopy.Vec.ownership.f64"
+      ]
+    },
+    {
+      "id": "legacy.mattype.Mat_row_slice_access_and_whole_row_copy",
+      "file": "src/mattype.zig",
+      "name": "Mat row slice access and whole row copy",
+      "original_assertion_count": 4,
+      "case_ids": [
+        "extended.row.Mat.3x3.f32",
+        "extended.row.Mat.3x3.f64",
+        "extended.row.MatView.3x3.f32",
+        "extended.row.MatView.3x3.f64",
+        "extended.rowMutation.MatView.methods.f32",
+        "extended.rowMutation.MatView.methods.f64"
+      ]
+    },
+    {
+      "id": "legacy.mattype.Mat_initSlice_flat_array_compatibility",
+      "file": "src/mattype.zig",
+      "name": "Mat initSlice flat array compatibility",
+      "original_assertion_count": 6,
+      "case_ids": [
+        "extended.initRows.Mat.2x3.f32",
+        "extended.initRows.Mat.2x3.f64",
+        "extended.initRows.Mat.3x3.f32",
+        "extended.initRows.Mat.3x3.f64",
+        "types.valueCopy.Mat.ownership.f32",
+        "types.valueCopy.Mat.ownership.f64",
+        "types.valueCopy.Vec.ownership.f32",
+        "types.valueCopy.Vec.ownership.f64"
+      ]
+    },
+    {
+      "id": "legacy.matviewtype.MatView_getSlice",
+      "file": "src/matviewtype.zig",
+      "name": "MatView.getSlice",
+      "original_assertion_count": 3,
+      "case_ids": [
+        "extended.getSlice.NDArray.methods.f32",
+        "extended.getSlice.NDArray.methods.f64",
+        "extended.row.Mat.3x3.f32",
+        "extended.row.Mat.3x3.f64",
+        "extended.row.MatView.3x3.f32",
+        "extended.row.MatView.3x3.f64"
+      ]
+    },
+    {
+      "id": "legacy.matviewtype.MatView_flat_helpers",
+      "file": "src/matviewtype.zig",
+      "name": "MatView flat helpers",
+      "original_assertion_count": 3,
+      "case_ids": [
+        "extended.flatAccess.MatView.2x3.f32",
+        "extended.flatAccess.MatView.2x3.f64",
+        "extended.flatAccess.MatView.3x3.f32",
+        "extended.flatAccess.MatView.3x3.f64"
+      ]
+    },
+    {
+      "id": "legacy.matviewtype.MatViewOps_add",
+      "file": "src/matviewtype.zig",
+      "name": "MatViewOps.add",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "vecops.add.Vec.1.f32",
+        "vecops.add.Vec.1.f64",
+        "vecops.add.VecView.1.f32",
+        "vecops.add.VecView.1.f64"
+      ]
+    },
+    {
+      "id": "legacy.matviewtype.MatViewOps_sub",
+      "file": "src/matviewtype.zig",
+      "name": "MatViewOps.sub",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "vecops.sub.Vec.3.f32",
+        "vecops.sub.Vec.3.f64",
+        "vecops.sub.VecView.3.f32",
+        "vecops.sub.VecView.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.matviewtype.MatViewOps_mulElemWise",
+      "file": "src/matviewtype.zig",
+      "name": "MatViewOps.mulElemWise",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "extended.mulOut.MatView.2x3.f32",
+        "extended.mulOut.MatView.2x3.f64",
+        "extended.mulOut.MatView.3x3.f32",
+        "extended.mulOut.MatView.3x3.f64",
+        "vecops.mul.VecView.3.f32",
+        "vecops.mul.VecView.3.f64",
+        "vecops.mul.slice.3.f32",
+        "vecops.mul.slice.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.matviewtype.MatViewOps_mulScal",
+      "file": "src/matviewtype.zig",
+      "name": "MatViewOps.mulScal",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "extended.scale.Vec.methods.f32",
+        "extended.scale.Vec.methods.f64",
+        "extended.scale.VecView.methods.f32",
+        "extended.scale.VecView.methods.f64",
+        "vecops.mul.VecView.3.f32",
+        "vecops.mul.VecView.3.f64",
+        "vecops.mul.slice.3.f32",
+        "vecops.mul.slice.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.matviewtype.MatViewOps_divElemWise",
+      "file": "src/matviewtype.zig",
+      "name": "MatViewOps.divElemWise",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "extended.divOut.MatView.2x3.f32",
+        "extended.divOut.MatView.2x3.f64",
+        "extended.divOut.MatView.3x3.f32",
+        "extended.divOut.MatView.3x3.f64",
+        "vecops.div.VecView.3.f32",
+        "vecops.div.VecView.3.f64",
+        "vecops.div.slice.3.f32",
+        "vecops.div.slice.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.matviewtype.MatView_addInPlace",
+      "file": "src/matviewtype.zig",
+      "name": "MatView.addInPlace",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "vecops.add.Vec.legacy.matviewtype.MatView_addInPlace.0.f32",
+        "vecops.add.Vec.legacy.matviewtype.MatView_addInPlace.0.f64",
+        "vecops.add.VecView.legacy.matviewtype.MatView_addInPlace.0.f32",
+        "vecops.add.VecView.legacy.matviewtype.MatView_addInPlace.0.f64"
+      ]
+    },
+    {
+      "id": "legacy.matviewtype.MatView_subInPlace",
+      "file": "src/matviewtype.zig",
+      "name": "MatView.subInPlace",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "vecops.sub.Vec.legacy.matviewtype.MatView_subInPlace.0.f32",
+        "vecops.sub.Vec.legacy.matviewtype.MatView_subInPlace.0.f64",
+        "vecops.sub.VecView.legacy.matviewtype.MatView_subInPlace.0.f32",
+        "vecops.sub.VecView.legacy.matviewtype.MatView_subInPlace.0.f64"
+      ]
+    },
+    {
+      "id": "legacy.matviewtype.MatView_trace",
+      "file": "src/matviewtype.zig",
+      "name": "MatView.trace",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "matops.trace.Mat.3x3x3.f32",
+        "matops.trace.Mat.3x3x3.f64",
+        "matops.trace.MatView.3x3x3.f32",
+        "matops.trace.MatView.3x3x3.f64"
+      ]
+    },
+    {
+      "id": "legacy.matviewtype.MatView_transpose",
+      "file": "src/matviewtype.zig",
+      "name": "MatView.transpose",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "extended.transposeSquare.MatView.3x3.f32",
+        "extended.transposeSquare.MatView.3x3.f64",
+        "matops.transpose.Mat.2x2x2.f32",
+        "matops.transpose.Mat.2x2x2.f64",
+        "matops.transpose.MatView.2x2x2.f32",
+        "matops.transpose.MatView.2x2x2.f64"
+      ]
+    },
+    {
+      "id": "legacy.matviewtype.MatView_mulScal",
+      "file": "src/matviewtype.zig",
+      "name": "MatView.mulScal",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "extended.scale.Vec.methods.f32",
+        "extended.scale.Vec.methods.f64",
+        "extended.scale.VecView.methods.f32",
+        "extended.scale.VecView.methods.f64",
+        "vecops.mul.VecView.3.f32",
+        "vecops.mul.VecView.3.f64",
+        "vecops.mul.slice.3.f32",
+        "vecops.mul.slice.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.matviewtype.MatViewOps_mulVec",
+      "file": "src/matviewtype.zig",
+      "name": "MatViewOps.mulVec",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "matops.matvec.Mat.3x3x3.f32",
+        "matops.matvec.Mat.3x3x3.f64",
+        "matops.matvec.MatView.3x3x3.f32",
+        "matops.matvec.MatView.3x3x3.f64",
+        "vecops.mul.VecView.3.f32",
+        "vecops.mul.VecView.3.f64",
+        "vecops.mul.slice.3.f32",
+        "vecops.mul.slice.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.matviewtype.MatViewOps_mulSquare",
+      "file": "src/matviewtype.zig",
+      "name": "MatViewOps.mulSquare",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "matops.matmul.Mat.1x1x1.f32",
+        "matops.matmul.Mat.1x1x1.f64",
+        "matops.matmul.MatView.1x1x1.f32",
+        "matops.matmul.MatView.1x1x1.f64",
+        "vecops.mul.VecView.3.f32",
+        "vecops.mul.VecView.3.f64",
+        "vecops.mul.slice.3.f32",
+        "vecops.mul.slice.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.matviewtype.MatView_allocation_rectangular_trace_and_column_extrema",
+      "file": "src/matviewtype.zig",
+      "name": "MatView allocation, rectangular trace, and column extrema",
+      "original_assertion_count": 3,
+      "case_ids": [
+        "extended.columnExtrema.MatView.2x3.f32",
+        "extended.columnExtrema.MatView.2x3.f64",
+        "extended.columnExtrema.MatView.3x3.f32",
+        "extended.columnExtrema.MatView.3x3.f64",
+        "extended.fill.Vec.methods.f32",
+        "extended.fill.Vec.methods.f64",
+        "extended.fill.VecView.methods.f32",
+        "extended.fill.VecView.methods.f64",
+        "extended.initFlat.NDArray.1.f32",
+        "extended.initFlat.NDArray.1.f64",
+        "extended.initFlat.NDArray.17.f32",
+        "extended.initFlat.NDArray.17.f64",
+        "matops.trace.Mat.3x3x3.f32",
+        "matops.trace.Mat.3x3x3.f64",
+        "matops.trace.MatView.3x3x3.f32",
+        "matops.trace.MatView.3x3x3.f64"
+      ]
+    },
+    {
+      "id": "legacy.matviewtype.MatView_in_place_multiply_and_divide",
+      "file": "src/matviewtype.zig",
+      "name": "MatView in-place multiply and divide",
+      "original_assertion_count": 2,
+      "case_ids": [
+        "extended.divInPlace.MatView.2x3.f32",
+        "extended.divInPlace.MatView.2x3.f64",
+        "extended.divInPlace.MatView.3x3.f32",
+        "extended.divInPlace.MatView.3x3.f64",
+        "extended.mulInPlace.MatView.2x3.f32",
+        "extended.mulInPlace.MatView.2x3.f64",
+        "extended.mulInPlace.MatView.3x3.f32",
+        "extended.mulInPlace.MatView.3x3.f64",
+        "vecops.div.VecView.3.f32",
+        "vecops.div.VecView.3.f64",
+        "vecops.div.slice.3.f32",
+        "vecops.div.slice.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.matviewtype.MatViewOps_multiplies_rectangular_matrices",
+      "file": "src/matviewtype.zig",
+      "name": "MatViewOps multiplies rectangular matrices",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "matops.matmul.Mat.1x1x1.f32",
+        "matops.matmul.Mat.1x1x1.f64",
+        "matops.matmul.MatView.1x1x1.f32",
+        "matops.matmul.MatView.1x1x1.f64"
+      ]
+    },
+    {
+      "id": "legacy.matviewtype.MatView_identity_clears_dirty_storage_and_transpose_supports_rectangles",
+      "file": "src/matviewtype.zig",
+      "name": "MatView identity clears dirty storage and transpose supports rectangles",
+      "original_assertion_count": 2,
+      "case_ids": [
+        "extended.identity.Mat.3x3.f32",
+        "extended.identity.Mat.3x3.f64",
+        "extended.identity.MatView.3x3.f32",
+        "extended.identity.MatView.3x3.f64",
+        "extended.transposeSquare.MatView.3x3.f32",
+        "extended.transposeSquare.MatView.3x3.f64",
+        "matops.transpose.Mat.2x2x2.f32",
+        "matops.transpose.Mat.2x2x2.f64",
+        "matops.transpose.MatView.2x2x2.f32",
+        "matops.transpose.MatView.2x2x2.f64"
+      ]
+    },
+    {
+      "id": "legacy.ndarraytype.matchArrayDims",
+      "file": "src/ndarraytype.zig",
+      "name": "matchArrayDims",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "extended.matchDims.NDArray.methods.f32",
+        "extended.matchDims.NDArray.methods.f64"
+      ]
+    },
+    {
+      "id": "legacy.ndarraytype.getFlatIdx",
+      "file": "src/ndarraytype.zig",
+      "name": "getFlatIdx",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "ndarray.getFlatIdx.NDArray.1.f32",
+        "ndarray.getFlatIdx.NDArray.1.f64",
+        "ndarray.getFlatIdx.NDArray.3.f32",
+        "ndarray.getFlatIdx.NDArray.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.ndarraytype.calcFlatStride",
+      "file": "src/ndarraytype.zig",
+      "name": "calcFlatStride",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "ndarray.calcFlatStride.NDArray.2x3.f32",
+        "ndarray.calcFlatStride.NDArray.2x3.f64",
+        "ndarray.calcFlatStride.NDArray.3.f32",
+        "ndarray.calcFlatStride.NDArray.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.ndarraytype.getSlice",
+      "file": "src/ndarraytype.zig",
+      "name": "getSlice",
+      "original_assertion_count": 2,
+      "case_ids": [
+        "extended.getSlice.NDArray.methods.f32",
+        "extended.getSlice.NDArray.methods.f64",
+        "extended.row.Mat.3x3.f32",
+        "extended.row.Mat.3x3.f64",
+        "extended.row.MatView.3x3.f32",
+        "extended.row.MatView.3x3.f64"
+      ]
+    },
+    {
+      "id": "legacy.ndarraytype.fixedPrefixView",
+      "file": "src/ndarraytype.zig",
+      "name": "fixedPrefixView",
+      "original_assertion_count": 5,
+      "case_ids": [
+        "extended.emptyPrefix.NDArray.1.f32",
+        "extended.emptyPrefix.NDArray.1.f64",
+        "extended.emptyPrefix.NDArray.17.f32",
+        "extended.emptyPrefix.NDArray.17.f64",
+        "ndarray.fixedPrefixView.NDArray.2x3.f32",
+        "ndarray.fixedPrefixView.NDArray.2x3.f64",
+        "ndarray.fixedPrefixView.NDArray.2x3x4.f32",
+        "ndarray.fixedPrefixView.NDArray.2x3x4.f64"
+      ]
+    },
+    {
+      "id": "legacy.ndarraytype.offset_helpers",
+      "file": "src/ndarraytype.zig",
+      "name": "offset helpers",
+      "original_assertion_count": 4,
+      "case_ids": [
+        "ndarray.offset2.NDArray.2x3.f32",
+        "ndarray.offset2.NDArray.2x3.f64",
+        "ndarray.offset3.NDArray.2x3x4.f32",
+        "ndarray.offset3.NDArray.2x3x4.f64",
+        "ndarray.offset4.NDArray.2x3x4x5.f32",
+        "ndarray.offset4.NDArray.2x3x4x5.f64"
+      ]
+    },
+    {
+      "id": "legacy.ndarraytype.NDArray_flat_allocation_plane_slicing_and_duplication_ownership",
+      "file": "src/ndarraytype.zig",
+      "name": "NDArray flat allocation, plane slicing, and duplication ownership",
+      "original_assertion_count": 4,
+      "case_ids": [
+        "extended.dupe.NDArray.1.f32",
+        "extended.dupe.NDArray.1.f64",
+        "extended.dupe.NDArray.17.f32",
+        "extended.dupe.NDArray.17.f64",
+        "extended.fill.Vec.methods.f32",
+        "extended.fill.Vec.methods.f64",
+        "extended.fill.VecView.methods.f32",
+        "extended.fill.VecView.methods.f64",
+        "extended.initFlat.NDArray.1.f32",
+        "extended.initFlat.NDArray.1.f64",
+        "extended.initFlat.NDArray.17.f32",
+        "extended.initFlat.NDArray.17.f64",
+        "extended.planeTail.NDArray.methods.f32",
+        "extended.planeTail.NDArray.methods.f64"
+      ]
+    },
+    {
+      "id": "legacy.ndarraytype.NDArray_shape_mismatch_and_mapped_metadata_cleanup",
+      "file": "src/ndarraytype.zig",
+      "name": "NDArray shape mismatch and mapped metadata cleanup",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "extended.dupe.NDArray.1.f32",
+        "extended.dupe.NDArray.1.f64",
+        "extended.dupe.NDArray.17.f32",
+        "extended.dupe.NDArray.17.f64",
+        "extended.matchDims.NDArray.methods.f32",
+        "extended.matchDims.NDArray.methods.f64"
+      ]
+    },
+    {
+      "id": "legacy.ndarraytype.NDArrayOps_arithmetic_extraction_and_empty_prefix_view",
+      "file": "src/ndarraytype.zig",
+      "name": "NDArrayOps arithmetic, extraction, and empty prefix view",
+      "original_assertion_count": 5,
+      "case_ids": [
+        "extended.addOut.MatView.3.f32",
+        "extended.addOut.MatView.3.f64",
+        "extended.addOut.NDArray.1.f32",
+        "extended.addOut.NDArray.1.f64",
+        "extended.divOut.MatView.2x3.f32",
+        "extended.divOut.MatView.2x3.f64",
+        "extended.divOut.MatView.3x3.f32",
+        "extended.divOut.MatView.3x3.f64",
+        "extended.emptyPrefix.NDArray.1.f32",
+        "extended.emptyPrefix.NDArray.1.f64",
+        "extended.emptyPrefix.NDArray.17.f32",
+        "extended.emptyPrefix.NDArray.17.f64",
+        "extended.extractMat.NDArray.methods.f32",
+        "extended.extractMat.NDArray.methods.f64",
+        "extended.mulOut.MatView.2x3.f32",
+        "extended.mulOut.MatView.2x3.f64",
+        "extended.mulOut.MatView.3x3.f32",
+        "extended.mulOut.MatView.3x3.f64",
+        "extended.subOut.MatView.3.f32",
+        "extended.subOut.MatView.3.f64",
+        "extended.subOut.NDArray.1.f32",
+        "extended.subOut.NDArray.1.f64"
+      ]
+    },
+    {
+      "id": "legacy.rowops.rowops_swapRowsStack_and_swapRowsSlice",
+      "file": "src/rowops.zig",
+      "name": "rowops.swapRowsStack and swapRowsSlice",
+      "original_assertion_count": 8,
+      "case_ids": [
+        "rowops.swapRows.MatView.1x1.f32",
+        "rowops.swapRows.MatView.1x1.f64",
+        "rowops.swapRows.MatView.2x3.f32",
+        "rowops.swapRows.MatView.2x3.f64"
+      ]
+    },
+    {
+      "id": "legacy.rowops.rowops_scaleRowStack_and_scaleRowSlice",
+      "file": "src/rowops.zig",
+      "name": "rowops.scaleRowStack and scaleRowSlice",
+      "original_assertion_count": 4,
+      "case_ids": [
+        "rowops.scaleRow.MatView.1x1.f32",
+        "rowops.scaleRow.MatView.1x1.f64",
+        "rowops.scaleRow.MatView.2x3.f32",
+        "rowops.scaleRow.MatView.2x3.f64"
+      ]
+    },
+    {
+      "id": "legacy.rowops.rowops_addScaledRowStack_and_addScaledRowSlice",
+      "file": "src/rowops.zig",
+      "name": "rowops.addScaledRowStack and addScaledRowSlice",
+      "original_assertion_count": 4,
+      "case_ids": [
+        "rowops.addScaledRow.MatView.1x1.f32",
+        "rowops.addScaledRow.MatView.1x1.f64",
+        "rowops.addScaledRow.MatView.2x3.f32",
+        "rowops.addScaledRow.MatView.2x3.f64",
+        "vecops.add.Vec.legacy.rowops.rowops_addScaledRowStack_and_addScaledRowSlice.1.f32",
+        "vecops.add.Vec.legacy.rowops.rowops_addScaledRowStack_and_addScaledRowSlice.1.f64",
+        "vecops.add.VecView.legacy.rowops.rowops_addScaledRowStack_and_addScaledRowSlice.1.f32",
+        "vecops.add.VecView.legacy.rowops.rowops_addScaledRowStack_and_addScaledRowSlice.1.f64"
+      ]
+    },
+    {
+      "id": "legacy.rowops.rowops_applyPermutation",
+      "file": "src/rowops.zig",
+      "name": "rowops.applyPermutation",
+      "original_assertion_count": 6,
+      "case_ids": [
+        "extended.applyAtan.Vec.methods.f32",
+        "extended.applyAtan.Vec.methods.f64",
+        "extended.applyAtan.VecView.methods.f32",
+        "extended.applyAtan.VecView.methods.f64",
+        "extended.applyExp.Vec.methods.f32",
+        "extended.applyExp.Vec.methods.f64",
+        "extended.applyExp.VecView.methods.f32",
+        "extended.applyExp.VecView.methods.f64",
+        "extended.applySqrt.Vec.methods.f32",
+        "extended.applySqrt.Vec.methods.f64",
+        "extended.applySqrt.VecView.methods.f32",
+        "extended.applySqrt.VecView.methods.f64",
+        "extended.permutation.Vec.methods.f32",
+        "extended.permutation.Vec.methods.f64",
+        "extended.permutation.VecView.methods.f32",
+        "extended.permutation.VecView.methods.f64"
+      ]
+    },
+    {
+      "id": "legacy.sliceops.slice_add",
+      "file": "src/sliceops.zig",
+      "name": "slice.add",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "vecops.add.Vec.legacy.sliceops.slice_add.0.f32",
+        "vecops.add.Vec.legacy.sliceops.slice_add.0.f64",
+        "vecops.add.VecView.legacy.sliceops.slice_add.0.f32",
+        "vecops.add.VecView.legacy.sliceops.slice_add.0.f64"
+      ]
+    },
+    {
+      "id": "legacy.sliceops.slice_sub",
+      "file": "src/sliceops.zig",
+      "name": "slice.sub",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "vecops.sub.Vec.legacy.sliceops.slice_sub.0.f32",
+        "vecops.sub.Vec.legacy.sliceops.slice_sub.0.f64",
+        "vecops.sub.VecView.legacy.sliceops.slice_sub.0.f32",
+        "vecops.sub.VecView.legacy.sliceops.slice_sub.0.f64"
+      ]
+    },
+    {
+      "id": "legacy.sliceops.slice_mul",
+      "file": "src/sliceops.zig",
+      "name": "slice.mul",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "vecops.mul.VecView.3.f32",
+        "vecops.mul.VecView.3.f64",
+        "vecops.mul.slice.3.f32",
+        "vecops.mul.slice.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.sliceops.slice_div",
+      "file": "src/sliceops.zig",
+      "name": "slice.div",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "vecops.div.VecView.3.f32",
+        "vecops.div.VecView.3.f64",
+        "vecops.div.slice.3.f32",
+        "vecops.div.slice.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.sliceops.slice_mulScal",
+      "file": "src/sliceops.zig",
+      "name": "slice.mulScal",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "extended.scale.Vec.methods.f32",
+        "extended.scale.Vec.methods.f64",
+        "extended.scale.VecView.methods.f32",
+        "extended.scale.VecView.methods.f64",
+        "vecops.mul.VecView.3.f32",
+        "vecops.mul.VecView.3.f64",
+        "vecops.mul.slice.3.f32",
+        "vecops.mul.slice.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.sliceops.slice_apply",
+      "file": "src/sliceops.zig",
+      "name": "slice.apply",
+      "original_assertion_count": 3,
+      "case_ids": [
+        "extended.applyAtan.Vec.methods.f32",
+        "extended.applyAtan.Vec.methods.f64",
+        "extended.applyAtan.VecView.methods.f32",
+        "extended.applyAtan.VecView.methods.f64",
+        "extended.applyExp.Vec.methods.f32",
+        "extended.applyExp.Vec.methods.f64",
+        "extended.applyExp.VecView.methods.f32",
+        "extended.applyExp.VecView.methods.f64",
+        "extended.applySqrt.Vec.methods.f32",
+        "extended.applySqrt.Vec.methods.f64",
+        "extended.applySqrt.VecView.methods.f32",
+        "extended.applySqrt.VecView.methods.f64"
+      ]
+    },
+    {
+      "id": "legacy.sliceops.slice_max",
+      "file": "src/sliceops.zig",
+      "name": "slice.max",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "extended.extremaIndices.Vec.methods.f32",
+        "extended.extremaIndices.Vec.methods.f64",
+        "extended.extremaIndices.VecView.methods.f32",
+        "extended.extremaIndices.VecView.methods.f64",
+        "vecops.max.VecView.legacy.sliceops.slice_max.0.f32",
+        "vecops.max.VecView.legacy.sliceops.slice_max.0.f64",
+        "vecops.max.slice.legacy.sliceops.slice_max.0.f32",
+        "vecops.max.slice.legacy.sliceops.slice_max.0.f64"
+      ]
+    },
+    {
+      "id": "legacy.sliceops.slice_min",
+      "file": "src/sliceops.zig",
+      "name": "slice.min",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "extended.extremaIndices.Vec.methods.f32",
+        "extended.extremaIndices.Vec.methods.f64",
+        "extended.extremaIndices.VecView.methods.f32",
+        "extended.extremaIndices.VecView.methods.f64",
+        "vecops.min.VecView.legacy.sliceops.slice_min.0.f32",
+        "vecops.min.VecView.legacy.sliceops.slice_min.0.f64",
+        "vecops.min.slice.legacy.sliceops.slice_min.0.f32",
+        "vecops.min.slice.legacy.sliceops.slice_min.0.f64"
+      ]
+    },
+    {
+      "id": "legacy.sliceops.slice_sum",
+      "file": "src/sliceops.zig",
+      "name": "slice.sum",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "vecops.sum.VecView.legacy.sliceops.slice_sum.0.f32",
+        "vecops.sum.VecView.legacy.sliceops.slice_sum.0.f64",
+        "vecops.sum.slice.legacy.sliceops.slice_sum.0.f32",
+        "vecops.sum.slice.legacy.sliceops.slice_sum.0.f64"
+      ]
+    },
+    {
+      "id": "legacy.sliceops.slice_mean",
+      "file": "src/sliceops.zig",
+      "name": "slice.mean",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "vecops.mean.VecView.legacy.sliceops.slice_mean.0.f32",
+        "vecops.mean.VecView.legacy.sliceops.slice_mean.0.f64",
+        "vecops.mean.slice.legacy.sliceops.slice_mean.0.f32",
+        "vecops.mean.slice.legacy.sliceops.slice_mean.0.f64"
+      ]
+    },
+    {
+      "id": "legacy.sliceops.slice_reductions_and_range_length",
+      "file": "src/sliceops.zig",
+      "name": "slice reductions and range length",
+      "original_assertion_count": 4,
+      "case_ids": [
+        "extended.extremaIndices.Vec.methods.f32",
+        "extended.extremaIndices.Vec.methods.f64",
+        "extended.extremaIndices.VecView.methods.f32",
+        "extended.extremaIndices.VecView.methods.f64",
+        "extended.rangeLen.slice.methods.f32",
+        "extended.rangeLen.slice.methods.f64",
+        "vecops.normL1.Vec.legacy.sliceops.slice_reductions_and_range_length.0.f32",
+        "vecops.normL1.Vec.legacy.sliceops.slice_reductions_and_range_length.0.f64",
+        "vecops.normL1.VecView.legacy.sliceops.slice_reductions_and_range_length.0.f32",
+        "vecops.normL1.VecView.legacy.sliceops.slice_reductions_and_range_length.0.f64",
+        "vecops.normL2.Vec.legacy.sliceops.slice_reductions_and_range_length.0.f32",
+        "vecops.normL2.Vec.legacy.sliceops.slice_reductions_and_range_length.0.f64",
+        "vecops.normL2.VecView.legacy.sliceops.slice_reductions_and_range_length.0.f32",
+        "vecops.normL2.VecView.legacy.sliceops.slice_reductions_and_range_length.0.f64",
+        "vecops.normL2Square.Vec.legacy.sliceops.slice_reductions_and_range_length.0.f32",
+        "vecops.normL2Square.Vec.legacy.sliceops.slice_reductions_and_range_length.0.f64",
+        "vecops.normL2Square.VecView.legacy.sliceops.slice_reductions_and_range_length.0.f32",
+        "vecops.normL2Square.VecView.legacy.sliceops.slice_reductions_and_range_length.0.f64"
+      ]
+    },
+    {
+      "id": "legacy.sliceops.slice_operations_support_f32_and_partial_apply_output",
+      "file": "src/sliceops.zig",
+      "name": "slice operations support f32 and partial apply output",
+      "original_assertion_count": 2,
+      "case_ids": [
+        "extended.applyAtan.Vec.methods.f32",
+        "extended.applyAtan.Vec.methods.f64",
+        "extended.applyAtan.VecView.methods.f32",
+        "extended.applyAtan.VecView.methods.f64",
+        "extended.applyExp.Vec.methods.f32",
+        "extended.applyExp.Vec.methods.f64",
+        "extended.applyExp.VecView.methods.f32",
+        "extended.applyExp.VecView.methods.f64",
+        "extended.applySqrt.Vec.methods.f32",
+        "extended.applySqrt.Vec.methods.f64",
+        "extended.applySqrt.VecView.methods.f32",
+        "extended.applySqrt.VecView.methods.f64",
+        "extended.partialApply.slice.methods.f32",
+        "extended.partialApply.slice.methods.f64"
+      ]
+    },
+    {
+      "id": "legacy.sliceops.checked_slice_operations_reject_mismatched_lengths",
+      "file": "src/sliceops.zig",
+      "name": "checked slice operations reject mismatched lengths",
+      "original_assertion_count": 2,
+      "case_ids": [
+        "extended.addChecked.slice.methods.f32",
+        "extended.addChecked.slice.methods.f64",
+        "extended.divChecked.slice.methods.f32",
+        "extended.divChecked.slice.methods.f64",
+        "extended.mulChecked.slice.methods.f32",
+        "extended.mulChecked.slice.methods.f64",
+        "extended.mulScalChecked.slice.methods.f32",
+        "extended.mulScalChecked.slice.methods.f64",
+        "extended.subChecked.slice.methods.f32",
+        "extended.subChecked.slice.methods.f64",
+        "vecops.normL2.Vec.legacy.sliceops.checked_slice_operations_reject_mismatched_lengths.0.f32",
+        "vecops.normL2.Vec.legacy.sliceops.checked_slice_operations_reject_mismatched_lengths.0.f64",
+        "vecops.normL2.VecView.legacy.sliceops.checked_slice_operations_reject_mismatched_lengths.0.f32",
+        "vecops.normL2.VecView.legacy.sliceops.checked_slice_operations_reject_mismatched_lengths.0.f64"
+      ]
+    },
+    {
+      "id": "legacy.vecops.vecops_dotStack_and_dotSlice",
+      "file": "src/vecops.zig",
+      "name": "vecops.dotStack and dotSlice",
+      "original_assertion_count": 2,
+      "case_ids": [
+        "vecops.dot.Vec.legacy.vecops.vecops_dotStack_and_dotSlice.0.f32",
+        "vecops.dot.Vec.legacy.vecops.vecops_dotStack_and_dotSlice.0.f64",
+        "vecops.dot.VecView.legacy.vecops.vecops_dotStack_and_dotSlice.0.f32",
+        "vecops.dot.VecView.legacy.vecops.vecops_dotStack_and_dotSlice.0.f64"
+      ]
+    },
+    {
+      "id": "legacy.vecops.vecops_squaredNorm_and_norm",
+      "file": "src/vecops.zig",
+      "name": "vecops.squaredNorm and norm",
+      "original_assertion_count": 4,
+      "case_ids": [
+        "extended.legacyNorms.Vec.methods.f32",
+        "extended.legacyNorms.Vec.methods.f64",
+        "extended.legacyNorms.VecView.methods.f32",
+        "extended.legacyNorms.VecView.methods.f64",
+        "vecops.normL1.Vec.legacy.vecops.vecops_squaredNorm_and_norm.0.f32",
+        "vecops.normL1.Vec.legacy.vecops.vecops_squaredNorm_and_norm.0.f64",
+        "vecops.normL1.VecView.legacy.vecops.vecops_squaredNorm_and_norm.0.f32",
+        "vecops.normL1.VecView.legacy.vecops.vecops_squaredNorm_and_norm.0.f64",
+        "vecops.normL2.Vec.legacy.vecops.vecops_squaredNorm_and_norm.0.f32",
+        "vecops.normL2.Vec.legacy.vecops.vecops_squaredNorm_and_norm.0.f64",
+        "vecops.normL2.VecView.legacy.vecops.vecops_squaredNorm_and_norm.0.f32",
+        "vecops.normL2.VecView.legacy.vecops.vecops_squaredNorm_and_norm.0.f64",
+        "vecops.normL2Square.Vec.legacy.vecops.vecops_squaredNorm_and_norm.0.f32",
+        "vecops.normL2Square.Vec.legacy.vecops.vecops_squaredNorm_and_norm.0.f64",
+        "vecops.normL2Square.VecView.legacy.vecops.vecops_squaredNorm_and_norm.0.f32",
+        "vecops.normL2Square.VecView.legacy.vecops.vecops_squaredNorm_and_norm.0.f64"
+      ]
+    },
+    {
+      "id": "legacy.vecops.vecops_maxAbs",
+      "file": "src/vecops.zig",
+      "name": "vecops.maxAbs",
+      "original_assertion_count": 2,
+      "case_ids": [
+        "extended.extremaIndices.Vec.methods.f32",
+        "extended.extremaIndices.Vec.methods.f64",
+        "extended.extremaIndices.VecView.methods.f32",
+        "extended.extremaIndices.VecView.methods.f64",
+        "vecops.max.Vec.legacy.vecops.vecops_maxAbs.0.f32",
+        "vecops.max.Vec.legacy.vecops.vecops_maxAbs.0.f64",
+        "vecops.max.VecView.legacy.vecops.vecops_maxAbs.0.f32",
+        "vecops.max.VecView.legacy.vecops.vecops_maxAbs.0.f64",
+        "vecops.maxAbs.Vec.3.f32",
+        "vecops.maxAbs.Vec.3.f64",
+        "vecops.maxAbs.VecView.3.f32",
+        "vecops.maxAbs.VecView.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.vecops.vecops_allFinite",
+      "file": "src/vecops.zig",
+      "name": "vecops.allFinite",
+      "original_assertion_count": 5,
+      "case_ids": [
+        "vecops.allFinite.Vec.3.f32",
+        "vecops.allFinite.Vec.3.f64",
+        "vecops.allFinite.VecView.3.f32",
+        "vecops.allFinite.VecView.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.vecops.vecops_axpy",
+      "file": "src/vecops.zig",
+      "name": "vecops.axpy",
+      "original_assertion_count": 6,
+      "case_ids": [
+        "vecops.axpy.Vec.3.f32",
+        "vecops.axpy.Vec.3.f64",
+        "vecops.axpy.VecView.3.f32",
+        "vecops.axpy.VecView.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.vectype.VecSliceOps_max",
+      "file": "src/vectype.zig",
+      "name": "VecSliceOps.max",
+      "original_assertion_count": 3,
+      "case_ids": [
+        "extended.componentExtrema.Vec.methods.f32",
+        "extended.componentExtrema.Vec.methods.f64",
+        "extended.extremaIndices.Vec.methods.f32",
+        "extended.extremaIndices.Vec.methods.f64",
+        "extended.extremaIndices.VecView.methods.f32",
+        "extended.extremaIndices.VecView.methods.f64",
+        "vecops.max.Vec.3.f32",
+        "vecops.max.Vec.3.f64",
+        "vecops.max.VecView.3.f32",
+        "vecops.max.VecView.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.vectype.Vec_apply",
+      "file": "src/vectype.zig",
+      "name": "Vec.apply",
+      "original_assertion_count": 3,
+      "case_ids": [
+        "extended.applyAtan.Vec.methods.f32",
+        "extended.applyAtan.Vec.methods.f64",
+        "extended.applyAtan.VecView.methods.f32",
+        "extended.applyAtan.VecView.methods.f64",
+        "extended.applyExp.Vec.methods.f32",
+        "extended.applyExp.Vec.methods.f64",
+        "extended.applyExp.VecView.methods.f32",
+        "extended.applyExp.VecView.methods.f64",
+        "extended.applySqrt.Vec.methods.f32",
+        "extended.applySqrt.Vec.methods.f64",
+        "extended.applySqrt.VecView.methods.f32",
+        "extended.applySqrt.VecView.methods.f64"
+      ]
+    },
+    {
+      "id": "legacy.vectype.Vec_max",
+      "file": "src/vectype.zig",
+      "name": "Vec.max",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "extended.extremaIndices.Vec.methods.f32",
+        "extended.extremaIndices.Vec.methods.f64",
+        "extended.extremaIndices.VecView.methods.f32",
+        "extended.extremaIndices.VecView.methods.f64",
+        "vecops.max.VecView.legacy.vectype.Vec_max.0.f32",
+        "vecops.max.VecView.legacy.vectype.Vec_max.0.f64",
+        "vecops.max.slice.legacy.vectype.Vec_max.0.f32",
+        "vecops.max.slice.legacy.vectype.Vec_max.0.f64"
+      ]
+    },
+    {
+      "id": "legacy.vectype.Vec_min",
+      "file": "src/vectype.zig",
+      "name": "Vec.min",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "extended.extremaIndices.Vec.methods.f32",
+        "extended.extremaIndices.Vec.methods.f64",
+        "extended.extremaIndices.VecView.methods.f32",
+        "extended.extremaIndices.VecView.methods.f64",
+        "vecops.min.VecView.legacy.vectype.Vec_min.0.f32",
+        "vecops.min.VecView.legacy.vectype.Vec_min.0.f64",
+        "vecops.min.slice.legacy.vectype.Vec_min.0.f32",
+        "vecops.min.slice.legacy.vectype.Vec_min.0.f64"
+      ]
+    },
+    {
+      "id": "legacy.vectype.Vec_sum",
+      "file": "src/vectype.zig",
+      "name": "Vec.sum",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "vecops.sum.VecView.legacy.vectype.Vec_sum.0.f32",
+        "vecops.sum.VecView.legacy.vectype.Vec_sum.0.f64",
+        "vecops.sum.slice.legacy.vectype.Vec_sum.0.f32",
+        "vecops.sum.slice.legacy.vectype.Vec_sum.0.f64"
+      ]
+    },
+    {
+      "id": "legacy.vectype.Vec_mean",
+      "file": "src/vectype.zig",
+      "name": "Vec.mean",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "vecops.mean.VecView.legacy.vectype.Vec_mean.0.f32",
+        "vecops.mean.VecView.legacy.vectype.Vec_mean.0.f64",
+        "vecops.mean.slice.legacy.vectype.Vec_mean.0.f32",
+        "vecops.mean.slice.legacy.vectype.Vec_mean.0.f64"
+      ]
+    },
+    {
+      "id": "legacy.vectype.Vec3f_add",
+      "file": "src/vectype.zig",
+      "name": "Vec3f.add",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "vecops.add.Vec.1.f32",
+        "vecops.add.Vec.1.f64",
+        "vecops.add.VecView.1.f32",
+        "vecops.add.VecView.1.f64"
+      ]
+    },
+    {
+      "id": "legacy.vectype.Vec3f_sub",
+      "file": "src/vectype.zig",
+      "name": "Vec3f.sub",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "vecops.sub.Vec.3.f32",
+        "vecops.sub.Vec.3.f64",
+        "vecops.sub.VecView.3.f32",
+        "vecops.sub.VecView.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.vectype.Vec3f_mulScal",
+      "file": "src/vectype.zig",
+      "name": "Vec3f.mulScal",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "extended.scale.Vec.methods.f32",
+        "extended.scale.Vec.methods.f64",
+        "extended.scale.VecView.methods.f32",
+        "extended.scale.VecView.methods.f64",
+        "vecops.mul.VecView.3.f32",
+        "vecops.mul.VecView.3.f64",
+        "vecops.mul.slice.3.f32",
+        "vecops.mul.slice.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.vectype.Vec3f_dot",
+      "file": "src/vectype.zig",
+      "name": "Vec3f.dot",
+      "original_assertion_count": 2,
+      "case_ids": [
+        "vecops.dot.Vec.1.f32",
+        "vecops.dot.Vec.1.f64",
+        "vecops.dot.VecView.1.f32",
+        "vecops.dot.VecView.1.f64"
+      ]
+    },
+    {
+      "id": "legacy.vectype.Vec3f_norm",
+      "file": "src/vectype.zig",
+      "name": "Vec3f.norm",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "extended.legacyNorms.Vec.methods.f32",
+        "extended.legacyNorms.Vec.methods.f64",
+        "extended.legacyNorms.VecView.methods.f32",
+        "extended.legacyNorms.VecView.methods.f64",
+        "vecops.normL1.Vec.3.f32",
+        "vecops.normL1.Vec.3.f64",
+        "vecops.normL1.VecView.3.f32",
+        "vecops.normL1.VecView.3.f64",
+        "vecops.normL2.Vec.3.f32",
+        "vecops.normL2.Vec.3.f64",
+        "vecops.normL2.VecView.3.f32",
+        "vecops.normL2.VecView.3.f64",
+        "vecops.normL2Square.Vec.3.f32",
+        "vecops.normL2Square.Vec.3.f64",
+        "vecops.normL2Square.VecView.3.f32",
+        "vecops.normL2Square.VecView.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.vectype.Vec3f_length",
+      "file": "src/vectype.zig",
+      "name": "Vec3f.length",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "vecops.normL2.Vec.legacy.vectype.Vec3f_length.0.f32",
+        "vecops.normL2.Vec.legacy.vectype.Vec3f_length.0.f64",
+        "vecops.normL2.VecView.legacy.vectype.Vec3f_length.0.f32",
+        "vecops.normL2.VecView.legacy.vectype.Vec3f_length.0.f64"
+      ]
+    },
+    {
+      "id": "legacy.vectype.Vec3Ops_cross",
+      "file": "src/vectype.zig",
+      "name": "Vec3Ops.cross",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "extended.cross.Vec.basis.f32",
+        "extended.cross.Vec.basis.f64",
+        "extended.cross.Vec.signed.f32",
+        "extended.cross.Vec.signed.f64"
+      ]
+    },
+    {
+      "id": "legacy.vectype.Vec_constructors_accessors_and_integer_arithmetic",
+      "file": "src/vectype.zig",
+      "name": "Vec constructors, accessors, and integer arithmetic",
+      "original_assertion_count": 7,
+      "case_ids": [
+        "extended.coordinates.Vec.methods.f32",
+        "extended.coordinates.Vec.methods.f64",
+        "extended.diag.Mat.3x3.f32",
+        "extended.diag.Mat.3x3.f64",
+        "extended.diag.MatView.3x3.f32",
+        "extended.diag.MatView.3x3.f64",
+        "extended.fill.Vec.methods.f32",
+        "extended.fill.Vec.methods.f64",
+        "extended.fill.VecView.methods.f32",
+        "extended.fill.VecView.methods.f64",
+        "extended.identity.Mat.3x3.f32",
+        "extended.identity.Mat.3x3.f64",
+        "extended.identity.MatView.3x3.f32",
+        "extended.identity.MatView.3x3.f64",
+        "extended.initRows.Mat.2x3.f32",
+        "extended.initRows.Mat.2x3.f64",
+        "extended.initRows.Mat.3x3.f32",
+        "extended.initRows.Mat.3x3.f64",
+        "extended.initVec2.Vec.methods.f32",
+        "extended.initVec2.Vec.methods.f64",
+        "extended.initVec3.Vec.methods.f32",
+        "extended.initVec3.Vec.methods.f64",
+        "extended.integerArithmetic.Vec.historical.i32",
+        "extended.ones.Vec.methods.f32",
+        "extended.ones.Vec.methods.f64",
+        "extended.ones.VecView.methods.f32",
+        "extended.ones.VecView.methods.f64",
+        "extended.zeros.Vec.methods.f32",
+        "extended.zeros.Vec.methods.f64",
+        "extended.zeros.VecView.methods.f32",
+        "extended.zeros.VecView.methods.f64"
+      ]
+    },
+    {
+      "id": "legacy.vectype.Vec_constructors_and_Vec3SliceOps_minimum",
+      "file": "src/vectype.zig",
+      "name": "Vec constructors and Vec3SliceOps minimum",
+      "original_assertion_count": 3,
+      "case_ids": [
+        "extended.componentExtrema.Vec.methods.f32",
+        "extended.componentExtrema.Vec.methods.f64",
+        "extended.coordinates.Vec.methods.f32",
+        "extended.coordinates.Vec.methods.f64",
+        "extended.diag.Mat.3x3.f32",
+        "extended.diag.Mat.3x3.f64",
+        "extended.diag.MatView.3x3.f32",
+        "extended.diag.MatView.3x3.f64",
+        "extended.fill.Vec.methods.f32",
+        "extended.fill.Vec.methods.f64",
+        "extended.fill.VecView.methods.f32",
+        "extended.fill.VecView.methods.f64",
+        "extended.identity.Mat.3x3.f32",
+        "extended.identity.Mat.3x3.f64",
+        "extended.identity.MatView.3x3.f32",
+        "extended.identity.MatView.3x3.f64",
+        "extended.initRows.Mat.2x3.f32",
+        "extended.initRows.Mat.2x3.f64",
+        "extended.initRows.Mat.3x3.f32",
+        "extended.initRows.Mat.3x3.f64",
+        "extended.initVec2.Vec.methods.f32",
+        "extended.initVec2.Vec.methods.f64",
+        "extended.initVec3.Vec.methods.f32",
+        "extended.initVec3.Vec.methods.f64",
+        "extended.ones.Vec.methods.f32",
+        "extended.ones.Vec.methods.f64",
+        "extended.ones.VecView.methods.f32",
+        "extended.ones.VecView.methods.f64",
+        "extended.zeros.Vec.methods.f32",
+        "extended.zeros.Vec.methods.f64",
+        "extended.zeros.VecView.methods.f32",
+        "extended.zeros.VecView.methods.f64"
+      ]
+    },
+    {
+      "id": "legacy.vectype.Vec_direct_vec_field_access_and_get_set_compatibility",
+      "file": "src/vectype.zig",
+      "name": "Vec direct vec field access and get set compatibility",
+      "original_assertion_count": 8,
+      "case_ids": [
+        "extended.flatAccess.MatView.2x3.f32",
+        "extended.flatAccess.MatView.2x3.f64",
+        "extended.flatAccess.MatView.3x3.f32",
+        "extended.flatAccess.MatView.3x3.f64",
+        "types.valueCopy.Mat.ownership.f32",
+        "types.valueCopy.Mat.ownership.f64",
+        "types.valueCopy.Vec.ownership.f32",
+        "types.valueCopy.Vec.ownership.f64"
+      ]
+    },
+    {
+      "id": "legacy.vecviewtype.VecView_addInPlace",
+      "file": "src/vecviewtype.zig",
+      "name": "VecView.addInPlace",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "vecops.add.Vec.legacy.vecviewtype.VecView_addInPlace.0.f32",
+        "vecops.add.Vec.legacy.vecviewtype.VecView_addInPlace.0.f64",
+        "vecops.add.VecView.legacy.vecviewtype.VecView_addInPlace.0.f32",
+        "vecops.add.VecView.legacy.vecviewtype.VecView_addInPlace.0.f64"
+      ]
+    },
+    {
+      "id": "legacy.vecviewtype.VecView_subInPlace",
+      "file": "src/vecviewtype.zig",
+      "name": "VecView.subInPlace",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "vecops.sub.Vec.legacy.vecviewtype.VecView_subInPlace.0.f32",
+        "vecops.sub.Vec.legacy.vecviewtype.VecView_subInPlace.0.f64",
+        "vecops.sub.VecView.legacy.vecviewtype.VecView_subInPlace.0.f32",
+        "vecops.sub.VecView.legacy.vecviewtype.VecView_subInPlace.0.f64"
+      ]
+    },
+    {
+      "id": "legacy.vecviewtype.VecView_mulInPlace",
+      "file": "src/vecviewtype.zig",
+      "name": "VecView.mulInPlace",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "extended.mulInPlace.MatView.2x3.f32",
+        "extended.mulInPlace.MatView.2x3.f64",
+        "extended.mulInPlace.MatView.3x3.f32",
+        "extended.mulInPlace.MatView.3x3.f64",
+        "vecops.mul.VecView.3.f32",
+        "vecops.mul.VecView.3.f64",
+        "vecops.mul.slice.3.f32",
+        "vecops.mul.slice.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.vecviewtype.VecView_divInPlace",
+      "file": "src/vecviewtype.zig",
+      "name": "VecView.divInPlace",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "extended.divInPlace.MatView.2x3.f32",
+        "extended.divInPlace.MatView.2x3.f64",
+        "extended.divInPlace.MatView.3x3.f32",
+        "extended.divInPlace.MatView.3x3.f64",
+        "vecops.div.VecView.3.f32",
+        "vecops.div.VecView.3.f64",
+        "vecops.div.slice.3.f32",
+        "vecops.div.slice.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.vecviewtype.VecView_mulScalInPlace",
+      "file": "src/vecviewtype.zig",
+      "name": "VecView.mulScalInPlace",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "extended.scale.Vec.methods.f32",
+        "extended.scale.Vec.methods.f64",
+        "extended.scale.VecView.methods.f32",
+        "extended.scale.VecView.methods.f64",
+        "vecops.mul.VecView.3.f32",
+        "vecops.mul.VecView.3.f64",
+        "vecops.mul.slice.3.f32",
+        "vecops.mul.slice.3.f64"
+      ]
+    },
+    {
+      "id": "legacy.vecviewtype.VecView_max",
+      "file": "src/vecviewtype.zig",
+      "name": "VecView.max",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "extended.extremaIndices.Vec.methods.f32",
+        "extended.extremaIndices.Vec.methods.f64",
+        "extended.extremaIndices.VecView.methods.f32",
+        "extended.extremaIndices.VecView.methods.f64",
+        "vecops.max.Vec.legacy.vecviewtype.VecView_max.0.f32",
+        "vecops.max.Vec.legacy.vecviewtype.VecView_max.0.f64",
+        "vecops.max.VecView.legacy.vecviewtype.VecView_max.0.f32",
+        "vecops.max.VecView.legacy.vecviewtype.VecView_max.0.f64"
+      ]
+    },
+    {
+      "id": "legacy.vecviewtype.VecView_min",
+      "file": "src/vecviewtype.zig",
+      "name": "VecView.min",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "extended.extremaIndices.Vec.methods.f32",
+        "extended.extremaIndices.Vec.methods.f64",
+        "extended.extremaIndices.VecView.methods.f32",
+        "extended.extremaIndices.VecView.methods.f64",
+        "vecops.min.Vec.legacy.vecviewtype.VecView_min.0.f32",
+        "vecops.min.Vec.legacy.vecviewtype.VecView_min.0.f64",
+        "vecops.min.VecView.legacy.vecviewtype.VecView_min.0.f32",
+        "vecops.min.VecView.legacy.vecviewtype.VecView_min.0.f64"
+      ]
+    },
+    {
+      "id": "legacy.vecviewtype.VecView_sum",
+      "file": "src/vecviewtype.zig",
+      "name": "VecView.sum",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "vecops.sum.Vec.legacy.vecviewtype.VecView_sum.0.f32",
+        "vecops.sum.Vec.legacy.vecviewtype.VecView_sum.0.f64",
+        "vecops.sum.VecView.legacy.vecviewtype.VecView_sum.0.f32",
+        "vecops.sum.VecView.legacy.vecviewtype.VecView_sum.0.f64"
+      ]
+    },
+    {
+      "id": "legacy.vecviewtype.VecView_mean",
+      "file": "src/vecviewtype.zig",
+      "name": "VecView.mean",
+      "original_assertion_count": 1,
+      "case_ids": [
+        "vecops.mean.Vec.legacy.vecviewtype.VecView_mean.0.f32",
+        "vecops.mean.Vec.legacy.vecviewtype.VecView_mean.0.f64",
+        "vecops.mean.VecView.legacy.vecviewtype.VecView_mean.0.f32",
+        "vecops.mean.VecView.legacy.vecviewtype.VecView_mean.0.f64"
+      ]
+    },
+    {
+      "id": "legacy.vecviewtype.VecView_apply",
+      "file": "src/vecviewtype.zig",
+      "name": "VecView.apply",
+      "original_assertion_count": 3,
+      "case_ids": [
+        "extended.applyAtan.Vec.methods.f32",
+        "extended.applyAtan.Vec.methods.f64",
+        "extended.applyAtan.VecView.methods.f32",
+        "extended.applyAtan.VecView.methods.f64",
+        "extended.applyExp.Vec.methods.f32",
+        "extended.applyExp.Vec.methods.f64",
+        "extended.applyExp.VecView.methods.f32",
+        "extended.applyExp.VecView.methods.f64",
+        "extended.applySqrt.Vec.methods.f32",
+        "extended.applySqrt.Vec.methods.f64",
+        "extended.applySqrt.VecView.methods.f32",
+        "extended.applySqrt.VecView.methods.f64"
+      ]
+    },
+    {
+      "id": "legacy.vecviewtype.VecView_access_and_vector_reductions",
+      "file": "src/vecviewtype.zig",
+      "name": "VecView access and vector reductions",
+      "original_assertion_count": 5,
+      "case_ids": [
+        "extended.extremaIndices.Vec.methods.f32",
+        "extended.extremaIndices.Vec.methods.f64",
+        "extended.extremaIndices.VecView.methods.f32",
+        "extended.extremaIndices.VecView.methods.f64",
+        "extended.rangeLen.slice.methods.f32",
+        "extended.rangeLen.slice.methods.f64",
+        "vecops.normL1.Vec.legacy.vecviewtype.VecView_access_and_vector_reductions.0.f32",
+        "vecops.normL1.Vec.legacy.vecviewtype.VecView_access_and_vector_reductions.0.f64",
+        "vecops.normL1.VecView.legacy.vecviewtype.VecView_access_and_vector_reductions.0.f32",
+        "vecops.normL1.VecView.legacy.vecviewtype.VecView_access_and_vector_reductions.0.f64",
+        "vecops.normL2.Vec.legacy.vecviewtype.VecView_access_and_vector_reductions.0.f32",
+        "vecops.normL2.Vec.legacy.vecviewtype.VecView_access_and_vector_reductions.0.f64",
+        "vecops.normL2.VecView.legacy.vecviewtype.VecView_access_and_vector_reductions.0.f32",
+        "vecops.normL2.VecView.legacy.vecviewtype.VecView_access_and_vector_reductions.0.f64",
+        "vecops.normL2Square.Vec.legacy.vecviewtype.VecView_access_and_vector_reductions.0.f32",
+        "vecops.normL2Square.Vec.legacy.vecviewtype.VecView_access_and_vector_reductions.0.f64",
+        "vecops.normL2Square.VecView.legacy.vecviewtype.VecView_access_and_vector_reductions.0.f32",
+        "vecops.normL2Square.VecView.legacy.vecviewtype.VecView_access_and_vector_reductions.0.f64"
+      ]
+    }
+  ]
+}

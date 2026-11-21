@@ -5,10 +5,10 @@
 
 const std = @import("std");
 const assert = std.debug.assert;
-const MatStack = @import("matstack.zig").MatStack;
-const VecStack = @import("vecstack.zig").VecStack;
-const MatSlice = @import("matslice.zig").MatSlice;
-const VecSlice = @import("vecslice.zig").VecSlice;
+const Mat = @import("mattype.zig").Mat;
+const Vec = @import("vectype.zig").Vec;
+const MatView = @import("matviewtype.zig").MatView;
+const VecView = @import("vecviewtype.zig").VecView;
 
 /// Multiplies an M x N fixed-size matrix by an N-vector, returning an M-vector.
 ///
@@ -19,10 +19,10 @@ pub fn mulVecStack(
     comptime M: usize,
     comptime N: usize,
     comptime T: type,
-    mat: MatStack(M, N, T),
-    vec: VecStack(N, T),
-) VecStack(M, T) {
-    var result: VecStack(M, T) = undefined;
+    mat: Mat(M, N, T),
+    vec: Vec(N, T),
+) Vec(M, T) {
+    var result: Vec(M, T) = undefined;
     inline for (0..M) |rr| {
         var sum: T = 0;
         inline for (0..N) |cc| {
@@ -39,9 +39,9 @@ pub fn mulVecStack(
 /// Storage is borrowed; no memory is allocated.
 pub fn mulVecSlice(
     comptime T: type,
-    mat: MatSlice(T),
-    vec: VecSlice(T),
-    out: VecSlice(T),
+    mat: MatView(T),
+    vec: VecView(T),
+    out: VecView(T),
 ) void {
     assert(mat.cols_num == vec.slice.len);
     assert(mat.rows_num == out.slice.len);
@@ -63,10 +63,10 @@ pub fn mulMatStack(
     comptime N: usize,
     comptime P: usize,
     comptime T: type,
-    lhs: MatStack(M, N, T),
-    rhs: MatStack(N, P, T),
-) MatStack(M, P, T) {
-    var result = MatStack(M, P, T).initZeros();
+    lhs: Mat(M, N, T),
+    rhs: Mat(N, P, T),
+) Mat(M, P, T) {
+    var result = Mat(M, P, T).initZeros();
     inline for (0..M) |rr| {
         inline for (0..P) |cc| {
             var sum: T = 0;
@@ -85,9 +85,9 @@ pub fn mulMatStack(
 /// Storage is borrowed; no heap allocation.
 pub fn mulMatSlice(
     comptime T: type,
-    lhs: MatSlice(T),
-    rhs: MatSlice(T),
-    out: MatSlice(T),
+    lhs: MatView(T),
+    rhs: MatView(T),
+    out: MatView(T),
 ) void {
     assert(lhs.cols_num == rhs.rows_num);
     assert(lhs.rows_num == out.rows_num);
@@ -113,10 +113,10 @@ pub fn outerStack(
     comptime M: usize,
     comptime N: usize,
     comptime T: type,
-    lhs: VecStack(M, T),
-    rhs: VecStack(N, T),
-) MatStack(M, N, T) {
-    var result: MatStack(M, N, T) = undefined;
+    lhs: Vec(M, T),
+    rhs: Vec(N, T),
+) Mat(M, N, T) {
+    var result: Mat(M, N, T) = undefined;
     inline for (0..M) |rr| {
         inline for (0..N) |cc| {
             result.set(rr, cc, lhs.get(rr) * rhs.get(cc));
@@ -131,9 +131,9 @@ pub fn outerStack(
 /// Writes directly to caller-provided `out`. Performs no heap allocation.
 pub fn outerSlice(
     comptime T: type,
-    lhs: VecSlice(T),
-    rhs: VecSlice(T),
-    out: MatSlice(T),
+    lhs: VecView(T),
+    rhs: VecView(T),
+    out: MatView(T),
 ) void {
     assert(out.rows_num == lhs.slice.len);
     assert(out.cols_num == rhs.slice.len);
@@ -154,10 +154,10 @@ pub fn outerAddStack(
     comptime N: usize,
     comptime T: type,
     alpha: T,
-    lhs: VecStack(M, T),
-    rhs: VecStack(N, T),
-    mat: MatStack(M, N, T),
-) MatStack(M, N, T) {
+    lhs: Vec(M, T),
+    rhs: Vec(N, T),
+    mat: Mat(M, N, T),
+) Mat(M, N, T) {
     var result = mat;
     inline for (0..M) |rr| {
         inline for (0..N) |cc| {
@@ -175,9 +175,9 @@ pub fn outerAddStack(
 pub fn outerAddSlice(
     comptime T: type,
     alpha: T,
-    lhs: VecSlice(T),
-    rhs: VecSlice(T),
-    mat: MatSlice(T),
+    lhs: VecView(T),
+    rhs: VecView(T),
+    mat: MatView(T),
 ) void {
     assert(mat.rows_num == lhs.slice.len);
     assert(mat.cols_num == rhs.slice.len);
@@ -197,7 +197,7 @@ pub fn frobeniusNormStack(
     comptime M: usize,
     comptime N: usize,
     comptime T: type,
-    mat: MatStack(M, N, T),
+    mat: Mat(M, N, T),
 ) T {
     var sum: T = 0;
     inline for (0..M) |rr| {
@@ -213,7 +213,7 @@ pub fn frobeniusNormStack(
 /// Reuses flat slice storage directly. Performs no heap allocation.
 pub fn frobeniusNormSlice(
     comptime T: type,
-    mat: MatSlice(T),
+    mat: MatView(T),
 ) T {
     var sum: T = 0;
     for (0..mat.slice.len) |ii| {
@@ -230,7 +230,7 @@ pub fn maxAbsStack(
     comptime M: usize,
     comptime N: usize,
     comptime T: type,
-    mat: MatStack(M, N, T),
+    mat: Mat(M, N, T),
 ) T {
     comptime assert(M > 0 and N > 0);
     var max_val: T = @abs(mat.mat[0][0]);
@@ -251,7 +251,7 @@ pub fn maxAbsStack(
 /// Performs no heap allocation.
 pub fn maxAbsSlice(
     comptime T: type,
-    mat: MatSlice(T),
+    mat: MatView(T),
 ) T {
     assert(mat.slice.len > 0);
     var max_val: T = @abs(mat.slice[0]);
@@ -271,7 +271,7 @@ pub fn allFiniteStack(
     comptime M: usize,
     comptime N: usize,
     comptime T: type,
-    mat: MatStack(M, N, T),
+    mat: Mat(M, N, T),
 ) bool {
     inline for (0..M) |rr| {
         inline for (0..N) |cc| {
@@ -288,7 +288,7 @@ pub fn allFiniteStack(
 /// Performs no heap allocation.
 pub fn allFiniteSlice(
     comptime T: type,
-    mat: MatSlice(T),
+    mat: MatView(T),
 ) bool {
     for (0..mat.slice.len) |ii| {
         if (!std.math.isFinite(mat.slice[ii])) {
@@ -299,132 +299,49 @@ pub fn allFiniteSlice(
 }
 
 test "matops.mulVecStack and mulVecSlice" {
-    const mat = MatStack(2, 3, f64).initRows(.{
-        .{ 1.0, 2.0, 3.0 },
-        .{ 4.0, 5.0, 6.0 },
-    });
-    const vec = VecStack(3, f64).initSlice(&.{ 1.0, 1.0, 2.0 });
-    const result = mulVecStack(2, 3, f64, mat, vec);
-
-    try std.testing.expectEqual(@as(f64, 9.0), result.get(0));
-    try std.testing.expectEqual(@as(f64, 21.0), result.get(1));
-
-    var mat_raw = [_]f64{ 1.0, 2.0, 3.0, 4.0, 5.0, 6.0 };
-    var vec_raw = [_]f64{ 1.0, 1.0, 2.0 };
-    var out_raw = [_]f64{ 0.0, 0.0 };
-
-    mulVecSlice(
-        f64,
-        MatSlice(f64).init(&mat_raw, 2, 3),
-        VecSlice(f64).init(&vec_raw),
-        VecSlice(f64).init(&out_raw),
-    );
-    try std.testing.expectEqual(@as(f64, 9.0), out_raw[0]);
-    try std.testing.expectEqual(@as(f64, 21.0), out_raw[1]);
+    try @import("case_runner.zig").verifyLegacy("legacy.matops.matops_mulVecStack_and_mulVecSlice");
 }
 
 test "matops.mulMatStack rectangular and mulMatSlice" {
-    // 2x3 times 3x2 -> 2x2
-    const m_a = MatStack(2, 3, f64).initRows(.{
-        .{ 1.0, 2.0, 3.0 },
-        .{ 4.0, 5.0, 6.0 },
-    });
-    const m_b = MatStack(3, 2, f64).initRows(.{
-        .{ 7.0, 8.0 },
-        .{ 9.0, 1.0 },
-        .{ 2.0, 3.0 },
-    });
-
-    const m_c = mulMatStack(2, 3, 2, f64, m_a, m_b);
-
-    // Row 0: 1*7 + 2*9 + 3*2 = 7 + 18 + 6 = 31; 1*8 + 2*1 + 3*3 = 8 + 2 + 9 = 19
-    // Row 1: 4*7 + 5*9 + 6*2 = 28 + 45 + 12 = 85; 4*8 + 5*1 + 6*3 = 32 + 5 + 18 = 55
-    try std.testing.expectEqual(@as(f64, 31.0), m_c.get(0, 0));
-    try std.testing.expectEqual(@as(f64, 19.0), m_c.get(0, 1));
-    try std.testing.expectEqual(@as(f64, 85.0), m_c.get(1, 0));
-    try std.testing.expectEqual(@as(f64, 55.0), m_c.get(1, 1));
-
-    var a_raw = [_]f64{ 1.0, 2.0, 3.0, 4.0, 5.0, 6.0 };
-    var b_raw = [_]f64{ 7.0, 8.0, 9.0, 1.0, 2.0, 3.0 };
-    var out_raw = [_]f64{ 0.0, 0.0, 0.0, 0.0 };
-
-    mulMatSlice(
-        f64,
-        MatSlice(f64).init(&a_raw, 2, 3),
-        MatSlice(f64).init(&b_raw, 3, 2),
-        MatSlice(f64).init(&out_raw, 2, 2),
-    );
-    try std.testing.expectEqual(@as(f64, 31.0), out_raw[0]);
-    try std.testing.expectEqual(@as(f64, 19.0), out_raw[1]);
-    try std.testing.expectEqual(@as(f64, 85.0), out_raw[2]);
-    try std.testing.expectEqual(@as(f64, 55.0), out_raw[3]);
+    try @import("case_runner.zig").verifyLegacy("legacy.matops.matops_mulMatStack_rectangular_and_mulMatSlice");
 }
 
 test "matops.outer and outerAdd" {
-    const x = VecStack(2, f64).initSlice(&.{ 2.0, 3.0 });
-    const y = VecStack(3, f64).initSlice(&.{ 4.0, 5.0, 6.0 });
-
-    const out_stack = outerStack(2, 3, f64, x, y);
-    try std.testing.expectEqual(@as(f64, 8.0), out_stack.get(0, 0));
-    try std.testing.expectEqual(@as(f64, 10.0), out_stack.get(0, 1));
-    try std.testing.expectEqual(@as(f64, 12.0), out_stack.get(0, 2));
-    try std.testing.expectEqual(@as(f64, 12.0), out_stack.get(1, 0));
-    try std.testing.expectEqual(@as(f64, 15.0), out_stack.get(1, 1));
-    try std.testing.expectEqual(@as(f64, 18.0), out_stack.get(1, 2));
-
-    const init_mat = MatStack(2, 3, f64).initFill(1.0);
-    const add_stack = outerAddStack(2, 3, f64, 0.5, x, y, init_mat);
-    try std.testing.expectEqual(@as(f64, 5.0), add_stack.get(0, 0));
-    try std.testing.expectEqual(@as(f64, 6.0), add_stack.get(0, 1));
-    try std.testing.expectEqual(@as(f64, 7.0), add_stack.get(0, 2));
-    try std.testing.expectEqual(@as(f64, 7.0), add_stack.get(1, 0));
-    try std.testing.expectEqual(@as(f64, 8.5), add_stack.get(1, 1));
-    try std.testing.expectEqual(@as(f64, 10.0), add_stack.get(1, 2));
-
-    var raw_mat = [_]f64{1.0} ** 6;
-    var raw_x = [_]f64{ 2.0, 3.0 };
-    var raw_y = [_]f64{ 4.0, 5.0, 6.0 };
-    outerAddSlice(
-        f64,
-        0.5,
-        VecSlice(f64).init(&raw_x),
-        VecSlice(f64).init(&raw_y),
-        MatSlice(f64).init(&raw_mat, 2, 3),
-    );
-    try std.testing.expectEqual(@as(f64, 5.0), raw_mat[0]);
-    try std.testing.expectEqual(@as(f64, 6.0), raw_mat[1]);
-    try std.testing.expectEqual(@as(f64, 7.0), raw_mat[2]);
-    try std.testing.expectEqual(@as(f64, 7.0), raw_mat[3]);
-    try std.testing.expectEqual(@as(f64, 8.5), raw_mat[4]);
-    try std.testing.expectEqual(@as(f64, 10.0), raw_mat[5]);
+    try @import("case_runner.zig").verifyLegacy("legacy.matops.matops_outer_and_outerAdd");
 }
 
 test "matops.frobeniusNorm and maxAbs" {
-    const mat = MatStack(2, 2, f64).initRows(.{
-        .{ 1.0, -2.0 },
-        .{ 3.0, -4.0 },
-    });
-    // 1 + 4 + 9 + 16 = 30; sqrt(30)
-    const expected_fnorm = @sqrt(@as(f64, 30.0));
-    try std.testing.expectEqual(expected_fnorm, frobeniusNormStack(2, 2, f64, mat));
-    try std.testing.expectEqual(@as(f64, 4.0), maxAbsStack(2, 2, f64, mat));
-
-    var raw = [_]f64{ 1.0, -2.0, 3.0, -4.0 };
-    const s_mat = MatSlice(f64).init(&raw, 2, 2);
-    try std.testing.expectEqual(expected_fnorm, frobeniusNormSlice(f64, s_mat));
-    try std.testing.expectEqual(@as(f64, 4.0), maxAbsSlice(f64, s_mat));
+    try @import("case_runner.zig").verifyLegacy("legacy.matops.matops_frobeniusNorm_and_maxAbs");
 }
 
 test "matops.allFinite" {
-    const m_good = MatStack(2, 2, f64).initFill(1.0);
-    try std.testing.expect(allFiniteStack(2, 2, f64, m_good));
-
-    var m_nan = m_good;
-    m_nan.set(0, 1, std.math.nan(f64));
-    try std.testing.expect(!allFiniteStack(2, 2, f64, m_nan));
-
-    var raw_good = [_]f64{ 1.0, 2.0, 3.0, 4.0 };
-    var raw_inf = [_]f64{ 1.0, std.math.inf(f64), 3.0, 4.0 };
-    try std.testing.expect(allFiniteSlice(f64, MatSlice(f64).init(&raw_good, 2, 2)));
-    try std.testing.expect(!allFiniteSlice(f64, MatSlice(f64).init(&raw_inf, 2, 2)));
+    try @import("case_runner.zig").verifyLegacy("legacy.matops.matops_allFinite");
 }
+
+pub const mulVecMat = mulVecStack;
+
+pub const mulVecMatView = mulVecSlice;
+
+pub const mulMatMat = mulMatStack;
+
+pub const mulMatMatView = mulMatSlice;
+
+pub const outerMat = outerStack;
+
+pub const outerMatView = outerSlice;
+
+pub const outerAddMat = outerAddStack;
+
+pub const outerAddMatView = outerAddSlice;
+
+pub const frobeniusNormMat = frobeniusNormStack;
+
+pub const frobeniusNormMatView = frobeniusNormSlice;
+
+pub const maxAbsMat = maxAbsStack;
+
+pub const maxAbsMatView = maxAbsSlice;
+
+pub const allFiniteMat = allFiniteStack;
+
+pub const allFiniteMatView = allFiniteSlice;

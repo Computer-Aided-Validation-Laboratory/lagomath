@@ -1,38 +1,40 @@
 # Lagomath
 
-Lightweight matrix and vector mathematics in Zig. For rabbits.
+CPU vector, matrix and small-system mathematics in Zig and Mojo. For rabbits.
 
-Lagomath is a source-only Zig library for reusable numerical infrastructure:
+The development API uses `Vec`, `Mat`, `VecView`, `MatView` and `NDArray`. Fixed-size values use inline storage; views borrow contiguous caller storage. Numerical kernels use caller-owned output/scratch and have no hidden heap allocation. Gaussian elimination, LU and Cholesky support factor reuse and global magnitude scaling. Explicit SIMD, GPU, NDView, QR and statistics are outside this milestone.
 
-- fixed-size vectors and matrices (`VecStack`, `MatStack`);
-- borrowed vector and matrix views (`VecSlice`, `MatSlice`);
-- owned N-dimensional array metadata and storage helpers (`NDArray`); and
-- generic contiguous-slice operations (`sliceops`).
+Zig 0.16.0 and Mojo 1.2.0 are the verified compilers. Zig remains a source-only standard-library dependency: Python, Mojo and the optional C libraries are not required by a Zig consumer. The verified Mojo/C binary environment is Linux x86-64.
 
-It depends only on Zig's standard library and supports Zig 0.16.x. Lagomath
-is distributed as Zig source. Consumers import the `lagomath` module and Zig
-compiles the required source as part of the consuming compilation. Lagomath
-does not require linking against a separate precompiled library.
+## Import with one namespace
 
-## Add Lagomath to a project
+Zig:
 
-For a released version, run this from the root of the consuming project. It
-pins the dependency to the `2026.9.0` release tag and records the content hash
-in `build.zig.zon`:
-
-```sh
-zig fetch --save-exact \
-  https://github.com/Computer-Aided-Validation-Laboratory/lagomath/archive/refs/tags/2026.9.0.tar.gz
+```zig
+const lm = @import("lagomath");
+const Vec3 = lm.Vec(3, f64);
+const v = Vec3.initSlice(&.{ 3, 4, 0 });
+const length = v.normL2();
 ```
 
-`zig fetch` writes the dependency's URL and Zig-computed hash for you. Commit
-the resulting `build.zig.zon` change. The hash is the immutable package
-identity; do not manually replace it. To upgrade later, rerun the command with
-the desired release tag, for example `2026.10.0`, then test the consumer.
+Mojo:
 
-The command requires that the corresponding GitHub release tag has been
-published. Until then, use a local path dependency for simultaneous Lagomath
-and consumer development:
+```mojo
+import lagomath as lm
+
+var v = lm.Vec[3, DType.float64]()
+v.set(0, 3)
+v.set(1, 4)
+var length = v.normL2()
+```
+
+Use `lm.vecops`, `lm.matops`, `lm.rowops` and `lm.linsolve` for operations. Both languages use the same canonical names, including the `Checked` suffix. All vector representations provide `normL1`, `normL2` and `normL2Square`.
+
+Standard kernels assert programmer preconditions and assume finite input. Standard solvers return legitimate numerical failures; `Checked` variants additionally validate input/storage contracts. The optional C ABI always validates its boundary arguments. See [mathematical contracts](docs/mathematical_conventions.md).
+
+## Zig source dependency
+
+For local development, declare a path dependency in the consumer's build.zig.zon:
 
 ```zig
 .dependencies = .{
@@ -40,142 +42,63 @@ and consumer development:
 },
 ```
 
-Then obtain and expose its module from your `build.zig`:
-
-```zig
-const lagomath_dependency = b.dependency("lagomath", .{
-    .target = target,
-    .optimize = optimize,
-});
-
-const executable = b.addExecutable(.{
-    .name = "my-program",
-    .root_module = b.createModule(.{
-        .root_source_file = b.path("src/main.zig"),
-        .target = target,
-        .optimize = optimize,
-        .imports = &.{
-            .{
-                .name = "lagomath",
-                .module = lagomath_dependency.module("lagomath"),
-            },
-        },
-    }),
-});
-_ = executable;
-```
-
-Your Zig source imports only the public package module:
-
-```zig
-const lagomath = @import("lagomath");
-```
-
-Use the version-pinned release dependency for normal consumers; the local path
-form is only for simultaneous development.
-
-## Tutorial
-
-Fixed-size values are stack allocated and use compile-time dimensions. This
-small matrix-vector product allocates nothing:
-
-```zig
-const lagomath = @import("lagomath");
-
-const Mat22 = lagomath.MatStack(2, 2, f64);
-const Vec2 = lagomath.VecStack(2, f64);
-
-const matrix = Mat22.initRows(.{ .{ 1, 2 }, .{ 3, 4 } });
-const vector = Vec2.initSlice(&.{ 5, 6 });
-const product = matrix.mulVec(vector); // { 17, 39 }
-```
-
-For existing contiguous storage, make a non-owning slice view:
-
-```zig
-var values = [_]f64{ 1, 2, 3, 4 };
-const matrix = lagomath.MatSlice(f64).init(&values, 2, 2);
-const diagonal_sum = matrix.trace(); // 5
-```
-
-`NDArray.initFlat` allocates its element storage and its shape metadata. The
-caller owns both and must free the element slice and call `deinit` with the
-same allocator:
-
-```zig
-const std = @import("std");
-const lagomath = @import("lagomath");
-
-fn makeArray(alloc: std.mem.Allocator) !void {
-    var array = try lagomath.NDArray(f64).initFlat(alloc, &.{ 2, 2 });
-    defer alloc.free(array.slice);
-    defer array.deinit(alloc);
-
-    array.set(&.{ 1, 0 }, 7);
-    const value = array.get(&.{ 1, 0 });
-    _ = value;
-}
-```
-
-For reusable contiguous kernels, use `sliceops` with caller-provided output
-storage:
-
-```zig
-var output = [_]f64{ 0, 0, 0 };
-lagomath.sliceops.add(f64, &.{ 1, 2, 3 }, &.{ 4, 5, 6 }, &output);
-// output is { 5, 7, 9 }
-```
-
-The normal kernels assert programmer contracts such as matching lengths. Use
-the opt-in checked form when dimensions originate outside your program:
-
-```zig
-try lagomath.sliceops.addChecked(f64, input_a, input_b, output);
-```
-
-## Development and validation
-
-Run the complete Lagomath unit suite, including local test blocks from every
-public module:
+Expose `b.dependency("lagomath", .{ .target = target, .optimize = optimize }).module("lagomath")` through the consumer module's imports. [integration/consumer](integration/consumer) is a complete separate build using only the public package entrypoint. Normal release consumers should pin a published archive with `zig fetch --save-exact`; this development API has not been published as a new release tag.
 
 ```sh
-zig build test
-zig build test -Doptimize=ReleaseFast
-```
-
-Zig keeps successful `zig build test` output quiet. To see the standard Zig
-runner report every test as it runs, use:
-
-```sh
-zig build test-verbose
-```
-
-Run the small user-facing example:
-
-```sh
-zig build run-example
-```
-
-The independent package-boundary integration project is in
-[`integration/consumer`](integration/consumer). It has its own build files,
-declares Lagomath as a normal dependency, and imports only
-`@import("lagomath")`:
-
-```sh
-cd integration/consumer
-zig build run
-zig build run -Doptimize=ReleaseFast
-```
-
-Before contributing, format and run all local checks:
-
-```sh
-zig fmt --check .
 zig build test -Doptimize=Debug
 zig build test -Doptimize=ReleaseFast
 zig build run-example
-cd integration/consumer && zig build run
+zig build run -Doptimize=Debug --build-file integration/consumer/build.zig
+zig build run -Doptimize=ReleaseFast --build-file integration/consumer/build.zig
 ```
 
-Continuous integration runs these formatting, unit-test, example, and
-consumer-integration checks on pull requests and pushes to `main`.
+root.zig remains in src/. Type definitions are now vectype.zig, mattype.zig, vecviewtype.zig, matviewtype.zig and ndarraytype.zig. Old source filenames and VecStack/MatStack/VecSlice/MatSlice names remain compatibility shims. Existing convenience namespaces remain available. Ambiguous legacy norm names retain their original semantics; use the explicit norm names for new code.
+
+## Development environment and shared verification
+
+```sh
+uv sync --locked
+.venv/bin/mojo --version
+.venv/bin/python tests/python/validate_cases.py
+.venv/bin/python tools/audit_api.py --check
+.venv/bin/python -m pytest -q tests/python
+```
+
+pytest builds native runners and both C libraries, then verifies the same frozen JSON cases in Zig Debug/ReleaseFast, Mojo O0/O3 and all four C ABI build configurations. Child processes isolate assertion and library failures. Numerical inputs/answers, integrity metadata and regeneration tools live under tests/. To deliberately regenerate references:
+
+```sh
+.venv/bin/python tests/python/generate_regression.py
+.venv/bin/python tools/audit_api.py
+```
+
+Successful native commands and wrappers print compact summaries; detailed records require --jsonl or --verbose and are captured by wrappers in build/logs or JSON artifacts. Review changed fixtures and the API manifest before committing them. [The test contract](docs/shared_test_contract.md) explains the current migration status, including the historical test migration ledger and enforced method coverage.
+
+## Paired examples
+
+The nine numbered examples teach types, borrowed views, NDArray, vector operations, matrix operations, row operations, Gaussian elimination, LU reuse and Cholesky reuse:
+
+```sh
+zig build examples
+zig build run-ex07_GAUSS
+.venv/bin/python tools/run_examples.py
+.venv/bin/mojo -I src/mojo examples/mojo/ex07_GAUSS.mojo
+.venv/bin/mojo -I src/mojo integration/mojo-consumer/main.mojo
+```
+
+Every example imports Lagomath as `lm`. Native Mojo consumers use `-I src/mojo`; no Python extension wheel is required. See [Mojo build details](docs/mojo_build.md).
+
+NDArray retains Riley's split ownership and historical slicing contracts. In Zig, free initFlat/dupe element storage separately from deinit metadata. Every dimension must be positive. Mojo views use Span; allocating helpers receive a caller-owned List and borrow its lifetime. The NDARRAY examples demonstrate the contract.
+
+## C libraries and scalar performance
+
+```sh
+zig build cabi -Doptimize=ReleaseFast
+.venv/bin/python tools/build_mojo.py
+.venv/bin/python -m pytest -q tests/python/test_cabi.py
+.venv/bin/python benchmarks/python/run_benchmarks.py --label zig-current
+.venv/bin/python benchmarks/python/run_benchmarks.py --backend mojo --label mojo-current
+```
+
+Use `--samples 2 --runs 2` for benchmark smoke runs. Raw runs and coverage reports remain machine-local under ignored build/ and benchmarks/results/. No explicit SIMD implementations are included; normal compiler auto-vectorisation is permitted. Performance measurements and experiment logs are machine-local and are not versioned.
+
+See [implementation status](docs/implementation_status.md), [the C ABI](docs/cabi.md), [benchmark controls](docs/benchmarking.md), [architecture decisions](docs/architecture.md), and [the machine-readable API registry](docs/api_manifest.json). Mojo libraries require their bundled runtime .libs directory. Universal binary distribution and Python wheels are not claimed.

@@ -5,8 +5,8 @@
 
 const std = @import("std");
 const assert = std.debug.assert;
-const VecStack = @import("vecstack.zig").VecStack;
-const VecSlice = @import("vecslice.zig").VecSlice;
+const Vec = @import("vectype.zig").Vec;
+const VecView = @import("vecviewtype.zig").VecView;
 
 /// Computes the dot product of two fixed-size vectors `lhs` and `rhs`.
 ///
@@ -16,8 +16,8 @@ const VecSlice = @import("vecslice.zig").VecSlice;
 pub fn dotStack(
     comptime N: usize,
     comptime T: type,
-    lhs: VecStack(N, T),
-    rhs: VecStack(N, T),
+    lhs: Vec(N, T),
+    rhs: Vec(N, T),
 ) T {
     var sum: T = 0;
     inline for (0..N) |ii| {
@@ -32,8 +32,8 @@ pub fn dotStack(
 /// Storage is borrowed; no memory is allocated or mutated.
 pub fn dotSlice(
     comptime T: type,
-    lhs: VecSlice(T),
-    rhs: VecSlice(T),
+    lhs: VecView(T),
+    rhs: VecView(T),
 ) T {
     assert(lhs.slice.len == rhs.slice.len);
     var sum: T = 0;
@@ -50,7 +50,7 @@ pub fn dotSlice(
 pub fn squaredNormStack(
     comptime N: usize,
     comptime T: type,
-    vec: VecStack(N, T),
+    vec: Vec(N, T),
 ) T {
     return dotStack(N, T, vec, vec);
 }
@@ -60,7 +60,7 @@ pub fn squaredNormStack(
 /// Storage is borrowed; no heap allocation.
 pub fn squaredNormSlice(
     comptime T: type,
-    vec: VecSlice(T),
+    vec: VecView(T),
 ) T {
     return dotSlice(T, vec, vec);
 }
@@ -72,7 +72,7 @@ pub fn squaredNormSlice(
 pub fn normStack(
     comptime N: usize,
     comptime T: type,
-    vec: VecStack(N, T),
+    vec: Vec(N, T),
 ) T {
     return @sqrt(squaredNormStack(N, T, vec));
 }
@@ -82,7 +82,7 @@ pub fn normStack(
 /// Storage is borrowed; no heap allocation.
 pub fn normSlice(
     comptime T: type,
-    vec: VecSlice(T),
+    vec: VecView(T),
 ) T {
     return @sqrt(squaredNormSlice(T, vec));
 }
@@ -94,7 +94,7 @@ pub fn normSlice(
 pub fn maxAbsStack(
     comptime N: usize,
     comptime T: type,
-    vec: VecStack(N, T),
+    vec: Vec(N, T),
 ) T {
     comptime assert(N > 0);
     var max_val: T = @abs(vec.vec[0]);
@@ -113,7 +113,7 @@ pub fn maxAbsStack(
 /// Storage is borrowed; no heap allocation.
 pub fn maxAbsSlice(
     comptime T: type,
-    vec: VecSlice(T),
+    vec: VecView(T),
 ) T {
     assert(vec.slice.len > 0);
     var max_val: T = @abs(vec.slice[0]);
@@ -133,7 +133,7 @@ pub fn maxAbsSlice(
 pub fn allFiniteStack(
     comptime N: usize,
     comptime T: type,
-    vec: VecStack(N, T),
+    vec: Vec(N, T),
 ) bool {
     inline for (0..N) |ii| {
         if (!std.math.isFinite(vec.vec[ii])) {
@@ -148,7 +148,7 @@ pub fn allFiniteStack(
 /// Storage is borrowed; no heap allocation.
 pub fn allFiniteSlice(
     comptime T: type,
-    vec: VecSlice(T),
+    vec: VecView(T),
 ) bool {
     for (0..vec.slice.len) |ii| {
         if (!std.math.isFinite(vec.slice[ii])) {
@@ -167,10 +167,10 @@ pub fn axpyStack(
     comptime N: usize,
     comptime T: type,
     alpha: T,
-    x: VecStack(N, T),
-    y: VecStack(N, T),
-) VecStack(N, T) {
-    var result: VecStack(N, T) = undefined;
+    x: Vec(N, T),
+    y: Vec(N, T),
+) Vec(N, T) {
+    var result: Vec(N, T) = undefined;
     inline for (0..N) |ii| {
         result.vec[ii] = alpha * x.vec[ii] + y.vec[ii];
     }
@@ -184,8 +184,8 @@ pub fn axpyStack(
 pub fn axpySlice(
     comptime T: type,
     alpha: T,
-    x: VecSlice(T),
-    y: VecSlice(T),
+    x: VecView(T),
+    y: VecView(T),
 ) void {
     assert(x.slice.len == y.slice.len);
     for (0..x.slice.len) |ii| {
@@ -194,72 +194,69 @@ pub fn axpySlice(
 }
 
 test "vecops.dotStack and dotSlice" {
-    const v1 = VecStack(3, f64).initSlice(&.{ 1.0, 2.0, 3.0 });
-    const v2 = VecStack(3, f64).initSlice(&.{ 4.0, 5.0, 6.0 });
-    const expected: f64 = 1.0 * 4.0 + 2.0 * 5.0 + 3.0 * 6.0;
-
-    const stack_result = dotStack(3, f64, v1, v2);
-    try std.testing.expectEqual(expected, stack_result);
-
-    var raw1 = [_]f64{ 1.0, 2.0, 3.0 };
-    var raw2 = [_]f64{ 4.0, 5.0, 6.0 };
-    const s1 = VecSlice(f64).init(&raw1);
-    const s2 = VecSlice(f64).init(&raw2);
-    const slice_result = dotSlice(f64, s1, s2);
-    try std.testing.expectEqual(expected, slice_result);
+    try @import("case_runner.zig").verifyLegacy("legacy.vecops.vecops_dotStack_and_dotSlice");
 }
 
 test "vecops.squaredNorm and norm" {
-    const v = VecStack(3, f64).initSlice(&.{ 3.0, 4.0, 0.0 });
-    try std.testing.expectEqual(@as(f64, 25.0), squaredNormStack(3, f64, v));
-    try std.testing.expectEqual(@as(f64, 5.0), normStack(3, f64, v));
-
-    var raw = [_]f64{ 3.0, 4.0, 0.0 };
-    const s = VecSlice(f64).init(&raw);
-    try std.testing.expectEqual(@as(f64, 25.0), squaredNormSlice(f64, s));
-    try std.testing.expectEqual(@as(f64, 5.0), normSlice(f64, s));
+    try @import("case_runner.zig").verifyLegacy("legacy.vecops.vecops_squaredNorm_and_norm");
 }
 
 test "vecops.maxAbs" {
-    const v = VecStack(4, f64).initSlice(&.{ -10.5, 3.2, 7.1, -1.0 });
-    try std.testing.expectEqual(@as(f64, 10.5), maxAbsStack(4, f64, v));
-
-    var raw = [_]f64{ -10.5, 3.2, 7.1, -1.0 };
-    const s = VecSlice(f64).init(&raw);
-    try std.testing.expectEqual(@as(f64, 10.5), maxAbsSlice(f64, s));
+    try @import("case_runner.zig").verifyLegacy("legacy.vecops.vecops_maxAbs");
 }
 
 test "vecops.allFinite" {
-    const v_good = VecStack(3, f64).initSlice(&.{ 1.0, -2.0, 0.0 });
-    try std.testing.expect(allFiniteStack(3, f64, v_good));
-
-    const nan_val = std.math.nan(f64);
-    const inf_val = std.math.inf(f64);
-    const v_nan = VecStack(3, f64).initSlice(&.{ 1.0, nan_val, 0.0 });
-    const v_inf = VecStack(3, f64).initSlice(&.{ 1.0, -inf_val, 0.0 });
-
-    try std.testing.expect(!allFiniteStack(3, f64, v_nan));
-    try std.testing.expect(!allFiniteStack(3, f64, v_inf));
-
-    var raw_good = [_]f64{ 1.0, -2.0, 0.0 };
-    var raw_nan = [_]f64{ 1.0, nan_val, 0.0 };
-    try std.testing.expect(allFiniteSlice(f64, VecSlice(f64).init(&raw_good)));
-    try std.testing.expect(!allFiniteSlice(f64, VecSlice(f64).init(&raw_nan)));
+    try @import("case_runner.zig").verifyLegacy("legacy.vecops.vecops_allFinite");
 }
 
 test "vecops.axpy" {
-    const x = VecStack(3, f64).initSlice(&.{ 1.0, 2.0, 3.0 });
-    const y = VecStack(3, f64).initSlice(&.{ 4.0, 5.0, 6.0 });
-    const result = axpyStack(3, f64, 2.0, x, y);
+    try @import("case_runner.zig").verifyLegacy("legacy.vecops.vecops_axpy");
+}
 
-    try std.testing.expectEqual(@as(f64, 6.0), result.vec[0]);
-    try std.testing.expectEqual(@as(f64, 9.0), result.vec[1]);
-    try std.testing.expectEqual(@as(f64, 12.0), result.vec[2]);
+pub const dotVec = dotStack;
 
-    var raw_x = [_]f64{ 1.0, 2.0, 3.0 };
-    var raw_y = [_]f64{ 4.0, 5.0, 6.0 };
-    axpySlice(f64, 2.0, VecSlice(f64).init(&raw_x), VecSlice(f64).init(&raw_y));
-    try std.testing.expectEqual(@as(f64, 6.0), raw_y[0]);
-    try std.testing.expectEqual(@as(f64, 9.0), raw_y[1]);
-    try std.testing.expectEqual(@as(f64, 12.0), raw_y[2]);
+pub const dotVecView = dotSlice;
+
+pub const squaredNormVec = squaredNormStack;
+
+pub const squaredNormVecView = squaredNormSlice;
+
+pub const normVec = normStack;
+
+pub const normVecView = normSlice;
+
+pub const maxAbsVec = maxAbsStack;
+
+pub const maxAbsVecView = maxAbsSlice;
+
+pub const allFiniteVec = allFiniteStack;
+
+pub const allFiniteVecView = allFiniteSlice;
+
+pub const axpyVec = axpyStack;
+
+pub const axpyVecView = axpySlice;
+
+pub fn normL1Vec(comptime N: usize, comptime T: type, v: Vec(N, T)) T {
+    return v.normL1();
+}
+
+pub fn normL2Vec(comptime N: usize, comptime T: type, v: Vec(N, T)) T {
+    return v.normL2();
+}
+
+pub fn normL2SquareVec(comptime N: usize, comptime T: type, v: Vec(N, T)) T {
+    return v.normL2Square();
+}
+
+pub fn normL1VecView(comptime T: type, v: VecView(T)) T {
+    return v.normL1();
+}
+
+pub fn normL2VecView(comptime T: type, v: VecView(T)) T {
+    return v.normL2();
+}
+
+pub fn normL2SquareVecView(comptime T: type, v: VecView(T)) T {
+    return v.normL2Square();
 }

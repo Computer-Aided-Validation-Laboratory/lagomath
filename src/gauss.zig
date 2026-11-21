@@ -5,13 +5,14 @@
 
 const std = @import("std");
 const assert = std.debug.assert;
-const MatStack = @import("matstack.zig").MatStack;
-const VecStack = @import("vecstack.zig").VecStack;
-const MatSlice = @import("matslice.zig").MatSlice;
-const VecSlice = @import("vecslice.zig").VecSlice;
+const Mat = @import("mattype.zig").Mat;
+const Vec = @import("vectype.zig").Vec;
+const MatView = @import("matviewtype.zig").MatView;
+const VecView = @import("vecviewtype.zig").VecView;
 const rowops = @import("rowops.zig");
 const matops = @import("matops.zig");
 const vecops = @import("vecops.zig");
+const contracts = @import("contracts.zig");
 const SolveError = @import("linsolve.zig").SolveError;
 
 /// Solves linear system `A x = b` using Gaussian elimination with partial pivoting.
@@ -20,21 +21,24 @@ const SolveError = @import("linsolve.zig").SolveError;
 /// Arguments are passed by value and are not mutated.
 /// The implementation uses local fixed-size scratch storage and performs no heap allocation.
 ///
-/// Returns `error.NonFiniteInput` if any input element is NaN or Inf.
+/// Requires finite inputs; the Checked variant validates this precondition.
 /// Returns `error.SingularMatrix` if the system is singular or rank-deficient.
 pub fn solveStack(
     comptime N: usize,
     comptime T: type,
-    a: MatStack(N, N, T),
-    b: VecStack(N, T),
-) SolveError!VecStack(N, T) {
-    if (!matops.allFiniteStack(N, N, T, a) or !vecops.allFiniteStack(N, T, b)) {
-        return error.NonFiniteInput;
-    }
-
+    a: Mat(N, N, T),
+    b: Vec(N, T),
+) SolveError!Vec(N, T) {
+    comptime assert(N > 0);
+    const scale = matops.maxAbsStack(N, N, T, a);
+    if (scale == 0) return error.SingularMatrix;
     var mat_work = a;
     var vec_work = b;
-    const eps_tol: T = std.math.floatEps(T) * 1e-4;
+    for (0..N) |r| {
+        vec_work.vec[r] /= scale;
+        for (0..N) |c| mat_work.mat[r][c] /= scale;
+    }
+    const eps_tol: T = std.math.floatEps(T) * @as(T, @floatFromInt(N));
 
     for (0..N) |kk| {
         var pivot_row = kk;
@@ -71,7 +75,7 @@ pub fn solveStack(
         }
     }
 
-    var x_sol: VecStack(N, T) = undefined;
+    var x_sol: Vec(N, T) = undefined;
     var ii: usize = N;
     while (ii > 0) {
         ii -= 1;
@@ -97,15 +101,15 @@ pub fn solveStack(
 /// `out` (N) receives the solution vector.
 ///
 /// Performs no heap allocation.
-/// Returns `error.NonFiniteInput` if any input element is NaN or Inf.
+/// Requires finite inputs; the Checked variant validates this precondition.
 /// Returns `error.SingularMatrix` if the system is singular or rank-deficient.
 pub fn solveSlice(
     comptime T: type,
-    a: MatSlice(T),
-    b: VecSlice(T),
-    work_mat: MatSlice(T),
-    work_vec: VecSlice(T),
-    out: VecSlice(T),
+    a: MatView(T),
+    b: VecView(T),
+    work_mat: MatView(T),
+    work_vec: VecView(T),
+    out: VecView(T),
 ) SolveError!void {
     assert(a.rows_num == a.cols_num);
     assert(a.rows_num == b.slice.len);
@@ -114,14 +118,15 @@ pub fn solveSlice(
     assert(work_vec.slice.len == a.rows_num);
     assert(out.slice.len == a.rows_num);
 
-    if (!matops.allFiniteSlice(T, a) or !vecops.allFiniteSlice(T, b)) {
-        return error.NonFiniteInput;
-    }
-
     const n_dim = a.rows_num;
     @memcpy(work_mat.slice, a.slice);
     @memcpy(work_vec.slice, b.slice);
-    const eps_tol: T = std.math.floatEps(T) * 1e-4;
+    assert(n_dim > 0);
+    const scale = matops.maxAbsSlice(T, a);
+    if (scale == 0) return error.SingularMatrix;
+    for (work_mat.slice) |*v| v.* /= scale;
+    for (work_vec.slice) |*v| v.* /= scale;
+    const eps_tol: T = std.math.floatEps(T) * @as(T, @floatFromInt(n_dim));
 
     for (0..n_dim) |kk| {
         var pivot_row = kk;
@@ -174,72 +179,65 @@ pub fn solveSlice(
 }
 
 test "gauss.solveStack 2x2 known system" {
-    const a2 = MatStack(2, 2, f64).initRows(.{
-        .{ 3.0, 1.0 },
-        .{ 1.0, 2.0 },
-    });
-    const b2 = VecStack(2, f64).initSlice(&.{ 5.0, 5.0 });
-    const x2 = try solveStack(2, f64, a2, b2);
-
-    try std.testing.expectApproxEqAbs(@as(f64, 1.0), x2.get(0), 1e-12);
-    try std.testing.expectApproxEqAbs(@as(f64, 2.0), x2.get(1), 1e-12);
+    try @import("case_runner.zig").verifyLegacy("legacy.gauss.gauss_solveStack_2x2_known_system");
 }
 
 test "gauss.solveStack 3x3 requiring pivoting" {
-    // Top-left is zero, strictly requires row swap
-    const a3 = MatStack(3, 3, f64).initRows(.{
-        .{ 0.0, 2.0, 1.0 },
-        .{ 3.0, -1.0, 2.0 },
-        .{ 4.0, -1.0, 5.0 },
-    });
-    const b3 = VecStack(3, f64).initSlice(&.{ 5.0, 7.0, 15.0 });
-    const x3 = try solveStack(3, f64, a3, b3);
-
-    // Exact reference from Python/NumPy:
-    // x = [17/13, 18/13, 29/13]
-    // ≈ [1.3076923076923077, 1.3846153846153846, 2.2307692307692308]
-    try std.testing.expectApproxEqAbs(@as(f64, 1.3076923076923077), x3.get(0), 1e-12);
-    try std.testing.expectApproxEqAbs(@as(f64, 1.3846153846153846), x3.get(1), 1e-12);
-    try std.testing.expectApproxEqAbs(@as(f64, 2.2307692307692308), x3.get(2), 1e-12);
+    try @import("case_runner.zig").verifyLegacy("legacy.gauss.gauss_solveStack_3x3_requiring_pivoting");
 }
 
 test "gauss.solveStack singular matrix" {
-    const a_sing = MatStack(2, 2, f64).initRows(.{
-        .{ 1.0, 2.0 },
-        .{ 2.0, 4.0 },
-    });
-    const b = VecStack(2, f64).initSlice(&.{ 1.0, 2.0 });
-    try std.testing.expectError(error.SingularMatrix, solveStack(2, f64, a_sing, b));
+    try @import("case_runner.zig").verifyLegacy("legacy.gauss.gauss_solveStack_singular_matrix");
 }
 
 test "gauss.solveStack non-finite input" {
-    var a_nan = MatStack(2, 2, f64).initFill(1.0);
-    a_nan.set(0, 0, std.math.nan(f64));
-    const b = VecStack(2, f64).initSlice(&.{ 1.0, 2.0 });
-    try std.testing.expectError(error.NonFiniteInput, solveStack(2, f64, a_nan, b));
+    try @import("case_runner.zig").verifyLegacy("legacy.gauss.gauss_solveStack_non_finite_input");
 }
 
 test "gauss.solveSlice 3x3 with scratch" {
-    var a_raw = [_]f64{
-        0.0, 2.0,  1.0,
-        3.0, -1.0, 2.0,
-        4.0, -1.0, 5.0,
-    };
-    var b_raw = [_]f64{ 5.0, 7.0, 15.0 };
-    var work_mat_raw = [_]f64{0.0} ** 9;
-    var work_vec_raw = [_]f64{0.0} ** 3;
-    var out_raw = [_]f64{0.0} ** 3;
-
-    try solveSlice(
-        f64,
-        MatSlice(f64).init(&a_raw, 3, 3),
-        VecSlice(f64).init(&b_raw),
-        MatSlice(f64).init(&work_mat_raw, 3, 3),
-        VecSlice(f64).init(&work_vec_raw),
-        VecSlice(f64).init(&out_raw),
-    );
-
-    try std.testing.expectApproxEqAbs(@as(f64, 1.3076923076923077), out_raw[0], 1e-12);
-    try std.testing.expectApproxEqAbs(@as(f64, 1.3846153846153846), out_raw[1], 1e-12);
-    try std.testing.expectApproxEqAbs(@as(f64, 2.2307692307692308), out_raw[2], 1e-12);
+    try @import("case_runner.zig").verifyLegacy("legacy.gauss.gauss_solveSlice_3x3_with_scratch");
 }
+
+pub const solveMat = solveStack;
+
+pub const solveMatView = solveSlice;
+
+/// Validates shapes and finite inputs before running the numerical kernel.
+pub fn solveStackChecked(
+    comptime N: usize,
+    comptime T: type,
+    a: Mat(N, N, T),
+    b: Vec(N, T),
+) SolveError!Vec(N, T) {
+    if (N == 0) return error.ShapeMismatch;
+    if (!matops.allFiniteStack(N, N, T, a)) return error.NonFiniteInput;
+    if (!vecops.allFiniteStack(N, T, b)) return error.NonFiniteInput;
+    return solveStack(N, T, a, b);
+}
+
+/// Validates shapes and finite inputs before running the numerical kernel.
+pub fn solveSliceChecked(
+    comptime T: type,
+    a: MatView(T),
+    b: VecView(T),
+    work_mat: MatView(T),
+    work_vec: VecView(T),
+    out: VecView(T),
+) SolveError!void {
+    try contracts.solve(T, a, b, work_mat, work_vec, out);
+    if (!(a.rows_num == a.cols_num)) return error.ShapeMismatch;
+    if (!(a.rows_num == b.slice.len)) return error.ShapeMismatch;
+    if (!(work_mat.rows_num == a.rows_num)) return error.ShapeMismatch;
+    if (!(work_mat.cols_num == a.cols_num)) return error.ShapeMismatch;
+    if (!(work_vec.slice.len == a.rows_num)) return error.ShapeMismatch;
+    if (!(out.slice.len == a.rows_num)) return error.ShapeMismatch;
+
+    if (a.rows_num == 0) return error.ShapeMismatch;
+    if (!matops.allFiniteSlice(T, a)) return error.NonFiniteInput;
+    if (!vecops.allFiniteSlice(T, b)) return error.NonFiniteInput;
+    return solveSlice(T, a, b, work_mat, work_vec, out);
+}
+
+pub const solveMatChecked = solveStackChecked;
+
+pub const solveMatViewChecked = solveSliceChecked;

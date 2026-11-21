@@ -5,18 +5,19 @@
 
 const std = @import("std");
 const assert = std.debug.assert;
-const MatStack = @import("matstack.zig").MatStack;
-const VecStack = @import("vecstack.zig").VecStack;
-const MatSlice = @import("matslice.zig").MatSlice;
-const VecSlice = @import("vecslice.zig").VecSlice;
+const Mat = @import("mattype.zig").Mat;
+const Vec = @import("vectype.zig").Vec;
+const MatView = @import("matviewtype.zig").MatView;
+const VecView = @import("vecviewtype.zig").VecView;
 const matops = @import("matops.zig");
 const vecops = @import("vecops.zig");
+const contracts = @import("contracts.zig");
 const SolveError = @import("linsolve.zig").SolveError;
 
 /// Stack-allocated factorisation representation storing the lower triangular Cholesky factor.
 pub fn CholeskyStack(comptime N: usize, comptime T: type) type {
     return struct {
-        lower: MatStack(N, N, T),
+        lower: Mat(N, N, T),
     };
 }
 
@@ -26,24 +27,23 @@ pub fn CholeskyStack(comptime N: usize, comptime T: type) type {
 /// Returns `CholeskyStack(N, T)` containing the lower triangular factor `L`.
 /// Performs no heap allocation.
 ///
-/// Returns `error.NonFiniteInput` if any input element is NaN or Inf.
+/// Requires finite inputs; the Checked variant validates this precondition.
 /// Returns `error.NotPositiveDefinite` if `A` is not positive definite.
 pub fn factorCholeskyStack(
     comptime N: usize,
     comptime T: type,
-    a: MatStack(N, N, T),
+    a: Mat(N, N, T),
 ) SolveError!CholeskyStack(N, T) {
-    if (!matops.allFiniteStack(N, N, T, a)) {
-        return error.NonFiniteInput;
-    }
-
+    comptime assert(N > 0);
+    const scale = matops.maxAbsStack(N, N, T, a);
+    if (scale == 0) return error.NotPositiveDefinite;
     var result = CholeskyStack(N, T){
-        .lower = MatStack(N, N, T).initZeros(),
+        .lower = Mat(N, N, T).initZeros(),
     };
 
     for (0..N) |ii| {
         for (0..(ii + 1)) |jj| {
-            var sum = a.get(ii, jj);
+            var sum = a.get(ii, jj) / scale;
             for (0..jj) |kk| {
                 sum -= result.lower.get(ii, kk) * result.lower.get(jj, kk);
             }
@@ -60,6 +60,10 @@ pub fn factorCholeskyStack(
         }
     }
 
+    const root_scale = @sqrt(scale);
+    for (0..N) |r| for (0..(r + 1)) |c| {
+        result.lower.mat[r][c] *= root_scale;
+    };
     return result;
 }
 
@@ -71,14 +75,14 @@ pub fn solveCholeskyFactoredStack(
     comptime N: usize,
     comptime T: type,
     chol: CholeskyStack(N, T),
-    b: VecStack(N, T),
-) SolveError!VecStack(N, T) {
-    if (!vecops.allFiniteStack(N, T, b)) {
-        return error.NonFiniteInput;
+    b: Vec(N, T),
+) SolveError!Vec(N, T) {
+    for (0..N) |i| {
+        if (chol.lower.get(i, i) <= 0) return error.NotPositiveDefinite;
     }
 
     // Forward substitution: L y = b
-    var y_vec: VecStack(N, T) = undefined;
+    var y_vec: Vec(N, T) = undefined;
     for (0..N) |ii| {
         var sum = b.get(ii);
         for (0..ii) |jj| {
@@ -88,7 +92,7 @@ pub fn solveCholeskyFactoredStack(
     }
 
     // Backward substitution: L^T x = y
-    var x_sol: VecStack(N, T) = undefined;
+    var x_sol: Vec(N, T) = undefined;
     var ii: usize = N;
     while (ii > 0) {
         ii -= 1;
@@ -108,14 +112,14 @@ pub fn solveCholeskyFactoredStack(
 /// Dimensions are known at compile time; arguments use value semantics.
 /// Performs no heap allocation.
 ///
-/// Returns `error.NonFiniteInput` if any input element is NaN or Inf.
+/// Requires finite inputs; the Checked variant validates this precondition.
 /// Returns `error.NotPositiveDefinite` if `a` is not positive definite.
 pub fn solveCholeskyStack(
     comptime N: usize,
     comptime T: type,
-    a: MatStack(N, N, T),
-    b: VecStack(N, T),
-) SolveError!VecStack(N, T) {
+    a: Mat(N, N, T),
+    b: Vec(N, T),
+) SolveError!Vec(N, T) {
     const chol = try factorCholeskyStack(N, T, a);
     return solveCholeskyFactoredStack(N, T, chol, b);
 }
@@ -126,27 +130,26 @@ pub fn solveCholeskyStack(
 /// `lower` (N x N) receives the lower triangular factor `L` with upper triangle zeroed.
 ///
 /// Performs no heap allocation.
-/// Returns `error.NonFiniteInput` if any input element is NaN or Inf.
+/// Requires finite inputs; the Checked variant validates this precondition.
 /// Returns `error.NotPositiveDefinite` if `a` is not positive definite.
 pub fn factorCholeskySlice(
     comptime T: type,
-    a: MatSlice(T),
-    lower: MatSlice(T),
+    a: MatView(T),
+    lower: MatView(T),
 ) SolveError!void {
     assert(a.rows_num == a.cols_num);
     assert(lower.rows_num == a.rows_num);
     assert(lower.cols_num == a.cols_num);
 
-    if (!matops.allFiniteSlice(T, a)) {
-        return error.NonFiniteInput;
-    }
-
     const n_dim = a.rows_num;
+    assert(n_dim > 0);
+    const scale = matops.maxAbsSlice(T, a);
+    if (scale == 0) return error.NotPositiveDefinite;
     lower.fill(0);
 
     for (0..n_dim) |ii| {
         for (0..(ii + 1)) |jj| {
-            var sum = a.get(ii, jj);
+            var sum = a.get(ii, jj) / scale;
             for (0..jj) |kk| {
                 sum -= lower.get(ii, kk) * lower.get(jj, kk);
             }
@@ -162,6 +165,8 @@ pub fn factorCholeskySlice(
             }
         }
     }
+    const root_scale = @sqrt(scale);
+    for (lower.slice) |*v| v.* *= root_scale;
 }
 
 /// Solves linear system `A x = b` given pre-factored Cholesky slice `lower`.
@@ -172,19 +177,18 @@ pub fn factorCholeskySlice(
 /// Performs no heap allocation.
 pub fn solveCholeskyFactoredSlice(
     comptime T: type,
-    lower: MatSlice(T),
-    b: VecSlice(T),
-    work_vec: VecSlice(T),
-    out: VecSlice(T),
+    lower: MatView(T),
+    b: VecView(T),
+    work_vec: VecView(T),
+    out: VecView(T),
 ) SolveError!void {
+    for (0..lower.rows_num) |i| {
+        if (lower.get(i, i) <= 0) return error.NotPositiveDefinite;
+    }
     assert(lower.rows_num == lower.cols_num);
     assert(b.slice.len == lower.rows_num);
     assert(work_vec.slice.len == lower.rows_num);
     assert(out.slice.len == lower.rows_num);
-
-    if (!vecops.allFiniteSlice(T, b)) {
-        return error.NonFiniteInput;
-    }
 
     const n_dim = lower.rows_num;
 
@@ -217,111 +221,141 @@ pub fn solveCholeskyFactoredSlice(
 /// Performs no heap allocation.
 pub fn solveCholeskySlice(
     comptime T: type,
-    a: MatSlice(T),
-    b: VecSlice(T),
-    work_mat: MatSlice(T),
-    work_vec: VecSlice(T),
-    out: VecSlice(T),
+    a: MatView(T),
+    b: VecView(T),
+    work_mat: MatView(T),
+    work_vec: VecView(T),
+    out: VecView(T),
 ) SolveError!void {
     try factorCholeskySlice(T, a, work_mat);
     try solveCholeskyFactoredSlice(T, work_mat, b, work_vec, out);
 }
 
 test "cholesky.factorCholeskyStack and solveCholeskyStack 2x2" {
-    const a2 = MatStack(2, 2, f64).initRows(.{
-        .{ 3.0, 1.0 },
-        .{ 1.0, 2.0 },
-    });
-    const b2 = VecStack(2, f64).initSlice(&.{ 5.0, 5.0 });
-
-    const chol = try factorCholeskyStack(2, f64, a2);
-    // Reference L from python:
-    // [1.7320508075688772, 0.0]
-    // [0.5773502691896258, 1.2909944487358056]
-    try std.testing.expectApproxEqAbs(
-        @as(f64, 1.7320508075688772),
-        chol.lower.get(0, 0),
-        1e-12,
-    );
-    try std.testing.expectEqual(@as(f64, 0.0), chol.lower.get(0, 1));
-    try std.testing.expectApproxEqAbs(
-        @as(f64, 0.5773502691896258),
-        chol.lower.get(1, 0),
-        1e-12,
-    );
-    try std.testing.expectApproxEqAbs(
-        @as(f64, 1.2909944487358056),
-        chol.lower.get(1, 1),
-        1e-12,
-    );
-
-    const x2 = try solveCholeskyFactoredStack(2, f64, chol, b2);
-    try std.testing.expectApproxEqAbs(@as(f64, 1.0), x2.get(0), 1e-12);
-    try std.testing.expectApproxEqAbs(@as(f64, 2.0), x2.get(1), 1e-12);
-
-    const x_conv = try solveCholeskyStack(2, f64, a2, b2);
-    try std.testing.expectApproxEqAbs(@as(f64, 1.0), x_conv.get(0), 1e-12);
-    try std.testing.expectApproxEqAbs(@as(f64, 2.0), x_conv.get(1), 1e-12);
+    try @import("case_runner.zig").verifyLegacy("legacy.cholesky.cholesky_factorCholeskyStack_and_solveCholeskyStack_2x2");
 }
 
 test "cholesky.factorCholeskyStack rejects non-positive-definite" {
-    // Indefinite matrix
-    const a_indef = MatStack(2, 2, f64).initRows(.{
-        .{ 1.0, 2.0 },
-        .{ 2.0, 1.0 },
-    });
-    try std.testing.expectError(
-        error.NotPositiveDefinite,
-        factorCholeskyStack(2, f64, a_indef),
-    );
-
-    // Negative diagonal element
-    const a_neg = MatStack(2, 2, f64).initRows(.{
-        .{ -2.0, 0.0 },
-        .{ 0.0, 2.0 },
-    });
-    try std.testing.expectError(
-        error.NotPositiveDefinite,
-        factorCholeskyStack(2, f64, a_neg),
-    );
+    try @import("case_runner.zig").verifyLegacy("legacy.cholesky.cholesky_factorCholeskyStack_rejects_non_positive_definite");
 }
 
 test "cholesky.solveCholeskySlice 2x2" {
-    var a_raw = [_]f64{ 3.0, 1.0, 1.0, 2.0 };
-    var b_raw = [_]f64{ 5.0, 5.0 };
-    var work_mat_raw = [_]f64{0.0} ** 4;
-    var work_vec_raw = [_]f64{0.0} ** 2;
-    var out_raw = [_]f64{0.0} ** 2;
-
-    try solveCholeskySlice(
-        f64,
-        MatSlice(f64).init(&a_raw, 2, 2),
-        VecSlice(f64).init(&b_raw),
-        MatSlice(f64).init(&work_mat_raw, 2, 2),
-        VecSlice(f64).init(&work_vec_raw),
-        VecSlice(f64).init(&out_raw),
-    );
-
-    try std.testing.expectApproxEqAbs(@as(f64, 1.0), out_raw[0], 1e-12);
-    try std.testing.expectApproxEqAbs(@as(f64, 2.0), out_raw[1], 1e-12);
+    try @import("case_runner.zig").verifyLegacy("legacy.cholesky.cholesky_solveCholeskySlice_2x2");
 }
 
 test "cholesky factorisation reconstruction A == L * L^T" {
-    const a = MatStack(3, 3, f64).initRows(.{
-        .{ 4.0, 12.0, -16.0 },
-        .{ 12.0, 37.0, -43.0 },
-        .{ -16.0, -43.0, 98.0 },
-    });
-    const chol = try factorCholeskyStack(3, f64, a);
-
-    // Reconstruct L * L^T
-    for (0..3) |rr| {
-        for (0..3) |cc| {
-            var sum: f64 = 0;
-            for (0..3) |kk| {
-                sum += chol.lower.get(rr, kk) * chol.lower.get(cc, kk);
-            }
-            try std.testing.expectApproxEqAbs(a.get(rr, cc), sum, 1e-12);
-        }
-    }
+    try @import("case_runner.zig").verifyLegacy("legacy.cholesky.cholesky_factorisation_reconstruction_A_L_L_T");
 }
+
+pub const factorCholeskyMat = factorCholeskyStack;
+
+pub const solveCholeskyFactoredMat = solveCholeskyFactoredStack;
+
+pub const solveCholeskyMat = solveCholeskyStack;
+
+pub const factorCholeskyMatView = factorCholeskySlice;
+
+pub const solveCholeskyFactoredMatView = solveCholeskyFactoredSlice;
+
+pub const solveCholeskyMatView = solveCholeskySlice;
+
+/// Validates shapes and finite inputs before running the numerical kernel.
+pub fn factorCholeskyStackChecked(
+    comptime N: usize,
+    comptime T: type,
+    a: Mat(N, N, T),
+) SolveError!CholeskyStack(N, T) {
+    if (N == 0) return error.ShapeMismatch;
+    if (!matops.allFiniteStack(N, N, T, a)) return error.NonFiniteInput;
+    return factorCholeskyStack(N, T, a);
+}
+
+/// Validates shapes and finite inputs before running the numerical kernel.
+pub fn solveCholeskyFactoredStackChecked(
+    comptime N: usize,
+    comptime T: type,
+    chol: CholeskyStack(N, T),
+    b: Vec(N, T),
+) SolveError!Vec(N, T) {
+    if (N == 0) return error.ShapeMismatch;
+    if (!matops.allFiniteStack(N, N, T, chol.lower)) return error.NonFiniteInput;
+    if (!vecops.allFiniteStack(N, T, b)) return error.NonFiniteInput;
+    return solveCholeskyFactoredStack(N, T, chol, b);
+}
+
+/// Validates shapes and finite inputs before running the numerical kernel.
+pub fn solveCholeskyStackChecked(
+    comptime N: usize,
+    comptime T: type,
+    a: Mat(N, N, T),
+    b: Vec(N, T),
+) SolveError!Vec(N, T) {
+    if (N == 0) return error.ShapeMismatch;
+    if (!matops.allFiniteStack(N, N, T, a)) return error.NonFiniteInput;
+    if (!vecops.allFiniteStack(N, T, b)) return error.NonFiniteInput;
+    return solveCholeskyStack(N, T, a, b);
+}
+
+/// Validates shapes and finite inputs before running the numerical kernel.
+pub fn factorCholeskySliceChecked(
+    comptime T: type,
+    a: MatView(T),
+    lower: MatView(T),
+) SolveError!void {
+    try contracts.matrix(T, a);
+    try contracts.matrix(T, lower);
+    if (contracts.overlaps(a.slice, lower.slice)) return error.InvalidAliasing;
+    if (!(a.rows_num == a.cols_num)) return error.ShapeMismatch;
+    if (!(lower.rows_num == a.rows_num)) return error.ShapeMismatch;
+    if (!(lower.cols_num == a.cols_num)) return error.ShapeMismatch;
+
+    if (a.rows_num == 0) return error.ShapeMismatch;
+    if (!matops.allFiniteSlice(T, a)) return error.NonFiniteInput;
+    return factorCholeskySlice(T, a, lower);
+}
+
+/// Validates shapes and finite inputs before running the numerical kernel.
+pub fn solveCholeskyFactoredSliceChecked(
+    comptime T: type,
+    lower: MatView(T),
+    b: VecView(T),
+    work_vec: VecView(T),
+    out: VecView(T),
+) SolveError!void {
+    try contracts.factored(T, lower, b, work_vec, out);
+    if (!(lower.rows_num == lower.cols_num)) return error.ShapeMismatch;
+    if (!(b.slice.len == lower.rows_num)) return error.ShapeMismatch;
+    if (!(work_vec.slice.len == lower.rows_num)) return error.ShapeMismatch;
+    if (!(out.slice.len == lower.rows_num)) return error.ShapeMismatch;
+    if (!matops.allFiniteSlice(T, lower)) return error.NonFiniteInput;
+    if (!vecops.allFiniteSlice(T, b)) return error.NonFiniteInput;
+    return solveCholeskyFactoredSlice(T, lower, b, work_vec, out);
+}
+
+/// Validates shapes and finite inputs before running the numerical kernel.
+pub fn solveCholeskySliceChecked(
+    comptime T: type,
+    a: MatView(T),
+    b: VecView(T),
+    work_mat: MatView(T),
+    work_vec: VecView(T),
+    out: VecView(T),
+) SolveError!void {
+    try contracts.solve(T, a, b, work_mat, work_vec, out);
+    if (a.rows_num == 0) return error.ShapeMismatch;
+    if (!matops.allFiniteSlice(T, a)) return error.NonFiniteInput;
+    if (!vecops.allFiniteSlice(T, b)) return error.NonFiniteInput;
+    return solveCholeskySlice(T, a, b, work_mat, work_vec, out);
+}
+
+pub const solveCholeskyFactoredMatChecked = solveCholeskyFactoredStackChecked;
+
+pub const solveCholeskyMatChecked = solveCholeskyStackChecked;
+
+pub const factorCholeskyMatViewChecked = factorCholeskySliceChecked;
+
+pub const solveCholeskyFactoredMatViewChecked = solveCholeskyFactoredSliceChecked;
+
+pub const solveCholeskyMatViewChecked = solveCholeskySliceChecked;
+
+pub const factorCholeskyMatChecked = factorCholeskyStackChecked;
